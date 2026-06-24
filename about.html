@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เกี่ยวกับเรา | สงวนดม ไลท์ติ้ง</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💡</span>
+        <span class="logo-text">สงวนดม<small>LIGHTING</small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#catalog">สินค้า</a>
+        <a href="about.html" class="active">เกี่ยวกับเรา</a>
+        <a href="#branches">สาขา</a>
+        <a href="#contact">ติดต่อ</a>
+        <a href="admin.html" class="nav-admin">เข้าสู่ระบบ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>เกี่ยวกับเรา</h1>
+      <p>ผู้เชี่ยวชาญด้านแสงสว่าง ดูแลลูกค้ามายาวนาน</p>
+    </div>
+  </section>
+
+  <!-- ความเป็นมา -->
+  <section class="content-section">
+    <div class="container">
+      <h2>ความเป็นมา</h2>
+      <p>
+        สงวนดม ไลท์ติ้ง เริ่มต้นจากร้านจำหน่ายโคมไฟและอุปกรณ์แสงสว่าง
+        ด้วยความตั้งใจที่จะมอบสินค้าคุณภาพในราคาที่เป็นกันเอง
+        พร้อมบริการให้คำปรึกษาด้านการออกแบบแสงสว่างสำหรับทุกพื้นที่
+        ทั้งบ้านพักอาศัย ร้านค้า และอาคารสำนักงาน
+      </p>
+      <p>
+        ตลอดระยะเวลาที่ผ่านมา เราคัดสรรสินค้าหลากหลายประเภท
+        ตั้งแต่โคมไฟภายใน-ภายนอก แชนเดอเลียร์ หลอด LED ประหยัดพลังงาน
+        ไปจนถึงอุปกรณ์เสริมครบวงจร เพื่อตอบโจทย์ทุกความต้องการของลูกค้า
+      </p>
+      <p><em>(แก้ไขเนื้อหาส่วนนี้ได้ตามข้อมูลจริงของร้าน)</em></p>
+    </div>
+  </section>
+
+  <!-- สาขา -->
+  <section class="content-section" id="branches" style="background:#fff">
+    <div class="container">
+      <h2>สาขาของเรา</h2>
+      <div class="branch-grid">
+        <div class="branch-card">
+          <h3>สาขาสำนักงานใหญ่</h3>
+          <p>📍 ที่อยู่สาขา (แก้ไขได้)</p>
+          <p>📞 0X-XXX-XXXX</p>
+          <p>🕐 จันทร์-เสาร์ 08:30 - 17:30</p>
+        </div>
+        <div class="branch-card">
+          <h3>สาขา 2</h3>
+          <p>📍 ที่อยู่สาขา (แก้ไขได้)</p>
+          <p>📞 0X-XXX-XXXX</p>
+          <p>🕐 จันทร์-เสาร์ 08:30 - 17:30</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- แผนที่ -->
+  <section class="content-section">
+    <div class="container">
+      <h2>แผนที่</h2>
+      <p>ตำแหน่งร้าน (เปลี่ยนเป็นแผนที่จริงของร้านได้ที่ไฟล์ about.html)</p>
+      <iframe
+        class="map-embed"
+        src="https://www.google.com/maps?q=Bangkok&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- ติดต่อ -->
+  <section class="content-section" id="contact" style="background:#fff">
+    <div class="container">
+      <h2>ช่องทางติดต่อ</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="ico">📞</div>
+          <h3>โทรศัพท์</h3>
+          <p>0X-XXX-XXXX</p>
+        </div>
+        <div class="contact-item">
+          <div class="ico">💬</div>
+          <h3>LINE</h3>
+          <p>@sangudom</p>
+        </div>
+        <div class="contact-item">
+          <div class="ico">📘</div>
+          <h3>Facebook</h3>
+          <p>สงวนดม ไลท์ติ้ง</p>
+        </div>
+        <div class="contact-item">
+          <div class="ico">✉️</div>
+          <h3>อีเมล</h3>
+          <p>info@sangudom.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">© 2026 สงวนดม ไลท์ติ้ง. สงวนลิขสิทธิ์.</div>
+  </footer>
+
+  <script>
+    const t = document.getElementById("navToggle");
+    const n = document.getElementById("mainNav");
+    if (t) t.addEventListener("click", () => n.classList.toggle("open"));
+  </script>
+</body>
+</html>

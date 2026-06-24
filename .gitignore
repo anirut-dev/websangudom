@@ -1,0 +1,11 @@
+# ระบบ / โปรแกรมแก้ไข
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ไฟล์ลับ (ใส่คีย์ Firebase จริงไว้ที่นี่ในอนาคต ห้าม push ขึ้น GitHub)
+# firebase-config-secret.js
+
+# node (เผื่ออนาคต)
+node_modules/

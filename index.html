@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สงวนดม ไลท์ติ้ง | ร้านโคมไฟครบวงจร</title>
+  <meta name="description" content="ร้านจำหน่ายโคมไฟ หลอดไฟ LED โคมไฟภายใน-ภายนอก แชนเดอเลียร์ ครบวงจร" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💡</span>
+        <span class="logo-text">สงวนดม<small>LIGHTING</small></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="#catalog">สินค้า</a>
+        <a href="about.html">เกี่ยวกับเรา</a>
+        <a href="about.html#branches">สาขา</a>
+        <a href="about.html#contact">ติดต่อ</a>
+        <a href="admin.html" class="nav-admin">เข้าสู่ระบบ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>แสงสว่างที่ใช่<br />สำหรับทุกพื้นที่</h1>
+        <p>โคมไฟภายใน-ภายนอก หลอด LED แชนเดอเลียร์ และอุปกรณ์ครบวงจร<br />คุณภาพดี ราคาเป็นกันเอง บริการออกแบบฟรี</p>
+        <a href="#catalog" class="btn btn-primary">ดูสินค้าทั้งหมด</a>
+      </div>
+      <div class="hero-badges">
+        <div class="badge">🚚<span>จัดส่งฟรี</span></div>
+        <div class="badge">🔧<span>ติดตั้งฟรี</span></div>
+        <div class="badge">✏️<span>ออกแบบฟรี</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <main class="container" id="catalog">
+    <h2 class="section-title">แคตตาล็อกสินค้า</h2>
+
+    <div class="catalog-tools">
+      <input type="search" id="searchInput" placeholder="ค้นหาสินค้า..." />
+      <div class="category-filters" id="categoryFilters"></div>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+    <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ค้นหา</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>สงวนดม ไลท์ติ้ง</h4>
+        <p>ร้านจำหน่ายโคมไฟและอุปกรณ์แสงสว่างครบวงจร</p>
+      </div>
+      <div>
+        <h4>ติดต่อ</h4>
+        <p>โทร: 0X-XXX-XXXX</p>
+        <p>LINE: @sangudom</p>
+      </div>
+      <div>
+        <h4>เวลาทำการ</h4>
+        <p>จันทร์-เสาร์ 08:30 - 17:30</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 สงวนดม ไลท์ติ้ง. สงวนลิขสิทธิ์.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
