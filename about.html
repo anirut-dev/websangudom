@@ -5,8 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>เกี่ยวกับเรา | สงวนดม ไลท์ติ้ง</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== Branch tabs ===== */
+    .branches-section { background: var(--light); }
+    .branch-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .branch-tab {
+      padding: 10px 20px; border-radius: 40px; cursor: pointer;
+      border: 2px solid var(--border); background: var(--white);
+      font-size: .9rem; font-weight: 600; transition: .2s;
+    }
+    .branch-tab:hover { border-color: var(--gold); }
+    .branch-tab.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+
+    .branch-panel { display: none; }
+    .branch-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 720px) { .branch-panel.active { grid-template-columns: 1fr; } }
+
+    .branch-info-card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .branch-info-card h3 { font-size: 1.4rem; color: var(--gold-dark); margin-bottom: 16px; }
+    .branch-info-card .info-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+    .branch-info-card .info-row .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .branch-info-card .info-row p { margin: 0; line-height: 1.6; }
+    .branch-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .branch-map iframe { width: 100%; height: 360px; border: 0; display: block; }
+
+    /* ===== Contact section ===== */
+    .contact-section { background: var(--white); }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .contact-card { background: var(--light); border-radius: var(--radius); padding: 22px; text-align: center; }
+    .contact-card .ico { font-size: 2rem; margin-bottom: 8px; }
+    .contact-card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .contact-card a { color: var(--gold-dark); font-weight: 600; }
+  </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
@@ -25,10 +58,11 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="page-hero">
     <div class="container">
       <h1>เกี่ยวกับเรา</h1>
-      <p>ผู้เชี่ยวชาญด้านแสงสว่าง ดูแลลูกค้ามายาวนาน</p>
+      <p>แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — โชว์รูมโคมไฟครบวงจร 8 สาขาทั่วประเทศ</p>
     </div>
   </section>
 
@@ -37,88 +71,197 @@
     <div class="container">
       <h2>ความเป็นมา</h2>
       <p>
-        สงวนดม ไลท์ติ้ง เริ่มต้นจากร้านจำหน่ายโคมไฟและอุปกรณ์แสงสว่าง
-        ด้วยความตั้งใจที่จะมอบสินค้าคุณภาพในราคาที่เป็นกันเอง
-        พร้อมบริการให้คำปรึกษาด้านการออกแบบแสงสว่างสำหรับทุกพื้นที่
-        ทั้งบ้านพักอาศัย ร้านค้า และอาคารสำนักงาน
+        บริษัท แสงอุดม ไลท์ติ้ง เซ็นเตอร์ จำกัด ก่อตั้งขึ้นด้วยความมุ่งมั่นที่จะเป็นศูนย์รวมโคมไฟ
+        และอุปกรณ์แสงสว่างที่ครบวงจรที่สุดในประเทศไทย ด้วยพื้นที่โชว์รูมขนาดใหญ่
+        และสินค้าหลากหลายสไตล์ ทั้งโคมไฟภายใน ภายนอก แชนเดอเลียร์คริสตัล หลอด LED
+        และอุปกรณ์เสริมครบวงจร
       </p>
       <p>
-        ตลอดระยะเวลาที่ผ่านมา เราคัดสรรสินค้าหลากหลายประเภท
-        ตั้งแต่โคมไฟภายใน-ภายนอก แชนเดอเลียร์ หลอด LED ประหยัดพลังงาน
-        ไปจนถึงอุปกรณ์เสริมครบวงจร เพื่อตอบโจทย์ทุกความต้องการของลูกค้า
+        เราให้บริการลูกค้าทั้งรายย่อยและโครงการ ด้วยทีมงานผู้เชี่ยวชาญที่พร้อมให้คำปรึกษา
+        ออกแบบระบบแสงสว่าง และติดตั้งอย่างมืออาชีพ พร้อมบริการพิเศษ
+        <strong>ออกแบบฟรี · จัดส่งฟรี · ติดตั้งฟรี</strong> สำหรับพื้นที่ที่กำหนด
       </p>
-      <p><em>(แก้ไขเนื้อหาส่วนนี้ได้ตามข้อมูลจริงของร้าน)</em></p>
     </div>
   </section>
 
   <!-- สาขา -->
-  <section class="content-section" id="branches" style="background:#fff">
+  <section class="content-section branches-section" id="branches">
     <div class="container">
-      <h2>สาขาของเรา</h2>
-      <div class="branch-grid">
-        <div class="branch-card">
-          <h3>สาขาสำนักงานใหญ่</h3>
-          <p>📍 ที่อยู่สาขา (แก้ไขได้)</p>
-          <p>📞 0X-XXX-XXXX</p>
-          <p>🕐 จันทร์-เสาร์ 08:30 - 17:30</p>
-        </div>
-        <div class="branch-card">
-          <h3>สาขา 2</h3>
-          <p>📍 ที่อยู่สาขา (แก้ไขได้)</p>
-          <p>📞 0X-XXX-XXXX</p>
-          <p>🕐 จันทร์-เสาร์ 08:30 - 17:30</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2>สาขาทั่วประเทศ</h2>
 
-  <!-- แผนที่ -->
-  <section class="content-section">
-    <div class="container">
-      <h2>แผนที่</h2>
-      <p>ตำแหน่งร้าน (เปลี่ยนเป็นแผนที่จริงของร้านได้ที่ไฟล์ about.html)</p>
-      <iframe
-        class="map-embed"
-        src="https://www.google.com/maps?q=Bangkok&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- ปุ่มเลือกสาขา -->
+      <div class="branch-tabs" id="branchTabs"></div>
+
+      <!-- Panel แต่ละสาขา -->
+      <div id="branchPanels"></div>
     </div>
   </section>
 
   <!-- ติดต่อ -->
-  <section class="content-section" id="contact" style="background:#fff">
+  <section class="content-section contact-section" id="contact">
     <div class="container">
       <h2>ช่องทางติดต่อ</h2>
-      <div class="contact-grid">
-        <div class="contact-item">
+      <div class="contact-cards">
+        <div class="contact-card">
           <div class="ico">📞</div>
           <h3>โทรศัพท์</h3>
-          <p>0X-XXX-XXXX</p>
+          <a href="tel:029013000">02-901-3000</a>
         </div>
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="ico">💬</div>
           <h3>LINE</h3>
-          <p>@sangudom</p>
+          <a href="https://line.me/ti/p/~Sangudom-sale" target="_blank">@Sangudom-sale</a>
         </div>
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="ico">📘</div>
           <h3>Facebook</h3>
-          <p>สงวนดม ไลท์ติ้ง</p>
+          <a href="https://www.facebook.com/sangudomlighting" target="_blank">sangudomlighting</a>
         </div>
-        <div class="contact-item">
-          <div class="ico">✉️</div>
-          <h3>อีเมล</h3>
-          <p>info@sangudom.com</p>
+        <div class="contact-card">
+          <div class="ico">🕐</div>
+          <h3>เวลาทำการ</h3>
+          <p>ทุกวัน 08:30 – 19:00</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-bottom">© 2026 สงวนดม ไลท์ติ้ง. สงวนลิขสิทธิ์.</div>
+    <div class="container footer-inner">
+      <div>
+        <h4>สงวนดม ไลท์ติ้ง</h4>
+        <p>โชว์รูมโคมไฟครบวงจร 8 สาขาทั่วประเทศ</p>
+      </div>
+      <div>
+        <h4>ติดต่อ</h4>
+        <p>โทร: 02-901-3000</p>
+        <p>LINE: @Sangudom-sale</p>
+      </div>
+      <div>
+        <h4>เวลาทำการ</h4>
+        <p>ทุกวัน 08:30 – 19:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 แสงอุดม ไลท์ติ้ง เซ็นเตอร์. สงวนลิขสิทธิ์.</div>
   </footer>
 
   <script>
+    // ===== ข้อมูลสาขา =====
+    const BRANCHES = [
+      {
+        id: "rangsit",
+        name: "สำนักงานใหญ่ (รังสิต)",
+        address: "14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120",
+        tel: "02-901-3000",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+เซ็นเตอร์+คลองหลวง+ปทุมธานี",
+      },
+      {
+        id: "nakhonpathom",
+        name: "นครปฐม",
+        address: "98/7-9 หมู่ 3 ต.ศีรษะทอง อ.นครชัยศรี จ.นครปฐม 73120",
+        tel: "083-099-2023",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+นครปฐม",
+      },
+      {
+        id: "angthong",
+        name: "อ่างทอง",
+        address: "39/4 หมู่ 4 ต.ศาลาแดง อ.เมืองอ่างทอง จ.อ่างทอง 14000",
+        tel: "02-901-3000",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+อ่างทอง",
+      },
+      {
+        id: "maerim",
+        name: "แม่ริม (เชียงใหม่)",
+        address: "34, 34/1 หมู่ 6 ต.แม่สา อ.แม่ริม จ.เชียงใหม่ 50180",
+        tel: "02-901-3000",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+แม่ริม+เชียงใหม่",
+      },
+      {
+        id: "uttaradit",
+        name: "อุตรดิตถ์",
+        address: "2/10-11 ถนนเจริญธรรม ต.ท่าอิฐ อ.เมืองอุตรดิตถ์ จ.อุตรดิตถ์ 53000",
+        tel: "095-320-9168",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+อุตรดิตถ์",
+      },
+      {
+        id: "nakhonphanom",
+        name: "นครพนม",
+        address: "381/6 ถนนนิตโย ต.ในเมือง อ.เมืองนครพนม จ.นครพนม 48000",
+        tel: "083-099-2512",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+นครพนม",
+      },
+      {
+        id: "korat",
+        name: "นครราชสีมา",
+        address: "104 หมู่ 2 ถนนมิตรภาพ ต.บ้านใหม่ อ.เมืองนครราชสีมา จ.นครราชสีมา 30000",
+        tel: "083-099-2507",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+นครราชสีมา",
+      },
+      {
+        id: "ubon",
+        name: "อุบลราชธานี",
+        address: "39-49 ถนนอุปราช ต.ในเมือง อ.เมืองอุบลราชธานี จ.อุบลราชธานี 34000",
+        tel: "083-099-2514",
+        hours: "ทุกวัน 08:30 – 19:00",
+        mapQ: "แสงอุดม+ไลท์ติ้ง+อุบลราชธานี",
+      },
+    ];
+
+    // สร้างปุ่มและ panel
+    const tabsEl = document.getElementById("branchTabs");
+    const panelsEl = document.getElementById("branchPanels");
+
+    BRANCHES.forEach((b, i) => {
+      // ปุ่ม
+      const tab = document.createElement("button");
+      tab.className = "branch-tab" + (i === 0 ? " active" : "");
+      tab.textContent = b.name;
+      tab.dataset.id = b.id;
+      tabsEl.appendChild(tab);
+
+      // panel
+      const mapSrc = `https://maps.google.com/maps?q=${b.mapQ}&output=embed&hl=th`;
+      const panel = document.createElement("div");
+      panel.className = "branch-panel" + (i === 0 ? " active" : "");
+      panel.id = "panel-" + b.id;
+      panel.innerHTML = `
+        <div class="branch-info-card">
+          <h3>${b.name}</h3>
+          <div class="info-row"><span class="ico">📍</span><p>${b.address}</p></div>
+          <div class="info-row"><span class="ico">📞</span><p><a href="tel:${b.tel.replace(/-/g,'')}">${b.tel}</a></p></div>
+          <div class="info-row"><span class="ico">🕐</span><p>${b.hours}</p></div>
+          <div class="info-row" style="margin-top:16px">
+            <a href="https://www.google.com/maps/search/${b.mapQ}" target="_blank"
+               class="btn btn-primary" style="font-size:.9rem;padding:10px 20px">
+              เปิดใน Google Maps
+            </a>
+          </div>
+        </div>
+        <div class="branch-map">
+          <iframe src="${mapSrc}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>`;
+      panelsEl.appendChild(panel);
+    });
+
+    // เปลี่ยนสาขา
+    tabsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".branch-tab");
+      if (!btn) return;
+      document.querySelectorAll(".branch-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".branch-panel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("panel-" + btn.dataset.id).classList.add("active");
+    });
+
+    // เมนูมือถือ
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
     if (t) t.addEventListener("click", () => n.classList.toggle("open"));
