@@ -178,12 +178,21 @@ function initLogoShimmer() {
 }
 
 // ---- Init all ----
-document.addEventListener("DOMContentLoaded", () => {
-  initParticles();
-  initHeroSequence();
-  initReveal();
-  initRipple();
-  initCursorTrail();
-  initMagneticNav();
-  initLogoShimmer();
-});
+// รันทันทีโดยไม่รอ DOMContentLoaded เพราะ script อยู่ท้าย body แล้ว
+initParticles();
+initHeroSequence();
+initRipple();
+initCursorTrail();
+initMagneticNav();
+initLogoShimmer();
+
+// Reveal ต้องรอการ์ดสินค้า (โหลดจาก Firebase) ใช้ MutationObserver
+const productGrid = document.getElementById("productGrid");
+if (productGrid) {
+  const mo = new MutationObserver(() => {
+    initReveal();
+  });
+  mo.observe(productGrid, { childList: true });
+}
+// reveal elements ที่มีอยู่แล้วตั้งแต่แรก
+initReveal();
