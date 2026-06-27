@@ -425,8 +425,9 @@ img { display: block; max-width: 100%; }
   font-size: .82rem; letter-spacing: .06em; font-family: inherit;
   transition: .2s;
 }
-.branch-tab:hover { border-color: var(--border-2); color: var(--white); }
+.branch-tab:hover { border-color: var(--border-2); color: var(--white); background: rgba(255,255,255,.05); }
 .branch-tab.active { border-color: var(--gold); color: var(--gold); background: rgba(200,162,74,.06); }
+.branch-tab.active:hover { color: var(--gold); }
 
 .branch-panel { display: none; }
 .branch-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
