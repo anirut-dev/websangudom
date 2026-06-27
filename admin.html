@@ -10,13 +10,16 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-emblem">✦</div>
-        <div class="logo-text"><strong>SANG UDOM</strong><small>Lighting Centre</small></div>
+        <img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
       <nav class="main-nav">
         <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับเรา</a>
       </nav>
+      <div id="headerUser" style="display:none; align-items:center; gap:12px; margin-left:auto;">
+        <span id="headerEmail" style="font-size:.85rem; color:var(--gold); font-weight:600;"></span>
+        <button id="headerLogoutBtn" class="btn btn-outline" style="padding:6px 14px; font-size:.82rem;">ออกจากระบบ</button>
+      </div>
     </div>
   </header>
 
@@ -48,7 +51,6 @@
       <h2>จัดการสินค้า</h2>
       <div>
         <button class="btn btn-primary" id="addBtn">+ เพิ่มสินค้า</button>
-        <button class="btn btn-outline" id="logoutBtn">ออกจากระบบ</button>
       </div>
     </div>
 

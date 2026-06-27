@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แคตตาล็อกสินค้า | แสงอุดม ไลท์ติ้ง</title>
+  <meta name="description" content="แคตตาล็อกโคมไฟและอุปกรณ์แสงสว่างครบวงจร — แสงอุดม ไลท์ติ้ง เซ็นเตอร์" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== Filter sidebar layout ===== */
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ===== Sidebar ===== */
+    .filter-sidebar {
+      position: sticky;
+      top: 88px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .filter-sidebar h3 {
+      color: var(--white);
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .filter-reset {
+      font-size: .72rem;
+      color: var(--gold);
+      cursor: pointer;
+      letter-spacing: .1em;
+      background: none;
+      border: none;
+      font-family: inherit;
+      transition: opacity .2s;
+    }
+    .filter-reset:hover { opacity: .7; }
+
+    .filter-block { margin-bottom: 24px; }
+    .filter-block-title {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    /* Search */
+    .filter-search {
+      position: relative;
+    }
+    .filter-search input {
+      width: 100%;
+      padding: 10px 14px 10px 36px;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: .9rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+    .filter-search input:focus { border-color: var(--gold); }
+    .filter-search input::placeholder { color: var(--gray); }
+    .filter-search .ico {
+      position: absolute;
+      left: 11px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      font-size: .9rem;
+      pointer-events: none;
+    }
+
+    /* Category checkboxes */
+    .cat-list { display: flex; flex-direction: column; gap: 6px; }
+    .cat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .2s;
+      border: 1px solid transparent;
+    }
+    .cat-item:hover { background: var(--dark-3); }
+    .cat-item.active {
+      background: rgba(216,182,106,.06);
+      border-color: var(--border-2);
+    }
+    .cat-item input[type=checkbox] {
+      width: 14px; height: 14px;
+      accent-color: var(--gold);
+      cursor: pointer; flex-shrink: 0;
+    }
+    .cat-item label {
+      color: var(--gray-light);
+      font-size: .88rem;
+      cursor: pointer;
+      flex: 1;
+    }
+    .cat-item.active label { color: var(--gold); }
+    .cat-count {
+      font-size: .72rem;
+      color: var(--gray);
+      background: var(--dark-3);
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    /* Price range */
+    .price-inputs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .price-inputs input {
+      width: 100%;
+      padding: 8px 10px;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: .88rem;
+      font-family: inherit;
+      outline: none;
+      text-align: center;
+      transition: border-color .2s;
+    }
+    .price-inputs input:focus { border-color: var(--gold); }
+    .price-inputs span { color: var(--gray); font-size: .82rem; text-align: center; }
+
+    /* Dual range slider */
+    .range-wrap {
+      position: relative;
+      height: 20px;
+      margin: 6px 0 4px;
+    }
+    .range-wrap input[type=range] {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      appearance: none;
+      pointer-events: none;
+      outline: none;
+    }
+    .range-wrap input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--dark);
+      cursor: pointer;
+      pointer-events: all;
+      box-shadow: 0 0 6px rgba(216,182,106,.4);
+      transition: box-shadow .2s;
+    }
+    .range-wrap input[type=range]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 12px rgba(216,182,106,.7);
+    }
+    .range-track {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      left: 0; right: 0; height: 4px;
+      background: var(--dark-3);
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .range-fill {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .price-display {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--gold);
+      margin-top: 8px;
+      letter-spacing: .05em;
+    }
+
+    /* Sort */
+    .sort-select {
+      width: 100%;
+      padding: 9px 12px;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: .88rem;
+      font-family: inherit;
+      cursor: pointer;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .sort-select:focus { border-color: var(--gold); }
+    .sort-select option { background: var(--dark-3); }
+
+    /* Result bar */
+    .result-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .result-count { font-size: .84rem; color: var(--gray); }
+    .result-count strong { color: var(--gold); }
+
+    /* Active filter chips */
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(216,182,106,.1);
+      border: 1px solid var(--border-2);
+      color: var(--gold);
+      font-size: .75rem;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .filter-chip:hover { background: rgba(216,182,106,.2); }
+    .filter-chip .x { font-size: .9rem; opacity: .7; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .catalog-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { position: static; }
+      .cat-list { flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      .price-inputs { grid-template-columns: 1fr auto 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">หน้าแรก</a>
+        <a href="products.html" class="active">สินค้า</a>
+        <a href="about.html">เกี่ยวกับเรา</a>
+        <a href="about.html#branches">สาขา</a>
+        <a href="about.html#contact">ติดต่อ</a>
+        <a href="admin.html" class="nav-admin">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="label">Our Collection</p>
+      <h1>แคตตาล็อกสินค้า</h1>
+      <p>โคมไฟภายใน · ภายนอก · แชนเดอเลียร์ · หลอด LED · อุปกรณ์เสริม</p>
+    </div>
+  </section>
+
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="catalog-layout">
+
+        <!-- ===== Sidebar Filter ===== -->
+        <aside class="filter-sidebar">
+          <h3>
+            กรองสินค้า
+            <button class="filter-reset" id="resetBtn">รีเซ็ต ×</button>
+          </h3>
+
+          <!-- ค้นหา -->
+          <div class="filter-block">
+            <div class="filter-block-title">ค้นหาชื่อสินค้า</div>
+            <div class="filter-search">
+              <span class="ico">🔍</span>
+              <input type="search" id="searchInput" placeholder="พิมพ์ชื่อสินค้า..." />
+            </div>
+          </div>
+
+          <!-- หมวดหมู่ -->
+          <div class="filter-block">
+            <div class="filter-block-title">หมวดหมู่</div>
+            <div class="cat-list" id="catList"></div>
+          </div>
+
+          <!-- ช่วงราคา -->
+          <div class="filter-block">
+            <div class="filter-block-title">ช่วงราคา (บาท)</div>
+            <div class="price-inputs">
+              <input type="number" id="priceMin" placeholder="ต่ำสุด" min="0" />
+              <span>–</span>
+              <input type="number" id="priceMax" placeholder="สูงสุด" min="0" />
+            </div>
+            <div class="range-wrap" id="rangeWrap">
+              <div class="range-track"></div>
+              <div class="range-fill" id="rangeFill"></div>
+              <input type="range" id="rangeMin" min="0" max="100000" value="0" step="100" />
+              <input type="range" id="rangeMax" min="0" max="100000" value="100000" step="100" />
+            </div>
+            <div class="price-display" id="priceDisplay">฿0 – ฿100,000</div>
+          </div>
+
+          <!-- เรียงลำดับ -->
+          <div class="filter-block">
+            <div class="filter-block-title">เรียงลำดับ</div>
+            <select class="sort-select" id="sortSelect">
+              <option value="name-asc">ชื่อ ก–ฮ</option>
+              <option value="name-desc">ชื่อ ฮ–ก</option>
+              <option value="price-asc">ราคา ต่ำ → สูง</option>
+              <option value="price-desc">ราคา สูง → ต่ำ</option>
+            </select>
+          </div>
+        </aside>
+
+        <!-- ===== Product Area ===== -->
+        <div>
+          <!-- Active filter chips -->
+          <div class="active-filters" id="activeFilters"></div>
+
+          <!-- Result bar -->
+          <div class="result-bar">
+            <span class="result-count" id="resultCount"></span>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+          <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ตรงกับเงื่อนไข</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-body">
+      <div>
+        <div class="footer-brand-logo"><a href="index.html" class="logo"><img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" /></a></div>
+        <p style="font-size:.82rem;color:var(--gray);margin-bottom:18px;">Sang Udom Lighting Centre Co., Ltd.</p>
+        <div class="footer-info-row"><span class="fi-icon">📍</span><p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p></div>
+        <div class="footer-info-row"><span class="fi-icon">📞</span><p><a href="tel:029013000">02-901-3000</a></p></div>
+        <div class="footer-info-row"><span class="fi-icon">📠</span><p>02-901-3960-62</p></div>
+        <div class="footer-info-row"><span class="fi-icon">✉</span><p><a href="mailto:sangudomlight@gmail.com">sangudomlight@gmail.com</a><br /><a href="mailto:sangudommarketing115@gmail.com">sangudommarketing115@gmail.com</a></p></div>
+      </div>
+      <div>
+        <div class="footer-col-title">All Products</div>
+        <div class="footer-links">
+          <a href="products.html?cat=โคมไฟภายนอก">Exterior Lamp</a>
+          <a href="products.html?cat=โคมไฟภายใน">Interior Lamp</a>
+          <a href="products.html?cat=แชนเดอเลียร์">Chandelier</a>
+          <a href="products.html?cat=หลอด LED">LED – Solar Cells</a>
+          <a href="products.html?cat=อุปกรณ์เสริม">Bulb – Accessories</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Customer Care</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">เวลาทำการ</div>
+        <p style="color:var(--gray);font-size:.85rem;line-height:1.9">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
+        <a href="about.html#branches" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span class="footer-copyright">© 2026 www.sangudom.com — All Rights Reserved</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script type="module" src="js/products.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    const t = document.getElementById("navToggle");
+    const n = document.getElementById("mainNav");
+    if (t) t.addEventListener("click", () => n.classList.toggle("open"));
+  </script>
+</body>
+</html>

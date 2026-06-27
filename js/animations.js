@@ -54,7 +54,7 @@ function initParticles() {
   resize();
   window.addEventListener("resize", resize);
 
-  const GOLD = "rgba(200,162,74,";
+  const GOLD = "rgba(216,182,106,";
   for (let i = 0; i < 55; i++) {
     particles.push({
       x: Math.random() * W,
@@ -97,7 +97,7 @@ function initRipple() {
       width:${size}px; height:${size}px;
       left:${e.clientX - rect.left - size/2}px;
       top:${e.clientY - rect.top - size/2}px;
-      background:rgba(200,162,74,.25);
+      background:rgba(216,182,106,.25);
       transform:scale(0); animation:ripple .55s ease-out forwards;
     `;
     if (getComputedStyle(btn).position === "static") btn.style.position = "relative";
@@ -116,7 +116,7 @@ function initCursorTrail() {
     d.style.cssText = `
       position:fixed; pointer-events:none; z-index:9999; border-radius:50%;
       width:${6 - i * 0.5}px; height:${6 - i * 0.5}px;
-      background:rgba(200,162,74,${0.55 - i * 0.06});
+      background:rgba(216,182,106,${0.55 - i * 0.06});
       transform:translate(-50%,-50%);
       transition:left ${i * 30 + 30}ms ease, top ${i * 30 + 30}ms ease;
       mix-blend-mode:screen;

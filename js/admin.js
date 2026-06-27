@@ -21,15 +21,25 @@ if (catSelect && typeof CATEGORIES !== "undefined") {
   catSelect.innerHTML = CATEGORIES.map(c => `<option>${c}</option>`).join("");
 }
 
+// --- Header user info ---
+const headerUser      = document.getElementById("headerUser");
+const headerEmail     = document.getElementById("headerEmail");
+const headerLogoutBtn = document.getElementById("headerLogoutBtn");
+if (headerLogoutBtn) headerLogoutBtn.addEventListener("click", () => signOut(auth));
+
 // --- Auth state ---
 onAuthStateChanged(auth, (user) => {
   if (user) {
     loginView.hidden = true;
     adminView.hidden = false;
+    // แสดงชื่อ email ที่ header
+    if (headerUser)  headerUser.style.display  = "flex";
+    if (headerEmail) headerEmail.textContent   = user.email;
     listenProducts();
   } else {
     loginView.hidden = false;
     adminView.hidden = true;
+    if (headerUser) headerUser.style.display = "none";
   }
 });
 
@@ -44,8 +54,6 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   }
 });
 
-// --- Logout ---
-document.getElementById("logoutBtn").addEventListener("click", () => signOut(auth));
 
 // --- Real-time listener ---
 let unsubscribe = null;

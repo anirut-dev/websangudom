@@ -9,6 +9,444 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== Landing-page extras ===== */
+    @keyframes lightPulse {
+      0%,100% { opacity:.18; transform:scale(1); }
+      50%      { opacity:.38; transform:scale(1.08); }
+    }
+    @keyframes rayRotate {
+      to { transform:translate(-50%,-50%) rotate(360deg); }
+    }
+    @keyframes glowBurst {
+      0%   { box-shadow:0 0 0 0 rgba(216,182,106,0); }
+      40%  { box-shadow:0 0 40px 12px rgba(216,182,106,.22); }
+      100% { box-shadow:0 0 0 0 rgba(216,182,106,0); }
+    }
+    @keyframes floatBulb {
+      0%,100% { transform:translateY(0); }
+      50%      { transform:translateY(-14px); }
+    }
+    @keyframes scanLine {
+      0%   { top:-4px; }
+      100% { top:100%; }
+    }
+
+    /* ── Hero Slideshow ── */
+    @keyframes kenBurns1 {
+      0%   { opacity:1; transform:scale(1)    translateX(0); }
+      18%  { opacity:1; transform:scale(1.07) translateX(-1%); }
+      22%  { opacity:0; transform:scale(1.07) translateX(-1%); }
+      100% { opacity:0; transform:scale(1.07) translateX(-1%); }
+    }
+    @keyframes kenBurns2 {
+      0%,20%  { opacity:0; transform:scale(1)    translateX(0); }
+      22%     { opacity:1; transform:scale(1);  }
+      40%     { opacity:1; transform:scale(1.06) translateX(1%); }
+      42%     { opacity:0; transform:scale(1.06) translateX(1%); }
+      100%    { opacity:0; }
+    }
+    @keyframes kenBurns3 {
+      0%,40%  { opacity:0; transform:scale(1); }
+      42%     { opacity:1; transform:scale(1); }
+      60%     { opacity:1; transform:scale(1.07) translateY(-1%); }
+      62%     { opacity:0; transform:scale(1.07) translateY(-1%); }
+      100%    { opacity:0; }
+    }
+    @keyframes kenBurns4 {
+      0%,60%  { opacity:0; transform:scale(1); }
+      62%     { opacity:1; transform:scale(1); }
+      80%     { opacity:1; transform:scale(1.05) translateX(-1%); }
+      82%     { opacity:0; transform:scale(1.05) translateX(-1%); }
+      100%    { opacity:0; }
+    }
+    @keyframes kenBurns5 {
+      0%,80%  { opacity:0; transform:scale(1); }
+      82%     { opacity:1; transform:scale(1); }
+      98%     { opacity:1; transform:scale(1.06) translateX(1%); }
+      100%    { opacity:1; transform:scale(1.06) translateX(1%); }
+    }
+    .hero-slides {
+      position:absolute; inset:0; z-index:0;
+    }
+    .hero-slide {
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+      opacity:0;
+      animation-duration:25s;
+      animation-timing-function:ease-in-out;
+      animation-iteration-count:infinite;
+    }
+    .hero-slide:nth-child(1) { background-image:url('images/banner1.webp'); animation-name:kenBurns1; }
+    .hero-slide:nth-child(2) { background-image:url('images/banner2.webp'); animation-name:kenBurns2; }
+    .hero-slide:nth-child(3) { background-image:url('images/banner3.webp'); animation-name:kenBurns3; }
+    .hero-slide:nth-child(4) { background-image:url('images/banner4.webp'); animation-name:kenBurns4; }
+    .hero-slide:nth-child(5) { background-image:url('images/banner5.webp'); animation-name:kenBurns5; }
+    /* dark overlay บน slideshow ให้ข้อความอ่านง่าย */
+    .hero-slides::after {
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(
+        100deg,
+        rgba(14,13,11,.94) 0%,
+        rgba(14,13,11,.86) 40%,
+        rgba(14,13,11,.55) 66%,
+        rgba(14,13,11,.22) 100%
+      );
+    }
+
+    /* ── Hero single-column (no badges) ── */
+    .hero-inner {
+      grid-template-columns: 1fr !important;
+      max-width: 680px;
+      gap: 0 !important;
+    }
+    .hero-text h1 { font-size: clamp(2.6rem, 5vw, 4rem); }
+    .hero-text p  { max-width: 520px; }
+
+    /* ── USP Bar ── */
+    .usp-bar {
+      background: var(--dark-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .usp-inner {
+      display: flex;
+      align-items: stretch;
+      min-height: 80px;
+    }
+    .usp-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      padding: 20px 24px;
+      transition: background .25s;
+    }
+    .usp-item:hover { background: rgba(216,182,106,.04); }
+    .usp-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .usp-text strong {
+      display: block;
+      color: var(--white);
+      font-size: .92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .usp-text span {
+      font-size: .76rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+    .usp-divider {
+      width: 1px;
+      background: var(--border);
+      margin: 14px 0;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .usp-inner { flex-wrap: wrap; }
+      .usp-item  { flex: 1 1 45%; padding: 16px; }
+      .usp-divider { display: none; }
+    }
+    @media (max-width: 480px) {
+      .usp-item { flex: 1 1 100%; }
+    }
+
+    /* ── Banner Marquee ── */
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-section {
+      overflow:hidden;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      background:var(--cream);
+      padding:0;
+    }
+    .marquee-track {
+      display:flex;
+      width:max-content;
+      animation:marqueeScroll 28s linear infinite;
+    }
+    .marquee-section:hover .marquee-track { animation-play-state:paused; }
+    .marquee-item {
+      flex-shrink:0;
+      width:520px;
+      height:220px;
+      overflow:hidden;
+      position:relative;
+      border-right:1px solid var(--border);
+    }
+    .marquee-item img {
+      width:100%; height:100%;
+      object-fit:cover;
+      filter:brightness(.8) saturate(.9);
+      transition:filter .5s, transform .5s;
+      display:block;
+    }
+    .marquee-item:hover img {
+      filter:brightness(1) saturate(1.05);
+      transform:scale(1.04);
+    }
+    /* gold shimmer sweep on hover */
+    .marquee-item::after {
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(120deg, transparent 30%, rgba(216,182,106,.15) 50%, transparent 70%);
+      opacity:0; transition:opacity .4s;
+    }
+    .marquee-item:hover::after { opacity:1; }
+
+    /* ── Hero extras ── */
+    .hero-glow-left {
+      position:absolute; left:-200px; top:30%;
+      width:520px; height:520px; border-radius:50%;
+      background:radial-gradient(circle, rgba(216,182,106,.10) 0%, transparent 68%);
+      animation:lightPulse 4s ease-in-out infinite;
+      pointer-events:none;
+    }
+    .hero-glow-bottom {
+      position:absolute; bottom:-100px; left:50%;
+      transform:translateX(-50%);
+      width:800px; height:300px;
+      background:radial-gradient(ellipse, rgba(216,182,106,.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-rays {
+      position:absolute; top:50%; left:62%;
+      width:900px; height:900px;
+      transform:translate(-50%,-50%);
+      background:conic-gradient(
+        from 0deg,
+        transparent 0deg, rgba(216,182,106,.025) 2deg,
+        transparent 4deg, transparent 20deg,
+        rgba(216,182,106,.025) 22deg, transparent 24deg,
+        transparent 40deg, rgba(216,182,106,.02) 42deg,
+        transparent 44deg, transparent 60deg,
+        rgba(216,182,106,.015) 62deg, transparent 64deg
+      );
+      animation:rayRotate 28s linear infinite;
+      pointer-events:none;
+    }
+
+    /* ── Feature section ── */
+    .features-section {
+      padding:80px 0;
+      background:var(--dark-2);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .features-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1px;
+      background:var(--border);
+      border:1px solid var(--border);
+      margin-top:48px;
+    }
+    .feature-card {
+      background:var(--dark-card);
+      padding:36px 28px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      transition:background .3s;
+    }
+    .feature-card::before {
+      content:"";
+      position:absolute; top:0; left:50%;
+      transform:translateX(-50%);
+      width:0; height:1px;
+      background:var(--gold);
+      transition:width .4s;
+    }
+    .feature-card:hover { background:var(--dark-3); }
+    .feature-card:hover::before { width:100%; }
+    .feature-icon {
+      width:64px; height:64px; border-radius:50%;
+      border:1px solid var(--border-2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.7rem; margin:0 auto 20px;
+      position:relative; transition:border-color .3s;
+    }
+    .feature-card:hover .feature-icon {
+      border-color:var(--gold);
+      animation:glowBurst .7s ease forwards;
+    }
+    .feature-card h3 {
+      color:var(--white); font-size:.95rem;
+      letter-spacing:.08em; margin-bottom:10px;
+    }
+    .feature-card p { color:var(--gray); font-size:.84rem; line-height:1.8; }
+
+    /* ── Showcase section ── */
+    .showcase-section { padding:80px 0; background:var(--cream); }
+    .showcase-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      grid-template-rows:auto auto;
+      gap:2px;
+      margin-top:48px;
+    }
+    .showcase-card {
+      position:relative; overflow:hidden; cursor:pointer;
+      aspect-ratio:4/3;
+      background:var(--dark-3);
+    }
+    .showcase-card:first-child {
+      grid-row:span 2;
+      aspect-ratio:auto;
+    }
+    .showcase-img {
+      width:100%; height:100%;
+      object-fit:cover;
+      transition:transform .7s cubic-bezier(.25,.46,.45,.94), filter .7s;
+      filter:brightness(.82) saturate(.9);
+      display:block;
+    }
+    .showcase-card:hover .showcase-img {
+      transform:scale(1.06);
+      filter:brightness(1) saturate(1.08);
+    }
+    /* dark-to-light sweep */
+    .showcase-card::before {
+      content:"";
+      position:absolute; inset:0; z-index:1;
+      background:linear-gradient(
+        to bottom,
+        rgba(13,12,10,.15) 0%,
+        rgba(13,12,10,.55) 100%
+      );
+      transition:opacity .5s;
+    }
+    .showcase-card:hover::before { opacity:.3; }
+    /* gold light-leak on hover */
+    .showcase-card::after {
+      content:"";
+      position:absolute; z-index:2;
+      top:-60%; left:-60%; width:120%; height:120%;
+      background:radial-gradient(ellipse at 60% 40%, rgba(216,182,106,.18) 0%, transparent 65%);
+      opacity:0; transition:opacity .5s;
+      pointer-events:none;
+    }
+    .showcase-card:hover::after { opacity:1; }
+    /* scan line */
+    .showcase-scan {
+      position:absolute; left:0; right:0; height:1px; z-index:3;
+      background:linear-gradient(90deg, transparent, rgba(216,182,106,.5), transparent);
+      opacity:0; top:-4px;
+      transition:opacity .2s;
+    }
+    .showcase-card:hover .showcase-scan {
+      opacity:1;
+      animation:scanLine 1.2s linear infinite;
+    }
+    .showcase-label {
+      position:absolute; bottom:0; left:0; right:0; z-index:4;
+      padding:32px 28px 24px;
+      background:linear-gradient(to top, rgba(13,12,10,.9) 0%, transparent 100%);
+    }
+    .showcase-label .cat { font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-light); margin-bottom:6px; }
+    .showcase-label h3 { color:#faf7f0; font-size:1.1rem; font-weight:600; margin-bottom:4px; }
+    .showcase-label p { color:rgba(250,247,240,.82); font-size:.8rem; }
+    .showcase-label .arrow {
+      position:absolute; right:24px; bottom:24px;
+      width:36px; height:36px; border:1px solid rgba(216,182,106,.4);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:1rem;
+      transition:background .3s, border-color .3s;
+    }
+    .showcase-card:hover .arrow { background:var(--gold); color:var(--dark); border-color:var(--gold); }
+
+    /* fallback card (no image) */
+    .showcase-card.no-img { background:linear-gradient(135deg,#14110d,#221c14); }
+    .showcase-card.no-img .showcase-img { display:none; }
+    .showcase-card.no-img .showcase-bulb {
+      position:absolute; inset:0; z-index:0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:5rem;
+      animation:floatBulb 3s ease-in-out infinite;
+    }
+
+    /* ── Stats section ── */
+    .stats-section {
+      padding:72px 0;
+      background:var(--dark-2);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .stats-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:1px; background:var(--border);
+      border:1px solid var(--border);
+      margin-top:12px;
+    }
+    .stat-card {
+      background:var(--dark-card); padding:36px 20px;
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .stat-card::after {
+      content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+      width:0; height:2px; background:var(--gold);
+      transition:width .4s;
+    }
+    .stat-card:hover::after { width:60%; }
+    .stat-num {
+      font-size:2.8rem; font-weight:700; color:var(--gold);
+      letter-spacing:.02em; line-height:1;
+      display:block; margin-bottom:8px;
+    }
+    .stat-label { color:var(--gray); font-size:.82rem; letter-spacing:.12em; }
+
+    /* ── CTA section ── */
+    .cta-section {
+      padding:100px 0; text-align:center;
+      background:linear-gradient(135deg,#14110d 0%,#1f1a12 100%);
+      position:relative; overflow:hidden;
+    }
+    .cta-section::before {
+      content:"";
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:700px; height:700px;
+      background:radial-gradient(circle, rgba(216,182,106,.16) 0%, transparent 60%);
+      animation:lightPulse 5s ease-in-out infinite;
+      pointer-events:none;
+    }
+    .cta-section .label {
+      font-size:.7rem; letter-spacing:.3em; text-transform:uppercase;
+      color:var(--gold-light); margin-bottom:16px;
+    }
+    .cta-section h2 {
+      font-size:clamp(1.6rem,3vw,2.6rem);
+      color:#faf7f0; font-weight:600;
+      margin-bottom:16px; position:relative;
+    }
+    .cta-section p { color:#cfc7ba; max-width:500px; margin:0 auto 36px; }
+    /* ปุ่มในแถบเข้ม */
+    .cta-section .btn-outline { border-color:rgba(250,247,240,.35); color:#faf7f0; }
+    .cta-section .btn-outline:hover { border-color:var(--gold); color:var(--gold-light); }
+
+    /* ── Responsive ── */
+    @media (max-width:900px) {
+      .features-grid { grid-template-columns:repeat(2,1fr); }
+      .stats-grid    { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:680px) {
+      .showcase-grid { grid-template-columns:1fr; }
+      .showcase-card:first-child { grid-row:auto; aspect-ratio:4/3; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .stats-grid    { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:480px) {
+      .features-grid { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -16,18 +454,12 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-emblem">✦</div>
-        <div class="logo-text">
-          <strong>SANG UDOM</strong>
-          <small>Lighting Centre</small>
-        </div>
+        <img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
-
       <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
-
       <nav class="main-nav" id="mainNav">
         <a href="index.html" class="active">หน้าแรก</a>
-        <a href="#catalog">สินค้า</a>
+        <a href="products.html">สินค้า</a>
         <a href="about.html">เกี่ยวกับเรา</a>
         <a href="about.html#branches">สาขา</a>
         <a href="about.html#contact">ติดต่อ</a>
@@ -38,102 +470,315 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-glow-left"></div>
+    <div class="hero-glow-bottom"></div>
+    <div class="hero-rays"></div>
     <div class="container hero-inner">
       <div class="hero-text">
         <p class="hero-label">Sang Udom Lighting Centre</p>
         <h1>แสงสว่าง<br />ที่<em>สมบูรณ์แบบ</em><br />สำหรับทุกพื้นที่</h1>
         <p>โคมไฟภายใน · ภายนอก · แชนเดอเลียร์ · หลอด LED<br />
            คัดสรรคุณภาพ พร้อมบริการออกแบบโดยผู้เชี่ยวชาญ</p>
-        <a href="#catalog" class="btn btn-primary"><span>ชมแคตตาล็อกสินค้า</span></a>
+        <a href="products.html" class="btn btn-primary"><span>ชมแคตตาล็อกสินค้า</span></a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-badges">
-        <div class="badge">
-          <div class="badge-icon">✦</div>
-          <div class="badge-text">
-            <strong>ออกแบบฟรี</strong>
-            <span>คำปรึกษาด้านแสงสว่างโดยผู้เชี่ยวชาญ</span>
-          </div>
+  <!-- ===== USP Bar ===== -->
+  <div class="usp-bar">
+    <div class="container usp-inner">
+      <div class="usp-item">
+        <div class="usp-icon">✦</div>
+        <div class="usp-text">
+          <strong>ออกแบบฟรี</strong>
+          <span>คำปรึกษาด้านแสงสว่างโดยผู้เชี่ยวชาญ</span>
         </div>
-        <div class="badge">
-          <div class="badge-icon">◈</div>
-          <div class="badge-text">
-            <strong>จัดส่งฟรี</strong>
-            <span>บริการจัดส่งถึงสถานที่</span>
-          </div>
+      </div>
+      <div class="usp-divider"></div>
+      <div class="usp-item">
+        <div class="usp-icon">◈</div>
+        <div class="usp-text">
+          <strong>จัดส่งฟรี</strong>
+          <span>บริการจัดส่งถึงสถานที่</span>
         </div>
-        <div class="badge">
-          <div class="badge-icon">⬡</div>
-          <div class="badge-text">
-            <strong>ติดตั้งฟรี</strong>
-            <span>ทีมช่างมืออาชีพ รับประกันผลงาน</span>
-          </div>
+      </div>
+      <div class="usp-divider"></div>
+      <div class="usp-item">
+        <div class="usp-icon">⬡</div>
+        <div class="usp-text">
+          <strong>ติดตั้งฟรี</strong>
+          <span>ทีมช่างมืออาชีพ รับประกันผลงาน</span>
         </div>
-        <div class="badge">
-          <div class="badge-icon">◉</div>
-          <div class="badge-text">
-            <strong>8 สาขาทั่วประเทศ</strong>
-            <span>ให้บริการครอบคลุมทุกภูมิภาค</span>
-          </div>
+      </div>
+      <div class="usp-divider"></div>
+      <div class="usp-item">
+        <div class="usp-icon">◉</div>
+        <div class="usp-text">
+          <strong>8 สาขาทั่วประเทศ</strong>
+          <span>ให้บริการครอบคลุมทุกภูมิภาค</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Banner Marquee ===== -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <!-- รูปชุดที่ 1 -->
+      <div class="marquee-item"><img src="images/banner1.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner2.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner3.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner4.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner5.webp" alt="" loading="lazy" /></div>
+      <!-- ชุดซ้ำเพื่อ seamless loop -->
+      <div class="marquee-item"><img src="images/banner1.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner2.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner3.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner4.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner5.webp" alt="" loading="lazy" /></div>
+    </div>
+  </div>
+
+  <!-- ===== Features ===== -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Why Sang Udom</p>
+        <h2>ทำไมต้องแสงอุดม</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>สินค้าครบวงจร</h3>
+          <p>โคมไฟทุกประเภท ทุกสไตล์<br />ในที่เดียว ทั้งในและนอกอาคาร</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏅</div>
+          <h3>คุณภาพคัดสรร</h3>
+          <p>ผ่านมาตรฐาน มอก. และ CE<br />รับประกันทุกชิ้น สินค้าแท้ 100%</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <h3>บริการออกแบบ</h3>
+          <p>ทีมผู้เชี่ยวชาญด้านแสงสว่าง<br />ออกแบบและติดตั้งฟรี</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>8 สาขาทั่วประเทศ</h3>
+          <p>ครอบคลุมทั้งภาคกลาง ภาคเหนือ<br />และภาคอีสาน พร้อมให้บริการ</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Catalog ===== -->
-  <section class="catalog-section" id="catalog">
+  <!-- ===== Showcase ===== -->
+  <section class="showcase-section">
     <div class="container">
       <div class="section-header">
-        <p class="label">Our Collection</p>
-        <h2>แคตตาล็อกสินค้า</h2>
+        <p class="label">Product Showcase</p>
+        <h2>คอลเลกชันของเรา</h2>
         <span class="gold-line"></span>
       </div>
+      <div class="showcase-grid">
 
-      <div class="catalog-tools">
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="search" id="searchInput" placeholder="ค้นหาสินค้า..." />
-        </div>
-        <div class="category-filters" id="categoryFilters"></div>
+        <!-- Card 1 – ใหญ่ (span 2 rows) -->
+        <a href="products.html?cat=แชนเดอเลียร์" class="showcase-card">
+          <div class="showcase-scan"></div>
+          <img class="showcase-img" src="images/test-c-1.jpg" alt="แชนเดอเลียร์" />
+          <div class="showcase-label">
+            <div class="cat">Premium</div>
+            <h3>แชนเดอเลียร์ &amp; โคมระย้า</h3>
+            <p>หรูหรา อลังการ เหมาะกับทุกโปรเจกต์</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="products.html?cat=โคมไฟภายใน" class="showcase-card">
+          <div class="showcase-scan"></div>
+          <img class="showcase-img" src="images/test-b-1.jpg" alt="โคมไฟภายใน" />
+          <div class="showcase-label">
+            <div class="cat">Interior</div>
+            <h3>โคมไฟภายใน</h3>
+            <p>ดาวน์ไลท์ · โคมแขวน · ตั้งโต๊ะ</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="products.html?cat=โคมไฟภายนอก" class="showcase-card">
+          <div class="showcase-scan"></div>
+          <img class="showcase-img" src="images/test-a-1.JPG" alt="โคมไฟภายนอก" />
+          <div class="showcase-label">
+            <div class="cat">Exterior</div>
+            <h3>โคมไฟภายนอก</h3>
+            <p>กันน้ำ IP65 · สปอตไลท์ · โคมสนาม</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="products.html?cat=หลอด LED" class="showcase-card">
+          <div class="showcase-scan"></div>
+          <img class="showcase-img" src="images/test-d-1.jpg" alt="หลอด LED" />
+          <div class="showcase-label">
+            <div class="cat">LED Technology</div>
+            <h3>หลอด LED &amp; ไฟเส้น</h3>
+            <p>ประหยัดพลังงาน · อายุยาวนาน</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Card 5 – no image -->
+        <a href="products.html?cat=อุปกรณ์เสริม" class="showcase-card no-img" style="aspect-ratio:2/1; grid-column:span 2;">
+          <div class="showcase-scan"></div>
+          <div class="showcase-bulb">🔌</div>
+          <img class="showcase-img" src="" alt="" />
+          <div class="showcase-label">
+            <div class="cat">Accessories</div>
+            <h3>อุปกรณ์เสริม &amp; ระบบไฟ</h3>
+            <p>ราง · สวิตช์หรี่แสง · อุปกรณ์ติดตั้งครบชุด</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
       </div>
+    </div>
+  </section>
 
-      <div class="product-grid" id="productGrid"></div>
-      <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ค้นหา</p>
+  <!-- ===== Stats ===== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-num" data-count="8">0</span>
+          <span class="stat-label">สาขาทั่วประเทศ</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-count="30">0</span>
+          <span class="stat-label">ปีแห่งประสบการณ์</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-count="5000">0</span>
+          <span class="stat-label">รายการสินค้า</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" data-count="50000">0</span>
+          <span class="stat-label">ลูกค้าที่ไว้วางใจ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container" style="position:relative;z-index:1">
+      <p class="label">Ready to Illuminate</p>
+      <h2>พร้อมสร้างแสงสว่าง<br />ที่ใช่สำหรับคุณ</h2>
+      <p>เลือกชมสินค้ากว่า 5,000 รายการ หรือติดต่อทีมผู้เชี่ยวชาญของเราได้ทันที</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="products.html" class="btn btn-primary"><span>ชมแคตตาล็อก</span></a>
+        <a href="about.html#contact" class="btn btn-outline">ติดต่อเรา</a>
+      </div>
     </div>
   </section>
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <div class="logo" style="margin-bottom:16px">
-          <div class="logo-emblem">✦</div>
-          <div class="logo-text">
-            <strong>SANG UDOM</strong>
-            <small>Lighting Centre</small>
-          </div>
+
+    <!-- Main body -->
+    <div class="container footer-body">
+
+      <!-- Brand info -->
+      <div>
+        <div class="footer-brand-logo">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" />
+          </a>
         </div>
-        <p>โชว์รูมโคมไฟและอุปกรณ์แสงสว่างครบวงจร<br />8 สาขาทั่วประเทศ</p>
+        <p style="font-size:.82rem;color:var(--gray);margin-bottom:18px;">Sang Udom Lighting Centre Co., Ltd.</p>
+        <div class="footer-info-row">
+          <span class="fi-icon">📍</span>
+          <p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p>
+        </div>
+        <div class="footer-info-row">
+          <span class="fi-icon">📞</span>
+          <p><a href="tel:029013000">02-901-3000</a></p>
+        </div>
+        <div class="footer-info-row">
+          <span class="fi-icon">📠</span>
+          <p>02-901-3960-62</p>
+        </div>
+        <div class="footer-info-row">
+          <span class="fi-icon">✉</span>
+          <p>
+            <a href="mailto:sangudomlight@gmail.com">sangudomlight@gmail.com</a><br />
+            <a href="mailto:sangudommarketing115@gmail.com">sangudommarketing115@gmail.com</a>
+          </p>
+        </div>
       </div>
+
+      <!-- All Products -->
       <div>
-        <h4>ช่องทางติดต่อ</h4>
-        <a href="tel:029013000">02-901-3000</a>
-        <a href="#">LINE: @Sangudom-sale</a>
-        <a href="https://www.facebook.com/sangudomlighting" target="_blank">Facebook</a>
+        <div class="footer-col-title">All Products</div>
+        <div class="footer-links">
+          <a href="products.html?cat=โคมไฟภายนอก">Exterior Lamp</a>
+          <a href="products.html?cat=โคมไฟภายใน">Interior Lamp</a>
+          <a href="products.html?cat=แชนเดอเลียร์">Chandelier</a>
+          <a href="products.html?cat=หลอด LED">LED – Solar Cells</a>
+          <a href="products.html?cat=อุปกรณ์เสริม">Bulb – Accessories</a>
+        </div>
       </div>
+
+      <!-- Customer Care -->
       <div>
-        <h4>เวลาทำการ</h4>
-        <p>ทุกวัน</p>
-        <p>08:30 – 19:00 น.</p>
+        <div class="footer-col-title">Customer Care</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
+
+      <!-- Hours -->
+      <div>
+        <div class="footer-col-title">เวลาทำการ</div>
+        <div class="footer-links" style="gap:4px">
+          <p style="color:var(--gray);font-size:.85rem;line-height:1.9">
+            ทุกวัน 08:30 – 19:00 น.<br /><br />
+            สาขาทั่วประเทศ 8 สาขา<br />
+            ภาคกลาง · ภาคเหนือ · ภาคอีสาน
+          </p>
+        </div>
+        <a href="about.html#branches" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
+      </div>
+
     </div>
+
+    <!-- Bottom bar -->
     <div class="footer-bottom">
-      © 2026 Sang Udom Lighting Centre Co., Ltd. — All Rights Reserved.
+      <div class="container">
+        <span class="footer-copyright">© 2026 www.sangudom.com — All Rights Reserved</span>
+      </div>
     </div>
+
   </footer>
 
-  <script src="js/data.js"></script>
-  <script type="module" src="js/main.js"></script>
   <script src="js/animations.js"></script>
+  <script>
+    // Mobile nav
+    const t = document.getElementById("navToggle");
+    const n = document.getElementById("mainNav");
+    if (t) t.addEventListener("click", () => n.classList.toggle("open"));
+  </script>
 </body>
 </html>
