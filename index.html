@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>แสงอุดม ไลท์ติ้ง | ร้านโคมไฟครบวงจร</title>
-  <meta name="description" content="ร้านจำหน่ายโคมไฟ หลอดไฟ LED โคมไฟภายใน-ภายนอก แชนเดอเลียร์ ครบวงจร" />
+  <title>แสงอุดม ไลท์ติ้ง | โชว์รูมโคมไฟครบวงจร</title>
+  <meta name="description" content="แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — โชว์รูมโคมไฟภายใน ภายนอก แชนเดอเลียร์ หลอด LED ครบวงจร 8 สาขาทั่วประเทศ" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header -->
+
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-icon">💡</span>
-        <span class="logo-text">แสงอุดม<small>LIGHTING</small></span>
+        <div class="logo-emblem">✦</div>
+        <div class="logo-text">
+          <strong>SANG UDOM</strong>
+          <small>Lighting Centre</small>
+        </div>
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
@@ -24,58 +31,105 @@
         <a href="about.html">เกี่ยวกับเรา</a>
         <a href="about.html#branches">สาขา</a>
         <a href="about.html#contact">ติดต่อ</a>
-        <a href="admin.html" class="nav-admin">เข้าสู่ระบบ</a>
+        <a href="admin.html" class="nav-admin">Admin</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <h1>แสงสว่างที่ใช่<br />สำหรับทุกพื้นที่</h1>
-        <p>โคมไฟภายใน-ภายนอก หลอด LED แชนเดอเลียร์ และอุปกรณ์ครบวงจร<br />คุณภาพดี ราคาเป็นกันเอง บริการออกแบบฟรี</p>
-        <a href="#catalog" class="btn btn-primary">ดูสินค้าทั้งหมด</a>
+        <p class="hero-label">Sang Udom Lighting Centre</p>
+        <h1>แสงสว่าง<br />ที่<em>สมบูรณ์แบบ</em><br />สำหรับทุกพื้นที่</h1>
+        <p>โคมไฟภายใน · ภายนอก · แชนเดอเลียร์ · หลอด LED<br />
+           คัดสรรคุณภาพ พร้อมบริการออกแบบโดยผู้เชี่ยวชาญ</p>
+        <a href="#catalog" class="btn btn-primary"><span>ชมแคตตาล็อกสินค้า</span></a>
       </div>
+
       <div class="hero-badges">
-        <div class="badge">🚚<span>จัดส่งฟรี</span></div>
-        <div class="badge">🔧<span>ติดตั้งฟรี</span></div>
-        <div class="badge">✏️<span>ออกแบบฟรี</span></div>
+        <div class="badge">
+          <div class="badge-icon">✦</div>
+          <div class="badge-text">
+            <strong>ออกแบบฟรี</strong>
+            <span>คำปรึกษาด้านแสงสว่างโดยผู้เชี่ยวชาญ</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">◈</div>
+          <div class="badge-text">
+            <strong>จัดส่งฟรี</strong>
+            <span>บริการจัดส่งถึงสถานที่</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">⬡</div>
+          <div class="badge-text">
+            <strong>ติดตั้งฟรี</strong>
+            <span>ทีมช่างมืออาชีพ รับประกันผลงาน</span>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">◉</div>
+          <div class="badge-text">
+            <strong>8 สาขาทั่วประเทศ</strong>
+            <span>ให้บริการครอบคลุมทุกภูมิภาค</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Catalog -->
-  <main class="container" id="catalog">
-    <h2 class="section-title">แคตตาล็อกสินค้า</h2>
+  <!-- ===== Catalog ===== -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Our Collection</p>
+        <h2>แคตตาล็อกสินค้า</h2>
+        <span class="gold-line"></span>
+      </div>
 
-    <div class="catalog-tools">
-      <input type="search" id="searchInput" placeholder="ค้นหาสินค้า..." />
-      <div class="category-filters" id="categoryFilters"></div>
+      <div class="catalog-tools">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="searchInput" placeholder="ค้นหาสินค้า..." />
+        </div>
+        <div class="category-filters" id="categoryFilters"></div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ค้นหา</p>
     </div>
+  </section>
 
-    <div class="product-grid" id="productGrid"></div>
-    <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ค้นหา</p>
-  </main>
-
-  <!-- Footer -->
+  <!-- ===== Footer ===== */
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <h4>แสงอุดม ไลท์ติ้ง</h4>
-        <p>ร้านจำหน่ายโคมไฟและอุปกรณ์แสงสว่างครบวงจร</p>
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:16px">
+          <div class="logo-emblem">✦</div>
+          <div class="logo-text">
+            <strong>SANG UDOM</strong>
+            <small>Lighting Centre</small>
+          </div>
+        </div>
+        <p>โชว์รูมโคมไฟและอุปกรณ์แสงสว่างครบวงจร<br />8 สาขาทั่วประเทศ</p>
       </div>
       <div>
-        <h4>ติดต่อ</h4>
-        <p>โทร: 0X-XXX-XXXX</p>
-        <p>LINE: @sangudom</p>
+        <h4>ช่องทางติดต่อ</h4>
+        <a href="tel:029013000">02-901-3000</a>
+        <a href="#">LINE: @Sangudom-sale</a>
+        <a href="https://www.facebook.com/sangudomlighting" target="_blank">Facebook</a>
       </div>
       <div>
         <h4>เวลาทำการ</h4>
-        <p>จันทร์-เสาร์ 08:30 - 17:30</p>
+        <p>ทุกวัน</p>
+        <p>08:30 – 19:00 น.</p>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 แสงอุดม ไลท์ติ้ง. สงวนลิขสิทธิ์.</div>
+    <div class="footer-bottom">
+      © 2026 Sang Udom Lighting Centre Co., Ltd. — All Rights Reserved.
+    </div>
   </footer>
 
   <script src="js/data.js"></script>
