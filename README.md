@@ -1,7 +1,12 @@
-# เว็บไซต์ สงวนดม ไลท์ติ้ง (Sangudom Lighting)
+# แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — เว็บไซต์ (Sang Udom Lighting Centre)
 
-เว็บไซต์ร้านจำหน่ายโคมไฟ — แคตตาล็อกสินค้า + ระบบจัดการสินค้าหลังบ้าน
-สร้างขึ้นเพื่อทดแทนบริการเว็บสำเร็จรูป (itopplus) ที่มีค่าใช้จ่ายรายปี ~7,000 บาท
+เว็บแคตตาล็อกสินค้า + ระบบจัดการหลังบ้าน
+ทดแทนบริการสำเร็จรูป itopplus (~7,000 บาท/ปี)
+
+**GitHub:** anirut-dev/websangudom
+**โฟลเดอร์:** `C:\Users\IT\Desktop\arm-it desktop\websangudom`
+
+---
 
 ## โครงสร้างไฟล์
 
@@ -9,65 +14,76 @@
 websangudom/
 ├── index.html              # หน้าแรก + แคตตาล็อกสินค้า
 ├── about.html              # ความเป็นมา / 8 สาขา / แผนที่ / ติดต่อ
-├── admin.html              # หน้า Login + จัดการสินค้า (Firebase)
-├── css/
-│   └── style.css           # สไตล์ทั้งหมด (โทนดำ-ทอง)
+├── admin.html              # Login + จัดการสินค้า (Firebase)
+├── css/style.css           # สไตล์ทั้งหมด (พรีเมียม โทนดำ-ทอง)
 ├── js/
-│   ├── firebase-config.js  # Firebase config (Firestore + Auth)
+│   ├── firebase-config.js  # Firebase config
 │   ├── data.js             # หมวดหมู่ + สินค้าตัวอย่าง (fallback)
 │   ├── main.js             # แคตตาล็อก ดึงข้อมูลจาก Firestore
-│   └── admin.js            # Login Firebase Auth + จัดการสินค้า Firestore
-├── images/                 # โฟลเดอร์เก็บรูปสินค้า
-└── .gitignore
+│   └── admin.js            # Login + CRUD สินค้าผ่าน Firestore
+└── images/                 # รูปสินค้า (เพิ่มทีหลัง)
 ```
 
-## วิธีเปิดดูเว็บ (ต้องรัน local server)
+---
 
-Firebase ไม่ทำงานกับการเปิดไฟล์ตรงๆ ต้องรันผ่าน server:
+## วิธีเปิดดูเว็บ
+
+ต้องรัน local server (Firebase ไม่ทำงานกับ file://)
 
 ```bash
 cd "C:\Users\IT\Desktop\arm-it desktop\websangudom"
 python -m http.server 8000
 ```
 
-จากนั้นเปิดเบราว์เซอร์:
-- หน้าแรก: http://localhost:8000
-- หน้า admin: http://localhost:8000/admin.html
+เปิดเบราว์เซอร์:
+- หน้าแรก → http://localhost:8000
+- Admin    → http://localhost:8000/admin.html
+
+---
 
 ## Firebase
 
-- **โปรเจค:** websangudom (Spark plan — ฟรี ไม่ต้องผูกบัตร)
-- **Firestore:** เก็บข้อมูลสินค้า (collection: `products`)
-- **Authentication:** Email/Password — user: zonparamgd5@gmail.com
-- **Storage:** ไม่ใช้ — รูปเก็บในโฟลเดอร์ images/ แทน
+| บริการ | รายละเอียด |
+|--------|-----------|
+| โปรเจค | websangudom (Spark — ฟรี ไม่ผูกบัตร) |
+| Firestore | เก็บสินค้า (collection: `products`) |
+| Auth | Email/Password — zonparamgd5@gmail.com |
+| Storage | ไม่ใช้ — รูปเก็บใน images/ |
 
-## สถานะปัจจุบัน ✅
+---
+
+## สถานะปัจจุบัน
 
 | ส่วน | สถานะ |
 |------|--------|
-| แคตตาล็อกสินค้า (ดึงจาก Firestore real-time) | ✅ พร้อม |
-| ระบบ Login จริง (Firebase Auth) | ✅ พร้อม |
-| เพิ่ม/แก้ไข/ลบสินค้า บันทึกใน Firestore | ✅ พร้อม |
-| ข้อมูลซิงค์ทุกเครื่องอัตโนมัติ | ✅ พร้อม |
+| แคตตาล็อกสินค้า (Firestore real-time) | ✅ พร้อม |
+| ระบบ Login จริง (Firebase Auth) | ✅ พร้อม — ทดสอบแล้ว |
+| เพิ่ม/แก้/ลบสินค้า (Firestore) | ✅ พร้อม |
+| ข้อมูลซิงค์ทุกเครื่อง | ✅ พร้อม |
 | หน้าสาขา 8 สาขา + Google Maps | ✅ พร้อม |
-| ข้อมูลติดต่อจริง (เบอร์/LINE/FB) | ✅ พร้อม |
-| รูปสินค้าจริง | ⏳ ยังใช้อิโมจิแทน |
-| โลโก้จริง / แบนเนอร์ | ⏳ ยังไม่ได้ทำ |
-| ทดสอบ Firebase login จริง | ⏳ รอทดสอบ |
+| ข้อมูลติดต่อจริง | ✅ พร้อม |
+| ดีไซน์ พรีเมียม โทนดำ-ทอง | ✅ เสร็จแล้ว |
+| โลโก้ SANG UDOM ทุกหน้า | ✅ เสร็จแล้ว |
+| รูปสินค้าจริง | ⏳ รอรวบรวมรูป |
+| Deploy ออนไลน์ (Netlify/GitHub Pages) | ⏳ ยังไม่ได้ทำ |
+
+---
 
 ## ค้างอยู่ — ต้องเตือนเจ้าของ
 
-- เบอร์โทร 3 สาขายังใช้เบอร์กลาง 02-901-3000: **รังสิต, อ่างทอง, แม่ริม**
-- ยังไม่ได้ทดสอบ Firebase login จริงในเบราว์เซอร์
+- ⚠️ เบอร์โทร 3 สาขายังใช้เบอร์กลาง 02-901-3000: **รังสิต, อ่างทอง, แม่ริม (เชียงใหม่)**
+- ⚠️ footer หน้าแรก LINE ยังเป็น @sangudom (ยังไม่ได้แก้เป็นข้อมูลจริง)
 
-## ขั้นตอนต่อไป
+---
 
-1. ทดสอบ Firebase: รัน `python -m http.server 8000` → เปิด admin.html → login → เพิ่มสินค้า
-2. ใส่รูปสินค้าจริง (วางใน images/ แล้วแก้ค่า image ในฐานข้อมูล)
-3. ปรับโลโก้ / แบนเนอร์หน้าแรก
-4. Deploy ขึ้น GitHub Pages หรือ Netlify (ฟรี)
+## ขั้นตอนถัดไป
 
-## วิธี push งานขึ้น GitHub
+1. **C — รูปสินค้า:** วางรูปใน `images/` → อัปเดตค่า `image` ใน Firestore
+2. **E — Deploy:** เอาขึ้น Netlify (ฟรี) ให้คนเข้าจากอินเตอร์เน็ตได้
+
+---
+
+## Push งานขึ้น GitHub
 
 ```bash
 git add .
