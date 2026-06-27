@@ -1,3 +1,66 @@
+/* ===== Keyframes ===== */
+@keyframes ripple {
+  to { transform: scale(1); opacity: 0; }
+}
+@keyframes shimmerPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(200,162,74,0); }
+  50%      { box-shadow: 0 0 18px 4px rgba(200,162,74,.45); }
+}
+@keyframes floatUp {
+  0%   { opacity:0; transform:translateY(36px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+@keyframes goldSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes borderGlow {
+  0%,100% { border-color: rgba(200,162,74,.18); }
+  50%      { border-color: rgba(200,162,74,.55); }
+}
+
+/* ===== Scroll Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Logo shimmer ===== */
+.logo-emblem.shimmer-pulse {
+  animation: shimmerPulse .9s ease;
+}
+
+/* ===== Product card — gold glow on hover ===== */
+.product-card {
+  transition: background .2s, box-shadow .3s, transform .3s;
+}
+.product-card:hover {
+  box-shadow: 0 0 0 1px rgba(200,162,74,.5), 0 12px 40px rgba(200,162,74,.1);
+  transform: translateY(-4px);
+}
+
+/* ===== Badge hover ===== */
+.badge {
+  transition: border-color .3s, background .3s, transform .3s;
+}
+.badge:hover {
+  border-color: rgba(200,162,74,.5);
+  background: rgba(200,162,74,.05);
+  transform: translateX(6px);
+}
+
+/* ===== Cat btn / branch tab pulse border ===== */
+.cat-btn.active {
+  animation: borderGlow 2s ease infinite;
+}
+
+/* ===== Hero inner z-index ===== */
+.hero-inner { position: relative; z-index: 1; }
+
 /* ===== Variables ===== */
 :root {
   --gold:       #c8a24a;
