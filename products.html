@@ -249,6 +249,37 @@
     .filter-chip:hover { background: rgba(216,182,106,.2); }
     .filter-chip .x { font-size: .9rem; opacity: .7; }
 
+    /* ===== Category tree ===== */
+    .cat-group { margin-bottom: 2px; }
+    .cat-group-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; cursor: pointer;
+      color: var(--white); font-size: .88rem; font-weight: 500;
+      border-radius: 2px; border: 1px solid transparent;
+      transition: background .2s, color .2s;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .cat-group-header:hover { background: var(--dark-3); }
+    .cat-group-header.has-active {
+      color: var(--gold-light);
+      border-color: var(--border-2);
+      background: rgba(216,182,106,.05);
+    }
+    .cat-group-arrow {
+      font-size: 1.1rem; color: var(--gold);
+      transition: transform .22s;
+      flex-shrink: 0; line-height: 1;
+    }
+    .cat-group-header.open .cat-group-arrow { transform: rotate(90deg); }
+    .cat-group-name { flex: 1; }
+    .cat-group-body {
+      padding-left: 10px;
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .cat-group-body.open { max-height: 800px; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .catalog-layout { grid-template-columns: 1fr; }
@@ -267,7 +298,7 @@
       <a href="index.html" class="logo">
         <img src="images/logonew.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
         <a href="products.html" class="active"><span class="nav-en">Products</span><span class="nav-th">สินค้า</span></a>
@@ -296,7 +327,7 @@
         <aside class="filter-sidebar">
           <h3>
             กรองสินค้า
-            <button class="filter-reset" id="resetBtn">รีเซ็ต ×</button>
+            <button type="button" class="filter-reset" id="resetBtn">รีเซ็ต ×</button>
           </h3>
 
           <!-- ค้นหา -->
@@ -325,8 +356,8 @@
             <div class="range-wrap" id="rangeWrap">
               <div class="range-track"></div>
               <div class="range-fill" id="rangeFill"></div>
-              <input type="range" id="rangeMin" min="0" max="100000" value="0" step="100" />
-              <input type="range" id="rangeMax" min="0" max="100000" value="100000" step="100" />
+              <input type="range" id="rangeMin" min="0" max="100000" value="0" step="100" aria-label="ราคาต่ำสุด" />
+              <input type="range" id="rangeMax" min="0" max="100000" value="100000" step="100" aria-label="ราคาสูงสุด" />
             </div>
             <div class="price-display" id="priceDisplay">฿0 – ฿100,000</div>
           </div>
@@ -334,7 +365,7 @@
           <!-- เรียงลำดับ -->
           <div class="filter-block">
             <div class="filter-block-title">เรียงลำดับ</div>
-            <select class="sort-select" id="sortSelect">
+            <select class="sort-select" id="sortSelect" title="เรียงลำดับสินค้า" aria-label="เรียงลำดับสินค้า">
               <option value="name-asc">ชื่อ ก–ฮ</option>
               <option value="name-desc">ชื่อ ฮ–ก</option>
               <option value="price-asc">ราคา ต่ำ → สูง</option>
@@ -365,7 +396,7 @@
     <div class="container footer-body">
       <div>
         <div class="footer-brand-logo"><a href="index.html" class="logo"><img src="images/logonew.png" alt="Sang Udom LED Lighting" class="logo-img" /></a></div>
-        <p style="font-size:.82rem;color:var(--gray);margin-bottom:18px;">Sang Udom Lighting Centre Co., Ltd.</p>
+        <p class="footer-company-name">Sang Udom Lighting Centre Co., Ltd.</p>
         <div class="footer-info-row"><span class="fi-icon">📍</span><p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p></div>
         <div class="footer-info-row"><span class="fi-icon">📞</span><p><a href="tel:029013000">02-901-3000</a></p></div>
         <div class="footer-info-row"><span class="fi-icon">📠</span><p>02-901-3960-62</p></div>
@@ -392,8 +423,8 @@
       </div>
       <div>
         <div class="footer-col-title">เวลาทำการ</div>
-        <p style="color:var(--gray);font-size:.85rem;line-height:1.9">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
-        <a href="about.html#branches" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
+        <p class="footer-hours">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
+        <a href="about.html#branches" class="footer-all-branches">ดูสาขาทั้งหมด →</a>
       </div>
     </div>
     <div class="footer-bottom">

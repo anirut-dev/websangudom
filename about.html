@@ -252,7 +252,7 @@
       <a href="index.html" class="logo">
         <img src="images/logonew.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
         <a href="products.html"><span class="nav-en">Products</span><span class="nav-th">สินค้า</span></a>
@@ -274,7 +274,7 @@
           <h1>แสงสว่างที่<em>ดีที่สุด</em><br />เริ่มจากที่นี่</h1>
           <p>กว่า 3 ทศวรรษ เราคัดสรรโคมไฟและระบบแสงสว่างคุณภาพสูง
           เพื่อทุกพื้นที่อยู่อาศัย พาณิชย์ และโครงการขนาดใหญ่ทั่วประเทศไทย</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="hero-btn-group">
             <a href="products.html" class="btn btn-primary"><span>ชมสินค้า</span></a>
             <a href="branches.html" class="btn btn-outline">ค้นหาสาขา</a>
           </div>
@@ -410,7 +410,7 @@
         <h2>เส้นทางของเรา</h2>
         <span class="gold-line"></span>
       </div>
-      <div style="max-width:680px;margin:0 auto">
+      <div class="timeline-center">
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-year">ทศวรรษ 1990</div>
@@ -463,13 +463,13 @@
 
   <!-- ===== CTA ===== -->
   <section class="about-cta">
-    <div class="container" style="position:relative;z-index:1">
-      <p class="label" style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px">Ready to Start</p>
+    <div class="container cta-inner">
+      <p class="label">Ready to Start</p>
       <h2>สนใจผลิตภัณฑ์หรือต้องการคำปรึกษา?</h2>
       <p>ทีมผู้เชี่ยวชาญของเราพร้อมให้บริการ ทั้งออนไลน์และที่สาขาใกล้บ้านคุณ</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <div class="about-cta-btn-group">
         <a href="products.html" class="btn btn-primary"><span>ชมแคตตาล็อก</span></a>
-        <a href="branches.html#contact" class="btn btn-outline" style="border-color:rgba(250,247,240,.3);color:#faf7f0">ติดต่อเรา</a>
+        <a href="branches.html#contact" class="btn btn-outline btn-outline-light">ติดต่อเรา</a>
       </div>
     </div>
   </section>
@@ -479,7 +479,7 @@
     <div class="container footer-body">
       <div>
         <div class="footer-brand-logo"><a href="index.html" class="logo"><img src="images/logonew.png" alt="Sang Udom" class="logo-img" /></a></div>
-        <p style="font-size:.82rem;color:var(--gray);margin-bottom:18px;">Sang Udom Lighting Centre Co., Ltd.</p>
+        <p class="footer-company-name">Sang Udom Lighting Centre Co., Ltd.</p>
         <div class="footer-info-row"><span class="fi-icon">📍</span><p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p></div>
         <div class="footer-info-row"><span class="fi-icon">📞</span><p><a href="tel:029013000">02-901-3000</a></p></div>
         <div class="footer-info-row"><span class="fi-icon">📠</span><p>02-901-3960-62</p></div>
@@ -507,8 +507,8 @@
       </div>
       <div>
         <div class="footer-col-title">เวลาทำการ</div>
-        <p style="color:var(--gray);font-size:.85rem;line-height:1.9">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
-        <a href="branches.html" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
+        <p class="footer-hours">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
+        <a href="branches.html" class="footer-all-branches">ดูสาขาทั้งหมด →</a>
       </div>
     </div>
     <div class="footer-bottom">

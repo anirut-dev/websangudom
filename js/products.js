@@ -52,27 +52,96 @@ onSnapshot(q, (snap) => {
   applyFilters();
 });
 
-// ── สร้าง checkbox หมวดหมู่ ──
+// ── สร้าง category tree ──
 function buildCatList() {
-  const cats = typeof CATEGORIES !== "undefined" ? CATEGORIES : [...new Set(allProducts.map(p => p.category))];
-  catListEl.innerHTML = cats.map(c => {
-    const count   = allProducts.filter(p => p.category === c).length;
-    const checked = filters.categories.has(c);
-    return `
-      <div class="cat-item ${checked ? "active" : ""}" data-cat="${c}">
-        <input type="checkbox" id="cat_${c}" ${checked ? "checked" : ""} />
-        <label for="cat_${c}">${c}</label>
+  const tree = typeof CATEGORY_TREE !== "undefined" ? CATEGORY_TREE : null;
+
+  if (!tree) {
+    // fallback: flat list
+    const cats = [...new Set(allProducts.map(p => p.category))].sort();
+    catListEl.innerHTML = cats.map(c => {
+      const count   = allProducts.filter(p => p.category === c).length;
+      const checked = filters.categories.has(c);
+      return `<div class="cat-item ${checked ? "active" : ""}" data-cat="${c}">
+        <input type="checkbox" ${checked ? "checked" : ""} />
+        <label>${c}</label>
         <span class="cat-count">${count}</span>
       </div>`;
+    }).join("");
+    catListEl.querySelectorAll(".cat-item").forEach(item => {
+      item.addEventListener("click", () => {
+        const cat = item.dataset.cat;
+        if (filters.categories.has(cat)) filters.categories.delete(cat);
+        else filters.categories.add(cat);
+        buildCatList(); applyFilters();
+      });
+    });
+    return;
+  }
+
+  catListEl.innerHTML = tree.map(group => {
+    if (group.subs.length === 0) {
+      // Leaf category (no subs) — acts as direct filter
+      const count   = allProducts.filter(p => p.category === group.main).length;
+      const checked = filters.categories.has(group.main);
+      return `<div class="cat-item ${checked ? "active" : ""}" data-cat="${group.main}">
+        <input type="checkbox" ${checked ? "checked" : ""} />
+        <label>${group.main}</label>
+        <span class="cat-count">${count}</span>
+      </div>`;
+    }
+
+    const groupCount  = allProducts.filter(p => group.subs.includes(p.category)).length;
+    const someActive  = group.subs.some(s => filters.categories.has(s));
+
+    const subsHtml = group.subs.map(sub => {
+      const count   = allProducts.filter(p => p.category === sub).length;
+      const checked = filters.categories.has(sub);
+      return `<div class="cat-item ${checked ? "active" : ""}" data-sub="${sub}">
+        <input type="checkbox" ${checked ? "checked" : ""} />
+        <label>${sub}</label>
+        <span class="cat-count">${count}</span>
+      </div>`;
+    }).join("");
+
+    return `<div class="cat-group">
+      <div class="cat-group-header ${someActive ? "has-active" : ""} ${someActive ? "open" : ""}">
+        <span class="cat-group-arrow">›</span>
+        <span class="cat-group-name">${group.main}</span>
+        <span class="cat-count">${groupCount}</span>
+      </div>
+      <div class="cat-group-body ${someActive ? "open" : ""}">
+        ${subsHtml}
+      </div>
+    </div>`;
   }).join("");
 
-  catListEl.querySelectorAll(".cat-item").forEach(item => {
-    item.addEventListener("click", (e) => {
+  // Leaf items
+  catListEl.querySelectorAll(".cat-item[data-cat]").forEach(item => {
+    item.addEventListener("click", () => {
       const cat = item.dataset.cat;
       if (filters.categories.has(cat)) filters.categories.delete(cat);
       else filters.categories.add(cat);
-      buildCatList();
-      applyFilters();
+      buildCatList(); applyFilters();
+    });
+  });
+
+  // Sub items
+  catListEl.querySelectorAll(".cat-item[data-sub]").forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const sub = item.dataset.sub;
+      if (filters.categories.has(sub)) filters.categories.delete(sub);
+      else filters.categories.add(sub);
+      buildCatList(); applyFilters();
+    });
+  });
+
+  // Group header — expand/collapse
+  catListEl.querySelectorAll(".cat-group-header").forEach(header => {
+    header.addEventListener("click", () => {
+      header.classList.toggle("open");
+      header.nextElementSibling.classList.toggle("open");
     });
   });
 }
