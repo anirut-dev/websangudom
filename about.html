@@ -4,15 +4,249 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>เกี่ยวกับเรา | แสงอุดม ไลท์ติ้ง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* tab โค้งมนสไตล์ pill เฉพาะหน้านี้ */
-    .branch-tab { border-radius: 40px; }
-    .branches-section { background: var(--dark-2); }
+    /* ===== Hero ===== */
+    .about-hero {
+      min-height: 420px;
+      display: flex; align-items: center;
+      background: var(--dark);
+      position: relative; overflow: hidden;
+      padding: 120px 0 80px;
+    }
+    .about-hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(216,182,106,.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .about-hero .label { font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-light); margin-bottom:14px; }
+    .about-hero h1 { font-size:clamp(2.2rem,4vw,3.2rem); color:var(--white); font-weight:600; line-height:1.3; margin-bottom:20px; }
+    .about-hero p { color:var(--gray); line-height:1.9; margin-bottom:28px; }
+    .about-hero-img {
+      position: relative;
+    }
+    .about-hero-img img {
+      width: 100%; border-radius: var(--radius);
+      border: 1px solid var(--border-2);
+      filter: brightness(.85) saturate(.9);
+      display: block;
+    }
+    .about-hero-img::before {
+      content: "";
+      position: absolute; inset: -12px -12px 12px 12px;
+      border: 1px solid rgba(216,182,106,.2);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .about-year-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 18px 24px;
+      border-radius: var(--radius);
+      font-weight: 700; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+    .about-year-badge .num { font-size: 2rem; line-height: 1; display: block; }
+    .about-year-badge .txt { font-size: .72rem; letter-spacing: .1em; }
+
+    /* ===== Story section ===== */
+    .story-section {
+      padding: 80px 0;
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      margin-top: 48px;
+    }
+    .story-text p {
+      color: var(--gray-light); line-height: 2; margin-bottom: 16px; font-size: .95rem;
+    }
+    .story-text p strong { color: var(--gold-light); }
+    .story-highlights {
+      display: flex; flex-direction: column; gap: 16px;
+      margin-top: 28px;
+    }
+    .story-highlight {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 18px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color .3s;
+    }
+    .story-highlight:hover { border-color: var(--border-2); }
+    .story-highlight .ico { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .story-highlight h4 { color: var(--white); font-size: .9rem; margin-bottom: 4px; }
+    .story-highlight p { color: var(--gray); font-size: .82rem; line-height: 1.6; margin: 0; }
+    .story-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .story-img img { width: 100%; display: block; filter: brightness(.85); }
+
+    /* ===== Vision / Mission ===== */
+    .vision-section {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .vision-card {
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      position: relative; overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+    .vision-card:hover { border-color: rgba(216,182,106,.4); transform: translateY(-4px); }
+    .vision-card::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .vision-card-label {
+      font-size: .65rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .vision-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 14px; }
+    .vision-card p { color: var(--gray-light); line-height: 1.9; font-size: .9rem; }
+
+    /* ===== Values ===== */
+    .values-section {
+      padding: 80px 0;
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 48px;
+    }
+    .value-card {
+      background: var(--dark-card);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background .3s;
+      position: relative;
+    }
+    .value-card:hover { background: var(--dark-3); }
+    .value-card::after {
+      content: ""; position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; background: var(--gold);
+      transition: width .4s;
+    }
+    .value-card:hover::after { width: 100%; }
+    .value-icon { font-size: 2.2rem; margin-bottom: 18px; display: block; }
+    .value-card h3 { color: var(--white); font-size: .9rem; letter-spacing: .06em; margin-bottom: 10px; }
+    .value-card p { color: var(--gray); font-size: .82rem; line-height: 1.8; }
+
+    /* ===== Timeline ===== */
+    .timeline-section {
+      padding: 80px 0;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+    .timeline {
+      position: relative;
+      margin-top: 56px;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--border-2);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 40px 32px;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute; left: -4px; top: 6px;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(216,182,106,.4);
+    }
+    .timeline-year {
+      font-size: .72rem; letter-spacing: .2em; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .timeline-item h4 { color: var(--white); font-size: .95rem; margin-bottom: 6px; }
+    .timeline-item p { color: var(--gray); font-size: .85rem; line-height: 1.7; }
+
+    /* ===== Stats ===== */
+    .about-stats {
+      padding: 64px 0;
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-stats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+    }
+    .about-stat { background: var(--dark-card); padding:36px 20px; text-align:center; }
+    .about-stat .num { font-size:2.8rem; font-weight:700; color:var(--gold); line-height:1; display:block; margin-bottom:8px; }
+    .about-stat .lbl { color:var(--gray); font-size:.82rem; letter-spacing:.1em; }
+
+    /* ===== CTA ===== */
+    .about-cta {
+      padding: 80px 0; text-align: center;
+      background: linear-gradient(135deg,#14110d 0%,#1f1a12 100%);
+      position: relative; overflow: hidden;
+    }
+    .about-cta::before {
+      content: ""; position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:600px; height:600px;
+      background: radial-gradient(circle, rgba(216,182,106,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-cta h2 { color:#faf7f0; font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:16px; position:relative; }
+    .about-cta p { color:#cfc7ba; max-width:480px; margin:0 auto 32px; position:relative; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 860px) {
+      .about-hero-inner, .story-grid, .vision-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-hero-img { order: -1; }
+      .values-grid { grid-template-columns: repeat(2,1fr); }
+      .about-stats-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .about-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
@@ -20,91 +254,222 @@
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
       <nav class="main-nav" id="mainNav">
-        <a href="index.html">หน้าแรก</a>
-        <a href="index.html#catalog">สินค้า</a>
-        <a href="about.html" class="active">เกี่ยวกับเรา</a>
-        <a href="#branches">สาขา</a>
-        <a href="#contact">ติดต่อ</a>
-        <a href="admin.html" class="nav-admin">เข้าสู่ระบบ</a>
+        <a href="index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
+        <a href="products.html"><span class="nav-en">Products</span><span class="nav-th">สินค้า</span></a>
+        <a href="gallery.html"><span class="nav-en">Portfolio</span><span class="nav-th">ผลงาน</span></a>
+        <a href="about.html" class="active"><span class="nav-en">About</span><span class="nav-th">เกี่ยวกับเรา</span></a>
+        <a href="branches.html"><span class="nav-en">Branches</span><span class="nav-th">สาขา</span></a>
+        <a href="branches.html#contact"><span class="nav-en">Contact</span><span class="nav-th">ติดต่อ</span></a>
+        <a href="admin.html" class="nav-admin">Admin</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="page-hero">
+  <!-- ===== Hero ===== -->
+  <section class="about-hero">
     <div class="container">
-      <h1>เกี่ยวกับเรา</h1>
-      <p>แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — โชว์รูมโคมไฟครบวงจร 8 สาขาทั่วประเทศ</p>
-    </div>
-  </section>
-
-  <!-- ความเป็นมา -->
-  <section class="content-section">
-    <div class="container">
-      <h2>ความเป็นมา</h2>
-      <p>
-        บริษัท แสงอุดม ไลท์ติ้ง เซ็นเตอร์ จำกัด ก่อตั้งขึ้นด้วยความมุ่งมั่นที่จะเป็นศูนย์รวมโคมไฟ
-        และอุปกรณ์แสงสว่างที่ครบวงจรที่สุดในประเทศไทย ด้วยพื้นที่โชว์รูมขนาดใหญ่
-        และสินค้าหลากหลายสไตล์ ทั้งโคมไฟภายใน ภายนอก แชนเดอเลียร์คริสตัล หลอด LED
-        และอุปกรณ์เสริมครบวงจร
-      </p>
-      <p>
-        เราให้บริการลูกค้าทั้งรายย่อยและโครงการ ด้วยทีมงานผู้เชี่ยวชาญที่พร้อมให้คำปรึกษา
-        ออกแบบระบบแสงสว่าง และติดตั้งอย่างมืออาชีพ พร้อมบริการพิเศษ
-        <strong>ออกแบบฟรี · จัดส่งฟรี · ติดตั้งฟรี</strong> สำหรับพื้นที่ที่กำหนด
-      </p>
-    </div>
-  </section>
-
-  <!-- สาขา -->
-  <section class="content-section branches-section" id="branches">
-    <div class="container">
-      <h2>สาขาทั่วประเทศ</h2>
-
-      <!-- ปุ่มเลือกสาขา -->
-      <div class="branch-tabs" id="branchTabs"></div>
-
-      <!-- Panel แต่ละสาขา -->
-      <div id="branchPanels"></div>
-    </div>
-  </section>
-
-  <!-- ติดต่อ -->
-  <section class="content-section contact-section" id="contact">
-    <div class="container">
-      <h2>ช่องทางติดต่อ</h2>
-      <div class="contact-cards">
-        <div class="contact-card">
-          <div class="ico">📞</div>
-          <h3>โทรศัพท์</h3>
-          <a href="tel:029013000">02-901-3000</a>
-        </div>
-        <div class="contact-card">
-          <div class="ico">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="10" fill="#06C755"/>
-              <path d="M20 8C13.373 8 8 12.701 8 18.5c0 3.476 1.992 6.545 5.09 8.522-.224.82-.817 2.972-.937 3.432-.15.567.207.56.437.408.18-.12 2.857-1.94 4.015-2.727.756.105 1.537.161 2.395.161 6.627 0 12-4.701 12-10.5C32 12.701 26.627 8 20 8z" fill="white"/>
-              <path d="M15.5 21h-1.75a.25.25 0 01-.25-.25v-5.5a.25.25 0 01.25-.25h1.75a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25zm9.75 0h-1.5a.25.25 0 01-.2-.1l-2.5-3.4V20.75a.25.25 0 01-.25.25H19.3a.25.25 0 01-.25-.25v-5.5a.25.25 0 01.25-.25h1.5c.08 0 .155.038.2.1l2.5 3.4V15.25a.25.25 0 01.25-.25h1.5a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25zm-5.75 0h-3a.25.25 0 01-.25-.25v-5.5a.25.25 0 01.25-.25H19.5a.25.25 0 010 .5H16.75v1.75H19a.25.25 0 010 .5h-2.25V20.25H19.5a.25.25 0 010 .5v.25zm-5.25-4h-1V20.5h1v-3.5z" fill="#06C755"/>
-            </svg>
+      <div class="about-hero-inner">
+        <div>
+          <p class="label">Since 1990 · Lighting Excellence</p>
+          <h1>แสงสว่างที่<em>ดีที่สุด</em><br />เริ่มจากที่นี่</h1>
+          <p>กว่า 3 ทศวรรษ เราคัดสรรโคมไฟและระบบแสงสว่างคุณภาพสูง
+          เพื่อทุกพื้นที่อยู่อาศัย พาณิชย์ และโครงการขนาดใหญ่ทั่วประเทศไทย</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="products.html" class="btn btn-primary"><span>ชมสินค้า</span></a>
+            <a href="branches.html" class="btn btn-outline">ค้นหาสาขา</a>
           </div>
-          <h3>LINE</h3>
-          <a href="https://line.me/ti/p/~Sangudom-sale" target="_blank">@Sangudom-sale</a>
         </div>
-        <div class="contact-card">
-          <div class="ico">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="10" fill="#1877F2"/>
-              <path d="M27 20c0-3.866-3.134-7-7-7s-7 3.134-7 7c0 3.494 2.56 6.39 5.906 6.92V22.08h-1.777V20h1.777v-1.54c0-1.754 1.045-2.724 2.644-2.724.766 0 1.567.137 1.567.137v1.722h-.882c-.87 0-1.14.54-1.14 1.094V20h1.94l-.31 2.08h-1.63V26.92C24.44 26.39 27 23.494 27 20z" fill="white"/>
-            </svg>
+        <div class="about-hero-img">
+          <img src="images/banner1.webp" alt="Sang Udom Showroom" />
+          <div class="about-year-badge">
+            <span class="num">30+</span>
+            <span class="txt">ปีแห่งประสบการณ์</span>
           </div>
-          <h3>Facebook</h3>
-          <a href="https://www.facebook.com/sangudomlighting" target="_blank">sangudomlighting</a>
         </div>
-        <div class="contact-card">
-          <div class="ico">🕐</div>
-          <h3>เวลาทำการ</h3>
-          <p>ทุกวัน 08:30 – 19:00</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Company Story ===== -->
+  <section class="story-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Our Story</p>
+        <h2>ความเป็นมาของเรา</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="story-grid">
+        <div class="story-text">
+          <p>
+            <strong>บริษัท แสงอุดม ไลท์ติ้ง เซ็นเตอร์ จำกัด</strong> ก่อตั้งขึ้นด้วยความมุ่งมั่นที่จะเป็น
+            ศูนย์รวมโคมไฟและอุปกรณ์แสงสว่างที่ครบวงจรที่สุดในประเทศไทย
+          </p>
+          <p>
+            เราเริ่มต้นจากโชว์รูมเล็กๆ ในจังหวัดปทุมธานี และค่อยๆ เติบโตขยายสาขาไปทั่วประเทศ
+            ทั้งภาคกลาง ภาคเหนือ และภาคอีสาน รวม <strong>8 สาขา</strong> ในปัจจุบัน
+          </p>
+          <p>
+            ด้วยสินค้ากว่า <strong>5,000 รายการ</strong> ครอบคลุมโคมไฟภายใน ภายนอก แชนเดอเลียร์คริสตัล
+            หลอด LED และอุปกรณ์เสริมครบวงจร เราพร้อมตอบสนองทุกความต้องการ
+            ทั้งลูกค้ารายย่อยและโครงการขนาดใหญ่
+          </p>
+          <div class="story-highlights">
+            <div class="story-highlight">
+              <span class="ico">🎨</span>
+              <div>
+                <h4>บริการออกแบบฟรี</h4>
+                <p>ทีมผู้เชี่ยวชาญด้านแสงสว่างพร้อมให้คำปรึกษาและออกแบบระบบไฟให้เหมาะกับพื้นที่ของคุณ</p>
+              </div>
+            </div>
+            <div class="story-highlight">
+              <span class="ico">🚚</span>
+              <div>
+                <h4>จัดส่งและติดตั้งฟรี</h4>
+                <p>บริการจัดส่งถึงสถานที่และติดตั้งโดยทีมช่างมืออาชีพ รับประกันผลงานทุกชิ้น</p>
+              </div>
+            </div>
+            <div class="story-highlight">
+              <span class="ico">✅</span>
+              <div>
+                <h4>สินค้ามาตรฐาน มอก. และ CE</h4>
+                <p>คัดสรรเฉพาะสินค้าที่ผ่านการรับรองมาตรฐานความปลอดภัย สินค้าแท้ 100%</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="story-img">
+          <img src="images/banner2.webp" alt="Sang Udom Lighting Centre" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Vision & Mission ===== -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Vision & Mission</p>
+        <h2>วิสัยทัศน์ & พันธกิจ</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="vision-grid">
+        <div class="vision-card">
+          <div class="vision-card-label">Vision · วิสัยทัศน์</div>
+          <h3>เป็นผู้นำด้านโคมไฟและแสงสว่างครบวงจรอันดับ 1 ของประเทศไทย</h3>
+          <p>มุ่งสู่การเป็นแบรนด์ที่ลูกค้าไว้วางใจมากที่สุด ด้วยสินค้าคุณภาพสูง บริการที่เป็นเลิศ
+          และนวัตกรรมที่ตอบสนองทุกความต้องการด้านแสงสว่างในยุคปัจจุบัน</p>
+        </div>
+        <div class="vision-card">
+          <div class="vision-card-label">Mission · พันธกิจ</div>
+          <h3>ส่งมอบแสงสว่างคุณภาพพร้อมบริการที่เหนือความคาดหมาย</h3>
+          <p>คัดสรรสินค้าที่ดีที่สุด ให้คำปรึกษาโดยผู้เชี่ยวชาญ และมอบประสบการณ์การซื้อที่สะดวกสบาย
+          ตั้งแต่การเลือกสินค้า การออกแบบ การจัดส่ง จนถึงการติดตั้ง</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Core Values ===== -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Core Values</p>
+        <h2>ค่านิยมองค์กร</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">💡</span>
+          <h3>คุณภาพเหนือสิ่งอื่น</h3>
+          <p>สินค้าทุกชิ้นผ่านการคัดสรรและตรวจสอบมาตรฐาน เพื่อความมั่นใจของลูกค้า</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🤝</span>
+          <h3>บริการด้วยใจ</h3>
+          <p>ทีมงานพร้อมให้คำปรึกษาและดูแลลูกค้าทุกขั้นตอน ด้วยความจริงใจ</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🔬</span>
+          <h3>นวัตกรรมต่อเนื่อง</h3>
+          <p>อัปเดตสินค้าและเทคโนโลยีใหม่อยู่เสมอ เพื่อตอบสนองทุกเทรนด์การออกแบบ</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🌱</span>
+          <h3>ใส่ใจสิ่งแวดล้อม</h3>
+          <p>ส่งเสริมผลิตภัณฑ์ประหยัดพลังงาน LED และระบบไฟอัจฉริยะเพื่ออนาคตที่ยั่งยืน</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Timeline ===== -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Our Journey</p>
+        <h2>เส้นทางของเรา</h2>
+        <span class="gold-line"></span>
+      </div>
+      <div style="max-width:680px;margin:0 auto">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">ทศวรรษ 1990</div>
+            <h4>ก้าวแรกของแสงอุดม</h4>
+            <p>เปิดโชว์รูมแห่งแรกที่จังหวัดปทุมธานี ด้วยวิสัยทัศน์ที่มุ่งมั่นจะเป็นศูนย์รวมโคมไฟครบวงจร</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">ทศวรรษ 2000</div>
+            <h4>ขยายสาขาสู่ภูมิภาค</h4>
+            <p>เปิดสาขาใหม่ในภาคเหนือและภาคอีสาน เพื่อให้บริการลูกค้าทั่วประเทศได้อย่างครอบคลุม</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">ทศวรรษ 2010</div>
+            <h4>นำเทคโนโลยี LED มาใช้</h4>
+            <p>ริเริ่มนำสินค้า LED ประหยัดพลังงานมาจำหน่าย ตอบสนองความต้องการของตลาดยุคใหม่</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">ปัจจุบัน</div>
+            <h4>8 สาขา กว่า 5,000 รายการสินค้า</h4>
+            <p>ครอบคลุมทุกภูมิภาค พร้อมให้บริการลูกค้าทั้งรายย่อยและโครงการขนาดใหญ่ทั่วประเทศ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="about-stats">
+    <div class="container">
+      <div class="about-stats-grid">
+        <div class="about-stat">
+          <span class="num" data-count="30">0</span>
+          <span class="lbl">ปีแห่งประสบการณ์</span>
+        </div>
+        <div class="about-stat">
+          <span class="num" data-count="8">0</span>
+          <span class="lbl">สาขาทั่วประเทศ</span>
+        </div>
+        <div class="about-stat">
+          <span class="num" data-count="5000">0</span>
+          <span class="lbl">รายการสินค้า</span>
+        </div>
+        <div class="about-stat">
+          <span class="num" data-count="50000">0</span>
+          <span class="lbl">ลูกค้าที่ไว้วางใจ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="about-cta">
+    <div class="container" style="position:relative;z-index:1">
+      <p class="label" style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px">Ready to Start</p>
+      <h2>สนใจผลิตภัณฑ์หรือต้องการคำปรึกษา?</h2>
+      <p>ทีมผู้เชี่ยวชาญของเราพร้อมให้บริการ ทั้งออนไลน์และที่สาขาใกล้บ้านคุณ</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="products.html" class="btn btn-primary"><span>ชมแคตตาล็อก</span></a>
+        <a href="branches.html#contact" class="btn btn-outline" style="border-color:rgba(250,247,240,.3);color:#faf7f0">ติดต่อเรา</a>
       </div>
     </div>
   </section>
@@ -113,7 +478,7 @@
   <footer class="site-footer">
     <div class="container footer-body">
       <div>
-        <div class="footer-brand-logo"><a href="index.html" class="logo"><img src="images/logo.png" alt="Sang Udom LED Lighting" class="logo-img" /></a></div>
+        <div class="footer-brand-logo"><a href="index.html" class="logo"><img src="images/logo.png" alt="Sang Udom" class="logo-img" /></a></div>
         <p style="font-size:.82rem;color:var(--gray);margin-bottom:18px;">Sang Udom Lighting Centre Co., Ltd.</p>
         <div class="footer-info-row"><span class="fi-icon">📍</span><p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p></div>
         <div class="footer-info-row"><span class="fi-icon">📞</span><p><a href="tel:029013000">02-901-3000</a></p></div>
@@ -131,18 +496,19 @@
         </div>
       </div>
       <div>
-        <div class="footer-col-title">Customer Care</div>
+        <div class="footer-col-title">เมนู</div>
         <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Refund Policy</a>
-          <a href="#">Shipping Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="index.html">หน้าแรก</a>
+          <a href="products.html">สินค้า</a>
+          <a href="gallery.html">ผลงาน</a>
+          <a href="about.html">เกี่ยวกับเรา</a>
+          <a href="branches.html">สาขา & ติดต่อ</a>
         </div>
       </div>
       <div>
         <div class="footer-col-title">เวลาทำการ</div>
         <p style="color:var(--gray);font-size:.85rem;line-height:1.9">ทุกวัน 08:30 – 19:00 น.<br /><br />สาขาทั่วประเทศ 8 สาขา<br />ภาคกลาง · ภาคเหนือ · ภาคอีสาน</p>
-        <a href="#branches" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
+        <a href="branches.html" style="display:inline-block;margin-top:14px;font-size:.8rem;color:var(--gold);border-bottom:1px solid rgba(216,182,106,.4);">ดูสาขาทั้งหมด →</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -154,121 +520,6 @@
 
   <script src="js/animations.js"></script>
   <script>
-    // ===== ข้อมูลสาขา =====
-    const BRANCHES = [
-      {
-        id: "rangsit",
-        name: "สำนักงานใหญ่ (รังสิต)",
-        address: "14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120",
-        tel: "02-901-3000",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+เซ็นเตอร์+คลองหลวง+ปทุมธานี",
-      },
-      {
-        id: "nakhonpathom",
-        name: "นครปฐม",
-        address: "98/7-9 หมู่ 3 ต.ศีรษะทอง อ.นครชัยศรี จ.นครปฐม 73120",
-        tel: "083-099-2023",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+นครปฐม",
-      },
-      {
-        id: "angthong",
-        name: "อ่างทอง",
-        address: "39/4 หมู่ 4 ต.ศาลาแดง อ.เมืองอ่างทอง จ.อ่างทอง 14000",
-        tel: "02-901-3000",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+อ่างทอง",
-      },
-      {
-        id: "maerim",
-        name: "แม่ริม (เชียงใหม่)",
-        address: "34, 34/1 หมู่ 6 ต.แม่สา อ.แม่ริม จ.เชียงใหม่ 50180",
-        tel: "02-901-3000",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+แม่ริม+เชียงใหม่",
-      },
-      {
-        id: "uttaradit",
-        name: "อุตรดิตถ์",
-        address: "2/10-11 ถนนเจริญธรรม ต.ท่าอิฐ อ.เมืองอุตรดิตถ์ จ.อุตรดิตถ์ 53000",
-        tel: "095-320-9168",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+อุตรดิตถ์",
-      },
-      {
-        id: "nakhonphanom",
-        name: "นครพนม",
-        address: "381/6 ถนนนิตโย ต.ในเมือง อ.เมืองนครพนม จ.นครพนม 48000",
-        tel: "083-099-2512",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+นครพนม",
-      },
-      {
-        id: "korat",
-        name: "นครราชสีมา",
-        address: "104 หมู่ 2 ถนนมิตรภาพ ต.บ้านใหม่ อ.เมืองนครราชสีมา จ.นครราชสีมา 30000",
-        tel: "083-099-2507",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+นครราชสีมา",
-      },
-      {
-        id: "ubon",
-        name: "อุบลราชธานี",
-        address: "39-49 ถนนอุปราช ต.ในเมือง อ.เมืองอุบลราชธานี จ.อุบลราชธานี 34000",
-        tel: "083-099-2514",
-        hours: "ทุกวัน 08:30 – 19:00",
-        mapQ: "แสงอุดม+ไลท์ติ้ง+อุบลราชธานี",
-      },
-    ];
-
-    // สร้างปุ่มและ panel
-    const tabsEl = document.getElementById("branchTabs");
-    const panelsEl = document.getElementById("branchPanels");
-
-    BRANCHES.forEach((b, i) => {
-      // ปุ่ม
-      const tab = document.createElement("button");
-      tab.className = "branch-tab" + (i === 0 ? " active" : "");
-      tab.textContent = b.name;
-      tab.dataset.id = b.id;
-      tabsEl.appendChild(tab);
-
-      // panel
-      const mapSrc = `https://maps.google.com/maps?q=${b.mapQ}&output=embed&hl=th`;
-      const panel = document.createElement("div");
-      panel.className = "branch-panel" + (i === 0 ? " active" : "");
-      panel.id = "panel-" + b.id;
-      panel.innerHTML = `
-        <div class="branch-info-card">
-          <h3>${b.name}</h3>
-          <div class="info-row"><span class="ico">📍</span><p>${b.address}</p></div>
-          <div class="info-row"><span class="ico">📞</span><p><a href="tel:${b.tel.replace(/-/g,'')}">${b.tel}</a></p></div>
-          <div class="info-row"><span class="ico">🕐</span><p>${b.hours}</p></div>
-          <div class="info-row" style="margin-top:16px">
-            <a href="https://www.google.com/maps/search/${b.mapQ}" target="_blank"
-               class="btn btn-primary" style="font-size:.9rem;padding:10px 20px">
-              เปิดใน Google Maps
-            </a>
-          </div>
-        </div>
-        <div class="branch-map">
-          <iframe src="${mapSrc}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>`;
-      panelsEl.appendChild(panel);
-    });
-
-    // เปลี่ยนสาขา
-    tabsEl.addEventListener("click", (e) => {
-      const btn = e.target.closest(".branch-tab");
-      if (!btn) return;
-      document.querySelectorAll(".branch-tab").forEach(t => t.classList.remove("active"));
-      document.querySelectorAll(".branch-panel").forEach(p => p.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById("panel-" + btn.dataset.id).classList.add("active");
-    });
-
-    // เมนูมือถือ
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
     if (t) t.addEventListener("click", () => n.classList.toggle("open"));
