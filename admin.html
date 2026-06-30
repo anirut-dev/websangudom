@@ -86,7 +86,12 @@
           <input type="number" id="f_price" />
         </div>
         <div class="field">
-          <label for="f_emoji">ไอคอน/อิโมจิ (รูปชั่วคราว)</label>
+          <label for="f_image">รูปภาพสินค้า</label>
+          <img id="f_image_preview" class="form-image-preview" hidden />
+          <input type="file" id="f_image" accept="image/*" />
+        </div>
+        <div class="field">
+          <label for="f_emoji">ไอคอน/อิโมจิ (ใช้เมื่อยังไม่มีรูป)</label>
           <input type="text" id="f_emoji" placeholder="💡" />
         </div>
         <div class="field">

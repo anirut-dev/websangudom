@@ -1,13 +1,18 @@
 // ===== หน้าจัดการสินค้า (admin.html) =====
 // เวอร์ชัน Firebase: ใช้ Firestore เก็บข้อมูล + Firebase Auth login
 
-import { db, auth } from "./firebase-config.js";
+import { db, auth, storage } from "./firebase-config.js";
 import {
   collection, getDocs, addDoc, updateDoc, deleteDoc, doc, onSnapshot, orderBy, query
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+import {
+  ref, uploadBytes, getDownloadURL
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js";
+
+const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
 
 // --- Elements ---
 const loginView  = document.getElementById("loginView");
@@ -106,8 +111,28 @@ function openForm(id) {
   document.getElementById("f_price").value    = p ? p.price    : "";
   document.getElementById("f_emoji").value    = p ? p.emoji    : "💡";
   document.getElementById("f_desc").value     = p ? p.desc     : "";
+
+  const imageInput   = document.getElementById("f_image");
+  const imagePreview = document.getElementById("f_image_preview");
+  imageInput.value = "";
+  if (p && p.image) {
+    imagePreview.src    = p.image;
+    imagePreview.hidden = false;
+  } else {
+    imagePreview.src    = "";
+    imagePreview.hidden = true;
+  }
+
   formOverlay.classList.add("open");
 }
+
+document.getElementById("f_image").addEventListener("change", () => {
+  const file    = document.getElementById("f_image").files[0];
+  const preview = document.getElementById("f_image_preview");
+  if (!file) return;
+  preview.src    = URL.createObjectURL(file);
+  preview.hidden = false;
+});
 
 function closeForm() { formOverlay.classList.remove("open"); }
 
@@ -120,16 +145,36 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const price = document.getElementById("f_price").value;
   if (!name || !price) { alert("กรุณากรอกชื่อสินค้าและราคา"); return; }
 
+  const file = document.getElementById("f_image").files[0];
+  if (file && file.size > MAX_IMAGE_BYTES) {
+    alert("รูปภาพใหญ่เกินไป (จำกัด 5MB)");
+    return;
+  }
+
+  const existing = editingId ? products.find(x => x.id === editingId) : null;
   const data = {
     name,
     category: document.getElementById("f_category").value,
     price:    Number(price),
     emoji:    document.getElementById("f_emoji").value || "💡",
-    image:    "",
+    image:    existing ? (existing.image || "") : "",
     desc:     document.getElementById("f_desc").value.trim(),
   };
 
+  const saveBtn = document.getElementById("saveBtn");
+  const originalLabel = saveBtn.textContent;
+  saveBtn.disabled = true;
+
   try {
+    if (file) {
+      saveBtn.textContent = "กำลังอัปโหลดรูป...";
+      const path = `products/${Date.now()}_${file.name}`;
+      const fileRef = ref(storage, path);
+      await uploadBytes(fileRef, file);
+      data.image = await getDownloadURL(fileRef);
+    }
+
+    saveBtn.textContent = "กำลังบันทึก...";
     if (editingId) {
       await updateDoc(doc(db, "products", editingId), data);
     } else {
@@ -138,6 +183,9 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     closeForm();
   } catch (e) {
     alert("บันทึกไม่สำเร็จ: " + e.message);
+  } finally {
+    saveBtn.disabled = false;
+    saveBtn.textContent = originalLabel;
   }
 });
 

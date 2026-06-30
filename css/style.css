@@ -636,6 +636,12 @@ img { display: block; max-width: 100%; }
 }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
 .field select option { background: var(--dark-3); }
+.form-image-preview {
+  display: block; width: 100%; max-height: 160px;
+  object-fit: cover; border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.btn-primary:disabled, .btn-primary[disabled] { opacity: .6; cursor: not-allowed; }
 
 .btn-full { width: 100%; }
 .btn-outline {
