@@ -45,6 +45,8 @@ const CATEGORY_TREE = [
   { main: "Solar cell", subs: [] },
 ];
 
+const CATEGORIES = CATEGORY_TREE.flatMap(g => g.subs.length ? g.subs : [g.main]);
+
 const SAMPLE_PRODUCTS = [
   { id: "p001", name: "โคมไฟผนังภายนอก ทรงโมเดิร์น", category: "Wall Lamp โคมไฟผนัง", price: 890, emoji: "🏮", image: "images/test-a-1.JPG", desc: "โคมไฟผนังกันน้ำ IP65 ดีไซน์เรียบหรู เหมาะกับหน้าบ้าน รั้ว ทางเดิน" },
   { id: "p002", name: "โคมไฟสนามหญ้า LED", category: "Garden Lamp โคมไฟสนาม", price: 650, emoji: "🌿", image: "images/test-a-1.JPG", desc: "เสาไฟสนามสูง 60 ซม. แสงวอร์มไวท์ ทนแดดทนฝน" },
