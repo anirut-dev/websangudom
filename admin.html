@@ -10,15 +10,15 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="images/logonew.png" alt="Sang Udom LED Lighting" class="logo-img" />
+        <img src="images/logo-nav.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
       <nav class="main-nav">
         <a href="index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
         <a href="about.html"><span class="nav-en">About</span><span class="nav-th">เกี่ยวกับเรา</span></a>
       </nav>
-      <div id="headerUser" style="display:none; align-items:center; gap:12px; margin-left:auto;">
-        <span id="headerEmail" style="font-size:.85rem; color:var(--gold); font-weight:600;"></span>
-        <button id="headerLogoutBtn" class="btn btn-outline" style="padding:6px 14px; font-size:.82rem;">ออกจากระบบ</button>
+      <div id="headerUser" class="admin-header-user">
+        <span id="headerEmail" class="admin-header-email"></span>
+        <button type="button" id="headerLogoutBtn" class="btn btn-outline admin-logout-btn">ออกจากระบบ</button>
       </div>
     </div>
   </header>
@@ -30,15 +30,15 @@
       <p class="hint">สำหรับเจ้าของร้าน/พนักงานเท่านั้น</p>
       <div id="loginAlert"></div>
       <div class="field">
-        <label>ชื่อผู้ใช้</label>
+        <label for="username">ชื่อผู้ใช้</label>
         <input type="text" id="username" placeholder="admin" />
       </div>
       <div class="field">
-        <label>รหัสผ่าน</label>
-        <input type="password" id="password" placeholder="••••••" />
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" id="password" placeholder="••••••" autocomplete="current-password" />
       </div>
       <button class="btn btn-primary btn-full" id="loginBtn">เข้าสู่ระบบ</button>
-      <div class="alert alert-info" style="margin-top:18px">
+      <div class="alert alert-info login-hint">
         ใช้อีเมลและรหัสผ่านที่สร้างไว้ใน Firebase Authentication<br />
         (ยังไม่มีบัญชี? สร้างได้ที่ Firebase Console &gt; Authentication &gt; Users)
       </div>
@@ -69,31 +69,31 @@
 
   <!-- ฟอร์มเพิ่ม/แก้ไขสินค้า (Modal) -->
   <div class="modal-overlay" id="formOverlay">
-    <div class="modal" style="grid-template-columns:1fr; max-width:480px">
+    <div class="modal modal-narrow">
       <div class="modal-info">
-        <button class="modal-close" id="formClose">×</button>
+        <button type="button" class="modal-close" id="formClose">×</button>
         <h2 id="formTitle">เพิ่มสินค้า</h2>
         <div class="field">
-          <label>ชื่อสินค้า</label>
+          <label for="f_name">ชื่อสินค้า</label>
           <input type="text" id="f_name" />
         </div>
         <div class="field">
-          <label>หมวดหมู่</label>
+          <label for="f_category">หมวดหมู่</label>
           <select id="f_category"></select>
         </div>
         <div class="field">
-          <label>ราคา (บาท)</label>
+          <label for="f_price">ราคา (บาท)</label>
           <input type="number" id="f_price" />
         </div>
         <div class="field">
-          <label>ไอคอน/อิโมจิ (รูปชั่วคราว)</label>
+          <label for="f_emoji">ไอคอน/อิโมจิ (รูปชั่วคราว)</label>
           <input type="text" id="f_emoji" placeholder="💡" />
         </div>
         <div class="field">
-          <label>รายละเอียด</label>
+          <label for="f_desc">รายละเอียด</label>
           <textarea id="f_desc" rows="3"></textarea>
         </div>
-        <button class="btn btn-primary btn-full" id="saveBtn">บันทึก</button>
+        <button type="button" class="btn btn-primary btn-full" id="saveBtn">บันทึก</button>
       </div>
     </div>
   </div>

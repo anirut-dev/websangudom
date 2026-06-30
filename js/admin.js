@@ -33,13 +33,13 @@ onAuthStateChanged(auth, (user) => {
     loginView.hidden = true;
     adminView.hidden = false;
     // แสดงชื่อ email ที่ header
-    if (headerUser)  headerUser.style.display  = "flex";
+    if (headerUser)  headerUser.classList.add("show");
     if (headerEmail) headerEmail.textContent   = user.email;
     listenProducts();
   } else {
     loginView.hidden = false;
     adminView.hidden = true;
-    if (headerUser) headerUser.style.display = "none";
+    if (headerUser) headerUser.classList.remove("show");
   }
 });
 
