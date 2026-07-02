@@ -34,7 +34,7 @@ const resetBtn     = document.getElementById("resetBtn");
 const q = query(collection(db, "products"), orderBy("name"));
 onSnapshot(q, (snap) => {
   allProducts = snap.empty
-    ? (typeof SAMPLE_PRODUCTS !== "undefined" ? SAMPLE_PRODUCTS : [])
+    ? []
     : snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
   // ตั้ง price max จากข้อมูลจริง
