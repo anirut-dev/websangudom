@@ -54,9 +54,7 @@
 }
 
 /* ===== Cat btn / branch tab pulse border ===== */
-.cat-btn.active {
-  animation: borderGlow 2s ease infinite;
-}
+/* borderGlow infinite removed — static gold border is cleaner and less CPU */
 
 /* ===== Hero inner z-index ===== */
 .hero-inner { position: relative; z-index: 1; }
