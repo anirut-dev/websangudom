@@ -1,18 +1,13 @@
 // ===== หน้าจัดการสินค้า (admin.html) =====
 // เวอร์ชัน Firebase: ใช้ Firestore เก็บข้อมูล + Firebase Auth login
 
-import { db, auth, storage } from "./firebase-config.js";
+import { db, auth } from "./firebase-config.js";
 import {
   collection, getDocs, addDoc, updateDoc, deleteDoc, doc, onSnapshot, orderBy, query
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
-import {
-  ref, uploadBytes, getDownloadURL
-} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-storage.js";
-
-const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
 
 // --- Elements ---
 const loginView  = document.getElementById("loginView");
@@ -114,7 +109,7 @@ function openForm(id) {
 
   const imageInput   = document.getElementById("f_image");
   const imagePreview = document.getElementById("f_image_preview");
-  imageInput.value = "";
+  imageInput.value = p && p.image ? p.image : "";
   if (p && p.image) {
     imagePreview.src    = p.image;
     imagePreview.hidden = false;
@@ -126,11 +121,11 @@ function openForm(id) {
   formOverlay.classList.add("open");
 }
 
-document.getElementById("f_image").addEventListener("change", () => {
-  const file    = document.getElementById("f_image").files[0];
+document.getElementById("f_image").addEventListener("input", () => {
+  const path    = document.getElementById("f_image").value.trim();
   const preview = document.getElementById("f_image_preview");
-  if (!file) return;
-  preview.src    = URL.createObjectURL(file);
+  if (!path) { preview.hidden = true; return; }
+  preview.src    = path;
   preview.hidden = false;
 });
 
@@ -145,19 +140,12 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const price = document.getElementById("f_price").value;
   if (!name || !price) { alert("กรุณากรอกชื่อสินค้าและราคา"); return; }
 
-  const file = document.getElementById("f_image").files[0];
-  if (file && file.size > MAX_IMAGE_BYTES) {
-    alert("รูปภาพใหญ่เกินไป (จำกัด 5MB)");
-    return;
-  }
-
-  const existing = editingId ? products.find(x => x.id === editingId) : null;
   const data = {
     name,
     category: document.getElementById("f_category").value,
     price:    Number(price),
     emoji:    document.getElementById("f_emoji").value || "💡",
-    image:    existing ? (existing.image || "") : "",
+    image:    document.getElementById("f_image").value.trim(),
     desc:     document.getElementById("f_desc").value.trim(),
   };
 
@@ -166,14 +154,6 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   saveBtn.disabled = true;
 
   try {
-    if (file) {
-      saveBtn.textContent = "กำลังอัปโหลดรูป...";
-      const path = `products/${Date.now()}_${file.name}`;
-      const fileRef = ref(storage, path);
-      await uploadBytes(fileRef, file);
-      data.image = await getDownloadURL(fileRef);
-    }
-
     saveBtn.textContent = "กำลังบันทึก...";
     if (editingId) {
       await updateDoc(doc(db, "products", editingId), data);
