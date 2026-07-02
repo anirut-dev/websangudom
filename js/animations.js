@@ -107,36 +107,8 @@ function initRipple() {
   });
 }
 
-// ---- 5. Gold cursor trail (desktop only, uses transform for GPU compositing) ----
-function initCursorTrail() {
-  if (window.matchMedia("(pointer: coarse)").matches) return; // skip on touch/mobile
-  const dots = [];
-  const N = 8;
-  for (let i = 0; i < N; i++) {
-    const d = document.createElement("div");
-    d.style.cssText = `
-      position:fixed; pointer-events:none; z-index:9999; border-radius:50%;
-      width:${6 - i * 0.5}px; height:${6 - i * 0.5}px;
-      background:rgba(216,182,106,${0.55 - i * 0.06});
-      top:0; left:0;
-      will-change:transform;
-      mix-blend-mode:screen;
-    `;
-    document.body.appendChild(d);
-    dots.push({ el: d, x: 0, y: 0, delay: i * 30 + 30 });
-  }
-  let mx = 0, my = 0;
-  document.addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-  function update() {
-    dots.forEach(d => {
-      d.x += (mx - d.x) / (d.delay / 16 + 1);
-      d.y += (my - d.y) / (d.delay / 16 + 1);
-      d.el.style.transform = `translate(${d.x - d.el.offsetWidth / 2}px, ${d.y - d.el.offsetHeight / 2}px)`;
-    });
-    requestAnimationFrame(update);
-  }
-  update();
-}
+// ---- 5. Gold cursor trail — removed ----
+function initCursorTrail() {}
 
 // ---- 6. Magnetic hover on nav links ----
 function initMagneticNav() {
