@@ -61,7 +61,7 @@
 
     <table class="admin-table">
       <thead>
-        <tr><th>สินค้า</th><th>หมวดหมู่</th><th>ราคา</th><th>จัดการ</th></tr>
+        <tr><th>รหัส</th><th>สินค้า</th><th>หมวดหมู่</th><th>ราคา</th><th>จัดการ</th></tr>
       </thead>
       <tbody id="adminTableBody"></tbody>
     </table>
@@ -73,6 +73,10 @@
       <div class="modal-info">
         <button type="button" class="modal-close" id="formClose">×</button>
         <h2 id="formTitle">เพิ่มสินค้า</h2>
+        <div class="field">
+          <label for="f_sku">รหัสสินค้า (SKU)</label>
+          <input type="text" id="f_sku" placeholder="เช่น EXT-001, LED-023" />
+        </div>
         <div class="field">
           <label for="f_name">ชื่อสินค้า</label>
           <input type="text" id="f_name" />
@@ -86,9 +90,14 @@
           <input type="number" id="f_price" />
         </div>
         <div class="field">
-          <label for="f_image">รูปภาพสินค้า (path หรือ URL)</label>
+          <label for="f_image">รูปภาพสินค้า</label>
           <img id="f_image_preview" class="form-image-preview" hidden />
-          <input type="text" id="f_image" placeholder="images/ชื่อไฟล์.webp" />
+          <div class="image-input-row">
+            <input type="text" id="f_image" placeholder="images/products/exterior/gate-lamp/ชื่อไฟล์.webp" />
+            <button type="button" id="browseBtn" class="btn-browse">📁 เลือกรูป</button>
+          </div>
+          <input type="file" id="f_image_file" accept="image/*" hidden />
+          <p class="field-hint">เลือกไฟล์เพื่อ preview และดึงชื่อไฟล์ — จากนั้นเติม path โฟลเดอร์ด้านหน้าให้ครบ</p>
         </div>
         <div class="field">
           <label for="f_emoji">ไอคอน/อิโมจิ (ใช้เมื่อยังไม่มีรูป)</label>

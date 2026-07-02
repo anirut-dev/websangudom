@@ -641,6 +641,18 @@ img { display: block; max-width: 100%; }
 }
 .btn-primary:disabled, .btn-primary[disabled] { opacity: .6; cursor: not-allowed; }
 
+.image-input-row { display: flex; gap: 8px; }
+.image-input-row input { flex: 1; }
+.btn-browse {
+  padding: 12px 14px; background: transparent;
+  border: 1px solid var(--border-2); color: var(--gold);
+  cursor: pointer; font-size: .82rem; white-space: nowrap;
+  font-family: inherit; transition: background .2s, border-color .2s;
+  flex-shrink: 0;
+}
+.btn-browse:hover { background: rgba(216,182,106,.1); border-color: var(--gold); }
+.field-hint { font-size: .74rem; color: var(--gray); margin-top: 6px; }
+
 .btn-full { width: 100%; }
 .btn-outline {
   background: transparent; border: 1px solid var(--border);

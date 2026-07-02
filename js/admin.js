@@ -81,6 +81,7 @@ function renderTable() {
   }
   body.innerHTML = products.map(p => `
     <tr>
+      <td style="font-size:.8rem;color:var(--gray);font-family:monospace">${p.sku || "—"}</td>
       <td>${p.emoji || "💡"} ${p.name}</td>
       <td>${p.category}</td>
       <td>${formatPrice(p.price)}</td>
@@ -101,6 +102,7 @@ function openForm(id) {
   editingId = id || null;
   document.getElementById("formTitle").textContent = id ? "แก้ไขสินค้า" : "เพิ่มสินค้า";
   const p = id ? products.find(x => x.id === id) : null;
+  document.getElementById("f_sku").value       = p ? (p.sku || "") : "";
   document.getElementById("f_name").value     = p ? p.name     : "";
   document.getElementById("f_category").value = p ? p.category : CATEGORIES[0];
   document.getElementById("f_price").value    = p ? p.price    : "";
@@ -129,6 +131,28 @@ document.getElementById("f_image").addEventListener("input", () => {
   preview.hidden = false;
 });
 
+// --- Browse button ---
+document.getElementById("browseBtn").addEventListener("click", () => {
+  document.getElementById("f_image_file").click();
+});
+document.getElementById("f_image_file").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const preview  = document.getElementById("f_image_preview");
+  const pathInput = document.getElementById("f_image");
+  // แสดง preview ด้วย blob URL (local เท่านั้น)
+  preview.src    = URL.createObjectURL(file);
+  preview.hidden = false;
+  // ใส่ชื่อไฟล์ใน path field ถ้ายังว่างอยู่
+  if (!pathInput.value.trim()) {
+    pathInput.value = "images/products/" + file.name;
+  } else {
+    // แทนชื่อไฟล์ส่วนท้ายด้วยไฟล์ใหม่ คงโฟลเดอร์เดิมไว้
+    const folder = pathInput.value.trim().replace(/[^/]+$/, "");
+    pathInput.value = folder + file.name;
+  }
+});
+
 function closeForm() { formOverlay.classList.remove("open"); }
 
 document.getElementById("addBtn").addEventListener("click", () => openForm(null));
@@ -141,6 +165,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   if (!name || !price) { alert("กรุณากรอกชื่อสินค้าและราคา"); return; }
 
   const data = {
+    sku:      document.getElementById("f_sku").value.trim(),
     name,
     category: document.getElementById("f_category").value,
     price:    Number(price),
