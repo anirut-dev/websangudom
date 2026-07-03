@@ -292,6 +292,8 @@ function renderProducts(list) {
   grid.innerHTML = list.map(p => {
     const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
     const imgContent = p.image ? "" : (p.emoji || "💡");
+    const sku = (p.sku || "").replace(/"/g, "&quot;");
+    const nm  = (p.name || "").replace(/"/g, "&quot;");
     return `
     <article class="product-card" data-id="${p.id}">
       <div class="product-img" ${imgStyle}>${imgContent}</div>
@@ -299,6 +301,10 @@ function renderProducts(list) {
         <span class="product-cat">${p.category}</span>
         <h3 class="product-name">${p.name}</h3>
         <span class="product-price">${formatPrice(p.price)}</span>
+        <button type="button" class="btn-add-quote"
+          data-quote-add="${p.id}" data-quote-name="${nm}" data-quote-sku="${sku}">
+          ＋ ขอใบเสนอราคา
+        </button>
       </div>
     </article>`;
   }).join("");
@@ -320,6 +326,8 @@ function openModal(id, list) {
   }
   const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
   const imgContent = p.image ? "" : (p.emoji || "💡");
+  const sku = (p.sku || "").replace(/"/g, "&quot;");
+  const nm  = (p.name || "").replace(/"/g, "&quot;");
   overlay.innerHTML = `
     <div class="modal">
       <div class="modal-img" ${imgStyle}>${imgContent}</div>
@@ -329,6 +337,10 @@ function openModal(id, list) {
         <h2>${p.name}</h2>
         <div class="modal-price">${formatPrice(p.price)}</div>
         <p class="modal-desc">${p.desc || ""}</p>
+        <button type="button" class="btn-add-quote modal-add-quote"
+          data-quote-add="${p.id}" data-quote-name="${nm}" data-quote-sku="${sku}">
+          ＋ ขอใบเสนอราคาสินค้านี้
+        </button>
       </div>
     </div>`;
   overlay.classList.add("open");
