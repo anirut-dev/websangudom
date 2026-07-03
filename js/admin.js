@@ -14,11 +14,43 @@ const loginView  = document.getElementById("loginView");
 const adminView  = document.getElementById("adminView");
 const loginAlert = document.getElementById("loginAlert");
 const formOverlay = document.getElementById("formOverlay");
-const catSelect   = document.getElementById("f_category");
 
-// populate หมวดหมู่ (ดึงจาก data.js ที่โหลดก่อนหน้า)
-if (catSelect && typeof CATEGORIES !== "undefined") {
-  catSelect.innerHTML = CATEGORIES.map(c => `<option>${c}</option>`).join("");
+// --- Cascading category selectors ---
+const catMain    = document.getElementById("f_cat_main");
+const catSub     = document.getElementById("f_cat_sub");
+const catSubWrap = document.getElementById("f_cat_sub_wrap");
+
+function updateSubCat(selectedSub) {
+  const group = (typeof CATEGORY_TREE !== "undefined")
+    ? CATEGORY_TREE.find(g => g.main === catMain.value) : null;
+  if (!group || group.subs.length === 0) {
+    catSubWrap.hidden = true;
+    catSub.innerHTML = "";
+    return;
+  }
+  catSubWrap.hidden = false;
+  catSub.innerHTML = group.subs.map(s => `<option value="${s}">${s}</option>`).join("");
+  if (selectedSub) catSub.value = selectedSub;
+}
+
+function getCategoryValue() {
+  return (!catSubWrap.hidden && catSub.value) ? catSub.value : catMain.value;
+}
+
+function setCategoryValue(cat) {
+  if (typeof CATEGORY_TREE === "undefined") return;
+  const asMain = CATEGORY_TREE.find(g => g.main === cat);
+  if (asMain) { catMain.value = cat; updateSubCat(); return; }
+  for (const g of CATEGORY_TREE) {
+    if (g.subs.includes(cat)) { catMain.value = g.main; updateSubCat(cat); return; }
+  }
+  catMain.value = CATEGORY_TREE[0].main; updateSubCat();
+}
+
+if (catMain && typeof CATEGORY_TREE !== "undefined") {
+  catMain.innerHTML = CATEGORY_TREE.map(g => `<option value="${g.main}">${g.main}</option>`).join("");
+  catMain.addEventListener("change", () => updateSubCat());
+  updateSubCat();
 }
 
 // --- Header user info ---
@@ -104,7 +136,7 @@ function openForm(id) {
   const p = id ? products.find(x => x.id === id) : null;
   document.getElementById("f_sku").value       = p ? (p.sku || "") : "";
   document.getElementById("f_name").value     = p ? p.name     : "";
-  document.getElementById("f_category").value = p ? p.category : CATEGORIES[0];
+  setCategoryValue(p ? p.category : (typeof CATEGORY_TREE !== "undefined" ? CATEGORY_TREE[0].main : ""));
   document.getElementById("f_price").value    = p ? p.price    : "";
   document.getElementById("f_emoji").value    = p ? p.emoji    : "💡";
   document.getElementById("f_desc").value     = p ? p.desc     : "";
@@ -167,7 +199,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const data = {
     sku:      document.getElementById("f_sku").value.trim(),
     name,
-    category: document.getElementById("f_category").value,
+    category: getCategoryValue(),
     price:    Number(price),
     emoji:    document.getElementById("f_emoji").value || "💡",
     image:    document.getElementById("f_image").value.trim(),
