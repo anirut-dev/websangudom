@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>นำเข้าสินค้า (Migration) | แสงอุดม</title>
+  <style>
+    body { font-family: "Segoe UI", system-ui, sans-serif; background:#0e0d0b; color:#e8e2d5; max-width:760px; margin:0 auto; padding:32px 20px; line-height:1.6; }
+    h1 { color:#d8b66a; font-size:1.3rem; }
+    .box { background:#19150f; border:1px solid rgba(216,182,106,.2); padding:20px; margin:16px 0; border-radius:8px; }
+    label { display:block; font-size:.85rem; color:#8f846f; margin-bottom:6px; }
+    input { width:100%; padding:10px 12px; background:#201c16; border:1px solid rgba(216,182,106,.2); color:#fff; border-radius:4px; margin-bottom:14px; font-size:.95rem; }
+    button { padding:11px 22px; background:transparent; border:1px solid #d8b66a; color:#d8b66a; border-radius:4px; cursor:pointer; font-size:.9rem; font-family:inherit; }
+    button:hover:not(:disabled) { background:#d8b66a; color:#161310; }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    .btn-go { background:#06C755; border-color:#06C755; color:#fff; font-weight:700; }
+    .muted { color:#8f846f; font-size:.85rem; }
+    .ok { color:#7ac77a; } .err { color:#e07070; } .warn { color:#d8b66a; }
+    #log { background:#0a0908; border:1px solid rgba(216,182,106,.15); padding:14px; border-radius:6px; max-height:340px; overflow:auto; font-family:monospace; font-size:.8rem; white-space:pre-wrap; margin-top:14px; }
+    .bar { height:8px; background:#201c16; border-radius:4px; overflow:hidden; margin:10px 0; }
+    .bar > i { display:block; height:100%; background:#d8b66a; width:0; transition:width .2s; }
+    .hide { display:none; }
+    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <h1>🔄 นำเข้าสินค้าจากเว็บเก่า (Migration Tool)</h1>
+  <p class="muted">เครื่องมือชั่วคราวสำหรับนำเข้าสินค้าครั้งเดียว — ใช้เสร็จแล้วลบทิ้งได้</p>
+
+  <!-- Login -->
+  <div class="box" id="loginBox">
+    <h3 style="margin-top:0">เข้าสู่ระบบ (แอดมิน)</h3>
+    <p class="muted">ใช้อีเมล/รหัสผ่านเดียวกับหน้า Admin — ระบบเขียนข้อมูลได้ต่อเมื่อล็อกอินแล้ว</p>
+    <label>อีเมล</label>
+    <input type="email" id="email" autocomplete="username" />
+    <label>รหัสผ่าน</label>
+    <input type="password" id="password" autocomplete="current-password" />
+    <button id="loginBtn">เข้าสู่ระบบ</button>
+    <span id="loginMsg" class="err"></span>
+  </div>
+
+  <!-- Import -->
+  <div class="box hide" id="importBox">
+    <div class="row" style="justify-content:space-between">
+      <span class="ok">✓ ล็อกอินแล้ว: <b id="who"></b></span>
+      <button id="logoutBtn" style="padding:6px 14px;font-size:.8rem">ออกจากระบบ</button>
+    </div>
+    <hr style="border-color:rgba(216,182,106,.15);margin:16px 0" />
+    <label>ไฟล์ข้อมูล (JSON) ในโฟลเดอร์ migration/</label>
+    <input type="text" id="fileName" value="gate-lamp-import.json" />
+    <div class="row">
+      <button id="loadBtn">1. โหลดข้อมูล</button>
+      <span id="loadInfo" class="muted"></span>
+    </div>
+    <div id="importControls" class="hide" style="margin-top:16px">
+      <p class="warn">พบ <b id="cntNew">0</b> รายการใหม่ที่จะเพิ่ม (ข้ามที่มี SKU ซ้ำ <b id="cntSkip">0</b> รายการ)</p>
+      <div class="bar"><i id="progBar"></i></div>
+      <button class="btn-go" id="goBtn">2. เริ่มนำเข้า Firestore</button>
+    </div>
+    <div id="log" class="hide"></div>
+  </div>
+
+  <script type="module">
+    import { db, auth } from "../js/firebase-config.js";
+    import { signInWithEmailAndPassword, signOut, onAuthStateChanged }
+      from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+    import { collection, getDocs, addDoc, query }
+      from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+    const $ = id => document.getElementById(id);
+    let records = [], toImport = [];
+
+    function log(msg, cls="") {
+      const el = $("log"); el.classList.remove("hide");
+      el.innerHTML += `<span class="${cls}">${msg}</span>\n`;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    // Auth state
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        $("loginBox").classList.add("hide");
+        $("importBox").classList.remove("hide");
+        $("who").textContent = user.email;
+      } else {
+        $("loginBox").classList.remove("hide");
+        $("importBox").classList.add("hide");
+      }
+    });
+
+    $("loginBtn").onclick = async () => {
+      $("loginMsg").textContent = "";
+      try {
+        await signInWithEmailAndPassword(auth, $("email").value.trim(), $("password").value);
+      } catch (e) {
+        $("loginMsg").textContent = "เข้าสู่ระบบไม่สำเร็จ: " + e.code;
+      }
+    };
+    $("logoutBtn").onclick = () => signOut(auth);
+
+    // Load JSON + compute new vs duplicate
+    $("loadBtn").onclick = async () => {
+      $("loadInfo").textContent = "กำลังโหลด...";
+      try {
+        const res = await fetch($("fileName").value.trim());
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        records = await res.json();
+      } catch (e) {
+        $("loadInfo").innerHTML = `<span class="err">โหลดไฟล์ไม่ได้: ${e.message}</span>`;
+        return;
+      }
+      // ดึง SKU ที่มีอยู่แล้วใน Firestore เพื่อกันซ้ำ
+      const snap = await getDocs(query(collection(db, "products")));
+      const existing = new Set(snap.docs.map(d => (d.data().sku || "").trim()).filter(Boolean));
+      toImport = records.filter(r => !existing.has((r.sku || "").trim()));
+      const skip = records.length - toImport.length;
+      $("loadInfo").innerHTML = `<span class="ok">โหลด ${records.length} รายการ</span>`;
+      $("cntNew").textContent = toImport.length;
+      $("cntSkip").textContent = skip;
+      $("importControls").classList.remove("hide");
+    };
+
+    // Import
+    $("goBtn").onclick = async () => {
+      $("goBtn").disabled = true; $("loadBtn").disabled = true;
+      log(`เริ่มนำเข้า ${toImport.length} รายการ...`, "warn");
+      let done = 0, ok = 0, fail = 0;
+      for (const r of toImport) {
+        const data = {
+          sku:      (r.sku || "").trim(),
+          name:     r.name || "",
+          category: r.category || "",
+          price:    Number(r.price) || 0,
+          emoji:    "💡",
+          image:    r.image || "",
+          desc:     "",
+        };
+        if (r.priceSale) data.priceSale = Number(r.priceSale);
+        try {
+          await addDoc(collection(db, "products"), data);
+          ok++;
+          log(`✓ ${data.sku}`, "ok");
+        } catch (e) {
+          fail++;
+          log(`✗ ${data.sku} — ${e.code || e.message}`, "err");
+        }
+        done++;
+        $("progBar").style.width = (done / toImport.length * 100) + "%";
+      }
+      log(`\nเสร็จสิ้น: สำเร็จ ${ok} / ล้มเหลว ${fail}`, fail ? "err" : "ok");
+    };
+  </script>
+</body>
+</html>

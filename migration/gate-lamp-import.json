@@ -1,0 +1,922 @@
+[
+  {
+    "name": "ไฟหัวเสา #05-973-BK-H30",
+    "sku": "05-973-BK-H30",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-973-BK-H30.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #974-BK-30 CM",
+    "sku": "974-BK-30 CM",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 550,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/974-BK-30CM.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #26-11202-BK",
+    "sku": "26-11202-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 690,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/26-11202-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-992-BK-H25",
+    "sku": "05-992-BK-H25",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-992-BK-H25.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #230-S-BK",
+    "sku": "230-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/230-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8026-1-BK",
+    "sku": "25-8026-1-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1180,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8026-1-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-220-BK-A",
+    "sku": "05-220-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1500,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-220-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-889-BK",
+    "sku": "05-889-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 600,
+    "priceSale": 349,
+    "image": "images/products/exterior/gate-lamp/05-889-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-890-BK",
+    "sku": "05-890-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 960,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-890-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-985-BK",
+    "sku": "05-985-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 950,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-985-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-979-BK",
+    "sku": "05-979-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-979-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-994-BK",
+    "sku": "05-994-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1050,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-994-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-989-S-BK",
+    "sku": "05-989-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-989-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-980-BK",
+    "sku": "05-980-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 950,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-980-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-980-S-BK",
+    "sku": "05-980-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-980-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-990-BK",
+    "sku": "05-990-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1150,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-990-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-990-S-BK",
+    "sku": "05-990-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 850,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-990-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-808-S-BK",
+    "sku": "05-808-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 680,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-808-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-808-BK",
+    "sku": "05-808-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1320,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-808-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8108-400 BK",
+    "sku": "25-8108-400 BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1360,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8108-400BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8108-400-GD",
+    "sku": "25-8108-400-GD",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1380,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8108-400-GD.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8028-250-BK",
+    "sku": "25-8028-250-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1200,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8028-250-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8028-250-GD",
+    "sku": "25-8028-250-GD",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1400,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8028-250-GD.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8028-400-BK",
+    "sku": "25-8028-400-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 2400,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8028-400-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8028-400-GD",
+    "sku": "25-8028-400-GD",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 2090,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8028-400-GD.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-878-BK",
+    "sku": "05-878-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 770,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-878-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-879-BK",
+    "sku": "05-879-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1100,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-879-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-876-BK",
+    "sku": "05-876-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 880,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-876-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-877-BK",
+    "sku": "05-877-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1210,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-877-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-880-BK",
+    "sku": "05-880-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 825,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-880-BK.webp"
+  },
+  {
+    "name": "ฟหัวเสา #05-881-BK",
+    "sku": "05-881-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1320,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-881-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-959-BK",
+    "sku": "05-959-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-959-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-958-BK",
+    "sku": "05-958-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 960,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-958-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-805-BK-B",
+    "sku": "05-805-BK-B",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1240,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-805-BK-B.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-806-BK-B",
+    "sku": "05-806-BK-B",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1280,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-806-BK-B.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-952-M-BK",
+    "sku": "05-952-M-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 440,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-952-M-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-952-M-WH",
+    "sku": "05-952-M-WH",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 440,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-952-M-WH.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-952-L-BK",
+    "sku": "05-952-L-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-952-L-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-952-L-BK292",
+    "sku": "05-952-L-BK292",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-952-L-BK292.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-952-L-WH",
+    "sku": "05-952-L-WH",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-952-L-WH.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 05-978-BK",
+    "sku": "05-978-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/sangudom1.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-957-BK",
+    "sku": "05-957-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-957-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-951-BK",
+    "sku": "05-951-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 640,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-951-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-951-WH",
+    "sku": "05-951-WH",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 640,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-951-WH.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-981-BK",
+    "sku": "05-981-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1040,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-981-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-950-BK292",
+    "sku": "05-950-BK292",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 640,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-950-BK292.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8125-400-AL",
+    "sku": "25-8125-400-AL",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 750,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8125-400-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8123-250-ST+AL",
+    "sku": "25-8123-250-ST+AL",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1800,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8123-250-STAL.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8121-250-ST",
+    "sku": "25-8121-250-ST",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1200,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8121-250-ST.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-8127-250-ST+AL",
+    "sku": "25-8127-250-ST+AL",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 500,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-8127-250-STAL.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-608-BK-A",
+    "sku": "05-608-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-608-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-608-BK-C",
+    "sku": "05-608-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-608-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-612-BK-A (12นิ้ว)",
+    "sku": "05-612-BK-A (12นิ้ว)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 810,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-612-BK-A-12-E0-B8-99-E0-B8-B4-E0-B9-89-E0-B8-A7-.webp"
+  },
+  {
+    "name": "ฟหัวเสา #05-207-BK-C",
+    "sku": "05-207-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 600,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-207-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-207-BK-A",
+    "sku": "05-207-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 600,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-207-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-541-BK-A (ตัวใหญ่)",
+    "sku": "05-541-BK-A (ตัวใหญ่)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 830,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-541-BK-A--E0-B8-95-E0-B8-B1-E0-B8-A7-E0-B9-83-E0-B8-AB-E0-B8-8D-E0-B9-88-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-541-BK-A (ตัวเล็ก)",
+    "sku": "05-541-BK-A (ตัวเล็ก)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 560,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-541-BK-A--E0-B8-95-E0-B8-B1-E0-B8-A7-E0-B9-80-E0-B8-A5-E0-B9-87-E0-B8-81-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-533-BK-A",
+    "sku": "05-533-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 950,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-533-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-532-BK-A",
+    "sku": "05-532-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 560,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-532-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-208-BK-A",
+    "sku": "05-208-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 600,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-208-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-210-BK-A (10นิ้ว)",
+    "sku": "05-210-BK-A (10นิ้ว)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 830,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-210-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-603-BK-A",
+    "sku": "05-603-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 510,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-603-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-603-BK-C",
+    "sku": "05-603-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 510,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-603-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-657-BK-A",
+    "sku": "05-657-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 510,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-657-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-657-BK-C",
+    "sku": "05-657-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 510,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-657-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-05-009-BK",
+    "sku": "36-05-009-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-05-009-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-05-007-BK",
+    "sku": "36-05-007-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-05-007-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-05-019-BK",
+    "sku": "36-05-019-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-05-019-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-05-018-BK",
+    "sku": "36-05-018-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 249,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-05-018-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-213-BK",
+    "sku": "05-213-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 350,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-213-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 25-1706S1-BK",
+    "sku": "25-1706S1-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1110,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-1706S1-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #15-005-BK (HL)",
+    "sku": "15-005-BK (HL)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 370,
+    "priceSale": 185,
+    "image": "images/products/exterior/gate-lamp/15-005-BK-HL-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #8A-XNG-3208F-G-S-SBK",
+    "sku": "8A-XNG-3208F-G-S-SBK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 500,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/8A-XNG-3208F-G-S-SBK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 25-2021FS-BK(XNG)",
+    "sku": "25-2021FS-BK(XNG)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 630,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-2021FS-BK-XNG-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #XNG-2018-7\"-F",
+    "sku": "XNG-2018-7\"-F",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1120,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/XNG-2018-7-F.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-3003F-BK(XNG)",
+    "sku": "25-3003F-BK(XNG)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 410,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-3003F-BK-XNG-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-920-BK-A",
+    "sku": "05-920-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 520,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-920-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 25-1602-S1-BK",
+    "sku": "25-1602-S1-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1140,
+    "priceSale": 570,
+    "image": "images/products/exterior/gate-lamp/25-1602-S1-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-3206F-S-BK",
+    "sku": "25-3206F-S-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 590,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-3206F-S-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-676-BK-B",
+    "sku": "05-676-BK-B",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 740,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-676-BK-B.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-676-BK-C",
+    "sku": "05-676-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 740,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-676-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-585-BK-ลายเมฆ",
+    "sku": "05-585-BK-ลายเมฆ",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 460,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-585-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B9-80-E0-B8-A1-E0-B8-86.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-645-BK-ลายเมฆ",
+    "sku": "05-645-BK-ลายเมฆ",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 420,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-645-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B9-80-E0-B8-A1-E0-B8-86.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-581-BK-W",
+    "sku": "05-581-BK-W",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 460,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-581-BK-W.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-505-BK",
+    "sku": "05-505-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 540,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-505-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-501-BK-ลายผ้า",
+    "sku": "05-501-BK-ลายผ้า",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 250,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-501-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B8-9C-E0-B9-89-E0-B8-B2.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-842-BK-FC",
+    "sku": "05-842-BK-FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 920,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-842-BK-FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-842-BK-CC",
+    "sku": "05-842-BK-CC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 920,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-842-BK-CC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-791-BK-FC",
+    "sku": "05-791-BK-FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 460,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-791-BK-FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-791-BK-CC",
+    "sku": "05-791-BK-CC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 460,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-791-BK-CC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-843-BK-FC",
+    "sku": "05-843-BK-FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1160,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-843-BK-FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-843-BK-CC",
+    "sku": "05-843-BK-CC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1160,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-843-BK-CC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-844-BK-FC",
+    "sku": "05-844-BK-FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1220,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-844-BK-FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-844-BK-CC",
+    "sku": "05-844-BK-CC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1220,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-844-BK-CC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-766-BK-30FC",
+    "sku": "05-766-BK-30FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 980,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-766-BK-30FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-735-BK-CC",
+    "sku": "05-735-BK-CC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 299,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-735-BK-CC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-735-BK-FC",
+    "sku": "05-735-BK-FC",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 299,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-735-BK-FC.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-822-BK (แก้วนม)",
+    "sku": "05-822-BK (แก้วนม)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 810,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-822-BK--E0-B9-81-E0-B8-81-E0-B9-89-E0-B8-A7-E0-B8-99-E0-B8-A1-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-720-BK-A",
+    "sku": "05-720-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 710,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-720-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-525-BK-A (ฝา701)",
+    "sku": "05-525-BK-A (ฝา701)",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-525-BK-A--E0-B8-9D-E0-B8-B2701-.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-525-BK-A",
+    "sku": "05-525-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-525-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-525-BK-C",
+    "sku": "05-525-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 720,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-525-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-528-BK-A",
+    "sku": "05-528-BK-A",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 420,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-528-BK-A.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-528-BK-C",
+    "sku": "05-528-BK-C",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 420,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-528-BK-C.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-118B-M-Y1-BK",
+    "sku": "25-118B-M-Y1-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 690,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-118B-M-Y1-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-070-M-Y-BK",
+    "sku": "25-070-M-Y-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 670,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-070-M-Y-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-5192S2/N-BG",
+    "sku": "36-5192S2/N-BG",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 530,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-5192S2-N-BG.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #36-5156S2-BG",
+    "sku": "36-5156S2-BG",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 690,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-5156S2-BG.webp"
+  },
+  {
+    "name": "",
+    "sku": "36-5180S2-BG",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 510,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/36-5180S2-BG.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #8A-P100MAX-1",
+    "sku": "8A-P100MAX-1",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 6630,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/8A-P100MAX-1.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-757-BK-ลายผ้า",
+    "sku": "05-757-BK-ลายผ้า",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 4000,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-757-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B8-9C-E0-B9-89-E0-B8-B2.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #05-740-BK",
+    "sku": "05-740-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 4000,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-740-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B8-9C-E0-B9-89-E0-B8-B2.webp"
+  },
+  {
+    "name": "ไฟหัวเสา #25-1009/S5-BK",
+    "sku": "25-1009/S5-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 1260,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/25-1009-S5-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 05-954-BK",
+    "sku": "05-954-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 2500,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-954-BK.webp"
+  },
+  {
+    "name": "ไฟหัวเสา # 05-955-BK",
+    "sku": "05-955-BK",
+    "category": "Gate Lamp โคมไฟหัวเสา",
+    "price": 2200,
+    "priceSale": null,
+    "image": "images/products/exterior/gate-lamp/05-955-BK.webp"
+  }
+]
