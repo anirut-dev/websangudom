@@ -209,7 +209,7 @@ function closeForm() { formOverlay.classList.remove("open"); }
 
 document.getElementById("addBtn").addEventListener("click", () => openForm(null));
 document.getElementById("formClose").addEventListener("click", closeForm);
-formOverlay.addEventListener("click", e => { if (e.target === formOverlay) closeForm(); });
+// ปิดฟอร์มเฉพาะเมื่อกดปุ่มกากบาทเท่านั้น (กดนอกกรอบไม่ปิด กันพลาด)
 
 document.getElementById("saveBtn").addEventListener("click", async () => {
   const name  = document.getElementById("f_name").value.trim();
