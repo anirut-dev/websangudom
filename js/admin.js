@@ -53,6 +53,31 @@ if (catMain && typeof CATEGORY_TREE !== "undefined") {
   updateSubCat();
 }
 
+// --- แผนที่หมวดหมู่ → โฟลเดอร์รูป (slug เรียงตรงกับ subs ใน CATEGORY_TREE) ---
+const FOLDER_TREE = {
+  "Exterior Lamp":    { folder: "exterior",    subs: ["gate-lamp","wall-lamp","garden-lamp","street-light","step-light","accent-light"] },
+  "Interior Lamp":    { folder: "interior",    subs: ["ceiling-lamp","pendant-lamp","wall-lamp","table-floor-lamp","downlight-tracklight","step-light","t-bar-fluorescent","high-bay"] },
+  "Chandelier":       { folder: "chandelier",  subs: ["pendant-crystal","wall-crystal","chat-crystal"] },
+  "LED":              { folder: "led",         subs: ["led-bulb-downlight","ceiling-lamp","step-light-line","spotlight-floodlight","street-garden-light"] },
+  "Bulb Accessories": { folder: "accessories", subs: ["bulb","accessories"] },
+  "Furniture":        { folder: "furniture",   subs: [] },
+  "Other Products":   { folder: "other",       subs: [] },
+  "Solar cell":       { folder: "solar",       subs: [] },
+};
+
+// คืน path prefix ของโฟลเดอร์จากหมวดที่เลือกอยู่ เช่น "images/products/exterior/accent-light/"
+function getCategoryFolder() {
+  const map = FOLDER_TREE[catMain.value];
+  if (!map) return "images/products/";
+  let path = "images/products/" + map.folder + "/";
+  if (!catSubWrap.hidden && catSub.value) {
+    const group = CATEGORY_TREE.find(g => g.main === catMain.value);
+    const idx = group ? group.subs.indexOf(catSub.value) : -1;
+    if (idx >= 0 && map.subs[idx]) path += map.subs[idx] + "/";
+  }
+  return path;
+}
+
 // --- Header user info ---
 const headerUser      = document.getElementById("headerUser");
 const headerEmail     = document.getElementById("headerEmail");
@@ -175,14 +200,9 @@ document.getElementById("f_image_file").addEventListener("change", (e) => {
   // แสดง preview ด้วย blob URL (local เท่านั้น)
   preview.src    = URL.createObjectURL(file);
   preview.hidden = false;
-  // ใส่ชื่อไฟล์ใน path field ถ้ายังว่างอยู่
-  if (!pathInput.value.trim()) {
-    pathInput.value = "images/products/" + file.name;
-  } else {
-    // แทนชื่อไฟล์ส่วนท้ายด้วยไฟล์ใหม่ คงโฟลเดอร์เดิมไว้
-    const folder = pathInput.value.trim().replace(/[^/]+$/, "");
-    pathInput.value = folder + file.name;
-  }
+  // เติม path โฟลเดอร์อัตโนมัติจากหมวดหมู่ที่เลือก + ชื่อไฟล์
+  // (เบราว์เซอร์ให้แค่ชื่อไฟล์ ไม่ให้ path จริง จึงคำนวณโฟลเดอร์จากหมวดแทน)
+  pathInput.value = getCategoryFolder() + file.name;
 });
 
 function closeForm() { formOverlay.classList.remove("open"); }
