@@ -125,6 +125,36 @@ function listenProducts() {
 let products = [];
 let editingId = null;
 
+// --- Filter state ---
+const adminSearch    = document.getElementById("adminSearch");
+const adminCatFilter = document.getElementById("adminCatFilter");
+const adminCount     = document.getElementById("adminCount");
+let filterSearch = "";
+let filterCat    = "";
+
+if (adminSearch) adminSearch.addEventListener("input", () => {
+  filterSearch = adminSearch.value.trim().toLowerCase();
+  renderTable();
+});
+if (adminCatFilter) adminCatFilter.addEventListener("change", () => {
+  filterCat = adminCatFilter.value;
+  renderTable();
+});
+
+// เติมรายการหมวดหมู่ใน dropdown จากสินค้าที่มีอยู่จริง
+function buildCatFilter() {
+  if (!adminCatFilter) return;
+  const cats = [...new Set(products.map(p => p.category).filter(Boolean))].sort((a, b) => a.localeCompare(b, "th"));
+  const current = adminCatFilter.value;
+  adminCatFilter.innerHTML = `<option value="">ทุกหมวดหมู่ (${products.length})</option>` +
+    cats.map(c => {
+      const n = products.filter(p => p.category === c).length;
+      return `<option value="${c}">${c} (${n})</option>`;
+    }).join("");
+  if (current && cats.includes(current)) adminCatFilter.value = current;
+  else { adminCatFilter.value = ""; filterCat = ""; }
+}
+
 function formatPrice(n) {
   return "฿" + Number(n).toLocaleString("th-TH");
 }
@@ -132,11 +162,34 @@ function formatPrice(n) {
 // --- Table ---
 function renderTable() {
   const body = document.getElementById("adminTableBody");
+  buildCatFilter();
+
   if (!products.length) {
-    body.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#999;padding:24px">ยังไม่มีสินค้า — กด "+ เพิ่มสินค้า" เพื่อเริ่มต้น</td></tr>`;
+    if (adminCount) adminCount.textContent = "";
+    body.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#999;padding:24px">ยังไม่มีสินค้า — กด "+ เพิ่มสินค้า" เพื่อเริ่มต้น</td></tr>`;
     return;
   }
-  body.innerHTML = products.map(p => `
+
+  const filtered = products.filter(p => {
+    const matchCat = !filterCat || p.category === filterCat;
+    const matchSearch = !filterSearch ||
+      (p.name || "").toLowerCase().includes(filterSearch) ||
+      (p.sku  || "").toLowerCase().includes(filterSearch);
+    return matchCat && matchSearch;
+  });
+
+  if (adminCount) {
+    adminCount.textContent = (filterSearch || filterCat)
+      ? `พบ ${filtered.length} จาก ${products.length} รายการ`
+      : `ทั้งหมด ${products.length} รายการ`;
+  }
+
+  if (!filtered.length) {
+    body.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#999;padding:24px">ไม่พบสินค้าที่ตรงกับเงื่อนไข</td></tr>`;
+    return;
+  }
+
+  body.innerHTML = filtered.map(p => `
     <tr>
       <td style="font-size:.8rem;color:var(--gray);font-family:monospace">${p.sku || "—"}</td>
       <td>${p.emoji || "💡"} ${p.name}</td>

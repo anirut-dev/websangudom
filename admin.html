@@ -54,9 +54,15 @@
       </div>
     </div>
 
-    <div class="alert alert-info" id="adminNote">
-      ข้อมูลตอนนี้บันทึกไว้ในเครื่องนี้ (เดโม) — เมื่อต่อ Firebase แล้ว
-      ข้อมูลจะซิงค์ทุกเครื่องอัตโนมัติ
+    <div class="admin-filter-bar">
+      <div class="admin-filter-search">
+        <span class="ico">🔍</span>
+        <input type="search" id="adminSearch" placeholder="ค้นหาชื่อสินค้า หรือ รหัส SKU..." />
+      </div>
+      <select id="adminCatFilter" class="admin-filter-select" aria-label="กรองตามหมวดหมู่">
+        <option value="">ทุกหมวดหมู่</option>
+      </select>
+      <span class="admin-filter-count" id="adminCount"></span>
     </div>
 
     <table class="admin-table">
