@@ -103,11 +103,12 @@
           <label for="f_image">รูปภาพสินค้า</label>
           <img id="f_image_preview" class="form-image-preview" hidden />
           <div class="image-input-row">
-            <input type="text" id="f_image" placeholder="images/products/exterior/gate-lamp/ชื่อไฟล์.webp" />
-            <button type="button" id="browseBtn" class="btn-browse">📁 เลือกรูป</button>
+            <input type="text" id="f_image" placeholder="เลือกรูปเพื่ออัปโหลด หรือวางลิงก์รูป" />
+            <button type="button" id="browseBtn" class="btn-browse">📁 เลือก &amp; อัปโหลด</button>
           </div>
           <input type="file" id="f_image_file" accept="image/*" hidden />
-          <p class="field-hint">เลือกไฟล์เพื่อ preview และดึงชื่อไฟล์ — จากนั้นเติม path โฟลเดอร์ด้านหน้าให้ครบ</p>
+          <p id="uploadStatus" class="upload-status" hidden></p>
+          <p class="field-hint">เลือกไฟล์รูป → อัปขึ้นระบบอัตโนมัติ ได้ลิงก์ทันที (ไม่ต้อง push git) — หรือวางลิงก์รูปเองก็ได้</p>
         </div>
         <div class="field">
           <label for="f_emoji">ไอคอน/อิโมจิ (ใช้เมื่อยังไม่มีรูป)</label>

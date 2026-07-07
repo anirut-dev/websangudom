@@ -9,6 +9,46 @@ import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
 
+// ===== Cloudinary (อัปรูปจาก admin ได้เลย ไม่ต้อง push git) =====
+// ต้องสร้าง "unsigned upload preset" ชื่อตรงกับ CLD_PRESET ใน Cloudinary console ก่อน
+// (Settings → Upload → Upload presets → Add → Signing Mode = Unsigned)
+const CLD_CLOUD  = "cphqe1tc";
+const CLD_PRESET = "sangudom_products";
+const CLD_URL    = `https://api.cloudinary.com/v1_1/${CLD_CLOUD}/image/upload`;
+
+// อัปไฟล์ขึ้น Cloudinary (unsigned) → คืน object ผลลัพธ์ (มี secure_url, public_id)
+function uploadToCloudinary(file, folder, onProgress) {
+  return new Promise((resolve, reject) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("upload_preset", CLD_PRESET);
+    if (folder) fd.append("folder", folder);   // จัดโฟลเดอร์ตามหมวดสินค้า
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", CLD_URL, true);
+    xhr.upload.addEventListener("progress", (e) => {
+      if (e.lengthComputable && onProgress) onProgress(Math.round((e.loaded / e.total) * 100));
+    });
+    xhr.onload = () => {
+      let res;
+      try { res = JSON.parse(xhr.responseText); } catch { res = null; }
+      if (xhr.status >= 200 && xhr.status < 300 && res && res.secure_url) resolve(res);
+      else reject(new Error(res?.error?.message || `อัปโหลดล้มเหลว (HTTP ${xhr.status})`));
+    };
+    xhr.onerror = () => reject(new Error("เชื่อมต่อ Cloudinary ไม่ได้"));
+    xhr.send(fd);
+  });
+}
+
+// แทรก transformation ให้รูปเบาลง (auto format + auto quality + กว้าง 800px)
+// ช่วยประหยัด bandwidth/credit ของ Cloudinary free tier
+function optimizedCldUrl(secureUrl) {
+  return secureUrl.replace("/upload/", "/upload/f_auto,q_auto,w_800/");
+}
+
+// state: กันกด "บันทึก" ระหว่างรูปยังอัปไม่เสร็จ
+let isUploading = false;
+
 // --- Elements ---
 const loginView  = document.getElementById("loginView");
 const adminView  = document.getElementById("adminView");
@@ -229,6 +269,10 @@ function openForm(id) {
     imagePreview.src    = "";
     imagePreview.hidden = true;
   }
+  // รีเซ็ตสถานะอัปโหลด
+  isUploading = false;
+  const uStatus = document.getElementById("uploadStatus");
+  if (uStatus) { uStatus.hidden = true; uStatus.textContent = ""; }
 
   formOverlay.classList.add("open");
 }
@@ -245,17 +289,45 @@ document.getElementById("f_image").addEventListener("input", () => {
 document.getElementById("browseBtn").addEventListener("click", () => {
   document.getElementById("f_image_file").click();
 });
-document.getElementById("f_image_file").addEventListener("change", (e) => {
+document.getElementById("f_image_file").addEventListener("change", async (e) => {
   const file = e.target.files[0];
   if (!file) return;
-  const preview  = document.getElementById("f_image_preview");
+  const preview   = document.getElementById("f_image_preview");
   const pathInput = document.getElementById("f_image");
-  // แสดง preview ด้วย blob URL (local เท่านั้น)
+  const status    = document.getElementById("uploadStatus");
+  const browseBtn = document.getElementById("browseBtn");
+
+  // preview ทันทีด้วย blob URL (local)
   preview.src    = URL.createObjectURL(file);
   preview.hidden = false;
-  // เติม path โฟลเดอร์อัตโนมัติจากหมวดหมู่ที่เลือก + ชื่อไฟล์
-  // (เบราว์เซอร์ให้แค่ชื่อไฟล์ ไม่ให้ path จริง จึงคำนวณโฟลเดอร์จากหมวดแทน)
-  pathInput.value = getCategoryFolder() + file.name;
+
+  // Cloudinary folder จากหมวดที่เลือก: "images/products/exterior/gate-lamp/" → "products/exterior/gate-lamp"
+  const folder = getCategoryFolder().replace(/^images\//, "").replace(/\/$/, "");
+
+  isUploading = true;
+  browseBtn.disabled = true;
+  status.hidden = false;
+  status.className = "upload-status uploading";
+  status.textContent = "⏳ กำลังอัปโหลด... 0%";
+
+  try {
+    const res = await uploadToCloudinary(file, folder, (pct) => {
+      status.textContent = `⏳ กำลังอัปโหลด... ${pct}%`;
+    });
+    const url = optimizedCldUrl(res.secure_url);
+    pathInput.value = url;      // เก็บ URL Cloudinary ลง Firestore ตรงๆ
+    preview.src     = url;      // preview จากลิงก์จริง
+    status.className = "upload-status ok";
+    status.textContent = "✓ อัปโหลดสำเร็จ — พร้อมบันทึก";
+  } catch (err) {
+    status.className = "upload-status err";
+    status.textContent = "✗ " + err.message + " (ลองใหม่ หรือวางลิงก์รูปเองก็ได้)";
+    preview.hidden = true;
+  } finally {
+    isUploading = false;
+    browseBtn.disabled = false;
+    e.target.value = "";       // reset เพื่อเลือกไฟล์เดิมซ้ำได้
+  }
 });
 
 function closeForm() { formOverlay.classList.remove("open"); }
@@ -268,6 +340,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const name  = document.getElementById("f_name").value.trim();
   const price = document.getElementById("f_price").value;
   if (!name || !price) { alert("กรุณากรอกชื่อสินค้าและราคา"); return; }
+  if (isUploading) { alert("กรุณารอรูปอัปโหลดเสร็จก่อนบันทึก"); return; }
 
   const data = {
     sku:      document.getElementById("f_sku").value.trim(),

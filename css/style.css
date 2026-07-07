@@ -650,7 +650,14 @@ img { display: block; max-width: 100%; }
   flex-shrink: 0;
 }
 .btn-browse:hover { background: rgba(216,182,106,.1); border-color: var(--gold); }
+.btn-browse:disabled { opacity: .5; cursor: not-allowed; }
 .field-hint { font-size: .74rem; color: var(--gray); margin-top: 6px; }
+
+/* สถานะอัปโหลดรูป (Cloudinary) */
+.upload-status { font-size: .8rem; margin-top: 8px; font-weight: 500; }
+.upload-status.uploading { color: var(--gold); }
+.upload-status.ok  { color: #4caf82; }
+.upload-status.err { color: #e07070; }
 
 .btn-full { width: 100%; }
 .btn-outline {
