@@ -1,0 +1,34 @@
+rules_version = '2';
+
+// ===== Firestore Security Rules — websangudom =====
+// อ่าน: ทุกคน (หน้าเว็บ products แสดงสินค้าได้โดยไม่ต้องล็อกอิน)
+// เขียน/ลบ: เฉพาะบัญชีแอดมิน 1 คน (ผูกด้วย UID เจาะจง)
+//
+// ⚠️ ห้ามใช้ `allow write: if request.auth != null;` เฉยๆ —
+//    เพราะ Email/Password provider เปิดให้ใครก็สมัครบัญชีใหม่เองได้ผ่าน apiKey สาธารณะ
+//    จึงต้องล็อกที่ UID ของแอดมินโดยตรง
+//
+// วิธี publish: Firebase Console → Firestore Database → แท็บ Rules → วางทับ → Publish
+//   (หรือถ้าตั้ง Firebase CLI แล้ว: firebase deploy --only firestore:rules)
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // UID ของแอดมิน (Firebase Console → Authentication → Users → User UID)
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == 'ucc6ZqLoCbU2HlAcS7SKaYa4ft43';
+    }
+
+    // สินค้า — อ่านสาธารณะ, เขียน/ลบเฉพาะแอดมิน
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // อย่างอื่นทั้งหมด — ปิดหมด (กันสร้าง collection มั่วๆ)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
