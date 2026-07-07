@@ -7,9 +7,12 @@
 // ยัง copy ข้อความไว้ใน clipboard เป็น fallback เผื่อ LINE บางเครื่องไม่ populate
 // docs: https://developers.line.biz/en/docs/messaging-api/using-line-url-scheme/
 
-const QUOTE_KEY  = "sangudom_quote";
-const LINE_OA_ID = "@Sangudom-sale";               // Basic ID ของ Official Account
-const LINE_LABEL = LINE_OA_ID;
+const QUOTE_KEY   = "sangudom_quote";
+const LINE_OA_ID  = "@Sangudom-sale";               // Basic ID ของ Official Account
+const LINE_LABEL  = LINE_OA_ID;
+const LINE_OA_URL = "https://line.me/ti/p/~Sangudom-sale";  // หน้าโปรไฟล์/เพิ่มเพื่อน OA
+// มือถือ: oaMessage เปิดแอป LINE + pre-fill ข้อความได้ / เดสก์ท็อป: เว็บเป็นหน้า QR ตัน → ใช้ copy+paste แทน
+const IS_MOBILE = /android|iphone|ipad|ipod|mobile|line\//i.test(navigator.userAgent);
 // เปิดแชท OA + ใส่ข้อความ (percent-encode ทั้ง ID และข้อความ เป็น UTF-8)
 function oaMessageUrl(msg) {
   return `https://line.me/R/oaMessage/${encodeURIComponent(LINE_OA_ID)}/?${encodeURIComponent(msg)}`;
@@ -65,15 +68,59 @@ function buildMessage() {
   return msg;
 }
 
-// ── ส่งทาง LINE (เปิดแชท OA พร้อม pre-fill ข้อความ) ──
+// ── ส่งทาง LINE ──
+// NOTE: pre-fill ผ่าน oaMessage ต้องใช้ "Basic ID" ของ OA (เช่น @abcd1234) — ยังไม่มี
+// (@Sangudom-sale ที่มีคือ vanity/search ID → oaMessage คืน "ไม่พบผู้ใช้")
+// ระหว่างนี้ใช้: คัดลอกรายการ + เปิดแชทด้วยลิงก์ ti/p (เปิดแชทได้ชัวร์) → ลูกค้าวาง
+// เมื่อได้ Basic ID แล้ว เปลี่ยน mobile path กลับไปใช้ oaMessageUrl(msg) เพื่อ pre-fill
 async function sendToLine() {
   const list = loadQuote();
   if (!list.length) { toast("ยังไม่มีสินค้าในรายการ"); return; }
   const msg = buildMessage();
-  // copy ไว้เป็น fallback (เผื่อ LINE บางเครื่องไม่ populate ช่องแชท)
-  try { await navigator.clipboard.writeText(msg); } catch {}
-  toast("กำลังเปิดแชท LINE ร้าน — กดส่งข้อความได้เลย");
-  setTimeout(() => window.open(oaMessageUrl(msg), "_blank", "noopener"), 400);
+  let copied = false;
+  try { await navigator.clipboard.writeText(msg); copied = true; } catch {}
+
+  if (IS_MOBILE) {
+    // มือถือ: คัดลอกรายการ + เปิดแชท LINE ร้าน → กดค้างในช่องพิมพ์ → วาง → ส่ง
+    toast(copied ? "✓ คัดลอกรายการแล้ว — เปิดแชทแล้ววาง (กดค้าง→วาง) แล้วส่ง"
+                 : "เปิดแชท LINE — พิมพ์รายการในแชทได้เลย");
+    setTimeout(() => window.open(LINE_OA_URL, "_blank", "noopener"), 500);
+  } else {
+    // เดสก์ท็อป: โชว์กล่องวิธีวางในแชท (มีข้อความให้ก็อป + ลิงก์เปิดหน้าร้าน)
+    showDesktopSendHelp(msg);
+  }
+}
+
+// ── เดสก์ท็อป: กล่องบอกวิธีส่ง (copy + paste) ──
+function showDesktopSendHelp(msg) {
+  const overlay = document.getElementById("quoteOverlay");
+  if (!overlay) return;
+  const foot = overlay.querySelector("#quoteFoot");
+  foot.innerHTML = `
+    <div class="quote-desktop-help">
+      <div class="qdh-title">✓ คัดลอกรายการแล้ว</div>
+      <ol class="qdh-steps">
+        <li>เปิดแอป <strong>LINE</strong> บนคอมหรือมือถือ</li>
+        <li>เข้าแชทร้าน <strong>${LINE_LABEL}</strong></li>
+        <li>วางข้อความ (<strong>Ctrl+V</strong>) แล้วกดส่ง</li>
+      </ol>
+      <textarea class="qdh-text" id="qdhText" readonly>${msg}</textarea>
+      <button type="button" class="btn-line-send" id="qdhCopy">
+        <span class="line-ico">📋</span> คัดลอกอีกครั้ง
+      </button>
+      <a class="btn-quote-clear" href="${LINE_OA_URL}" target="_blank" rel="noopener"
+         style="text-align:center;text-decoration:none;line-height:1.6;">เปิดหน้า LINE ร้าน →</a>
+      <button type="button" class="btn-quote-clear" id="qdhBack">← กลับไปแก้รายการ</button>
+    </div>
+  `;
+  const ta = foot.querySelector("#qdhText");
+  foot.querySelector("#qdhCopy").addEventListener("click", async () => {
+    ta.focus(); ta.select();
+    try { await navigator.clipboard.writeText(msg); }
+    catch { document.execCommand("copy"); }
+    toast("คัดลอกแล้ว");
+  });
+  foot.querySelector("#qdhBack").addEventListener("click", renderDrawer);
 }
 
 // ── UI: Badge (ปุ่มลอย) ──
@@ -151,7 +198,7 @@ function renderDrawer() {
     <button type="button" class="btn-line-send" id="quoteSend">
       <span class="line-ico">💬</span> ส่งขอราคาทาง LINE
     </button>
-    <div class="quote-line-hint">เปิดแชท LINE ร้าน <strong>${LINE_LABEL}</strong> พร้อมรายการให้อัตโนมัติ — แค่กดส่ง</div>
+    <div class="quote-line-hint">คัดลอกรายการอัตโนมัติ + เปิดแชท LINE ร้าน <strong>${LINE_LABEL}</strong> → วางแล้วส่ง</div>
     <button type="button" class="btn-quote-clear" id="quoteClear">ล้างรายการทั้งหมด</button>
   `;
 
