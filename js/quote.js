@@ -2,12 +2,18 @@
 // ลูกค้าเพิ่มสินค้าลงรายการ → ส่งให้ร้านทาง LINE
 // เก็บใน localStorage (ไม่ใช้ Firebase) — ทำงานบน GitHub Pages ได้ 100% ฟรี
 //
-// วิธีส่ง: คัดลอกรายการอัตโนมัติ + เปิดแชท LINE ร้าน → ลูกค้าวาง (paste) ในแชท
-// (LINE ปิดฟีเจอร์ pre-fill ข้อความผ่าน URL ไปแล้ว จึงใช้วิธี copy+paste ที่เสถียรกว่า)
+// วิธีส่ง: เปิดแชท LINE Official Account ร้าน พร้อม pre-fill ข้อความอัตโนมัติ
+// ผ่าน oaMessage URL scheme (ทางการ LINE) — ลูกค้าแค่กดส่งในแชท
+// ยัง copy ข้อความไว้ใน clipboard เป็น fallback เผื่อ LINE บางเครื่องไม่ populate
+// docs: https://developers.line.biz/en/docs/messaging-api/using-line-url-scheme/
 
 const QUOTE_KEY  = "sangudom_quote";
-const LINE_URL   = "https://line.me/ti/p/~Sangudom-sale";
-const LINE_LABEL = "@Sangudom-sale";
+const LINE_OA_ID = "@Sangudom-sale";               // Basic ID ของ Official Account
+const LINE_LABEL = LINE_OA_ID;
+// เปิดแชท OA + ใส่ข้อความ (percent-encode ทั้ง ID และข้อความ เป็น UTF-8)
+function oaMessageUrl(msg) {
+  return `https://line.me/R/oaMessage/${encodeURIComponent(LINE_OA_ID)}/?${encodeURIComponent(msg)}`;
+}
 
 // ── State ──
 function loadQuote() {
@@ -59,19 +65,15 @@ function buildMessage() {
   return msg;
 }
 
-// ── ส่งทาง LINE (copy + เปิดแชท) ──
+// ── ส่งทาง LINE (เปิดแชท OA พร้อม pre-fill ข้อความ) ──
 async function sendToLine() {
   const list = loadQuote();
   if (!list.length) { toast("ยังไม่มีสินค้าในรายการ"); return; }
   const msg = buildMessage();
-  try {
-    await navigator.clipboard.writeText(msg);
-    toast("✓ คัดลอกรายการแล้ว — เปิด LINE แล้ววางในแชทได้เลย");
-  } catch {
-    // ถ้า copy ไม่ได้ (permission) ยังเปิด LINE ให้อยู่ดี
-    toast("เปิด LINE — พิมพ์รายการในแชทได้เลย");
-  }
-  setTimeout(() => window.open(LINE_URL, "_blank", "noopener"), 600);
+  // copy ไว้เป็น fallback (เผื่อ LINE บางเครื่องไม่ populate ช่องแชท)
+  try { await navigator.clipboard.writeText(msg); } catch {}
+  toast("กำลังเปิดแชท LINE ร้าน — กดส่งข้อความได้เลย");
+  setTimeout(() => window.open(oaMessageUrl(msg), "_blank", "noopener"), 400);
 }
 
 // ── UI: Badge (ปุ่มลอย) ──
@@ -149,7 +151,7 @@ function renderDrawer() {
     <button type="button" class="btn-line-send" id="quoteSend">
       <span class="line-ico">💬</span> ส่งขอราคาทาง LINE
     </button>
-    <div class="quote-line-hint">ส่งถึง LINE: <strong>${LINE_LABEL}</strong> — รายการจะถูกคัดลอกอัตโนมัติ</div>
+    <div class="quote-line-hint">เปิดแชท LINE ร้าน <strong>${LINE_LABEL}</strong> พร้อมรายการให้อัตโนมัติ — แค่กดส่ง</div>
     <button type="button" class="btn-quote-clear" id="quoteClear">ล้างรายการทั้งหมด</button>
   `;
 
