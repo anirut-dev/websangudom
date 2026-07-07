@@ -6,6 +6,9 @@ import { collection, onSnapshot, orderBy, query } from "https://www.gstatic.com/
 
 // ── State ──
 let allProducts  = [];
+let filteredList = [];       // ผลลัพธ์หลังกรอง+เรียง (ทั้งหมด)
+let currentPage  = 1;
+const PAGE_SIZE  = 20;       // สินค้าต่อหน้า
 let filters = {
   search:     "",
   categories: new Set(),   // ว่าง = ทั้งหมด
@@ -29,6 +32,7 @@ const sortSelect   = document.getElementById("sortSelect");
 const resultCount  = document.getElementById("resultCount");
 const activeFiltersEl = document.getElementById("activeFilters");
 const resetBtn     = document.getElementById("resetBtn");
+const paginationEl = document.getElementById("pagination");
 
 // ── โหลดสินค้า ──
 const q = query(collection(db, "products"), orderBy("name"));
@@ -239,9 +243,64 @@ function applyFilters() {
     }
   });
 
+  filteredList = list;
+  currentPage  = 1;            // กรองใหม่ = กลับไปหน้า 1 เสมอ
   renderChips();
   renderCount(list.length);
-  renderProducts(list);
+  renderPage();
+}
+
+// ── แสดงหน้าปัจจุบัน (แบ่งหน้า) ──
+function renderPage(scrollUp = false) {
+  const totalPages = Math.max(1, Math.ceil(filteredList.length / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filteredList.slice(start, start + PAGE_SIZE);
+
+  renderProducts(pageItems);
+  renderPagination(totalPages);
+
+  if (scrollUp) {
+    document.getElementById("catalog").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function goToPage(n) {
+  currentPage = n;
+  renderPage(true);
+}
+
+// ── ปุ่มแบ่งหน้า (มี prev/next + ... ย่อเมื่อหน้าเยอะ) ──
+function renderPagination(totalPages) {
+  if (totalPages <= 1) { paginationEl.innerHTML = ""; return; }
+
+  // หาช่วงเลขหน้าที่จะโชว์ (หน้าแรก, หน้าสุดท้าย, และ ±1 รอบหน้าปัจจุบัน)
+  const pages = [];
+  const push = v => { if (!pages.includes(v)) pages.push(v); };
+  push(1);
+  for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+    if (i > 1 && i < totalPages) push(i);
+  }
+  push(totalPages);
+  pages.sort((a, b) => a - b);
+
+  let html = `<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="ก่อนหน้า">‹</button>`;
+  let prev = 0;
+  for (const p of pages) {
+    if (p - prev > 1) html += `<span class="page-ellipsis">…</span>`;
+    html += `<button class="page-btn ${p === currentPage ? "active" : ""}" data-page="${p}">${p}</button>`;
+    prev = p;
+  }
+  html += `<button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="ถัดไป">›</button>`;
+
+  paginationEl.innerHTML = html;
+  paginationEl.querySelectorAll(".page-btn[data-page]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const n = parseInt(btn.dataset.page);
+      if (!btn.disabled && n >= 1 && n <= totalPages && n !== currentPage) goToPage(n);
+    });
+  });
 }
 
 // ── Chips ──
@@ -292,11 +351,12 @@ function renderProducts(list) {
   grid.innerHTML = list.map(p => {
     const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
     const imgContent = p.image ? "" : (p.emoji || "💡");
+    const noImg      = p.image ? "" : " no-img";
     const sku = (p.sku || "").replace(/"/g, "&quot;");
     const nm  = (p.name || "").replace(/"/g, "&quot;");
     return `
     <article class="product-card" data-id="${p.id}">
-      <div class="product-img" ${imgStyle}>${imgContent}</div>
+      <div class="product-img${noImg}" ${imgStyle}>${imgContent}</div>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
         <h3 class="product-name">${p.name}</h3>
@@ -310,7 +370,7 @@ function renderProducts(list) {
   }).join("");
 
   grid.querySelectorAll(".product-card").forEach(card =>
-    card.addEventListener("click", () => openModal(card.dataset.id, list)));
+    card.addEventListener("click", () => openModal(card.dataset.id, allProducts)));
 }
 
 // ── Modal ──
@@ -326,11 +386,12 @@ function openModal(id, list) {
   }
   const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
   const imgContent = p.image ? "" : (p.emoji || "💡");
+  const noImg      = p.image ? "" : " no-img";
   const sku = (p.sku || "").replace(/"/g, "&quot;");
   const nm  = (p.name || "").replace(/"/g, "&quot;");
   overlay.innerHTML = `
     <div class="modal">
-      <div class="modal-img" ${imgStyle}>${imgContent}</div>
+      <div class="modal-img${noImg}" ${imgStyle}>${imgContent}</div>
       <div class="modal-info">
         <button class="modal-close" aria-label="ปิด">×</button>
         <span class="product-cat">${p.category}</span>

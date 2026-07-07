@@ -22,10 +22,21 @@
     .filter-sidebar {
       position: sticky;
       top: 88px;
+      max-height: calc(100vh - 108px);
+      overflow-y: auto;
+      overscroll-behavior: contain;   /* กัน scroll หลุดไปเลื่อน grid ด้านขวา */
       background: var(--dark-card);
       border: 1px solid var(--border);
       padding: 24px;
     }
+    /* scrollbar ให้เข้าธีมมืด */
+    .filter-sidebar::-webkit-scrollbar { width: 8px; }
+    .filter-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .filter-sidebar::-webkit-scrollbar-thumb {
+      background: var(--border-2); border-radius: 4px;
+    }
+    .filter-sidebar::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    .filter-sidebar { scrollbar-width: thin; scrollbar-color: var(--border-2) transparent; }
     .filter-sidebar h3 {
       color: var(--white);
       font-size: .78rem;
@@ -280,10 +291,49 @@
     }
     .cat-group-body.open { max-height: 800px; }
 
+    /* ===== Pagination ===== */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 36px;
+    }
+    .pagination:empty { display: none; }
+    .page-btn {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 12px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+      font-family: inherit;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .page-btn:hover:not(:disabled):not(.active) {
+      background: var(--dark-3);
+      border-color: var(--border-2);
+      color: var(--white);
+    }
+    .page-btn.active {
+      background: rgba(216,182,106,.12);
+      border-color: var(--gold);
+      color: var(--gold);
+      cursor: default;
+    }
+    .page-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .page-ellipsis {
+      min-width: 24px; text-align: center;
+      color: var(--gray); font-size: .9rem;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .catalog-layout { grid-template-columns: 1fr; }
-      .filter-sidebar { position: static; }
+      .filter-sidebar { position: static; max-height: none; overflow: visible; }
       .cat-list { flex-direction: row; flex-wrap: wrap; }
     }
     @media (max-width: 600px) {
@@ -387,6 +437,7 @@
 
           <div class="product-grid" id="productGrid"></div>
           <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ตรงกับเงื่อนไข</p>
+          <nav class="pagination" id="pagination" aria-label="แบ่งหน้าสินค้า"></nav>
         </div>
 
       </div>
