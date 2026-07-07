@@ -2,7 +2,7 @@
 // Filter: ชื่อ, หมวดหมู่ (multi), ช่วงราคา, เรียงลำดับ
 
 import { db } from "./firebase-config.js";
-import { collection, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
 // ── State ──
 let allProducts  = [];
@@ -34,14 +34,27 @@ const activeFiltersEl = document.getElementById("activeFilters");
 const resetBtn     = document.getElementById("resetBtn");
 const paginationEl = document.getElementById("pagination");
 
-// ── โหลดสินค้า ──
-const q = query(collection(db, "products"), orderBy("name"));
-onSnapshot(q, (snap) => {
-  allProducts = snap.empty
-    ? []
-    : snap.docs.map(d => ({ id: d.id, ...d.data() }));
+// ── โหลดสินค้า (มี cache ลด Firestore reads) ──
+// สินค้ามี ~800 ชิ้น = ~800 reads/การเข้า 1 ครั้ง — Firestore Spark ฟรีจำกัด 50k reads/วัน
+// cache ใน localStorage: ถ้ายังสด (< TTL) แสดงจาก cache ทันที ไม่อ่าน Firestore เลย (0 reads)
+const CACHE_KEY = "sangudom_products_cache_v1";
+const CACHE_TTL = 30 * 60 * 1000;   // 30 นาที
 
-  // ตั้ง price max จากข้อมูลจริง
+function readCache() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CACHE_KEY));
+    if (raw && Array.isArray(raw.data)) return raw;   // { ts, data }
+  } catch {}
+  return null;
+}
+function writeCache(data) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); }
+  catch {}   // localStorage เต็ม/ปิด — ข้ามไป ไม่ทำให้พัง
+}
+
+// รับ list สินค้า → ตั้ง state + ตั้ง price ceiling + render
+function initProducts(list) {
+  allProducts = list;
   const maxPrice = Math.max(...allProducts.map(p => p.price || 0), 0);
   const ceiling  = Math.ceil(maxPrice / 1000) * 1000 || 100000;
   rangeMaxEl.max = ceiling;
@@ -51,10 +64,32 @@ onSnapshot(q, (snap) => {
     rangeMaxEl.value = ceiling;
     priceMaxEl.placeholder = ceiling.toLocaleString("th-TH");
   }
-
   buildCatList();
   applyFilters();
-});
+}
+
+async function loadProducts() {
+  // ?fresh=1 = บังคับดึงใหม่ ข้าม cache (ให้ admin เช็คสินค้าที่เพิ่งเพิ่ม)
+  const forceFresh = new URLSearchParams(location.search).has("fresh");
+  const cache = forceFresh ? null : readCache();
+  const fresh = cache && (Date.now() - cache.ts < CACHE_TTL);
+
+  if (cache) initProducts(cache.data);   // แสดงจาก cache ทันที (instant, 0 reads)
+  if (fresh) return;                      // cache ยังสด → ไม่แตะ Firestore เลย
+
+  // cache หมดอายุ/ไม่มี → ดึงจาก Firestore ครั้งเดียว แล้วอัปเดต cache
+  try {
+    const snap = await getDocs(query(collection(db, "products"), orderBy("name")));
+    const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    writeCache(data);
+    // re-render เฉพาะเมื่อข้อมูลเปลี่ยนจริง (กัน reset ตัวกรอง/หน้าที่ user กำลังดู)
+    if (!cache || JSON.stringify(data) !== JSON.stringify(cache.data)) initProducts(data);
+  } catch (e) {
+    // ดึงไม่ได้ (ออฟไลน์/error) — ถ้ามี cache เก่าใช้ต่อได้ ถ้าไม่มีก็แสดงว่าว่าง
+    if (!cache) { allProducts = []; buildCatList(); applyFilters(); }
+  }
+}
+loadProducts();
 
 // ── สร้าง category tree ──
 function buildCatList() {
