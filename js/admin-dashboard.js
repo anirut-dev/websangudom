@@ -1,10 +1,12 @@
 // ===== Admin Dashboard =====
-// Statistics, analytics, and bulk operations
+// Statistics, analytics, monitoring, and bulk operations
 
 import { db } from "./firebase-config.js";
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 import { ProductRepository, PRODUCT_STATUS } from "./product-repository.js";
 import { ErrorHandler } from "./error-handler.js";
+import { AnalyticsQuery } from "./analytics.js";
+import { MonitoringDashboard } from "./monitoring-dashboard.js";
 
 export class AdminDashboard {
   constructor() {
@@ -150,6 +152,111 @@ export class AdminDashboard {
       outOfStock,
       total: this.stats.total,
     };
+  }
+
+  // Load analytics data
+  async loadAnalytics() {
+    try {
+      const mostViewed = await AnalyticsQuery.getMostViewedProducts(5);
+      const popularSearches = await AnalyticsQuery.getPopularSearches(5);
+      const eventStats = await AnalyticsQuery.getEventStats();
+      const adminActivity = await AnalyticsQuery.getAdminActivity();
+
+      return {
+        mostViewed,
+        popularSearches,
+        eventStats,
+        adminActivity,
+      };
+    } catch (error) {
+      ErrorHandler.log(error, { operation: "loadAnalytics" });
+      return {
+        mostViewed: [],
+        popularSearches: [],
+        eventStats: {},
+        adminActivity: [],
+      };
+    }
+  }
+
+  // Render analytics dashboard
+  async renderAnalyticsDashboard(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    try {
+      const analytics = await this.loadAnalytics();
+
+      const html = `
+        <div class="analytics-dashboard">
+          <h2>📊 Analytics</h2>
+
+          <div class="analytics-section">
+            <h3>Most Viewed Products</h3>
+            <div class="analytics-list">
+              ${analytics.mostViewed.map((item, i) => `
+                <div class="analytics-item">
+                  <span class="rank">${i + 1}</span>
+                  <span class="product-id">${item.productId}</span>
+                  <span class="views">${item.views} views</span>
+                </div>
+              `).join("") || "<p>No data</p>"}
+            </div>
+          </div>
+
+          <div class="analytics-section">
+            <h3>Popular Searches</h3>
+            <div class="analytics-list">
+              ${analytics.popularSearches.map((item, i) => `
+                <div class="analytics-item">
+                  <span class="rank">${i + 1}</span>
+                  <span class="query">"${item.query}"</span>
+                  <span class="count">${item.searches} searches</span>
+                </div>
+              `).join("") || "<p>No search data</p>"}
+            </div>
+          </div>
+
+          <div class="analytics-section">
+            <h3>Event Statistics</h3>
+            <div class="event-stats">
+              <div class="stat">
+                <div class="stat-label">Total Events</div>
+                <div class="stat-value">${analytics.eventStats.totalEvents || 0}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Unique Sessions</div>
+                <div class="stat-value">${analytics.eventStats.uniqueSessions || 0}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-section">
+            <h3>Recent Admin Activity</h3>
+            <div class="activity-list">
+              ${analytics.adminActivity.slice(0, 10).map(activity => `
+                <div class="activity-item">
+                  <div class="activity-type">${activity.eventType}</div>
+                  <div class="activity-time">${new Date(activity.timestamp.toDate()).toLocaleString()}</div>
+                  ${activity.data?.resourceId ? `<div class="resource-id">${activity.data.resourceId}</div>` : ""}
+                </div>
+              `).join("") || "<p>No activity</p>"}
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    } catch (error) {
+      ErrorHandler.show(error, { operation: "renderAnalyticsDashboard" });
+    }
+  }
+
+  // Initialize monitoring dashboard
+  async initMonitoring() {
+    const monitoring = new MonitoringDashboard();
+    await monitoring.checkAnomalies();
+    return monitoring;
   }
 }
 
