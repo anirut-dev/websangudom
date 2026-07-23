@@ -122,13 +122,23 @@ function getCategoryFolder() {
 const headerUser      = document.getElementById("headerUser");
 const headerEmail     = document.getElementById("headerEmail");
 const headerLogoutBtn = document.getElementById("headerLogoutBtn");
-if (headerLogoutBtn) headerLogoutBtn.addEventListener("click", async () => {
-  try { await signOut(auth); } catch (e) {}
-  // รีเซ็ต UI ทันที ไม่รอ onAuthStateChanged (กัน edge case observer มาช้า)
+
+// ฟังก์ชันรีเซ็ต UI เมื่อออกจากระบบ (ใช้ได้จากหลายจุด)
+function resetLogoutUI() {
   if (headerUser)  headerUser.classList.remove("show");
   if (headerEmail) headerEmail.textContent = "";
   loginView.hidden = false;
   adminView.hidden = true;
+}
+
+if (headerLogoutBtn) headerLogoutBtn.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+  } catch (e) {
+    console.error("Logout failed:", e);
+  }
+  // รีเซ็ต UI ทันที ไม่รอ onAuthStateChanged (กัน edge case observer มาช้า)
+  resetLogoutUI();
 });
 
 // --- Auth state ---
@@ -141,10 +151,7 @@ onAuthStateChanged(auth, (user) => {
     if (headerEmail) headerEmail.textContent   = user.email;
     listenProducts();
   } else {
-    loginView.hidden = false;
-    adminView.hidden = true;
-    if (headerUser)  headerUser.classList.remove("show");
-    if (headerEmail) headerEmail.textContent = "";
+    resetLogoutUI();
   }
 });
 
