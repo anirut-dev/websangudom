@@ -28,16 +28,16 @@
     <div class="login-box">
       <h2>เข้าสู่ระบบ</h2>
       <p class="hint">สำหรับเจ้าของร้าน/พนักงานเท่านั้น</p>
-      <div id="loginAlert"></div>
+      <div id="loginAlert" role="alert" aria-live="polite"></div>
       <div class="field">
         <label for="username">ชื่อผู้ใช้</label>
-        <input type="text" id="username" placeholder="admin" />
+        <input type="text" id="username" placeholder="admin" required />
       </div>
       <div class="field">
         <label for="password">รหัสผ่าน</label>
-        <input type="password" id="password" placeholder="••••••" autocomplete="current-password" />
+        <input type="password" id="password" placeholder="••••••" autocomplete="current-password" required />
       </div>
-      <button class="btn btn-primary btn-full" id="loginBtn">เข้าสู่ระบบ</button>
+      <button class="btn btn-primary btn-full" id="loginBtn" type="button">เข้าสู่ระบบ</button>
       <div class="alert alert-info login-hint">
         ใช้อีเมลและรหัสผ่านที่สร้างไว้ใน Firebase Authentication<br />
         (ยังไม่มีบัญชี? สร้างได้ที่ Firebase Console &gt; Authentication &gt; Users)
@@ -67,29 +67,29 @@
 
     <table class="admin-table">
       <thead>
-        <tr><th>รหัส</th><th>สินค้า</th><th>หมวดหมู่</th><th>ราคา</th><th>จัดการ</th></tr>
+        <tr><th scope="col">รหัส</th><th scope="col">สินค้า</th><th scope="col">หมวดหมู่</th><th scope="col">ราคา</th><th scope="col">จัดการ</th></tr>
       </thead>
       <tbody id="adminTableBody"></tbody>
     </table>
   </div>
 
   <!-- ฟอร์มเพิ่ม/แก้ไขสินค้า (Modal) -->
-  <div class="modal-overlay" id="formOverlay">
+  <div class="modal-overlay" id="formOverlay" role="dialog" aria-modal="true" aria-labelledby="formTitle">
     <div class="modal modal-narrow">
       <div class="modal-info">
-        <button type="button" class="modal-close" id="formClose">×</button>
+        <button type="button" class="modal-close" id="formClose" aria-label="ปิดฟอร์ม">×</button>
         <h2 id="formTitle">เพิ่มสินค้า</h2>
         <div class="field">
           <label for="f_sku">รหัสสินค้า (SKU)</label>
-          <input type="text" id="f_sku" placeholder="เช่น EXT-001, LED-023" />
+          <input type="text" id="f_sku" placeholder="เช่น EXT-001, LED-023" required />
         </div>
         <div class="field">
           <label for="f_name">ชื่อสินค้า</label>
-          <input type="text" id="f_name" />
+          <input type="text" id="f_name" required />
         </div>
         <div class="field">
           <label for="f_cat_main">หมวดหมู่หลัก</label>
-          <select id="f_cat_main"></select>
+          <select id="f_cat_main" required></select>
         </div>
         <div class="field" id="f_cat_sub_wrap" hidden>
           <label for="f_cat_sub">หมวดย่อย</label>
@@ -97,17 +97,17 @@
         </div>
         <div class="field">
           <label for="f_price">ราคา (บาท)</label>
-          <input type="number" id="f_price" />
+          <input type="number" id="f_price" required />
         </div>
         <div class="field">
           <label for="f_image">รูปภาพสินค้า</label>
-          <img id="f_image_preview" class="form-image-preview" hidden />
+          <img id="f_image_preview" class="form-image-preview" hidden alt="ตัวอย่างรูปภาพสินค้า" />
           <div class="image-input-row">
             <input type="text" id="f_image" placeholder="เลือกรูปเพื่ออัปโหลด หรือวางลิงก์รูป" />
-            <button type="button" id="browseBtn" class="btn-browse">📁 เลือก &amp; อัปโหลด</button>
+            <button type="button" id="browseBtn" class="btn-browse" aria-label="เลือกไฟล์รูปภาพจากคอมพิวเตอร์">📁 เลือก &amp; อัปโหลด</button>
           </div>
-          <input type="file" id="f_image_file" accept="image/*" hidden />
-          <p id="uploadStatus" class="upload-status" hidden></p>
+          <input type="file" id="f_image_file" accept="image/*" hidden aria-label="ไฟล์รูปภาพสินค้า" />
+          <p id="uploadStatus" class="upload-status" hidden aria-live="polite"></p>
           <p class="field-hint">เลือกไฟล์รูป → อัปขึ้นระบบอัตโนมัติ ได้ลิงก์ทันที (ไม่ต้อง push git) — หรือวางลิงก์รูปเองก็ได้</p>
         </div>
         <div class="field">

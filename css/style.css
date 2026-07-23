@@ -69,8 +69,8 @@
   --dark-2:     #161310;   /* alt section background */
   --dark-3:     #201c16;   /* input / subtle surface */
   --dark-card:  #19150f;   /* cards */
-  --gray:       #8f846f;   /* muted text */
-  --gray-light: #b8ad98;   /* body / secondary text */
+  --gray:       #b8ad98;   /* muted text (increased from #8f846f for WCAG AA contrast) */
+  --gray-light: #cfc7ba;   /* body / secondary text (increased for better contrast) */
   --light:      #f5f0e6;   /* light surface */
   --white:      #f6f1e7;   /* prominent text (cream-white) */
   --border:     rgba(216,182,106,.16);
@@ -96,6 +96,29 @@ body {
 .container { width: min(1200px, 92%); margin: 0 auto; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
+
+/* ===== Keyboard Focus Indicators (Accessibility) ===== */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
 
 /* ===== Gold divider line ===== */
 .gold-line {

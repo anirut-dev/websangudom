@@ -603,7 +603,7 @@
       <a href="index.html" class="logo">
         <img src="images/logo-nav.png" alt="Sang Udom LED Lighting" class="logo-img" />
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="เมนู" aria-expanded="false" aria-controls="mainNav">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="index.html" class="active"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
         <a href="index.html#promotion"><span class="nav-en">Promotion</span><span class="nav-th">โปรโมชั่น</span></a>
@@ -618,13 +618,13 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="hero-slides">
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
+  <section class="hero" aria-label="โปรโมชั่นแนะนำสินค้า">
+    <div class="hero-slides" role="img" aria-label="สไลด์โชว์ภาพแสงสว่างภายในอาคารต่างๆ">
+      <div class="hero-slide" aria-hidden="true"></div>
+      <div class="hero-slide" aria-hidden="true"></div>
+      <div class="hero-slide" aria-hidden="true"></div>
+      <div class="hero-slide" aria-hidden="true"></div>
+      <div class="hero-slide" aria-hidden="true"></div>
     </div>
     <div class="hero-glow-left"></div>
     <div class="hero-glow-bottom"></div>
@@ -686,60 +686,60 @@
         <span class="gold-line"></span>
       </div>
       <div class="promotion-grid" id="promotionGrid">
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/729716441_1285027577174293_4482147948634705843_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/729729404_1285027677174283_3205026247190394602_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/729754354_1285027553840962_2808277044788123687_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/729754773_1285027550507629_407087937685106773_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/729849215_1285027700507614_280612895893293_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
-        <div class="promo-card">
-          <img src="images/promotion/25-06-2569/730069494_1285027637174287_3977913363659895607_n.jpg" alt="โปรโมชั่นแสงอุดม ไลท์ติ้ง" loading="lazy" />
-          <div class="promo-zoom">⊕</div>
-        </div>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 1 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/729716441_1285027577174293_4482147948634705843_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 2 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/729729404_1285027677174283_3205026247190394602_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 3 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/729754354_1285027553840962_2808277044788123687_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 4 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/729754773_1285027550507629_407087937685106773_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 5 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/729849215_1285027700507614_280612895893293_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
+        <button class="promo-card" type="button" aria-label="ดูโปรโมชั่น 6 ขนาดใหญ่">
+          <img src="images/promotion/25-06-2569/730069494_1285027637174287_3977913363659895607_n.jpg" alt="" loading="lazy" />
+          <div class="promo-zoom" aria-hidden="true">⊕</div>
+        </button>
       </div>
     </div>
   </section>
 
   <!-- ===== Promotion Lightbox ===== -->
-  <div class="lightbox" id="promoLightbox">
-    <button type="button" class="lightbox-close" id="promoLbClose">✕</button>
-    <button type="button" class="lightbox-nav lightbox-prev" id="promoLbPrev">‹</button>
-    <button type="button" class="lightbox-nav lightbox-next" id="promoLbNext">›</button>
+  <div class="lightbox" id="promoLightbox" role="dialog" aria-modal="true" aria-label="โปรโมชั่นขนาดใหญ่">
+    <button type="button" class="lightbox-close" id="promoLbClose" aria-label="ปิดโปรโมชั่นขนาดใหญ่">✕</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="promoLbPrev" aria-label="โปรโมชั่นก่อนหน้า">‹</button>
+    <button type="button" class="lightbox-nav lightbox-next" id="promoLbNext" aria-label="โปรโมชั่นถัดไป">›</button>
     <div class="lightbox-inner">
       <img class="lightbox-img" id="promoLbImg" src="" alt="" />
     </div>
-    <div class="lightbox-counter" id="promoLbCounter"></div>
+    <div class="lightbox-counter" id="promoLbCounter" aria-live="polite" aria-label="รูปภาพ"></div>
   </div>
 
   <!-- ===== Banner Marquee ===== -->
-  <div class="marquee-section">
+  <div class="marquee-section" aria-label="โพสต์ผลงานการออกแบบแสงสว่าง">
     <div class="marquee-track">
       <!-- รูปชุดที่ 1 -->
-      <div class="marquee-item"><img src="images/banner1.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner2.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner3.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner4.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner5.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner1.webp" alt="โครงการแสงสว่างภายในอาคาร" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner2.webp" alt="การออกแบบแสงสว่างสำหรับห้องโถง" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner3.webp" alt="ติดตั้งโคมไฟหรูหรา" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner4.webp" alt="แสงสว่างสำหรับพื้นที่ภายนอก" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner5.webp" alt="โคมไฟแชนเดอเลียร์ในห้องนั่งเล่น" loading="lazy" /></div>
       <!-- ชุดซ้ำเพื่อ seamless loop -->
-      <div class="marquee-item"><img src="images/banner1.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner2.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner3.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner4.webp" alt="" loading="lazy" /></div>
-      <div class="marquee-item"><img src="images/banner5.webp" alt="" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner1.webp" alt="โครงการแสงสว่างภายในอาคาร" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner2.webp" alt="การออกแบบแสงสว่างสำหรับห้องโถง" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner3.webp" alt="ติดตั้งโคมไฟหรูหรา" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner4.webp" alt="แสงสว่างสำหรับพื้นที่ภายนอก" loading="lazy" /></div>
+      <div class="marquee-item"><img src="images/banner5.webp" alt="โคมไฟแชนเดอเลียร์ในห้องนั่งเล่น" loading="lazy" /></div>
     </div>
   </div>
 
@@ -980,10 +980,15 @@
 
   <script src="js/animations.js"></script>
   <script>
-    // Mobile nav
+    // Mobile nav with ARIA updates
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
-    if (t) t.addEventListener("click", () => n.classList.toggle("open"));
+    if (t) {
+      t.addEventListener("click", () => {
+        const isOpen = n.classList.toggle("open");
+        t.setAttribute("aria-expanded", isOpen);
+      });
+    }
 
     // ===== Promotion Lightbox =====
     const promoCards = document.querySelectorAll("#promotionGrid .promo-card img");
@@ -997,12 +1002,13 @@
       showPromoImage(promoIndex);
       promoLb.classList.add("open");
       document.body.style.overflow = "hidden";
+      promoLb.focus();
     }
     function showPromoImage(idx) {
       const img = promoCards[idx];
       promoLbImg.src   = img.src;
-      promoLbImg.alt   = img.alt;
-      promoLbCount.textContent = `${idx + 1} / ${promoCards.length}`;
+      promoLbImg.alt   = "โปรโมชั่นรูปที่ " + (idx + 1);
+      promoLbCount.textContent = `รูปที่ ${idx + 1} จากทั้งหมด ${promoCards.length}`;
     }
     function closePromoLightbox() {
       promoLb.classList.remove("open");
