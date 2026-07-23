@@ -9,6 +9,8 @@ import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
 import { validateProduct, sanitizeProduct } from "./validation.js";
+import { ErrorHandler } from "./error-handler.js";
+import { ProductRepository, PRODUCT_STATUS } from "./product-repository.js";
 
 // ===== Cloudinary (อัปรูปจาก admin ได้เลย ไม่ต้อง push git) =====
 // ต้องสร้าง "unsigned upload preset" ชื่อตรงกับ CLD_PRESET ใน Cloudinary console ก่อน
@@ -364,6 +366,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     emoji:    document.getElementById("f_emoji").value,
     image:    document.getElementById("f_image").value,
     desc:     document.getElementById("f_desc").value,
+    status:   document.getElementById("f_status")?.value || PRODUCT_STATUS.ACTIVE,
   };
 
   const validation = validateProduct(rawData);
@@ -381,17 +384,17 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
 
   try {
     saveBtn.textContent = "กำลังบันทึก...";
+
     if (editingId) {
-      data.updatedAt = new Date();
-      await updateDoc(doc(db, "products", editingId), data);
+      await ProductRepository.update(editingId, data, auth.currentUser?.uid);
     } else {
-      data.createdAt = new Date();
-      data.updatedAt = new Date();
-      await addDoc(collection(db, "products"), data);
+      await ProductRepository.create(data, auth.currentUser?.uid);
     }
+
     closeForm();
-  } catch (e) {
-    alert("บันทึกไม่สำเร็จ: " + e.message);
+    renderTable();
+  } catch (error) {
+    ErrorHandler.show(error, { operation: editingId ? "update" : "create" });
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = originalLabel;
@@ -399,10 +402,22 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
 });
 
 async function deleteProduct(id) {
-  if (!confirm("ลบสินค้านี้?")) return;
+  const choice = confirm("เลือกวิธีลบ:\nตกลง = เก็บถาวร (soft delete)\nยกเลิก = ยกเลิก");
+  if (choice === null) return;
+
   try {
-    await deleteDoc(doc(db, "products", id));
-  } catch (e) {
-    alert("ลบไม่สำเร็จ: " + e.message);
+    if (choice) {
+      // Soft delete: archive
+      await ProductRepository.archive(id);
+      alert("เก็บถาวรสินค้าแล้ว");
+    } else {
+      // Hard delete: permanent
+      if (!confirm("ลบถาวรจริง ๆ? ไม่สามารถคืนได้")) return;
+      await ProductRepository.delete(id);
+      alert("ลบสินค้าแล้ว");
+    }
+    renderTable();
+  } catch (error) {
+    ErrorHandler.show(error, { operation: "deleteProduct", productId: id });
   }
 }
