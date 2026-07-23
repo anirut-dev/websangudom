@@ -1,6 +1,6 @@
 // Jest Configuration for Firebase + JavaScript testing
 
-module.exports = {
+export default {
   testEnvironment: 'node',
   roots: ['<rootDir>/js', '<rootDir>/tests'],
   testMatch: ['**/__tests__/**/*.js', '**/?(*.)+(spec|test).js'],
@@ -19,10 +19,12 @@ module.exports = {
   },
   setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
   moduleNameMapper: {
-    // Mock Firebase modules in tests
-    'firebase/app': '<rootDir>/tests/mocks/firebase-app.js',
-    'firebase/firestore': '<rootDir>/tests/mocks/firebase-firestore.js',
-    'firebase/auth': '<rootDir>/tests/mocks/firebase-auth.js',
+    '^https://www\\.gstatic\\.com/firebasejs/11\\.0\\.0/firebase-firestore\\.js$': '<rootDir>/tests/mocks/firebase-firestore.js',
+    '^https://www\\.gstatic\\.com/firebasejs/11\\.0\\.0/firebase-auth\\.js$': '<rootDir>/tests/mocks/firebase-auth.js',
+    '^https://www\\.gstatic\\.com/firebasejs/11\\.0\\.0/firebase-app\\.js$': '<rootDir>/tests/mocks/firebase-app.js',
+    '^firebase/firestore$': '<rootDir>/tests/mocks/firebase-firestore.js',
+    '^firebase/auth$': '<rootDir>/tests/mocks/firebase-auth.js',
+    '^firebase/app$': '<rootDir>/tests/mocks/firebase-app.js',
   },
   transform: {
     '^.+\\.js$': 'babel-jest',

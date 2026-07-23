@@ -60,10 +60,10 @@ export class Analytics {
   async flush() {
     if (this.eventQueue.length === 0) return;
 
-    try {
-      const eventsToSend = [...this.eventQueue];
-      this.eventQueue = [];
+    const eventsToSend = [...this.eventQueue];
+    this.eventQueue = [];
 
+    try {
       const promises = eventsToSend.map(event =>
         addDoc(collection(db, EVENTS_COLLECTION), event)
       );
@@ -79,7 +79,7 @@ export class Analytics {
 
   // Track page view (auto-called)
   trackPageView(pageName) {
-    this.trackEvent(ANALYTICS_EVENTS.PRODUCT_VIEW, {
+    return this.trackEvent(ANALYTICS_EVENTS.PRODUCT_VIEW, {
       page: pageName,
       title: document.title,
     });
@@ -87,7 +87,7 @@ export class Analytics {
 
   // Track product interaction
   trackProductInteraction(productId, eventType, metadata = {}) {
-    this.trackEvent(eventType, {
+    return this.trackEvent(eventType, {
       productId,
       ...metadata,
     });
@@ -95,7 +95,7 @@ export class Analytics {
 
   // Track search
   trackSearch(query, resultsCount) {
-    this.trackEvent(ANALYTICS_EVENTS.SEARCH, {
+    return this.trackEvent(ANALYTICS_EVENTS.SEARCH, {
       query,
       resultsCount,
     });
@@ -103,14 +103,14 @@ export class Analytics {
 
   // Track category filter
   trackCategoryFilter(category) {
-    this.trackEvent(ANALYTICS_EVENTS.CATEGORY_FILTER, {
+    return this.trackEvent(ANALYTICS_EVENTS.CATEGORY_FILTER, {
       category,
     });
   }
 
   // Track admin action
   trackAdminAction(actionType, resourceId, metadata = {}) {
-    this.trackEvent(actionType, {
+    return this.trackEvent(actionType, {
       resourceId,
       adminUid: metadata.adminUid,
       ...metadata,
@@ -178,7 +178,6 @@ export class AnalyticsQuery {
           viewCounts[productId] = (viewCounts[productId] || 0) + 1;
         }
       });
-
       return Object.entries(viewCounts)
         .sort((a, b) => b[1] - a[1])
         .slice(0, limit)
