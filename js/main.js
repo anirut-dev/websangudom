@@ -1,34 +1,84 @@
 // ===== หน้าแคตตาล็อก (index.html) =====
-// ดึงสินค้าจาก Firestore real-time — ถ้า Firestore ว่าง ใช้ข้อมูลตัวอย่างแทน
+// ดึงสินค้าจาก Firestore server-side — pagination, filtering, performance optimized
 
 import { db } from "./firebase-config.js";
-import { collection, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { getProductsWithFilters, getCategories, ProductPagination } from "./firestore-queries.js";
 
-let allProducts = [];
+let allCategories = [];
 let activeCategory = "ทั้งหมด";
 let searchTerm = "";
+let pagination = new ProductPagination(20);
+let isLoading = false;
 
 const grid       = document.getElementById("productGrid");
 const emptyMsg   = document.getElementById("emptyMsg");
 const searchInput = document.getElementById("searchInput");
 const filtersEl  = document.getElementById("categoryFilters");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-// ===== โหลดสินค้าจาก Firestore =====
-const q = query(collection(db, "products"), orderBy("name"));
-onSnapshot(q, (snap) => {
-  if (snap.empty) {
-    // ถ้า Firestore ยังว่าง ใช้ข้อมูลตัวอย่างจาก data.js
-    allProducts = typeof SAMPLE_PRODUCTS !== "undefined" ? SAMPLE_PRODUCTS : [];
-  } else {
-    allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+// ===== โหลดหมวดหมู่ =====
+async function loadCategories() {
+  try {
+    allCategories = await getCategories();
+    renderFilters();
+  } catch (error) {
+    console.error("Error loading categories:", error);
+    allCategories = [];
   }
-  renderFilters();
-  renderProducts();
-});
+}
+
+// ===== โหลดสินค้าจาก Firestore (server-side) =====
+async function loadProducts(isLoadMore = false) {
+  if (isLoading) return;
+
+  try {
+    isLoading = true;
+
+    // Reset pagination if not loading more
+    if (!isLoadMore) {
+      pagination.reset();
+    }
+
+    const result = await getProductsWithFilters(
+      activeCategory,
+      searchTerm,
+      pagination.pageSize,
+      pagination.lastDoc
+    );
+
+    if (!isLoadMore) {
+      grid.innerHTML = "";
+    }
+
+    if (result.products.length === 0 && !isLoadMore) {
+      emptyMsg.hidden = false;
+      loadMoreBtn.hidden = true;
+    } else {
+      emptyMsg.hidden = true;
+      pagination.currentPage = result.products;
+      pagination.lastDoc = result.lastDoc;
+      pagination.hasMore = result.hasMore;
+
+      renderProducts();
+      loadMoreBtn.hidden = !pagination.hasMore;
+    }
+  } catch (error) {
+    console.error("Error loading products:", error);
+    emptyMsg.hidden = false;
+    loadMoreBtn.hidden = true;
+  } finally {
+    isLoading = false;
+  }
+}
+
+// Initial load
+loadCategories();
+loadProducts();
 
 // ===== ปุ่มหมวดหมู่ =====
 function renderFilters() {
-  const cats = ["ทั้งหมด", ...CATEGORIES];
+  const cats = ["ทั้งหมด", ...allCategories];
   filtersEl.innerHTML = cats.map(c =>
     `<button class="cat-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}">${c}</button>`
   ).join("");
@@ -36,7 +86,7 @@ function renderFilters() {
     btn.addEventListener("click", () => {
       activeCategory = btn.dataset.cat;
       renderFilters();
-      renderProducts();
+      loadProducts();
     });
   });
 }
@@ -47,16 +97,7 @@ function formatPrice(n) {
 
 // ===== แสดงสินค้า =====
 function renderProducts() {
-  const list = allProducts.filter(p => {
-    const matchCat    = activeCategory === "ทั้งหมด" || p.category === activeCategory;
-    const matchSearch = !searchTerm ||
-      p.name.toLowerCase().includes(searchTerm) ||
-      p.category.toLowerCase().includes(searchTerm);
-    return matchCat && matchSearch;
-  });
-
-  emptyMsg.hidden = list.length > 0;
-  grid.innerHTML = list.map(p => {
+  const html = pagination.currentPage.map(p => {
     const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
     const imgContent = p.image ? "" : (p.emoji || "💡");
     return `
@@ -70,13 +111,15 @@ function renderProducts() {
     </article>`;
   }).join("");
 
+  grid.innerHTML += html;
+
   grid.querySelectorAll(".product-card").forEach(card =>
     card.addEventListener("click", () => openModal(card.dataset.id)));
 }
 
 // ===== Modal รายละเอียด =====
 function openModal(id) {
-  const p = allProducts.find(x => x.id === id);
+  const p = pagination.currentPage.find(x => x.id === id);
   if (!p) return;
   let overlay = document.getElementById("modalOverlay");
   if (!overlay) {
@@ -109,10 +152,17 @@ function closeModal() {
 
 // ===== ค้นหา =====
 if (searchInput) {
+  let searchTimeout;
   searchInput.addEventListener("input", e => {
-    searchTerm = e.target.value.trim().toLowerCase();
-    renderProducts();
+    searchTerm = e.target.value.trim();
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => loadProducts(), 500);
   });
+}
+
+// ===== Load More Button =====
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", () => loadProducts(true));
 }
 
 // ===== เมนูมือถือ =====

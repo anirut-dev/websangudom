@@ -1,8 +1,10 @@
 // ===== หน้าแคตตาล็อกสินค้า (products.html) =====
 // Filter: ชื่อ, หมวดหมู่ (multi), ช่วงราคา, เรียงลำดับ
+// Phase 2: Server-side filtering + pagination
 
 import { db } from "./firebase-config.js";
 import { collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { getProductsWithFilters, ProductPagination } from "./firestore-queries.js";
 
 // ── State ──
 let allProducts  = [];

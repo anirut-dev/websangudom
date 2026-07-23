@@ -8,6 +8,7 @@ import {
 import {
   signInWithEmailAndPassword, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+import { validateProduct, sanitizeProduct } from "./validation.js";
 
 // ===== Cloudinary (อัปรูปจาก admin ได้เลย ไม่ต้อง push git) =====
 // ต้องสร้าง "unsigned upload preset" ชื่อตรงกับ CLD_PRESET ใน Cloudinary console ก่อน
@@ -129,6 +130,7 @@ function resetLogoutUI() {
   if (headerEmail) headerEmail.textContent = "";
   loginView.hidden = false;
   adminView.hidden = true;
+  if (unsubscribe) unsubscribe();
 }
 
 if (headerLogoutBtn) headerLogoutBtn.addEventListener("click", async () => {
@@ -352,20 +354,26 @@ document.getElementById("formClose").addEventListener("click", closeForm);
 // ปิดฟอร์มเฉพาะเมื่อกดปุ่มกากบาทเท่านั้น (กดนอกกรอบไม่ปิด กันพลาด)
 
 document.getElementById("saveBtn").addEventListener("click", async () => {
-  const name  = document.getElementById("f_name").value.trim();
-  const price = document.getElementById("f_price").value;
-  if (!name || !price) { alert("กรุณากรอกชื่อสินค้าและราคา"); return; }
   if (isUploading) { alert("กรุณารอรูปอัปโหลดเสร็จก่อนบันทึก"); return; }
 
-  const data = {
-    sku:      document.getElementById("f_sku").value.trim(),
-    name,
+  const rawData = {
+    sku:      document.getElementById("f_sku").value,
+    name:     document.getElementById("f_name").value,
     category: getCategoryValue(),
-    price:    Number(price),
-    emoji:    document.getElementById("f_emoji").value || "💡",
-    image:    document.getElementById("f_image").value.trim(),
-    desc:     document.getElementById("f_desc").value.trim(),
+    price:    document.getElementById("f_price").value,
+    emoji:    document.getElementById("f_emoji").value,
+    image:    document.getElementById("f_image").value,
+    desc:     document.getElementById("f_desc").value,
   };
+
+  const validation = validateProduct(rawData);
+  if (!validation.isValid) {
+    alert(validation.getErrorMessage());
+    return;
+  }
+
+  const data = sanitizeProduct(rawData);
+  data.price = Number(data.price);
 
   const saveBtn = document.getElementById("saveBtn");
   const originalLabel = saveBtn.textContent;
@@ -374,8 +382,11 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   try {
     saveBtn.textContent = "กำลังบันทึก...";
     if (editingId) {
+      data.updatedAt = new Date();
       await updateDoc(doc(db, "products", editingId), data);
     } else {
+      data.createdAt = new Date();
+      data.updatedAt = new Date();
       await addDoc(collection(db, "products"), data);
     }
     closeForm();

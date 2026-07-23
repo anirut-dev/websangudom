@@ -293,6 +293,12 @@
     .cat-group-body.open { max-height: 800px; }
 
     /* ===== Pagination ===== */
+    .pagination-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 36px;
+    }
+    .pagination-controls #loadMoreBtn { min-width: 220px; }
     .pagination {
       display: flex;
       justify-content: center;
@@ -438,7 +444,10 @@
 
           <div class="product-grid" id="productGrid"></div>
           <p class="empty-msg" id="emptyMsg" hidden>ไม่พบสินค้าที่ตรงกับเงื่อนไข</p>
-          <nav class="pagination" id="pagination" aria-label="แบ่งหน้าสินค้า"></nav>
+          <div class="pagination-controls">
+            <button class="btn btn-primary" id="loadMoreBtn" hidden>โหลดสินค้าเพิ่มเติม</button>
+          </div>
+          <nav class="pagination" id="pagination" aria-label="แบ่งหน้าสินค้า" hidden></nav>
         </div>
 
       </div>
