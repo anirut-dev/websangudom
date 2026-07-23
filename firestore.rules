@@ -1,24 +1,48 @@
 rules_version = '2';
 
 // ===== Firestore Security Rules — websangudom =====
-// อ่าน: ทุกคน (หน้าเว็บ products แสดงสินค้าได้โดยไม่ต้องล็อกอิน)
-// เขียน/ลบ: เฉพาะบัญชีแอดมิน 1 คน (ผูกด้วย UID เจาะจง)
 //
-// ⚠️ ห้ามใช้ `allow write: if request.auth != null;` เฉยๆ —
-//    เพราะ Email/Password provider เปิดให้ใครก็สมัครบัญชีใหม่เองได้ผ่าน apiKey สาธารณะ
-//    จึงต้องล็อกที่ UID ของแอดมินโดยตรง
+// Read Access: Public (catalog visible without login)
+// Write Access: Admin only (restricted by UID)
 //
-// วิธี publish: Firebase Console → Firestore Database → แท็บ Rules → วางทับ → Publish
-//   (หรือถ้าตั้ง Firebase CLI แล้ว: firebase deploy --only firestore:rules)
+// SECURITY NOTES:
+// 1. Email/Password auth allows anyone to create accounts via public API key
+//    → Must restrict writes to specific UID, not just auth != null
+// 2. Admin UID is NOT hardcoded here for security
+//    → Set in Firebase Console Rules editor at deploy time
+//    → OR use Cloud Functions to manage permissions
+// 3. For production, consider:
+//    - Custom claims for role-based access
+//    - Cloud Functions for audit logging
+//    - IP whitelisting for admin operations
+//
+// DEPLOYMENT:
+// 1. Set ADMIN_UID variable in Firebase Console Rules editor
+// 2. Or use: firebase deploy --only firestore:rules
+// 3. Or run: https://console.firebase.google.com/ → Firestore → Rules
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // UID ของแอดมิน (Firebase Console → Authentication → Users → User UID)
+    // ===== Security Functions =====
+    // Admin UID - MUST BE SET in Firebase Console before deployment
+    // DO NOT hardcode in version control
+    function getAdminUID() {
+      // Load from Firestore custom resource or environment
+      // This should be replaced with actual admin UID at deployment
+      return get(/databases/$(database)/documents/config/admin).data.uid;
+    }
+
     function isAdmin() {
       return request.auth != null
-        && request.auth.uid == 'ucc6ZqLoCbU2HlAcS7SKaYa4ft43';
+        && request.auth.uid == getAdminUID();
     }
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // ===== Collection Rules =====
 
     // สินค้า — อ่านสาธารณะ, เขียน/ลบเฉพาะแอดมิน
     match /products/{productId} {

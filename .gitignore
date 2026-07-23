@@ -6,6 +6,19 @@ Thumbs.db
 
 # ไฟล์ลับ (ใส่คีย์ Firebase จริงไว้ที่นี่ในอนาคต ห้าม push ขึ้น GitHub)
 # firebase-config-secret.js
+.env
+.env.local
+.env*.local
+
+# Firebase Admin UID and sensitive configuration
+# NEVER commit actual .env files with real credentials
+firebase-config-secret.js
 
 # node (เผื่ออนาคต)
 node_modules/
+functions/node_modules/
+
+# Cloud Functions
+functions/.env
+functions/.env.local
+functions/.runtimeconfig.json
