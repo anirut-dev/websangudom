@@ -63,24 +63,31 @@ const warnings   = [];
 
 for (const doc of raw) {
   const f    = doc.fields ?? {};
-  const name = fVal(f.name)      ?? "";
-  let   sku  = fVal(f.sku)       ?? "";
+  const rawName = fVal(f.name) ?? "";
+  const rawSku  = fVal(f.sku)  ?? "";
+  // strip "XX % OFF CODENAME " prefix (เช่น "22 % OFF AI0589 Ceiling...")
+  const cleanedName = rawName.replace(/^\d+\s*%\s*OFF\s+[A-Z0-9]+\s+/i, "").trim();
+  const name = cleanedName || rawSku;   // fallback: ถ้าชื่อว่างให้ใช้ sku แทน
+  let   sku  = rawSku;
   const cat  = fVal(f.category)  ?? "";
   const price     = fVal(f.price)     ?? 0;
   const priceSale = fVal(f.priceSale) ?? null;
   const image     = fVal(f.image)     ?? "";
 
   // ─── กรณี sku ว่าง: สร้างจากชื่อ ───────────────────────────────────────
+  let skuAuto = false;
   if (!sku) {
     sku = slugify(name) || "product";
+    skuAuto = true;
     warnings.push(`  [gen-sku] "${name}" → "${sku}"`);
   }
 
   // ─── กรณี sku ซ้ำ ────────────────────────────────────────────────────────
   if (productMap.has(sku)) {
     const existing = productMap.get(sku);
-    const thisIsPercentOff     = PERCENT_OFF_RE.test(name);
-    const existingIsPercentOff = PERCENT_OFF_RE.test(existing.name);
+    // ตรวจด้วย rawName (ก่อน clean) เพื่อให้ detect "% OFF" ได้ถูกต้อง
+    const thisIsPercentOff     = PERCENT_OFF_RE.test(rawName);
+    const existingIsPercentOff = PERCENT_OFF_RE.test(existing._rawName ?? "");
 
     if (thisIsPercentOff || existingIsPercentOff) {
       // ── แบบที่ 1: version "XX % OFF CODENAME ชื่อ" vs ชื่อสะอาด ──────────
@@ -98,10 +105,10 @@ for (const doc of raw) {
       while (productMap.has(newSku)) newSku = `${sku}-${String.fromCharCode(64 + suffix++)}`;
       warnings.push(`  [dup-sku] "${name}" sku ซ้ำ "${sku}" → เปลี่ยนเป็น "${newSku}"`);
       sku = newSku;
-      productMap.set(sku, { name, sku, category: cat, price, priceSale, image });
+      productMap.set(sku, { name, sku, skuAuto, category: cat, price, priceSale, image, _rawName: rawName });
     }
   } else {
-    productMap.set(sku, { name, sku, category: cat, price, priceSale, image });
+    productMap.set(sku, { name, sku, skuAuto, category: cat, price, priceSale, image, _rawName: rawName });
   }
 }
 
@@ -114,10 +121,10 @@ for (const [sku, p] of productMap) {
   slugCount.set(sku, (slugCount.get(sku) || 0) + 1);
 }
 
-// ── 6. เรียงชื่อ A-Z (diff อ่านง่าย) ─────────────────────────────────────────
-const products = [...productMap.values()].sort((a, b) =>
-  a.name.localeCompare(b.name, "th")
-);
+// ── 6. เรียงชื่อ A-Z + ลบ field ชั่วคราว ────────────────────────────────────
+const products = [...productMap.values()]
+  .map(({ _rawName, ...p }) => p)   // ลบ _rawName ก่อน save
+  .sort((a, b) => a.name.localeCompare(b.name, "th"));
 
 // ── 7. บันทึกไฟล์ ─────────────────────────────────────────────────────────────
 fs.mkdirSync(path.dirname(OUT), { recursive: true });

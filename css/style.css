@@ -392,6 +392,25 @@ img { display: block; max-width: 100%; }
 .modal-price { font-size: 1.7rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
 .modal-desc { color: var(--gray-light); line-height: 1.9; }
 
+/* ── ราคาลด (card + modal) ── */
+.price-sale   { color: var(--gold); font-weight: 700; }
+.price-original { color: var(--gray); font-size: .82em; text-decoration: line-through; margin-left: 6px; }
+.modal-price-original { display: block; color: var(--gray); font-size: .78rem; text-decoration: line-through; margin-top: 2px; font-weight: 400; }
+
+/* ── รหัสสินค้าใน modal ── */
+.product-sku-label { font-size: .78rem; color: var(--gray); letter-spacing: .05em; margin-bottom: 12px; }
+
+/* ── ปุ่ม LINE ใน modal ── */
+.btn-line-inquiry {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 20px; padding: 13px;
+  background: #06C755; border-radius: 4px;
+  color: #fff; font-family: inherit; font-size: .95rem; font-weight: 700;
+  text-decoration: none;
+  transition: opacity .2s, transform .2s;
+}
+.btn-line-inquiry:hover { opacity: .9; transform: translateY(-2px); }
+
 /* ===== Footer ===== */
 .site-footer { background: var(--dark-2); border-top: 1px solid var(--border); }
 

@@ -1,58 +1,55 @@
-// ===== หน้าแคตตาล็อกสินค้า (products.html) =====
+// ===== หน้าแคตตาล็อกสินค้า (products.html) — v2 static =====
+// โหลดจาก data/products.json (ไม่มี Firebase)
 // Filter: ชื่อ, หมวดหมู่ (multi), ช่วงราคา, เรียงลำดับ
 
-import { db } from "./firebase-config.js";
-import { collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+const LINE_URL = "https://line.me/ti/p/~Sangudom-sale";
 
 // ── State ──
 let allProducts  = [];
-let filteredList = [];       // ผลลัพธ์หลังกรอง+เรียง (ทั้งหมด)
+let filteredList = [];
 let currentPage  = 1;
-const PAGE_SIZE  = 20;       // สินค้าต่อหน้า
+const PAGE_SIZE  = 20;
 let filters = {
   search:     "",
-  categories: new Set(),   // ว่าง = ทั้งหมด
+  categories: new Set(),
   priceMin:   0,
   priceMax:   100000,
   sort:       "name-asc",
 };
 
 // ── Elements ──
-const grid         = document.getElementById("productGrid");
-const emptyMsg     = document.getElementById("emptyMsg");
-const searchInput  = document.getElementById("searchInput");
-const catListEl    = document.getElementById("catList");
-const priceMinEl   = document.getElementById("priceMin");
-const priceMaxEl   = document.getElementById("priceMax");
-const rangeMinEl   = document.getElementById("rangeMin");
-const rangeMaxEl   = document.getElementById("rangeMax");
-const rangeFillEl  = document.getElementById("rangeFill");
-const priceDisplay = document.getElementById("priceDisplay");
-const sortSelect   = document.getElementById("sortSelect");
-const resultCount  = document.getElementById("resultCount");
+const grid            = document.getElementById("productGrid");
+const emptyMsg        = document.getElementById("emptyMsg");
+const searchInput     = document.getElementById("searchInput");
+const catListEl       = document.getElementById("catList");
+const priceMinEl      = document.getElementById("priceMin");
+const priceMaxEl      = document.getElementById("priceMax");
+const rangeMinEl      = document.getElementById("rangeMin");
+const rangeMaxEl      = document.getElementById("rangeMax");
+const rangeFillEl     = document.getElementById("rangeFill");
+const priceDisplay    = document.getElementById("priceDisplay");
+const sortSelect      = document.getElementById("sortSelect");
+const resultCount     = document.getElementById("resultCount");
 const activeFiltersEl = document.getElementById("activeFilters");
-const resetBtn     = document.getElementById("resetBtn");
-const paginationEl = document.getElementById("pagination");
+const resetBtn        = document.getElementById("resetBtn");
+const paginationEl    = document.getElementById("pagination");
 
-// ── โหลดสินค้า (มี cache ลด Firestore reads) ──
-// สินค้ามี ~800 ชิ้น = ~800 reads/การเข้า 1 ครั้ง — Firestore Spark ฟรีจำกัด 50k reads/วัน
-// cache ใน localStorage: ถ้ายังสด (< TTL) แสดงจาก cache ทันที ไม่อ่าน Firestore เลย (0 reads)
-const CACHE_KEY = "sangudom_products_cache_v1";
-const CACHE_TTL = 30 * 60 * 1000;   // 30 นาที
-
-function readCache() {
+// ── โหลดสินค้าจาก JSON ──────────────────────────────────────────────────────
+async function loadProducts() {
   try {
-    const raw = JSON.parse(localStorage.getItem(CACHE_KEY));
-    if (raw && Array.isArray(raw.data)) return raw;   // { ts, data }
-  } catch {}
-  return null;
+    const res  = await fetch("data/products.json");
+    const data = await res.json();
+    initProducts(data);
+  } catch (e) {
+    console.error("โหลดสินค้าไม่ได้:", e);
+    allProducts = [];
+    buildCatList();
+    applyFilters();
+  }
 }
-function writeCache(data) {
-  try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); }
-  catch {}   // localStorage เต็ม/ปิด — ข้ามไป ไม่ทำให้พัง
-}
+loadProducts();
 
-// รับ list สินค้า → ตั้ง state + ตั้ง price ceiling + render
+// ── ตั้ง state + price ceiling + render ──
 function initProducts(list) {
   allProducts = list;
   const maxPrice = Math.max(...allProducts.map(p => p.price || 0), 0);
@@ -68,35 +65,11 @@ function initProducts(list) {
   applyFilters();
 }
 
-async function loadProducts() {
-  // ?fresh=1 = บังคับดึงใหม่ ข้าม cache (ให้ admin เช็คสินค้าที่เพิ่งเพิ่ม)
-  const forceFresh = new URLSearchParams(location.search).has("fresh");
-  const cache = forceFresh ? null : readCache();
-  const fresh = cache && (Date.now() - cache.ts < CACHE_TTL);
-
-  if (cache) initProducts(cache.data);   // แสดงจาก cache ทันที (instant, 0 reads)
-  if (fresh) return;                      // cache ยังสด → ไม่แตะ Firestore เลย
-
-  // cache หมดอายุ/ไม่มี → ดึงจาก Firestore ครั้งเดียว แล้วอัปเดต cache
-  try {
-    const snap = await getDocs(query(collection(db, "products"), orderBy("name")));
-    const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    writeCache(data);
-    // re-render เฉพาะเมื่อข้อมูลเปลี่ยนจริง (กัน reset ตัวกรอง/หน้าที่ user กำลังดู)
-    if (!cache || JSON.stringify(data) !== JSON.stringify(cache.data)) initProducts(data);
-  } catch (e) {
-    // ดึงไม่ได้ (ออฟไลน์/error) — ถ้ามี cache เก่าใช้ต่อได้ ถ้าไม่มีก็แสดงว่าว่าง
-    if (!cache) { allProducts = []; buildCatList(); applyFilters(); }
-  }
-}
-loadProducts();
-
-// ── สร้าง category tree ──
+// ── Category tree ────────────────────────────────────────────────────────────
 function buildCatList() {
   const tree = typeof CATEGORY_TREE !== "undefined" ? CATEGORY_TREE : null;
 
   if (!tree) {
-    // fallback: flat list
     const cats = [...new Set(allProducts.map(p => p.category))].sort();
     catListEl.innerHTML = cats.map(c => {
       const count   = allProducts.filter(p => p.category === c).length;
@@ -120,7 +93,6 @@ function buildCatList() {
 
   catListEl.innerHTML = tree.map(group => {
     if (group.subs.length === 0) {
-      // Leaf category (no subs) — acts as direct filter
       const count   = allProducts.filter(p => p.category === group.main).length;
       const checked = filters.categories.has(group.main);
       return `<div class="cat-item ${checked ? "active" : ""}" data-cat="${group.main}">
@@ -129,11 +101,9 @@ function buildCatList() {
         <span class="cat-count">${count}</span>
       </div>`;
     }
-
-    const groupCount  = allProducts.filter(p => group.subs.includes(p.category)).length;
-    const someActive  = group.subs.some(s => filters.categories.has(s));
-
-    const subsHtml = group.subs.map(sub => {
+    const groupCount = allProducts.filter(p => group.subs.includes(p.category)).length;
+    const someActive = group.subs.some(s => filters.categories.has(s));
+    const subsHtml   = group.subs.map(sub => {
       const count   = allProducts.filter(p => p.category === sub).length;
       const checked = filters.categories.has(sub);
       return `<div class="cat-item ${checked ? "active" : ""}" data-sub="${sub}">
@@ -142,9 +112,8 @@ function buildCatList() {
         <span class="cat-count">${count}</span>
       </div>`;
     }).join("");
-
     return `<div class="cat-group">
-      <div class="cat-group-header ${someActive ? "has-active" : ""} ${someActive ? "open" : ""}">
+      <div class="cat-group-header ${someActive ? "has-active open" : ""}">
         <span class="cat-group-arrow">›</span>
         <span class="cat-group-name">${group.main}</span>
         <span class="cat-count">${groupCount}</span>
@@ -155,7 +124,6 @@ function buildCatList() {
     </div>`;
   }).join("");
 
-  // Leaf items
   catListEl.querySelectorAll(".cat-item[data-cat]").forEach(item => {
     item.addEventListener("click", () => {
       const cat = item.dataset.cat;
@@ -164,10 +132,8 @@ function buildCatList() {
       buildCatList(); applyFilters();
     });
   });
-
-  // Sub items
   catListEl.querySelectorAll(".cat-item[data-sub]").forEach(item => {
-    item.addEventListener("click", (e) => {
+    item.addEventListener("click", e => {
       e.stopPropagation();
       const sub = item.dataset.sub;
       if (filters.categories.has(sub)) filters.categories.delete(sub);
@@ -175,8 +141,6 @@ function buildCatList() {
       buildCatList(); applyFilters();
     });
   });
-
-  // Group header — expand/collapse
   catListEl.querySelectorAll(".cat-group-header").forEach(header => {
     header.addEventListener("click", () => {
       header.classList.toggle("open");
@@ -185,29 +149,25 @@ function buildCatList() {
   });
 }
 
-// ── Price range slider ──
+// ── Price range slider ────────────────────────────────────────────────────────
 function syncRange() {
   let lo = parseInt(rangeMinEl.value);
   let hi = parseInt(rangeMaxEl.value);
-  if (lo > hi) { [lo, hi] = [hi, lo]; }
-
-  const max = parseInt(rangeMaxEl.max);
+  if (lo > hi) [lo, hi] = [hi, lo];
+  const max  = parseInt(rangeMaxEl.max);
   const pct1 = (lo / max) * 100;
   const pct2 = (hi / max) * 100;
   rangeFillEl.style.left  = pct1 + "%";
   rangeFillEl.style.width = (pct2 - pct1) + "%";
-
   priceDisplay.textContent = `฿${lo.toLocaleString("th-TH")} – ฿${hi.toLocaleString("th-TH")}`;
   filters.priceMin = lo;
   filters.priceMax = hi;
   priceMinEl.value = lo || "";
-  priceMaxEl.value = hi === parseInt(rangeMaxEl.max) ? "" : hi;
+  priceMaxEl.value = hi === max ? "" : hi;
 }
-
 rangeMinEl.addEventListener("input", () => { syncRange(); applyFilters(); });
 rangeMaxEl.addEventListener("input", () => { syncRange(); applyFilters(); });
 
-// Price text input → sync range
 function syncFromInput() {
   const lo = parseInt(priceMinEl.value) || 0;
   const hi = parseInt(priceMaxEl.value) || parseInt(rangeMaxEl.max);
@@ -219,55 +179,49 @@ function syncFromInput() {
 priceMinEl.addEventListener("change", syncFromInput);
 priceMaxEl.addEventListener("change", syncFromInput);
 
-// ── Search ──
+// ── Search ────────────────────────────────────────────────────────────────────
 searchInput.addEventListener("input", e => {
   filters.search = e.target.value.trim().toLowerCase();
   applyFilters();
 });
 
-// ── Sort ──
+// ── Sort ─────────────────────────────────────────────────────────────────────
 sortSelect.addEventListener("change", () => {
   filters.sort = sortSelect.value;
   applyFilters();
 });
 
-// ── Reset ──
+// ── Reset ─────────────────────────────────────────────────────────────────────
 resetBtn.addEventListener("click", () => {
   filters.search = "";
   filters.categories.clear();
   filters.priceMin = 0;
   filters.priceMax = parseInt(rangeMaxEl.max);
   filters.sort = "name-asc";
-
   searchInput.value  = "";
   priceMinEl.value   = "";
   priceMaxEl.value   = "";
   rangeMinEl.value   = 0;
   rangeMaxEl.value   = rangeMaxEl.max;
   sortSelect.value   = "name-asc";
-
   syncRange();
   buildCatList();
   applyFilters();
 });
 
-// ── Apply filters & render ──
+// ── Apply filters & render ────────────────────────────────────────────────────
 function applyFilters() {
   let list = allProducts.filter(p => {
     const matchSearch = !filters.search ||
       (p.name || "").toLowerCase().includes(filters.search) ||
-      (p.desc || "").toLowerCase().includes(filters.search);
-
+      (p.sku  || "").toLowerCase().includes(filters.search);
     const matchCat = filters.categories.size === 0 ||
       filters.categories.has(p.category);
-
-    const price = Number(p.price) || 0;
+    const price      = Number(p.price) || 0;
     const matchPrice = price >= filters.priceMin && price <= filters.priceMax;
-
     return matchSearch && matchCat && matchPrice;
   });
 
-  // Sort
   list = list.sort((a, b) => {
     switch (filters.sort) {
       case "name-asc":   return (a.name || "").localeCompare(b.name || "", "th");
@@ -279,38 +233,27 @@ function applyFilters() {
   });
 
   filteredList = list;
-  currentPage  = 1;            // กรองใหม่ = กลับไปหน้า 1 เสมอ
+  currentPage  = 1;
   renderChips();
   renderCount(list.length);
   renderPage();
 }
 
-// ── แสดงหน้าปัจจุบัน (แบ่งหน้า) ──
+// ── Pagination ────────────────────────────────────────────────────────────────
 function renderPage(scrollUp = false) {
   const totalPages = Math.max(1, Math.ceil(filteredList.length / PAGE_SIZE));
   if (currentPage > totalPages) currentPage = totalPages;
-
-  const start = (currentPage - 1) * PAGE_SIZE;
-  const pageItems = filteredList.slice(start, start + PAGE_SIZE);
-
-  renderProducts(pageItems);
+  const start     = (currentPage - 1) * PAGE_SIZE;
+  renderProducts(filteredList.slice(start, start + PAGE_SIZE));
   renderPagination(totalPages);
-
   if (scrollUp) {
     document.getElementById("catalog").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
+function goToPage(n) { currentPage = n; renderPage(true); }
 
-function goToPage(n) {
-  currentPage = n;
-  renderPage(true);
-}
-
-// ── ปุ่มแบ่งหน้า (มี prev/next + ... ย่อเมื่อหน้าเยอะ) ──
 function renderPagination(totalPages) {
   if (totalPages <= 1) { paginationEl.innerHTML = ""; return; }
-
-  // หาช่วงเลขหน้าที่จะโชว์ (หน้าแรก, หน้าสุดท้าย, และ ±1 รอบหน้าปัจจุบัน)
   const pages = [];
   const push = v => { if (!pages.includes(v)) pages.push(v); };
   push(1);
@@ -319,7 +262,6 @@ function renderPagination(totalPages) {
   }
   push(totalPages);
   pages.sort((a, b) => a - b);
-
   let html = `<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="ก่อนหน้า">‹</button>`;
   let prev = 0;
   for (const p of pages) {
@@ -328,7 +270,6 @@ function renderPagination(totalPages) {
     prev = p;
   }
   html += `<button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="ถัดไป">›</button>`;
-
   paginationEl.innerHTML = html;
   paginationEl.querySelectorAll(".page-btn[data-page]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -338,10 +279,9 @@ function renderPagination(totalPages) {
   });
 }
 
-// ── Chips ──
+// ── Chips ─────────────────────────────────────────────────────────────────────
 function renderChips() {
   const chips = [];
-
   if (filters.search) {
     chips.push({ label: `"${filters.search}"`, action: () => {
       filters.search = ""; searchInput.value = ""; applyFilters();
@@ -361,57 +301,57 @@ function renderChips() {
       syncRange(); applyFilters();
     }});
   }
-
   activeFiltersEl.innerHTML = chips.map((ch, i) =>
     `<span class="filter-chip" data-i="${i}">${ch.label} <span class="x">×</span></span>`
   ).join("");
-
   activeFiltersEl.querySelectorAll(".filter-chip").forEach((el, i) => {
-    el.addEventListener("click", () => { chips[i].action(); });
+    el.addEventListener("click", () => chips[i].action());
   });
 }
 
-// ── Count ──
+// ── Count ─────────────────────────────────────────────────────────────────────
 function renderCount(n) {
   resultCount.innerHTML = `พบ <strong>${n}</strong> รายการ`;
 }
 
-// ── Render cards ──
-function formatPrice(n) {
-  return "฿" + Number(n).toLocaleString("th-TH");
+// ── Format price ──────────────────────────────────────────────────────────────
+function priceHtml(p) {
+  const regular = "฿" + Number(p.price).toLocaleString("th-TH");
+  if (!p.priceSale) return `<span class="product-price">${regular}</span>`;
+  const sale = "฿" + Number(p.priceSale).toLocaleString("th-TH");
+  return `<span class="product-price">
+    <span class="price-sale">${sale}</span>
+    <span class="price-original">${regular}</span>
+  </span>`;
 }
 
+// ── Product cards ─────────────────────────────────────────────────────────────
 function renderProducts(list) {
   emptyMsg.hidden = list.length > 0;
   grid.innerHTML = list.map(p => {
-    const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
-    const imgContent = p.image ? "" : (p.emoji || "💡");
-    const noImg      = p.image ? "" : " no-img";
-    const sku = (p.sku || "").replace(/"/g, "&quot;");
-    const nm  = (p.name || "").replace(/"/g, "&quot;");
+    const sku       = (p.sku || "").replace(/"/g, "&quot;");
+    const imgStyle  = p.image ? `style="background-image:url('${p.image}')"` : "";
+    const noImgCls  = p.image ? "" : " no-img";
     return `
-    <article class="product-card" data-id="${p.id}">
-      <div class="product-img${noImg}" ${imgStyle}>${imgContent}</div>
+    <article class="product-card" data-sku="${sku}">
+      <div class="product-img${noImgCls}" ${imgStyle}></div>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
         <h3 class="product-name">${p.name}</h3>
-        <span class="product-price">${formatPrice(p.price)}</span>
-        <button type="button" class="btn-add-quote"
-          data-quote-add="${p.id}" data-quote-name="${nm}" data-quote-sku="${sku}">
-          ＋ ขอใบเสนอราคา
-        </button>
+        ${priceHtml(p)}
       </div>
     </article>`;
   }).join("");
-
   grid.querySelectorAll(".product-card").forEach(card =>
-    card.addEventListener("click", () => openModal(card.dataset.id, allProducts)));
+    card.addEventListener("click", () => openModal(card.dataset.sku))
+  );
 }
 
-// ── Modal ──
-function openModal(id, list) {
-  const p = list.find(x => x.id === id);
+// ── Modal ─────────────────────────────────────────────────────────────────────
+function openModal(sku) {
+  const p = allProducts.find(x => x.sku === sku);
   if (!p) return;
+
   let overlay = document.getElementById("modalOverlay");
   if (!overlay) {
     overlay = document.createElement("div");
@@ -419,30 +359,51 @@ function openModal(id, list) {
     overlay.className = "modal-overlay";
     document.body.appendChild(overlay);
   }
-  const imgStyle   = p.image ? `style="background-image:url('${p.image}')"` : "";
-  const imgContent = p.image ? "" : (p.emoji || "💡");
-  const noImg      = p.image ? "" : " no-img";
-  const sku = (p.sku || "").replace(/"/g, "&quot;");
-  const nm  = (p.name || "").replace(/"/g, "&quot;");
+
+  const imgStyle  = p.image ? `style="background-image:url('${p.image}')"` : "";
+  const noImgCls  = p.image ? "" : " no-img";
+
+  let priceBlock = "";
+  if (p.priceSale) {
+    priceBlock = `<div class="modal-price">
+      <span class="price-sale">${"฿" + Number(p.priceSale).toLocaleString("th-TH")}</span>
+      <span class="modal-price-original">${"฿" + Number(p.price).toLocaleString("th-TH")}</span>
+    </div>`;
+  } else {
+    priceBlock = `<div class="modal-price">${"฿" + Number(p.price).toLocaleString("th-TH")}</div>`;
+  }
+
   overlay.innerHTML = `
     <div class="modal">
-      <div class="modal-img${noImg}" ${imgStyle}>${imgContent}</div>
+      <div class="modal-img${noImgCls}" ${imgStyle}></div>
       <div class="modal-info">
         <button class="modal-close" aria-label="ปิด">×</button>
         <span class="product-cat">${p.category}</span>
         <h2>${p.name}</h2>
-        <div class="modal-price">${formatPrice(p.price)}</div>
-        <p class="modal-desc">${p.desc || ""}</p>
-        <button type="button" class="btn-add-quote modal-add-quote"
-          data-quote-add="${p.id}" data-quote-name="${nm}" data-quote-sku="${sku}">
-          ＋ ขอใบเสนอราคาสินค้านี้
-        </button>
+        ${p.skuAuto ? "" : `<div class="product-sku-label">รหัสสินค้า: ${p.sku}</div>`}
+        ${priceBlock}
+        <a class="btn-line-inquiry" href="${LINE_URL}" target="_blank" rel="noopener">
+          <span class="line-ico">💬</span> สอบถามราคาทาง LINE
+        </a>
       </div>
     </div>`;
+
   overlay.classList.add("open");
-  overlay.querySelector(".modal-close").addEventListener("click", () => overlay.classList.remove("open"));
-  overlay.addEventListener("click", e => { if (e.target === overlay) overlay.classList.remove("open"); });
+  document.body.style.overflow = "hidden";
+  overlay.querySelector(".modal-close").addEventListener("click", closeModal);
+  overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
 }
 
-// ── Init range fill ──
+function closeModal() {
+  const overlay = document.getElementById("modalOverlay");
+  if (overlay) overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+// Close modal on Escape
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+
+// ── Init range fill ───────────────────────────────────────────────────────────
 syncRange();
