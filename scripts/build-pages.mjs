@@ -70,12 +70,48 @@ function escHtml(str) {
     .replace(/>/g, "&gt;");
 }
 
+// ── JSON-LD ItemList ──────────────────────────────────────────────────────────
+function jsonLdItemList(cat, catProducts) {
+  const slug  = catSlug(cat);
+  const title = thName(cat);
+  const items = catProducts.slice(0, 50).map((p, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Product",
+      "name": p.name,
+      "image": p.image.startsWith("http") ? p.image : `${SITE_URL}/${p.image}`,
+      "offers": {
+        "@type": "Offer",
+        "price": String(p.priceSale ?? p.price),
+        "priceCurrency": "THB",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "แสงอุดม ไลท์ติ้ง เซ็นเตอร์" }
+      }
+    }
+  }));
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": title,
+    "url": `${SITE_URL}/products/${slug}/`,
+    "numberOfItems": catProducts.length,
+    "itemListElement": items,
+  }, null, 2);
+}
+
 // ── template หน้า category ────────────────────────────────────────────────────
 function pageHtml(cat, catProducts) {
   const slug  = catSlug(cat);
   const title = thName(cat);
   const count = catProducts.length;
   const cards = catProducts.map(cardHtml).join("\n");
+  const firstImg = catProducts[0]?.image ?? "";
+  const ogImg = firstImg
+    ? (firstImg.startsWith("http") ? firstImg : `${SITE_URL}/${firstImg}`)
+    : `${SITE_URL}/images/banner1.webp`;
+  const pageUrl = `${SITE_URL}/products/${slug}/`;
+  const desc = `${escHtml(title)} จำนวน ${count} รายการ — แสงอุดม ไลท์ติ้ง เซ็นเตอร์ โคมไฟและอุปกรณ์แสงสว่างครบวงจร`;
 
   return `<!DOCTYPE html>
 <html lang="th">
@@ -83,7 +119,19 @@ function pageHtml(cat, catProducts) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${escHtml(title)} — ${count} รายการ | แสงอุดม ไลท์ติ้ง</title>
-  <meta name="description" content="${escHtml(title)} จำนวน ${count} รายการ — แสงอุดม ไลท์ติ้ง เซ็นเตอร์ โคมไฟและอุปกรณ์แสงสว่างครบวงจร" />
+  <meta name="description" content="${desc}" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="th_TH" />
+  <meta property="og:site_name"   content="แสงอุดม ไลท์ติ้ง เซ็นเตอร์" />
+  <meta property="og:url"         content="${pageUrl}" />
+  <meta property="og:title"       content="${escHtml(title)} — ${count} รายการ | แสงอุดม ไลท์ติ้ง" />
+  <meta property="og:description" content="${desc}" />
+  <meta property="og:image"       content="${escHtml(ogImg)}" />
+  <meta property="og:image:alt"   content="${escHtml(title)}" />
+  <script type="application/ld+json">
+${jsonLdItemList(cat, catProducts)}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
