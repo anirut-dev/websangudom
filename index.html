@@ -67,10 +67,6 @@
       40%  { box-shadow:0 0 40px 12px rgba(216,182,106,.22); }
       100% { box-shadow:0 0 0 0 rgba(216,182,106,0); }
     }
-    @keyframes floatBulb {
-      0%,100% { transform:translateY(0); }
-      50%      { transform:translateY(-14px); }
-    }
     @keyframes scanLine {
       0%   { top:-4px; }
       100% { top:100%; }
@@ -441,25 +437,30 @@
 
     /* ── Showcase section ── */
     .showcase-section { padding:80px 0; background:var(--cream); }
-    .showcase-grid {
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      grid-template-rows:auto auto;
-      gap:16px;
-      margin-top:48px;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
+    /* รางเลื่อนแนวนอน — การ์ดขนาดเท่ากันทุกใบ */
+    .showcase-rail-wrap { position:relative; margin-top:48px; }
+    .showcase-rail {
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      padding:4px 4px 12px;
+      /* ซ่อน scrollbar แต่ยังเลื่อนได้ */
+      scrollbar-width:none;
+      -ms-overflow-style:none;
     }
-    .showcase-card { aspect-ratio:3/2; }
-    .showcase-card:first-child { aspect-ratio:auto; }
+    .showcase-rail::-webkit-scrollbar { display:none; }
     .showcase-card {
-      position:relative; overflow:hidden; cursor:pointer;
-      aspect-ratio:4/3;
-      background:var(--dark-3);
+      /* กว้างพอให้เห็นการ์ดถัดไปโผล่ครึ่งใบ = บอกผู้ใช้ว่าเลื่อนต่อได้ */
+      flex:0 0 clamp(230px, 27vw, 320px);
+      scroll-snap-align:start;
+      display:flex; flex-direction:column;
+      overflow:hidden; cursor:pointer;
+      background:var(--dark-card);
       border-radius:var(--radius);
       border:1px solid var(--border);
-      box-shadow: var(--shadow-sm);
+      box-shadow:var(--shadow-sm);
       transition:border-color .4s, box-shadow .4s, transform .4s;
     }
     .showcase-card:hover {
@@ -467,22 +468,23 @@
       box-shadow:0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(216,182,106,.2);
       transform:translateY(-3px);
     }
-    .showcase-card:first-child {
-      grid-row:span 2;
-      aspect-ratio:auto;
+    .showcase-card:focus-visible {
+      outline:2px solid var(--gold); outline-offset:3px;
+    }
+    /* กรอบรูป — พื้นขาว เพราะรูปสินค้าเป็นภาพตัดพื้นขาวทั้งชุด */
+    .showcase-img-wrap {
+      position:relative; overflow:hidden;
+      aspect-ratio:1;
+      background:#fff;
     }
     .showcase-img {
       width:100%; height:100%;
-      object-fit:cover;
-      transition:transform .7s cubic-bezier(.25,.46,.45,.94), filter .7s;
-      filter:brightness(.82) saturate(.9);
+      object-fit:contain;
+      padding:12px;
+      transition:transform .7s cubic-bezier(.25,.46,.45,.94);
       display:block;
-      border-radius:var(--radius);
     }
-    .showcase-card:hover .showcase-img {
-      transform:scale(1.06);
-      filter:brightness(1) saturate(1.08);
-    }
+    .showcase-card:hover .showcase-img { transform:scale(1.06); }
     /* gold corner accents */
     .showcase-card .corner {
       position:absolute; z-index:5; width:18px; height:18px;
@@ -498,33 +500,20 @@
       border-bottom:2px solid var(--gold); border-left:2px solid var(--gold); }
     .corner-br { bottom:10px; right:10px;
       border-bottom:2px solid var(--gold); border-right:2px solid var(--gold); }
-    /* dark-to-light sweep */
-    .showcase-card::before {
-      content:"";
-      position:absolute; inset:0; z-index:1;
-      border-radius:var(--radius);
-      background:linear-gradient(
-        to bottom,
-        rgba(13,12,10,.10) 0%,
-        rgba(13,12,10,.60) 100%
-      );
-      transition:opacity .5s;
-    }
-    .showcase-card:hover::before { opacity:.35; }
     /* gold light-leak on hover */
-    .showcase-card::after {
+    .showcase-img-wrap::after {
       content:"";
       position:absolute; z-index:2;
       top:-60%; left:-60%; width:120%; height:120%;
-      background:radial-gradient(ellipse at 60% 40%, rgba(216,182,106,.18) 0%, transparent 65%);
+      background:radial-gradient(ellipse at 60% 40%, rgba(216,182,106,.22) 0%, transparent 65%);
       opacity:0; transition:opacity .5s;
       pointer-events:none;
     }
-    .showcase-card:hover::after { opacity:1; }
+    .showcase-card:hover .showcase-img-wrap::after { opacity:1; }
     /* scan line */
     .showcase-scan {
       position:absolute; left:0; right:0; height:1px; z-index:3;
-      background:linear-gradient(90deg, transparent, rgba(216,182,106,.5), transparent);
+      background:linear-gradient(90deg, transparent, rgba(216,182,106,.6), transparent);
       opacity:0; top:-4px;
       transition:opacity .2s;
     }
@@ -532,22 +521,23 @@
       opacity:1;
       animation:scanLine 1.2s linear infinite;
     }
+    /* ป้ายชื่อหมวด — อยู่ใต้รูป ไม่ทับรูปแล้ว เพราะรูปพื้นขาว */
     .showcase-label {
-      position:absolute; bottom:0; left:0; right:0; z-index:4;
-      padding:36px 28px 24px;
-      background:linear-gradient(to top, rgba(13,12,10,.92) 0%, rgba(13,12,10,.4) 60%, transparent 100%);
-      border-radius:0 0 var(--radius) var(--radius);
+      position:relative;
+      flex:1;
+      padding:18px 20px 20px;
+      border-top:1px solid var(--border);
     }
-    .showcase-label .cat { font-size:.65rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-light); margin-bottom:6px; }
-    .showcase-label h3 { color:#faf7f0; font-size:1.1rem; font-weight:600; margin-bottom:4px; }
-    .showcase-label p { color:rgba(250,247,240,.82); font-size:.8rem; }
+    .showcase-label .cat { font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-light); margin-bottom:6px; }
+    .showcase-label h3 { color:#faf7f0; font-size:.98rem; font-weight:600; margin-bottom:4px; line-height:1.4; }
+    .showcase-label p { color:rgba(250,247,240,.6); font-size:.75rem; line-height:1.6; padding-right:34px; }
     .showcase-label .arrow {
-      position:absolute; right:24px; bottom:24px;
-      width:36px; height:36px;
+      position:absolute; right:18px; bottom:18px;
+      width:30px; height:30px;
       border:1px solid rgba(216,182,106,.4);
       border-radius:50%;
       display:flex; align-items:center; justify-content:center;
-      color:var(--gold); font-size:1rem;
+      color:var(--gold); font-size:.9rem;
       transition:background .3s, border-color .3s, transform .3s;
     }
     .showcase-card:hover .arrow {
@@ -555,15 +545,30 @@
       border-color:var(--gold); transform:translateX(3px);
     }
 
-    /* fallback card (no image) */
-    .showcase-card.no-img { background:linear-gradient(135deg,#14110d,#221c14); }
-    .showcase-card.no-img .showcase-img { display:none; }
-    .showcase-card.no-img .showcase-bulb {
-      position:absolute; inset:0; z-index:0;
+    /* ── ปุ่มเลื่อนราง ── */
+    .rail-btn {
+      position:absolute; top:38%; transform:translateY(-50%);
+      width:44px; height:44px; z-index:10;
       display:flex; align-items:center; justify-content:center;
-      font-size:5rem;
-      animation:floatBulb 3s ease-in-out infinite;
+      background:rgba(13,12,10,.88);
+      border:1px solid var(--border-2, rgba(216,182,106,.3));
+      border-radius:50%;
+      color:var(--gold); font-size:1.1rem; cursor:pointer;
+      transition:background .3s, color .3s, opacity .3s;
     }
+    .rail-btn:hover:not(:disabled) { background:var(--gold); color:var(--dark); }
+    .rail-btn:disabled { opacity:0; pointer-events:none; }
+    .rail-btn.prev { left:-14px; }
+    .rail-btn.next { right:-14px; }
+
+    /* ── จุดบอกตำแหน่ง ── */
+    .rail-dots { display:flex; justify-content:center; gap:8px; margin-top:18px; }
+    .rail-dot {
+      width:7px; height:7px; padding:0; border:none; border-radius:50%;
+      background:rgba(216,182,106,.28); cursor:pointer;
+      transition:background .3s, width .3s;
+    }
+    .rail-dot.active { background:var(--gold); width:22px; border-radius:4px; }
 
     /* ── Stats section ── */
     .stats-section {
@@ -628,9 +633,12 @@
       .features-grid { grid-template-columns:repeat(2,1fr); }
       .stats-grid    { grid-template-columns:repeat(2,1fr); }
     }
+    @media (max-width:900px) {
+      /* มือถือ/แท็บเล็ตใช้นิ้วปัด ไม่ต้องมีปุ่มลูกศร */
+      .rail-btn { display:none; }
+    }
     @media (max-width:680px) {
-      .showcase-grid { grid-template-columns:1fr; }
-      .showcase-card:first-child { grid-row:auto; aspect-ratio:4/3; }
+      .showcase-card { flex-basis:60vw; }
       .features-grid { grid-template-columns:1fr 1fr; }
       .stats-grid    { grid-template-columns:1fr 1fr; }
     }
@@ -827,80 +835,97 @@
         <h2>คอลเลกชันของเรา</h2>
         <span class="gold-line"></span>
       </div>
-      <div class="showcase-grid">
+      <div class="showcase-rail-wrap">
+        <button type="button" class="rail-btn prev" id="railPrev" aria-label="เลื่อนไปทางซ้าย" aria-controls="showcaseRail">‹</button>
 
-        <!-- Card 1 – ใหญ่ (span 2 rows) -->
-        <a href="products.html?cat=Chandelier" class="showcase-card">
-          <div class="showcase-scan"></div>
-          <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span><span class="corner corner-br"></span>
-          <img class="showcase-img" src="images/test-c-1.jpg" alt="แชนเดอเลียร์" />
-          <div class="showcase-label">
-            <div class="cat">Premium</div>
-            <h3>แชนเดอเลียร์ &amp; โคมระย้า</h3>
-            <p>หรูหรา อลังการ เหมาะกับทุกโปรเจกต์</p>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+        <div class="showcase-rail" id="showcaseRail" tabindex="0" role="region" aria-label="คอลเลกชันสินค้า เลื่อนดูได้">
 
-        <!-- Card 2 -->
-        <a href="products.html?cat=Interior%20Lamp" class="showcase-card">
-          <div class="showcase-scan"></div>
-          <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span><span class="corner corner-br"></span>
-          <img class="showcase-img" src="images/test-b-1.jpg" alt="โคมไฟภายใน" />
-          <div class="showcase-label">
-            <div class="cat">Interior</div>
-            <h3>โคมไฟภายใน</h3>
-            <p>ดาวน์ไลท์ · โคมแขวน · ตั้งโต๊ะ</p>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+          <a href="products.html?cat=Chandelier" class="showcase-card">
+            <div class="showcase-img-wrap">
+              <div class="showcase-scan"></div>
+              <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+              <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+              <img class="showcase-img" src="images/products/chandelier/wall-crystal/49-3026-D20H40-GDz-z309600689255.webp"
+                   alt="โคมไฟคริสตัลทอง 3 ชั้น หมวดแชนเดอเลียร์" loading="lazy" width="800" height="1080" />
+            </div>
+            <div class="showcase-label">
+              <div class="cat">Premium</div>
+              <h3>แชนเดอเลียร์ &amp; โคมระย้า</h3>
+              <p>หรูหรา อลังการ เหมาะกับทุกโปรเจกต์</p>
+              <span class="arrow">→</span>
+            </div>
+          </a>
 
-        <!-- Card 3 -->
-        <a href="products.html?cat=Exterior%20Lamp" class="showcase-card">
-          <div class="showcase-scan"></div>
-          <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span><span class="corner corner-br"></span>
-          <img class="showcase-img" src="images/test-a-1.JPG" alt="โคมไฟภายนอก" />
-          <div class="showcase-label">
-            <div class="cat">Exterior</div>
-            <h3>โคมไฟภายนอก</h3>
-            <p>กันน้ำ IP65 · สปอตไลท์ · โคมสนาม</p>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+          <a href="products.html?cat=Interior%20Lamp" class="showcase-card">
+            <div class="showcase-img-wrap">
+              <div class="showcase-scan"></div>
+              <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+              <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+              <img class="showcase-img" src="images/products/interior/pendant-lamp/49-3123-12-D85H67-BRZz-z1401742298064.webp"
+                   alt="โคมไฟห้อยทรงกลมสีบรอนซ์ หมวดโคมไฟภายใน" loading="lazy" width="800" height="1080" />
+            </div>
+            <div class="showcase-label">
+              <div class="cat">Interior</div>
+              <h3>โคมไฟภายใน</h3>
+              <p>ดาวน์ไลท์ · โคมแขวน · ตั้งโต๊ะ</p>
+              <span class="arrow">→</span>
+            </div>
+          </a>
 
-        <!-- Card 4 -->
-        <a href="products.html?cat=LED,Solar%20cell" class="showcase-card">
-          <div class="showcase-scan"></div>
-          <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span><span class="corner corner-br"></span>
-          <img class="showcase-img" src="images/test-d-1.jpg" alt="หลอด LED" />
-          <div class="showcase-label">
-            <div class="cat">LED Technology</div>
-            <h3>หลอด LED &amp; ไฟเส้น</h3>
-            <p>ประหยัดพลังงาน · อายุยาวนาน</p>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+          <a href="products.html?cat=Exterior%20Lamp" class="showcase-card">
+            <div class="showcase-img-wrap">
+              <div class="showcase-scan"></div>
+              <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+              <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+              <img class="showcase-img" src="images/products/exterior/gate-lamp/36-5180S2-BG.webp"
+                   alt="โคมไฟหัวเสาทรงโคมโบราณสีทองรมดำ หมวดโคมไฟภายนอก" loading="lazy" width="800" height="1080" />
+            </div>
+            <div class="showcase-label">
+              <div class="cat">Exterior</div>
+              <h3>โคมไฟภายนอก</h3>
+              <p>กันน้ำ IP65 · สปอตไลท์ · โคมสนาม</p>
+              <span class="arrow">→</span>
+            </div>
+          </a>
 
-        <!-- Card 5 – no image -->
-        <a href="products.html?cat=Bulb%20Accessories" class="showcase-card no-img showcase-wide">
-          <div class="showcase-scan"></div>
-          <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span><span class="corner corner-br"></span>
-          <div class="showcase-bulb">🔌</div>
-          <img class="showcase-img" src="" alt="" />
-          <div class="showcase-label">
-            <div class="cat">Accessories</div>
-            <h3>อุปกรณ์เสริม &amp; ระบบไฟ</h3>
-            <p>ราง · สวิตช์หรี่แสง · อุปกรณ์ติดตั้งครบชุด</p>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+          <a href="products.html?cat=LED,Solar%20cell" class="showcase-card">
+            <div class="showcase-img-wrap">
+              <div class="showcase-scan"></div>
+              <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+              <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+              <img class="showcase-img" src="images/products/led/spotlight-floodlight/03-890080-15W-BKz-z492022739620.webp"
+                   alt="โคมไฟแทรคไลท์ LED สีดำ หมวด LED และโซล่าเซลล์" loading="lazy" width="800" height="1080" />
+            </div>
+            <div class="showcase-label">
+              <div class="cat">LED Technology</div>
+              <h3>หลอด LED &amp; ไฟเส้น</h3>
+              <p>ประหยัดพลังงาน · อายุยาวนาน</p>
+              <span class="arrow">→</span>
+            </div>
+          </a>
 
+          <a href="products.html?cat=Bulb%20Accessories" class="showcase-card">
+            <div class="showcase-img-wrap">
+              <div class="showcase-scan"></div>
+              <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+              <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+              <img class="showcase-img" src="images/products/accessories/bulb/170107-ST64-47L-220V-2W-2400Kz-z419547057698.webp"
+                   alt="หลอด LED เอดิสัน ST64 ไส้ประดับ หมวดหลอดไฟและอุปกรณ์เสริม" loading="lazy" width="800" height="1080" />
+            </div>
+            <div class="showcase-label">
+              <div class="cat">Accessories</div>
+              <h3>หลอดไฟ &amp; อุปกรณ์เสริม</h3>
+              <p>หลอด LED · ราง · บัลลาสต์ · อุปกรณ์ติดตั้ง</p>
+              <span class="arrow">→</span>
+            </div>
+          </a>
+
+        </div>
+
+        <button type="button" class="rail-btn next" id="railNext" aria-label="เลื่อนไปทางขวา" aria-controls="showcaseRail">›</button>
       </div>
+
+      <div class="rail-dots" id="railDots" role="tablist" aria-label="ตำแหน่งในคอลเลกชัน"></div>
     </div>
   </section>
 
@@ -1025,6 +1050,64 @@
   <script src="js/animations.js"></script>
   <script src="js/line-float.js"></script>
   <script>
+    // ===== Showcase rail (รางเลื่อนแนวนอน) =====
+    (function () {
+      const rail = document.getElementById("showcaseRail");
+      if (!rail) return;
+      const prev  = document.getElementById("railPrev");
+      const next  = document.getElementById("railNext");
+      const dotsEl= document.getElementById("railDots");
+      const cards = [...rail.querySelectorAll(".showcase-card")];
+
+      // ปุ่มลูกศรเลื่อนทีละ 1 การ์ด (ความกว้างการ์ด + gap)
+      const step = () =>
+        cards.length < 2 ? rail.clientWidth : cards[1].offsetLeft - cards[0].offsetLeft;
+
+      let dots = [];
+
+      // จุดบอกตำแหน่ง = 1 จุดต่อ 1 "หน้า" ไม่ใช่ต่อการ์ด
+      // เพราะจอกว้างเห็นหลายการ์ดพร้อมกัน ถ้าทำจุดต่อการ์ดจะมีจุดที่กดแล้วไม่ขยับ
+      function buildDots() {
+        const pages = Math.max(1, Math.ceil(rail.scrollWidth / rail.clientWidth));
+        dotsEl.hidden = pages < 2;
+        dotsEl.innerHTML = pages < 2 ? "" : Array.from({ length: pages }, (_, i) =>
+          `<button type="button" class="rail-dot" data-i="${i}" role="tab"
+                   aria-label="หน้า ${i + 1} จาก ${pages}"></button>`
+        ).join("");
+        dots = [...dotsEl.querySelectorAll(".rail-dot")];
+        dots.forEach(d => d.addEventListener("click", () => {
+          rail.scrollTo({ left: posOf(Number(d.dataset.i)) });
+        }));
+      }
+
+      // ตำแหน่ง scroll ของจุดที่ i — กระจายตามระยะเลื่อนจริง ไม่ใช่คูณความกว้างจอ
+      // เพราะระยะเลื่อนทั้งหมดอาจน้อยกว่า 1 หน้าจอ (เช่น 524px บนจอ 1164px)
+      function posOf(i) {
+        const max = rail.scrollWidth - rail.clientWidth;
+        return dots.length < 2 ? 0 : (max * i) / (dots.length - 1);
+      }
+
+      function sync() {
+        const max = rail.scrollWidth - rail.clientWidth;
+        prev.disabled = rail.scrollLeft < 8;
+        next.disabled = rail.scrollLeft > max - 8;
+        const ratio = max <= 0 ? 0 : rail.scrollLeft / max;
+        const i = Math.round(ratio * (dots.length - 1));
+        dots.forEach((d, n) => {
+          const on = n === i;
+          d.classList.toggle("active", on);
+          d.setAttribute("aria-selected", String(on));
+        });
+      }
+
+      prev.addEventListener("click", () => rail.scrollBy({ left: -step() }));
+      next.addEventListener("click", () => rail.scrollBy({ left:  step() }));
+      rail.addEventListener("scroll", sync, { passive: true });
+      window.addEventListener("resize", () => { buildDots(); sync(); });
+      buildDots();
+      sync();
+    })();
+
     // Mobile nav
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
