@@ -34,6 +34,7 @@ websangudom/
 ├── products.html           # แคตตาล็อก (filter + search + pagination)
 ├── products/               # 24 หน้าหมวดหมู่ (สร้างโดย build script)
 │   └── <slug>/index.html
+├── 404.html                # หน้าไม่พบ (GitHub Pages ใช้อัตโนมัติ)
 ├── data/
 │   └── products.json       # ข้อมูลสินค้า 792 ชิ้น ← แก้ที่นี่
 ├── css/style.css           # สไตล์ทั้งหมด (โทนดำ-ทอง)
@@ -49,6 +50,9 @@ websangudom/
 ├── sitemap.xml
 ├── robots.txt
 ├── HANDOVER.md             # คู่มือส่งมอบงาน (อ่านก่อนแก้เว็บ)
+├── docs/
+│   ├── V2-PLAN.md          # spec ของ v2 (เหตุผลเบื้องหลังการตัดสินใจ)
+│   └── QA-REPORT-*.md      # ผลตรวจ QA + สิ่งที่แก้ไปแล้ว
 └── .github/workflows/
     └── deploy-pages.yml    # build → deploy เมื่อ push เข้า main
 ```
@@ -84,6 +88,8 @@ python -m http.server 8787
 | sitemap.xml + robots.txt | ✅ พร้อม |
 | ปุ่ม LINE ทั่วเว็บ (floating + footer) | ✅ พร้อม |
 | รูปสินค้า alt/width/height/lazy | ✅ พร้อม |
+| หน้า 404 กำหนดเอง | ✅ พร้อม |
+| ตรวจ QA ครบทุกหน้า | ✅ ปิดครบทุกข้อ — ดู [QA report](docs/QA-REPORT-2026-08-01.md) |
 | Deploy GitHub Pages | ✅ (merge เข้า main แล้ว auto-deploy) |
 | Google Search Console | ⏳ เจ้าของต้องทำเอง — ยืนยันเว็บ + ส่ง sitemap |
 | Google Business Profile | ⏳ เจ้าของต้องทำเอง |
@@ -95,8 +101,25 @@ python -m http.server 8787
 
 | Branch | ความหมาย |
 |--------|---------|
-| `main` | Production — deploy อัตโนมัติเมื่อ push |
-| `v2-static` | งานพัฒนา v2 (merge เข้า main แล้ว) |
+| `main` | Production — deploy อัตโนมัติเมื่อ push (**ห้ามแก้ตรงๆ**) |
+
+งาน v2 merge เข้า `main` ครบแล้ว branch `v2-static` ถูกลบทิ้ง
+
+### วิธีทำงานต่อ — 1 งาน 1 branch
+
+```bash
+git checkout main
+git pull                          # ดึงของใหม่ก่อนเสมอ ไม่งั้นเจอ merge conflict
+git checkout -b feat/ชื่องาน       # feat / fix / docs / chore
+# ...แก้โค้ด...
+git add -A
+git commit -m "feat: ..."
+git push -u origin feat/ชื่องาน
+# เปิด PR บน GitHub → base: main ← compare: feat/ชื่องาน → merge
+git checkout main && git pull && git branch -d feat/ชื่องาน
+```
+
+ทดสอบก่อน merge เสมอ (`python -m http.server 8000`) — main deploy ขึ้นเว็บจริงทันทีที่ merge
 
 ---
 
