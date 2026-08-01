@@ -365,7 +365,7 @@
         ${faxRow}
         <div class="info-row"><span class="ico">🕐</span><p>${b.hours}</p></div>
         <div class="info-row" style="margin-top:18px">
-          <a href="https://www.google.com/maps/search/${encodeURIComponent(b.mapQ)}" target="_blank" class="btn btn-primary" style="font-size:.88rem;padding:10px 22px">เปิดใน Google Maps →</a>
+          <a href="https://www.google.com/maps/search/${encodeURIComponent(b.mapQ)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:.88rem;padding:10px 22px">เปิดใน Google Maps →</a>
         </div>`;
       document.getElementById("branchMapFrame").innerHTML =
         `<iframe src="https://maps.google.com/maps?q=${encodeURIComponent(b.mapQ)}&output=embed&hl=th" loading="lazy" allowfullscreen></iframe>`;
