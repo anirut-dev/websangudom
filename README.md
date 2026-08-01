@@ -1,10 +1,25 @@
-# แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — เว็บไซต์ (Sang Udom Lighting Centre)
+# แสงอุดม ไลท์ติ้ง เซ็นเตอร์ — เว็บไซต์ v2
 
-เว็บแคตตาล็อกสินค้า + ระบบจัดการหลังบ้าน
+เว็บแคตตาล็อกสินค้า static ไม่มี backend
 ทดแทนบริการสำเร็จรูป itopplus (~7,000 บาท/ปี)
 
-**GitHub:** anirut-dev/websangudom
-**โฟลเดอร์:** `C:\Users\IT\Desktop\arm-it desktop\websangudom`
+**GitHub:** https://github.com/anirut-dev/websangudom
+**Live:** https://anirut-dev.github.io/websangudom (หลัง merge เข้า main)
+
+---
+
+## สถาปัตยกรรม
+
+```
+Static HTML/CSS/JS  +  data/products.json
+        │
+        └── scripts/build-pages.mjs (GitHub Actions)
+                    │
+                    ├── products/<slug>/index.html  (24 หน้าหมวดหมู่)
+                    └── sitemap.xml
+```
+
+**ไม่มี:** backend, database, login, Firebase, admin panel
 
 ---
 
@@ -12,94 +27,80 @@
 
 ```
 websangudom/
-├── index.html              # หน้าแรก + แคตตาล็อกสินค้า
-├── about.html              # ความเป็นมา / 8 สาขา / แผนที่ / ติดต่อ
-├── admin.html              # Login + จัดการสินค้า (Firebase)
-├── css/style.css           # สไตล์ทั้งหมด (พรีเมียม โทนดำ-ทอง)
+├── index.html              # หน้าแรก
+├── about.html              # เกี่ยวกับเรา
+├── branches.html           # สาขา & ติดต่อ
+├── gallery.html            # ผลงานติดตั้ง
+├── products.html           # แคตตาล็อก (filter + search + pagination)
+├── products/               # 24 หน้าหมวดหมู่ (สร้างโดย build script)
+│   └── <slug>/index.html
+├── data/
+│   └── products.json       # ข้อมูลสินค้า 792 ชิ้น ← แก้ที่นี่
+├── css/style.css           # สไตล์ทั้งหมด (โทนดำ-ทอง)
 ├── js/
-│   ├── firebase-config.js  # Firebase config
-│   ├── data.js             # หมวดหมู่ + สินค้าตัวอย่าง (fallback)
-│   ├── main.js             # แคตตาล็อก ดึงข้อมูลจาก Firestore
-│   └── admin.js            # Login + CRUD สินค้าผ่าน Firestore
-└── images/                 # รูปสินค้า (เพิ่มทีหลัง)
+│   ├── products.js         # โหลด JSON, filter, search, pagination
+│   ├── data.js             # CATEGORY_TREE constant
+│   ├── line-float.js       # floating LINE button
+│   └── animations.js       # scroll reveal animations
+├── images/                 # รูปสินค้า + banner + portfolio
+├── scripts/
+│   ├── export-firestore.mjs  # ดึงข้อมูลจาก Firestore (ใช้ครั้งเดียวตอน migrate)
+│   └── build-pages.mjs       # สร้างหน้าหมวด + sitemap
+├── sitemap.xml
+├── robots.txt
+├── HANDOVER.md             # คู่มือส่งมอบงาน (อ่านก่อนแก้เว็บ)
+└── .github/workflows/
+    └── deploy-pages.yml    # build → deploy เมื่อ push เข้า main
 ```
 
 ---
 
-## วิธีเปิดดูเว็บ
-
-ต้องรัน local server (Firebase ไม่ทำงานกับ file://)
+## วิธีเปิดดูเว็บ (local)
 
 ```bash
 cd "C:\Users\IT\Desktop\arm-it desktop\websangudom"
-python -m http.server 8000
+python -m http.server 8787
 ```
 
-เปิดเบราว์เซอร์:
-- หน้าแรก → http://localhost:8000
-- Admin    → http://localhost:8000/admin.html
+เปิดเบราว์เซอร์ที่ http://localhost:8787
 
 ---
 
-## Firebase
+## วิธีอัปเดตสินค้า
 
-| บริการ | รายละเอียด |
-|--------|-----------|
-| โปรเจค | websangudom (Spark — ฟรี ไม่ผูกบัตร) |
-| Firestore | เก็บสินค้า (collection: `products`) |
-| Auth | Email/Password — zonparamgd5@gmail.com |
-| Storage | ไม่ใช้ — รูปเก็บใน `images/` (ถอยกลับ 2026-07-02 เพราะ Storage ต้องอัปเกรด Blaze plan/ผูกบัตร ขัดกับเงื่อนไข "ฟรี ไม่ผูกบัตร") |
+แก้ไฟล์ `data/products.json` แล้ว push — GitHub Actions จะ build และ deploy ให้อัตโนมัติ
+
+ดูวิธีละเอียดได้ใน [HANDOVER.md](HANDOVER.md)
 
 ---
 
-## สถานะปัจจุบัน
+## สถานะปัจจุบัน (v2)
 
 | ส่วน | สถานะ |
 |------|--------|
-| แคตตาล็อกสินค้า (Firestore real-time) | ✅ พร้อม |
-| ระบบ Login จริง (Firebase Auth) | ✅ พร้อม — ทดสอบแล้ว |
-| เพิ่ม/แก้/ลบสินค้า (Firestore) | ✅ พร้อม |
-| ใส่รูปสินค้าใน admin | ✅ กรอก path/URL เอง (เช่น `images/ชื่อไฟล์.webp`) — วางไฟล์ใน `images/` แล้ว push git ก่อนใช้จริง |
-| ข้อมูลซิงค์ทุกเครื่อง | ✅ พร้อม |
-| หน้าสาขา 8 สาขา + Google Maps | ✅ พร้อม |
-| ข้อมูลติดต่อจริง | ✅ พร้อม (เบอร์อ่างทอง/แม่ริมครบ, รังสิตใช้เบอร์กลาง + 095-367-4209) |
-| หน้า Gallery (รูปจริงจาก portfolio) | ✅ เสร็จแล้ว |
-| โซนโปรโมชั่นหน้าแรก (`#promotion`) | ✅ เสร็จแล้ว (2026-06-30) — static HTML, ต้องแก้มือทุกครั้งที่เพิ่มรูป |
-| ดีไซน์ พรีเมียม โทนดำ-ทอง | ✅ เสร็จแล้ว |
-| โลโก้ SANG UDOM ทุกหน้า | ✅ เสร็จแล้ว |
-| รูปสินค้าจริงในสินค้าแต่ละชิ้น | ⏳ ลูกค้ายังต้องเตรียมรูป, dev ต้องวางไฟล์ใน `images/` แล้ว push ให้ทุกครั้ง |
-| Deploy ออนไลน์ (GitHub Pages) | ✅ เพิ่ม domain `anirut-dev.github.io` เข้า Firebase Auth authorized domains แล้ว (2026-07-02) |
+| แคตตาล็อกสินค้า (โหลดจาก JSON) | ✅ พร้อม |
+| 24 หน้าหมวดหมู่ (static, SEO) | ✅ พร้อม |
+| Meta / Open Graph / JSON-LD | ✅ พร้อม |
+| sitemap.xml + robots.txt | ✅ พร้อม |
+| ปุ่ม LINE ทั่วเว็บ (floating + footer) | ✅ พร้อม |
+| รูปสินค้า alt/width/height/lazy | ✅ พร้อม |
+| Deploy GitHub Pages | ✅ (merge เข้า main แล้ว auto-deploy) |
+| Google Search Console | ⏳ เจ้าของต้องทำเอง — ยืนยันเว็บ + ส่ง sitemap |
+| Google Business Profile | ⏳ เจ้าของต้องทำเอง |
+| โดเมน sangudom.com | ⏳ ซื้อได้ทีหลัง ~500–800 บาท/ปี |
 
 ---
 
-## ประวัติการแก้ไข (Recent Fixes)
+## Branches
 
-| วันที่ | เรื่อง | รายละเอียด |
-|--------|--------|-----------|
-| 2026-07-23 | Error handling & Code cleanup | ✅ เพิ่ม error logging ในฟังก์ชันออกจากระบบ + รวม UI reset logic เป็นฟังก์ชันเดียว (commit 289c31c) |
-
----
-
-## ค้างอยู่ — ต้องเตือนเจ้าของ
-
-- ⚠️ เบอร์โทรสาขารังสิตยังใช้เบอร์กลาง 02-901-3000 (เป็นสำนักงานใหญ่ ถูกต้องแล้ว) — อ่างทอง และ แม่ริม ได้เบอร์จริงแล้ว
-- ⚠️ footer หน้าแรก LINE ยังเป็น @sangudom (ยังไม่ได้แก้เป็นข้อมูลจริง)
-- 💡 อนาคตถ้าจะจดโดเมนจริง `www.sangudom.com` — ต้องตั้ง DNS ชี้มา GitHub Pages + เพิ่ม custom domain ใน repo settings + เพิ่ม domain นี้เข้า Firebase Auth authorized domains อีกรายการ (ไม่กระทบของเดิม เพิ่มคู่กันได้)
-- 🔒 เรื่อง security check (เทสก่อน push ทุกครั้ง ฯลฯ) — ผู้ใช้ขอพักไว้คุยรอบหน้า
+| Branch | ความหมาย |
+|--------|---------|
+| `main` | Production — deploy อัตโนมัติเมื่อ push |
+| `v2-static` | งานพัฒนา v2 (merge เข้า main แล้ว) |
 
 ---
 
-## ขั้นตอนถัดไป
+## ข้อจำกัดถาวร
 
-1. **รูปสินค้า:** วางไฟล์ใน `images/` → กรอก path ในช่อง "รูปภาพสินค้า" ของฟอร์ม admin → push ขึ้น git
-2. พิจารณาจดโดเมน `www.sangudom.com` ในอนาคต (ไม่ด่วน)
-
----
-
-## Push งานขึ้น GitHub
-
-```bash
-git add .
-git commit -m "อธิบายว่าแก้อะไร"
-git push
-```
+> **ห้ามผูกบัตรเครดิตกับบริการใดๆ โดยไม่ถามก่อน**
+> ทุกบริการต้องอยู่ใน free tier ที่อนุญาตให้ใช้เชิงพาณิชย์

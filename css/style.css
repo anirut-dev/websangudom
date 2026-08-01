@@ -69,8 +69,8 @@
   --dark-2:     #161310;   /* alt section background */
   --dark-3:     #201c16;   /* input / subtle surface */
   --dark-card:  #19150f;   /* cards */
-  --gray:       #b8ad98;   /* muted text (increased from #8f846f for WCAG AA contrast) */
-  --gray-light: #cfc7ba;   /* body / secondary text (increased for better contrast) */
+  --gray:       #8f846f;   /* muted text */
+  --gray-light: #b8ad98;   /* body / secondary text */
   --light:      #f5f0e6;   /* light surface */
   --white:      #f6f1e7;   /* prominent text (cream-white) */
   --border:     rgba(216,182,106,.16);
@@ -96,29 +96,6 @@ body {
 .container { width: min(1200px, 92%); margin: 0 auto; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-
-/* ===== Keyboard Focus Indicators (Accessibility) ===== */
-:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-a:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
 
 /* ===== Gold divider line ===== */
 .gold-line {
@@ -414,6 +391,42 @@ textarea:focus-visible {
 .modal-info h2 { color: var(--white); font-size: 1.3rem; margin-bottom: 16px; }
 .modal-price { font-size: 1.7rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
 .modal-desc { color: var(--gray-light); line-height: 1.9; }
+
+/* ── ราคาลด (card + modal) ── */
+.price-sale   { color: var(--gold); font-weight: 700; }
+.price-original { color: var(--gray); font-size: .82em; text-decoration: line-through; margin-left: 6px; }
+.modal-price-original { display: block; color: var(--gray); font-size: .78rem; text-decoration: line-through; margin-top: 2px; font-weight: 400; }
+
+/* ── รหัสสินค้าใน modal ── */
+.product-sku-label { font-size: .78rem; color: var(--gray); letter-spacing: .05em; margin-bottom: 12px; }
+
+/* ── ปุ่ม LINE ใน modal ── */
+.btn-line-inquiry {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 20px; padding: 13px;
+  background: #06C755; border-radius: 4px;
+  color: #fff; font-family: inherit; font-size: .95rem; font-weight: 700;
+  text-decoration: none;
+  transition: opacity .2s, transform .2s;
+}
+.btn-line-inquiry:hover { opacity: .9; transform: translateY(-2px); }
+
+/* ===== Floating LINE button ===== */
+.line-float {
+  position: fixed;
+  bottom: 28px; right: 24px; z-index: 900;
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  background: #06C755; border-radius: 50px;
+  color: #fff; font-family: inherit; font-size: .9rem; font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(6,199,85,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.line-float:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(6,199,85,.55); }
+@media (max-width: 600px) {
+  .line-float { padding: 10px 16px; font-size: .82rem; bottom: 20px; right: 16px; }
+}
 
 /* ===== Footer ===== */
 .site-footer { background: var(--dark-2); border-top: 1px solid var(--border); }
