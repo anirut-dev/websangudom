@@ -34,8 +34,12 @@ websangudom/
 │   ├── products.js            ← โหลด products.json, filter, search, pagination
 │   ├── data.js                ← CATEGORY_TREE constant
 │   └── line-float.js          ← floating LINE button
+├── 404.html                   ← หน้าไม่พบ (GitHub Pages หยิบไปใช้เอง ไม่ต้องตั้งค่า)
 ├── sitemap.xml                ← สร้างโดย build script
 ├── robots.txt
+├── docs/
+│   ├── V2-PLAN.md             ← spec ของ v2 + เหตุผลเบื้องหลังการตัดสินใจ
+│   └── QA-REPORT-*.md         ← ผลตรวจ QA และสิ่งที่แก้ไปแล้ว
 └── .github/workflows/
     └── deploy-pages.yml       ← GitHub Actions: node build → deploy
 ```
@@ -138,9 +142,14 @@ git push
 | รายการ | ค่า |
 |--------|-----|
 | GitHub | https://github.com/anirut-dev/websangudom |
-| Branch หลัก | `main` (production) |
-| Branch v2 | `v2-static` (งานพัฒนา) |
+| Branch หลัก | `main` (production — merge เมื่อไหร่ ขึ้นเว็บเมื่อนั้น) |
 | GitHub Actions | `.github/workflows/deploy-pages.yml` |
+
+### กฎการแก้เว็บ
+
+> **ห้ามแก้บน `main` ตรงๆ** — ทุกครั้งให้แตก branch ใหม่ แก้เสร็จเปิด PR แล้วค่อย merge
+> ตั้งชื่อ branch ตามประเภทงาน: `feat/` ฟีเจอร์ใหม่ · `fix/` แก้บั๊ก · `docs/` เอกสาร · `chore/` งานจิปาถะ
+> ขั้นตอนเต็มดูใน [README.md](README.md) หัวข้อ Branches
 
 ---
 
