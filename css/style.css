@@ -536,8 +536,6 @@ img { display: block; max-width: 100%; }
 .contact-fax-note { color: var(--gray); font-size: .78rem; margin-top: 4px; }
 .email-sm { font-size: .8rem; }
 
-/* Showcase wide card */
-.showcase-wide { aspect-ratio: 2/1; grid-column: span 2; }
 .footer-brand-logo .logo-text strong { font-size: 1.05rem; }
 .footer-info-row {
   display: flex; gap: 10px; align-items: flex-start;
