@@ -48,12 +48,18 @@ function priceHtml(p) {
   return `<span class="product-price"><span class="price-sale">${sale}</span><span class="price-original">${regular}</span></span>`;
 }
 
+// path รูปสำหรับหน้า /products/<slug>/ — ต้องถอย 2 ชั้น ถ้าเป็น path local
+function imgSrc(image) {
+  if (!image) return "";
+  return image.startsWith("http") ? image : `../../${image}`;
+}
+
 // ── card HTML (static, no JS interaction) ────────────────────────────────────
 function cardHtml(p) {
   const skuLine = p.skuAuto ? "" : `\n      <div class="product-sku-label">รหัสสินค้า: ${escHtml(p.sku)}</div>`;
   return `    <div class="product-card">
       <div class="product-img-wrap">
-        <img src="${escHtml(p.image)}" alt="${escHtml(p.name)}" loading="lazy" width="400" height="400" />
+        <img src="${escHtml(imgSrc(p.image))}" alt="${escHtml(p.name)}" loading="lazy" width="400" height="400" />
       </div>
       <div class="product-info">
         <div class="product-name">${escHtml(p.name)}</div>${skuLine}
@@ -158,7 +164,7 @@ ${jsonLdItemList(cat, catProducts)}
       <a href="../../index.html" class="logo">
         <img src="../../images/logo-nav.png" alt="Sang Udom LED Lighting" class="logo-img" width="2044" height="1326" />
       </a>
-      <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู">☰</button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู" aria-expanded="false" aria-controls="mainNav">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="../../index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
         <a href="../../index.html#promotion"><span class="nav-en">Promotion</span><span class="nav-th">โปรโมชั่น</span></a>
@@ -190,7 +196,7 @@ ${cards}
 
     <div class="cat-line-cta">
       <p>สนใจสินค้าหมวด "${escHtml(title)}"?<br />สอบถามราคา สั่งจอง หรือขอใบเสนอราคาได้เลย</p>
-      <a class="cat-line-btn" href="${LINE_URL}" target="_blank" rel="noopener">
+      <a class="cat-line-btn" href="${LINE_URL}" target="_blank" rel="noopener noreferrer">
         💬 สอบถามราคาทาง LINE
       </a>
     </div>
@@ -204,7 +210,7 @@ ${cards}
         <div class="footer-info-row"><span class="fi-icon">📍</span><p>14/11 หมู่ 1 ถนนพหลโยธิน ต.คลองหนึ่ง<br />อ.คลองหลวง จ.ปทุมธานี 12120</p></div>
         <div class="footer-info-row"><span class="fi-icon">📞</span><p><a href="tel:029013000">02-901-3000</a> / <a href="tel:0953674209">095-367-4209</a></p></div>
         <div class="footer-info-row"><span class="fi-icon">✉</span><p><a href="mailto:sangudomlight@gmail.com">sangudomlight@gmail.com</a></p></div>
-        <div class="footer-info-row"><span class="fi-icon">💬</span><p><a href="${LINE_URL}" target="_blank" rel="noopener">LINE: @Sangudom-sale</a></p></div>
+        <div class="footer-info-row"><span class="fi-icon">💬</span><p><a href="${LINE_URL}" target="_blank" rel="noopener noreferrer">LINE: @Sangudom-sale</a></p></div>
       </div>
       <div>
         <div class="footer-col-title">หมวดหมู่สินค้า</div>
@@ -229,7 +235,10 @@ ${cards}
   <script>
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
-    if (t) t.addEventListener("click", () => n.classList.toggle("open"));
+    if (t) t.addEventListener("click", () => {
+      const open = n.classList.toggle("open");
+      t.setAttribute("aria-expanded", String(open));
+    });
   </script>
 </body>
 </html>`;

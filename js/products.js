@@ -49,9 +49,31 @@ async function loadProducts() {
 }
 loadProducts();
 
+// ── อ่าน ?cat= จาก URL ────────────────────────────────────────────────────────
+// รับได้ทั้งชื่อกลุ่มใหญ่ (Exterior Lamp) และชื่อหมวดจริง
+// คั่นหลายค่าด้วย comma เช่น ?cat=LED,Solar cell
+function applyCatFromUrl() {
+  const raw = new URLSearchParams(location.search).get("cat");
+  if (!raw) return;
+  const tree = typeof CATEGORY_TREE !== "undefined" ? CATEGORY_TREE : [];
+  const known = new Set(allProducts.map(p => p.category));
+
+  for (const token of raw.split(",").map(s => s.trim()).filter(Boolean)) {
+    const group = tree.find(g => g.main === token);
+    if (group) {
+      // กลุ่มใหญ่ที่ไม่มีหมวดย่อย (เช่น Solar cell) ตัวมันเองคือหมวดจริง
+      const targets = group.subs.length ? group.subs : [group.main];
+      targets.forEach(c => filters.categories.add(c));
+    } else if (known.has(token)) {
+      filters.categories.add(token);
+    }
+  }
+}
+
 // ── ตั้ง state + price ceiling + render ──
 function initProducts(list) {
   allProducts = list;
+  applyCatFromUrl();
   const maxPrice = Math.max(...allProducts.map(p => p.price || 0), 0);
   const ceiling  = Math.ceil(maxPrice / 1000) * 1000 || 100000;
   rangeMaxEl.max = ceiling;
@@ -325,26 +347,42 @@ function priceHtml(p) {
   </span>`;
 }
 
+// ── Escape สำหรับใส่ใน attribute/HTML ─────────────────────────────────────────
+function esc(str) {
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 // ── Product cards ─────────────────────────────────────────────────────────────
 function renderProducts(list) {
   emptyMsg.hidden = list.length > 0;
   grid.innerHTML = list.map(p => {
-    const sku       = (p.sku || "").replace(/"/g, "&quot;");
-    const imgStyle  = p.image ? `style="background-image:url('${p.image}')"` : "";
-    const noImgCls  = p.image ? "" : " no-img";
+    const sku      = esc(p.sku);
+    const noImgCls = p.image ? "" : " no-img";
+    const imgTag   = p.image
+      ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" width="400" height="400" />`
+      : "";
     return `
-    <article class="product-card" data-sku="${sku}">
-      <div class="product-img${noImgCls}" ${imgStyle}></div>
+    <article class="product-card" data-sku="${sku}" role="button" tabindex="0"
+             aria-label="ดูรายละเอียด ${esc(p.name)}">
+      <div class="product-img${noImgCls}">${imgTag}</div>
       <div class="product-body">
-        <span class="product-cat">${p.category}</span>
-        <h3 class="product-name">${p.name}</h3>
+        <span class="product-cat">${esc(p.category)}</span>
+        <h3 class="product-name">${esc(p.name)}</h3>
         ${priceHtml(p)}
       </div>
     </article>`;
   }).join("");
-  grid.querySelectorAll(".product-card").forEach(card =>
-    card.addEventListener("click", () => openModal(card.dataset.sku))
-  );
+  grid.querySelectorAll(".product-card").forEach(card => {
+    const open = () => openModal(card.dataset.sku);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
 }
 
 // ── Modal ─────────────────────────────────────────────────────────────────────
@@ -360,8 +398,10 @@ function openModal(sku) {
     document.body.appendChild(overlay);
   }
 
-  const imgStyle  = p.image ? `style="background-image:url('${p.image}')"` : "";
-  const noImgCls  = p.image ? "" : " no-img";
+  const noImgCls = p.image ? "" : " no-img";
+  const imgTag   = p.image
+    ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" width="600" height="600" />`
+    : "";
 
   let priceBlock = "";
   if (p.priceSale) {
@@ -375,12 +415,12 @@ function openModal(sku) {
 
   overlay.innerHTML = `
     <div class="modal">
-      <div class="modal-img${noImgCls}" ${imgStyle}></div>
+      <div class="modal-img${noImgCls}">${imgTag}</div>
       <div class="modal-info">
         <button class="modal-close" aria-label="ปิด">×</button>
-        <span class="product-cat">${p.category}</span>
-        <h2>${p.name}</h2>
-        ${p.skuAuto ? "" : `<div class="product-sku-label">รหัสสินค้า: ${p.sku}</div>`}
+        <span class="product-cat">${esc(p.category)}</span>
+        <h2>${esc(p.name)}</h2>
+        ${p.skuAuto ? "" : `<div class="product-sku-label">รหัสสินค้า: ${esc(p.sku)}</div>`}
         ${priceBlock}
         <a class="btn-line-inquiry" href="${LINE_URL}" target="_blank" rel="noopener">
           <span class="line-ico">💬</span> สอบถามราคาทาง LINE
