@@ -1,9 +1,7 @@
-// ===== ข้อมูลสินค้าตัวอย่าง =====
-// ในอนาคตข้อมูลส่วนนี้จะดึงมาจาก Firebase แทน
-// ตอนนี้ใช้ข้อมูลตัวอย่างเพื่อให้เห็นหน้าตาเว็บทำงานจริง
-//
-// แต่ละสินค้า: id, name, category, price, emoji (รูปชั่วคราว),
-//              image (ใส่ path รูปจริงทีหลัง เช่น "images/lamp01.jpg"), desc
+// ===== โครงสร้างหมวดหมู่สินค้า =====
+// ต้องตรงกับค่า "category" ใน data/products.json ทุกตัว (24 หมวด)
+// หมวดย่อยห้ามซ้ำข้ามกลุ่มใหญ่ — checkbox ใช้ชื่อหมวดเป็น state เดียวกัน
+// ถ้าซ้ำ ติ๊กที่หนึ่งจะไปติ๊กอีกที่โดยผู้ใช้ไม่รู้ตัว
 
 const CATEGORY_TREE = [
   { main: "Exterior Lamp", subs: [
@@ -17,7 +15,6 @@ const CATEGORY_TREE = [
   { main: "Interior Lamp", subs: [
     "Ceiling Lamp โคมไฟเพดาน",
     "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "Wall Lamp โคมไฟผนัง",
     "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
     "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
     "Step Light โคมไฟฝังพื้น",
@@ -27,11 +24,10 @@ const CATEGORY_TREE = [
   { main: "Chandelier", subs: [
     "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
     "Wall Crystal Lamp โคมไฟกิ่ง",
-    "Chat Crystal Lamp โคมไฟจัตร",
+    "Chat Crystal Lamp โคมไฟฉัตร",
   ]},
   { main: "LED", subs: [
     "LED Bulb /Downlight LED หลอดไฟ และดาวน์ไลท์ LED",
-    "Ceiling Lamp โคมไฟเพดาน",
     "Step Light Line ไฟเส้น LED",
     "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
     "Street Garden Light โคมไฟถนน และไฟสวน",
@@ -40,7 +36,6 @@ const CATEGORY_TREE = [
     "Bulb หลอดไฟ",
     "Accessories อุปกรณ์เสริม",
   ]},
-  { main: "Furniture", subs: [] },
   { main: "Other Products", subs: [] },
   { main: "Solar cell", subs: [] },
 ];

@@ -341,6 +341,18 @@ img { display: block; max-width: 100%; }
 }
 /* การ์ดที่ไม่มีรูป (แสดง emoji) — คืนพื้นมืดให้เข้าธีม */
 .product-img.no-img { background: var(--dark-3); }
+/* ใช้ <img> จริง (ไม่ใช่ background-image) เพื่อให้มี alt + Google Images เห็นรูป */
+.product-img > img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+/* โฟกัสด้วยคีย์บอร์ด — ต้องเห็นชัดสำหรับการ์ดที่คลิกได้ทุกชนิด */
+.product-card:focus-visible,
+.branch-mini-card:focus-visible,
+.promo-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
 
 .product-body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
 .product-cat {
@@ -380,6 +392,7 @@ img { display: block; max-width: 100%; }
   font-size: 6rem; min-height: 340px;
 }
 .modal-img.no-img { background: var(--dark-2); }
+.modal-img > img { width: 100%; height: 100%; max-height: 460px; object-fit: contain; }
 .modal-info { padding: 32px; position: relative; }
 .modal-close {
   position: absolute; top: 16px; right: 18px;

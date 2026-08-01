@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ไม่พบหน้าที่ต้องการ | แสงอุดม ไลท์ติ้ง</title>
+  <meta name="description" content="ไม่พบหน้าที่คุณเรียกดู — กลับไปหน้าแรกหรือดูสินค้าทั้งหมดของแสงอุดม ไลท์ติ้ง เซ็นเตอร์" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .nf-wrap {
+      min-height: 70vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px; gap: 18px;
+    }
+    .nf-code { font-size: clamp(4rem, 14vw, 8rem); font-weight: 700; color: var(--gold); line-height: 1; }
+    .nf-wrap h1 { color: var(--white); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 600; }
+    .nf-wrap p  { color: var(--gray); max-width: 420px; line-height: 1.9; }
+    .nf-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/index.html" class="logo">
+        <img src="/images/logo-nav.png" alt="Sang Udom LED Lighting" class="logo-img" width="2044" height="1326" />
+      </a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="เมนู" aria-expanded="false" aria-controls="mainNav">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="/index.html"><span class="nav-en">Home</span><span class="nav-th">หน้าแรก</span></a>
+        <a href="/products.html"><span class="nav-en">Products</span><span class="nav-th">สินค้า</span></a>
+        <a href="/gallery.html"><span class="nav-en">Portfolio</span><span class="nav-th">ผลงาน</span></a>
+        <a href="/about.html"><span class="nav-en">About</span><span class="nav-th">เกี่ยวกับเรา</span></a>
+        <a href="/branches.html"><span class="nav-en">Branches</span><span class="nav-th">สาขา</span></a>
+        <a href="/branches.html#contact"><span class="nav-en">Contact</span><span class="nav-th">ติดต่อ</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="nf-wrap">
+    <div class="nf-code">404</div>
+    <h1>ไม่พบหน้าที่ต้องการ</h1>
+    <p>หน้าที่คุณเรียกดูอาจถูกย้ายหรือไม่มีอยู่แล้ว<br />ลองกลับไปหน้าแรก หรือดูสินค้าทั้งหมดของเรา</p>
+    <div class="nf-links">
+      <a class="btn btn-primary" href="/index.html">กลับหน้าแรก</a>
+      <a class="btn btn-outline" href="/products.html">ดูสินค้าทั้งหมด</a>
+      <a class="btn btn-outline" href="/branches.html#contact">ติดต่อเรา</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <span class="footer-copyright">© 2026 www.sangudom.com — All Rights Reserved</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/line-float.js"></script>
+  <script>
+    const t = document.getElementById("navToggle");
+    const n = document.getElementById("mainNav");
+    if (t) t.addEventListener("click", () => {
+      const open = n.classList.toggle("open");
+      t.setAttribute("aria-expanded", String(open));
+    });
+  </script>
+</body>
+</html>
