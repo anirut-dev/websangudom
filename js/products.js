@@ -324,7 +324,7 @@ function renderChips() {
     }});
   }
   activeFiltersEl.innerHTML = chips.map((ch, i) =>
-    `<span class="filter-chip" data-i="${i}">${ch.label} <span class="x">×</span></span>`
+    `<span class="filter-chip" data-i="${i}">${esc(ch.label)} <span class="x">×</span></span>`
   ).join("");
   activeFiltersEl.querySelectorAll(".filter-chip").forEach((el, i) => {
     el.addEventListener("click", () => chips[i].action());
