@@ -63,9 +63,9 @@
       to { transform:translate(-50%,-50%) rotate(360deg); }
     }
     @keyframes glowBurst {
-      0%   { box-shadow:0 0 0 0 rgba(216,182,106,0); }
-      40%  { box-shadow:0 0 40px 12px rgba(216,182,106,.22); }
-      100% { box-shadow:0 0 0 0 rgba(216,182,106,0); }
+      0%   { box-shadow:0 0 0 0 rgba(30,64,175,0); }
+      40%  { box-shadow:0 0 40px 12px rgba(30,64,175,.22); }
+      100% { box-shadow:0 0 0 0 rgba(30,64,175,0); }
     }
     @keyframes scanLine {
       0%   { top:-4px; }
@@ -170,7 +170,7 @@
       padding: 20px 24px;
       transition: background .25s;
     }
-    .usp-item:hover { background: rgba(216,182,106,.04); }
+    .usp-item:hover { background: rgba(30,64,175,.04); }
     .usp-icon {
       font-size: 1.4rem;
       color: var(--gold);
@@ -228,8 +228,8 @@
       transition: border-color .4s, box-shadow .4s, transform .4s;
     }
     .promo-card:hover {
-      border-color: rgba(216,182,106,.45);
-      box-shadow: 0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(216,182,106,.2);
+      border-color: rgba(30,64,175,.45);
+      box-shadow: 0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(30,64,175,.2);
       transform: translateY(-3px);
     }
     .promo-card img {
@@ -246,8 +246,8 @@
     .promo-zoom {
       position: absolute; top: 12px; right: 12px;
       width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(216,182,106,.15);
-      border: 1px solid rgba(216,182,106,.4);
+      background: rgba(30,64,175,.15);
+      border: 1px solid rgba(30,64,175,.4);
       display: flex; align-items: center; justify-content: center;
       color: var(--gold); font-size: .9rem;
       opacity: 0; transform: scale(.8);
@@ -293,7 +293,7 @@
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: background .2s, border-color .2s;
     }
-    .lightbox-close:hover { background: rgba(216,182,106,.2); border-color: var(--gold); }
+    .lightbox-close:hover { background: rgba(30,64,175,.2); border-color: var(--gold); }
     .lightbox-nav {
       position: fixed; top: 50%; transform: translateY(-50%);
       width: 46px; height: 46px; border-radius: 50%;
@@ -303,7 +303,7 @@
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: background .2s, border-color .2s;
     }
-    .lightbox-nav:hover { background: rgba(216,182,106,.2); border-color: var(--gold); }
+    .lightbox-nav:hover { background: rgba(30,64,175,.2); border-color: var(--gold); }
     .lightbox-prev { left: 20px; }
     .lightbox-next { right: 20px; }
     .lightbox-counter {
@@ -355,7 +355,7 @@
     .marquee-item::after {
       content:"";
       position:absolute; inset:0;
-      background:linear-gradient(120deg, transparent 30%, rgba(216,182,106,.15) 50%, transparent 70%);
+      background:linear-gradient(120deg, transparent 30%, rgba(30,64,175,.15) 50%, transparent 70%);
       opacity:0; transition:opacity .4s;
     }
     .marquee-item:hover::after { opacity:1; }
@@ -364,7 +364,7 @@
     .hero-glow-left {
       position:absolute; left:-200px; top:30%;
       width:520px; height:520px; border-radius:50%;
-      background:radial-gradient(circle, rgba(216,182,106,.10) 0%, transparent 68%);
+      background:radial-gradient(circle, rgba(30,64,175,.10) 0%, transparent 68%);
       animation:lightPulse 4s ease-in-out infinite;
       pointer-events:none;
     }
@@ -372,7 +372,7 @@
       position:absolute; bottom:-100px; left:50%;
       transform:translateX(-50%);
       width:800px; height:300px;
-      background:radial-gradient(ellipse, rgba(216,182,106,.06) 0%, transparent 70%);
+      background:radial-gradient(ellipse, rgba(30,64,175,.06) 0%, transparent 70%);
       pointer-events:none;
     }
     .hero-rays {
@@ -381,12 +381,12 @@
       transform:translate(-50%,-50%);
       background:conic-gradient(
         from 0deg,
-        transparent 0deg, rgba(216,182,106,.025) 2deg,
+        transparent 0deg, rgba(30,64,175,.025) 2deg,
         transparent 4deg, transparent 20deg,
-        rgba(216,182,106,.025) 22deg, transparent 24deg,
-        transparent 40deg, rgba(216,182,106,.02) 42deg,
+        rgba(30,64,175,.025) 22deg, transparent 24deg,
+        transparent 40deg, rgba(30,64,175,.02) 42deg,
         transparent 44deg, transparent 60deg,
-        rgba(216,182,106,.015) 62deg, transparent 64deg
+        rgba(30,64,175,.015) 62deg, transparent 64deg
       );
       animation:rayRotate 28s linear infinite;
       pointer-events:none;
@@ -471,8 +471,8 @@
       transition:border-color .4s, box-shadow .4s, transform .4s;
     }
     .showcase-card:hover {
-      border-color:rgba(216,182,106,.45);
-      box-shadow:0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(216,182,106,.2);
+      border-color:rgba(30,64,175,.45);
+      box-shadow:0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(30,64,175,.2);
       transform:translateY(-3px);
     }
     .showcase-card:focus-visible {
@@ -512,7 +512,7 @@
       content:"";
       position:absolute; z-index:2;
       top:-60%; left:-60%; width:120%; height:120%;
-      background:radial-gradient(ellipse at 60% 40%, rgba(216,182,106,.22) 0%, transparent 65%);
+      background:radial-gradient(ellipse at 60% 40%, rgba(30,64,175,.22) 0%, transparent 65%);
       opacity:0; transition:opacity .5s;
       pointer-events:none;
     }
@@ -520,7 +520,7 @@
     /* scan line */
     .showcase-scan {
       position:absolute; left:0; right:0; height:1px; z-index:3;
-      background:linear-gradient(90deg, transparent, rgba(216,182,106,.6), transparent);
+      background:linear-gradient(90deg, transparent, rgba(30,64,175,.6), transparent);
       opacity:0; top:-4px;
       transition:opacity .2s;
     }
@@ -541,7 +541,7 @@
     .showcase-label .arrow {
       position:absolute; right:18px; bottom:18px;
       width:30px; height:30px;
-      border:1px solid rgba(216,182,106,.4);
+      border:1px solid rgba(30,64,175,.4);
       border-radius:50%;
       display:flex; align-items:center; justify-content:center;
       color:var(--gold); font-size:.9rem;
@@ -572,7 +572,7 @@
     .rail-dots { display:flex; justify-content:center; gap:8px; margin-top:18px; }
     .rail-dot {
       width:7px; height:7px; padding:0; border:none; border-radius:50%;
-      background:rgba(216,182,106,.28); cursor:pointer;
+      background:rgba(30,64,175,.28); cursor:pointer;
       transition:background .3s, width .3s;
     }
     .rail-dot.active { background:var(--gold); width:22px; border-radius:4px; }
