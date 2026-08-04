@@ -59,24 +59,24 @@
 /* ===== Hero inner z-index ===== */
 .hero-inner { position: relative; z-index: 1; }
 
-/* ===== Variables — Onyx & Gold (ดำสนิท + ทองแชมเปญ) ===== */
+/* ===== Variables — White / Blue / Red (ขาว + น้ำเงิน + แดง) ===== */
 :root {
-  --gold:       #d8b66a;   /* champagne gold */
-  --gold-light: #ecd3a2;
-  --gold-dark:  #b8954f;
-  --cream:      #0e0d0b;   /* page background (onyx) */
-  --dark:       #161310;   /* ink-on-gold / deep surface */
-  --dark-2:     #161310;   /* alt section background */
-  --dark-3:     #201c16;   /* input / subtle surface */
-  --dark-card:  #19150f;   /* cards */
-  --gray:       #8f846f;   /* muted text */
-  --gray-light: #b8ad98;   /* body / secondary text */
-  --light:      #f5f0e6;   /* light surface */
-  --white:      #f6f1e7;   /* prominent text (cream-white) */
-  --border:     rgba(216,182,106,.16);
-  --border-2:   rgba(216,182,106,.34);
-  --shadow:     0 12px 40px rgba(0,0,0,.45);
-  --shadow-sm:  0 2px 12px rgba(0,0,0,.3);
+  --gold:       #1e40af;   /* primary blue — brand/structure (ชื่อเดิม, ค่าน้ำเงิน) */
+  --gold-light: #3b5bbf;   /* lighter blue — hover */
+  --gold-dark:  #12285f;   /* deep blue — pressed */
+  --cream:      #ffffff;   /* page background (white) */
+  --dark:       #ffffff;   /* on-accent text / small surface — ตัดกับน้ำเงิน */
+  --dark-2:     #f4f7fb;   /* alt section background */
+  --dark-3:     #f1f5f9;   /* input / subtle surface */
+  --dark-card:  #ffffff;   /* cards */
+  --gray:       #64748b;   /* muted text */
+  --gray-light: #334155;   /* body / secondary text */
+  --light:      #f4f7fb;   /* light surface */
+  --white:      #0f1b3d;   /* prominent text (ink navy) */
+  --border:     rgba(15,27,61,.12);
+  --border-2:   rgba(30,64,175,.28);
+  --shadow:     0 12px 40px rgba(30,64,175,.12);
+  --shadow-sm:  0 2px 12px rgba(30,64,175,.08);
   --radius:     10px;
   --radius-sm:  6px;
 }
@@ -128,7 +128,7 @@ img { display: block; max-width: 100%; }
 /* ===== Header ===== */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(14,13,11,.9);
+  background: rgba(255,255,255,.9);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
@@ -530,7 +530,7 @@ img { display: block; max-width: 100%; }
 .hero-btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
 .about-cta-btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .timeline-center { max-width: 680px; margin: 0 auto; }
-.btn-outline-light { border-color: rgba(250,247,240,.3); color: #faf7f0; }
+.btn-outline-light { border-color: var(--border-2); color: var(--gold); }
 
 /* Contact section helpers */
 .contact-fax-note { color: var(--gray); font-size: .78rem; margin-top: 4px; }
@@ -958,7 +958,7 @@ img { display: block; max-width: 100%; }
   .nav-toggle { display: block; }
   .main-nav {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
-    background: rgba(14,13,11,.97); border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border);
     flex-direction: column; padding: 16px; gap: 2px;
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
