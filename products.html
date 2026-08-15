@@ -338,6 +338,53 @@
       color: var(--gray); font-size: .9rem;
     }
 
+    /* ===== Category links (SEO: ลิงก์จริงไปหน้าหมวด 24 หน้า) ===== */
+    .cat-links-section {
+      padding: 56px 0 64px;
+      border-top: 1px solid var(--border);
+      background: var(--dark-2);
+    }
+    .cat-links-section h2 { margin-bottom: 8px; }
+    .cat-links-sub {
+      color: var(--gray);
+      font-size: .88rem;
+      margin-bottom: 28px;
+    }
+    .cat-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 10px;
+    }
+    .cat-link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 16px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+    }
+    .cat-link-card:hover {
+      background: var(--dark-3);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .cat-link-count {
+      flex-shrink: 0;
+      font-size: .74rem;
+      color: var(--gray);
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px 9px;
+    }
+    .cat-link-card:hover .cat-link-count { color: var(--gold); border-color: var(--border-2); }
+
     /* Responsive */
     @media (max-width: 900px) {
       .catalog-layout { grid-template-columns: 1fr; }
@@ -447,6 +494,42 @@
           <nav class="pagination" id="pagination" aria-label="แบ่งหน้าสินค้า"></nav>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== หมวดหมู่สินค้า (ลิงก์จริงไปหน้าหมวด — สร้างโดย scripts/build-pages.mjs ห้ามแก้มือ) ===== -->
+  <section class="cat-links-section" id="categories">
+    <div class="container">
+      <h2>หมวดหมู่สินค้าทั้งหมด</h2>
+      <p class="cat-links-sub">เลือกดูสินค้าแยกตามหมวด — แต่ละหมวดมีหน้ารวมสินค้าของตัวเอง</p>
+      <div class="cat-links-grid">
+        <!-- CAT-LINKS:START -->
+        <a class="cat-link-card" href="products/accent-light/"><span>โคมไฟปักดิน</span><span class="cat-link-count">12</span></a>
+        <a class="cat-link-card" href="products/accessories/"><span>อุปกรณ์เสริม</span><span class="cat-link-count">4</span></a>
+        <a class="cat-link-card" href="products/bulb/"><span>หลอดไฟ</span><span class="cat-link-count">36</span></a>
+        <a class="cat-link-card" href="products/ceiling-lamp/"><span>โคมไฟเพดาน</span><span class="cat-link-count">58</span></a>
+        <a class="cat-link-card" href="products/chat-crystal-lamp/"><span>โคมไฟฉัตร</span><span class="cat-link-count">3</span></a>
+        <a class="cat-link-card" href="products/downlight-tracklight/"><span>ดาวน์ไลท์ และแทรคไลท์</span><span class="cat-link-count">46</span></a>
+        <a class="cat-link-card" href="products/garden-lamp/"><span>โคมไฟสนาม</span><span class="cat-link-count">90</span></a>
+        <a class="cat-link-card" href="products/gate-lamp/"><span>โคมไฟหัวเสา</span><span class="cat-link-count">115</span></a>
+        <a class="cat-link-card" href="products/high-bay/"><span>โคมไฮเบย์</span><span class="cat-link-count">4</span></a>
+        <a class="cat-link-card" href="products/led-bulb-downlight/"><span>หลอดไฟ และดาวน์ไลท์</span><span class="cat-link-count">17</span></a>
+        <a class="cat-link-card" href="products/other-products/"><span>Other Products</span><span class="cat-link-count">11</span></a>
+        <a class="cat-link-card" href="products/pendant-crystal-lamp/"><span>โคมไฟช่อ และไฟเพดาน</span><span class="cat-link-count">40</span></a>
+        <a class="cat-link-card" href="products/pendant-lamp/"><span>โคมไฟช่อ โคมไฟห้อย</span><span class="cat-link-count">113</span></a>
+        <a class="cat-link-card" href="products/solar-cell/"><span>Solar cell</span><span class="cat-link-count">19</span></a>
+        <a class="cat-link-card" href="products/spotlight-floodlight/"><span>โคมไฟสปอร์ตไลท์ และฟลัดไลท์</span><span class="cat-link-count">27</span></a>
+        <a class="cat-link-card" href="products/step-light-line/"><span>ไฟเส้น</span><span class="cat-link-count">11</span></a>
+        <a class="cat-link-card" href="products/step-light-path/"><span>โคมไฟทางเดิน</span><span class="cat-link-count">9</span></a>
+        <a class="cat-link-card" href="products/step-light-floor/"><span>โคมไฟฝังพื้น</span><span class="cat-link-count">10</span></a>
+        <a class="cat-link-card" href="products/street-garden-light/"><span>โคมไฟถนน และไฟสวน</span><span class="cat-link-count">7</span></a>
+        <a class="cat-link-card" href="products/street-light/"><span>โคมไฟถนน</span><span class="cat-link-count">4</span></a>
+        <a class="cat-link-card" href="products/t-bar-fluorescent/"><span>ไฟทีบาร์ และฟลูออเรสเซนต์</span><span class="cat-link-count">34</span></a>
+        <a class="cat-link-card" href="products/table-floor-lamp/"><span>โคมไฟตั้งโต๊ะ และตั้งพื้น</span><span class="cat-link-count">19</span></a>
+        <a class="cat-link-card" href="products/wall-crystal-lamp/"><span>โคมไฟกิ่ง</span><span class="cat-link-count">9</span></a>
+        <a class="cat-link-card" href="products/wall-lamp/"><span>โคมไฟผนัง</span><span class="cat-link-count">94</span></a>
+        <!-- CAT-LINKS:END -->
       </div>
     </div>
   </section>
