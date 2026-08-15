@@ -81,7 +81,51 @@
   --shadow-sm:  0 2px 12px rgba(30,64,175,.08);
   --radius:     10px;
   --radius-sm:  6px;
+  --header-bg:      rgba(255,255,255,.9);
+  --header-bg-nav:  rgba(255,255,255,.97);
+  color-scheme: light;
 }
+
+/* ===== Dark mode — ทับค่าตัวแปรชุดเดียว ที่เหลือเปลี่ยนตามอัตโนมัติ =====
+   หมายเหตุชื่อตัวแปร: --white = สีตัวหนังสือเด่น, --dark = สีตัวหนังสือบนพื้นสีเน้น,
+   --gold = สีน้ำเงินหลัก (ชื่อเดิมจากธีมเก่า ยังไม่ได้เปลี่ยน) */
+[data-theme="dark"] {
+  --gold:       #7aa2ff;   /* น้ำเงินอ่อนลง ให้อ่านออกบนพื้นมืด */
+  --gold-light: #9dbaff;
+  --gold-dark:  #5b86e6;
+  --cream:      #0b1220;   /* page background */
+  --dark:       #0b1220;   /* ตัวหนังสือบนพื้นสีเน้น — ตัดกับน้ำเงินอ่อน */
+  --dark-2:     #111a2e;   /* alt section / footer */
+  --dark-3:     #16203a;   /* input / subtle surface */
+  --dark-card:  #131d33;   /* cards */
+  --gray:       #8b98ad;
+  --gray-light: #c2cbdb;
+  --light:      #16203a;
+  --white:      #eef2f9;   /* ตัวหนังสือเด่น */
+  --red:        #ef4444;
+  --red-dark:   #dc2626;
+  --border:     rgba(255,255,255,.12);
+  --border-2:   rgba(122,162,255,.35);
+  --shadow:     0 12px 40px rgba(0,0,0,.5);
+  --shadow-sm:  0 2px 12px rgba(0,0,0,.35);
+  --header-bg:      rgba(11,18,32,.9);
+  --header-bg-nav:  rgba(11,18,32,.97);
+  color-scheme: dark;
+}
+
+/* ===== ปุ่มสลับโหมดมืด/สว่าง ===== */
+.theme-toggle {
+  margin-left: 14px;
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--border-2); border-radius: 50%;
+  color: var(--gold); font-size: 1.05rem; line-height: 1;
+  cursor: pointer; transition: background .2s, border-color .2s, color .2s;
+}
+.theme-toggle:hover { background: var(--dark-3); border-color: var(--gold); }
+.theme-toggle .icon-dark  { display: none; }
+[data-theme="dark"] .theme-toggle .icon-light { display: none; }
+[data-theme="dark"] .theme-toggle .icon-dark  { display: block; }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -130,7 +174,7 @@ img { display: block; max-width: 100%; }
 /* ===== Header ===== */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,.9);
+  background: var(--header-bg);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
@@ -167,7 +211,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 600px) { .logo-img { height: 42px; } }
 
 /* Nav */
-.main-nav { display: flex; gap: 2px; align-items: center; }
+.main-nav { display: flex; gap: 2px; align-items: center; margin-left: auto; }
 .main-nav a {
   color: var(--gray-light); padding: 8px 16px;
   font-size: .88rem; letter-spacing: .05em; text-transform: uppercase;
@@ -957,10 +1001,11 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 720px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; order: 3; margin-left: 10px; }
+  .theme-toggle { order: 2; margin-left: auto; }   /* auto = ดันปุ่มทั้งคู่ไปชิดขวา */
   .main-nav {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
-    background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border);
+    background: var(--header-bg-nav); border-bottom: 1px solid var(--border);
     flex-direction: column; padding: 16px; gap: 2px;
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);

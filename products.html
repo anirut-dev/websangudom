@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- โหมดมืด/สว่าง: อ่านค่าที่ผู้ใช้เลือกก่อน CSS วาด กันจอกระพริบ -->
+  <script>(function(){try{var t=localStorage.getItem("sangudom-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <title>แคตตาล็อกสินค้า | แสงอุดม ไลท์ติ้ง</title>
   <meta name="description" content="แคตตาล็อกโคมไฟและอุปกรณ์แสงสว่างครบวงจร — แสงอุดม ไลท์ติ้ง เซ็นเตอร์" />
   <meta name="robots" content="index, follow" />
@@ -413,6 +415,7 @@
         <a href="branches.html"><span class="nav-en">Branches</span><span class="nav-th">สาขา</span></a>
         <a href="branches.html#contact"><span class="nav-en">Contact</span><span class="nav-th">ติดต่อ</span></a>
       </nav>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="เปลี่ยนเป็นโหมดมืด" title="เปลี่ยนเป็นโหมดมืด" aria-pressed="false"><span class="icon-light">🌙</span><span class="icon-dark">☀️</span></button>
     </div>
   </header>
 
@@ -589,5 +592,6 @@
       t.setAttribute("aria-expanded", String(open));
     });
   </script>
+  <script src="js/theme.js"></script>
 </body>
 </html>
