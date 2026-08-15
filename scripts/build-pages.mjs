@@ -132,6 +132,8 @@ function pageHtml(cat, catProducts) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- โหมดมืด/สว่าง: อ่านค่าที่ผู้ใช้เลือกก่อน CSS วาด กันจอกระพริบ -->
+  <script>(function(){try{var t=localStorage.getItem("sangudom-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <title>${escHtml(title)} — ${count} รายการ | แสงอุดม ไลท์ติ้ง</title>
   <meta name="description" content="${desc}" />
   <meta name="robots" content="index, follow" />
@@ -195,6 +197,7 @@ ${jsonLdItemList(cat, catProducts)}
         <a href="../../branches.html"><span class="nav-en">Branches</span><span class="nav-th">สาขา</span></a>
         <a href="../../branches.html#contact"><span class="nav-en">Contact</span><span class="nav-th">ติดต่อ</span></a>
       </nav>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="เปลี่ยนเป็นโหมดมืด" title="เปลี่ยนเป็นโหมดมืด" aria-pressed="false"><span class="icon-light">🌙</span><span class="icon-dark">☀️</span></button>
     </div>
   </header>
 
@@ -260,6 +263,7 @@ ${otherCatLinks(cat)}
 
   <script src="../../js/animations.js"></script>
   <script src="../../js/line-float.js"></script>
+  <script src="../../js/theme.js"></script>
   <script>
     const t = document.getElementById("navToggle");
     const n = document.getElementById("mainNav");
