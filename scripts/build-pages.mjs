@@ -135,6 +135,7 @@ function pageHtml(cat, catProducts) {
   <meta property="og:description" content="${desc}" />
   <meta property="og:image"       content="${escHtml(ogImg)}" />
   <meta property="og:image:alt"   content="${escHtml(title)}" />
+  <link rel="canonical" href="${pageUrl}" />
   <script type="application/ld+json">
 ${jsonLdItemList(cat, catProducts)}
   </script>
