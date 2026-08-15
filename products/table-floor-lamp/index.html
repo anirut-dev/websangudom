@@ -403,6 +403,19 @@
     .cat-line-cta p { color: var(--gray-light); font-size: .95rem; }
     .cat-line-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: #06C755; border-radius: 4px; color: #fff; font-family: inherit; font-size: 1rem; font-weight: 700; text-decoration: none; transition: opacity .2s, transform .2s; }
     .cat-line-btn:hover { opacity: .9; transform: translateY(-2px); }
+    .cat-more { margin: 52px 0 0; }
+    .cat-more-title { font-size: 1.05rem; margin-bottom: 14px; }
+    .cat-more-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cat-more-link {
+      padding: 8px 14px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+      font-size: .84rem;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .cat-more-link:hover { background: var(--dark-3); border-color: var(--gold); color: var(--gold); }
   </style>
 </head>
 <body>
@@ -630,6 +643,35 @@
       </div>
     </div>
     </div>
+
+    <nav class="cat-more" aria-label="หมวดหมู่สินค้าอื่น">
+      <h2 class="cat-more-title">ดูหมวดอื่น</h2>
+      <div class="cat-more-grid">
+        <a class="cat-more-link" href="../accent-light/">โคมไฟปักดิน <span>(12)</span></a>
+        <a class="cat-more-link" href="../accessories/">อุปกรณ์เสริม <span>(4)</span></a>
+        <a class="cat-more-link" href="../bulb/">หลอดไฟ <span>(36)</span></a>
+        <a class="cat-more-link" href="../ceiling-lamp/">โคมไฟเพดาน <span>(58)</span></a>
+        <a class="cat-more-link" href="../chat-crystal-lamp/">โคมไฟฉัตร <span>(3)</span></a>
+        <a class="cat-more-link" href="../downlight-tracklight/">ดาวน์ไลท์ และแทรคไลท์ <span>(46)</span></a>
+        <a class="cat-more-link" href="../garden-lamp/">โคมไฟสนาม <span>(90)</span></a>
+        <a class="cat-more-link" href="../gate-lamp/">โคมไฟหัวเสา <span>(115)</span></a>
+        <a class="cat-more-link" href="../high-bay/">โคมไฮเบย์ <span>(4)</span></a>
+        <a class="cat-more-link" href="../led-bulb-downlight/">หลอดไฟ และดาวน์ไลท์ <span>(17)</span></a>
+        <a class="cat-more-link" href="../other-products/">Other Products <span>(11)</span></a>
+        <a class="cat-more-link" href="../pendant-crystal-lamp/">โคมไฟช่อ และไฟเพดาน <span>(40)</span></a>
+        <a class="cat-more-link" href="../pendant-lamp/">โคมไฟช่อ โคมไฟห้อย <span>(113)</span></a>
+        <a class="cat-more-link" href="../solar-cell/">Solar cell <span>(19)</span></a>
+        <a class="cat-more-link" href="../spotlight-floodlight/">โคมไฟสปอร์ตไลท์ และฟลัดไลท์ <span>(27)</span></a>
+        <a class="cat-more-link" href="../step-light-line/">ไฟเส้น <span>(11)</span></a>
+        <a class="cat-more-link" href="../step-light-path/">โคมไฟทางเดิน <span>(9)</span></a>
+        <a class="cat-more-link" href="../step-light-floor/">โคมไฟฝังพื้น <span>(10)</span></a>
+        <a class="cat-more-link" href="../street-garden-light/">โคมไฟถนน และไฟสวน <span>(7)</span></a>
+        <a class="cat-more-link" href="../street-light/">โคมไฟถนน <span>(4)</span></a>
+        <a class="cat-more-link" href="../t-bar-fluorescent/">ไฟทีบาร์ และฟลูออเรสเซนต์ <span>(34)</span></a>
+        <a class="cat-more-link" href="../wall-crystal-lamp/">โคมไฟกิ่ง <span>(9)</span></a>
+        <a class="cat-more-link" href="../wall-lamp/">โคมไฟผนัง <span>(94)</span></a>
+      </div>
+    </nav>
 
     <div class="cat-line-cta">
       <p>สนใจสินค้าหมวด "โคมไฟตั้งโต๊ะ และตั้งพื้น"?<br />สอบถามราคา สั่งจอง หรือขอใบเสนอราคาได้เลย</p>

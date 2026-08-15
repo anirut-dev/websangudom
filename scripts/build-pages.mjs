@@ -106,6 +106,14 @@ function jsonLdItemList(cat, catProducts) {
   }, null, 2);
 }
 
+// ── ลิงก์ไปหมวดอื่น (แก้ปัญหา orphan page — ให้ 24 หน้าลิงก์หากันเอง) ──────────
+function otherCatLinks(currentCat) {
+  return categories
+    .filter(c => c !== currentCat)
+    .map(c => `        <a class="cat-more-link" href="../${catSlug(c)}/">${escHtml(thName(c))} <span>(${countByCat[c]})</span></a>`)
+    .join("\n");
+}
+
 // ── template หน้า category ────────────────────────────────────────────────────
 function pageHtml(cat, catProducts) {
   const slug  = catSlug(cat);
@@ -155,6 +163,19 @@ ${jsonLdItemList(cat, catProducts)}
     .cat-line-cta p { color: var(--gray-light); font-size: .95rem; }
     .cat-line-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: #06C755; border-radius: 4px; color: #fff; font-family: inherit; font-size: 1rem; font-weight: 700; text-decoration: none; transition: opacity .2s, transform .2s; }
     .cat-line-btn:hover { opacity: .9; transform: translateY(-2px); }
+    .cat-more { margin: 52px 0 0; }
+    .cat-more-title { font-size: 1.05rem; margin-bottom: 14px; }
+    .cat-more-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cat-more-link {
+      padding: 8px 14px;
+      background: var(--dark-card);
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+      font-size: .84rem;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .cat-more-link:hover { background: var(--dark-3); border-color: var(--gold); color: var(--gold); }
   </style>
 </head>
 <body>
@@ -193,6 +214,13 @@ ${jsonLdItemList(cat, catProducts)}
     <div class="product-grid">
 ${cards}
     </div>
+
+    <nav class="cat-more" aria-label="หมวดหมู่สินค้าอื่น">
+      <h2 class="cat-more-title">ดูหมวดอื่น</h2>
+      <div class="cat-more-grid">
+${otherCatLinks(cat)}
+      </div>
+    </nav>
 
     <div class="cat-line-cta">
       <p>สนใจสินค้าหมวด "${escHtml(title)}"?<br />สอบถามราคา สั่งจอง หรือขอใบเสนอราคาได้เลย</p>
@@ -246,6 +274,9 @@ ${cards}
 
 // ── สร้าง category pages ──────────────────────────────────────────────────────
 const categories = [...new Set(products.map(p => p.category))].sort();
+const countByCat = Object.fromEntries(
+  categories.map(c => [c, products.filter(p => p.category === c).length])
+);
 let built = 0;
 
 for (const cat of categories) {
@@ -256,6 +287,33 @@ for (const cat of categories) {
   fs.writeFileSync(path.join(dir, "index.html"), pageHtml(cat, items), "utf8");
   built++;
   process.stdout.write(`  [${String(built).padStart(2)}] ${slug.padEnd(30)} ${items.length} รายการ\n`);
+}
+
+// ── ฝังลิงก์หมวดลง products.html (ระหว่าง marker CAT-LINKS) ───────────────────
+// ทำให้หน้าหมวด 24 หน้าไม่เป็น orphan page — มีลิงก์จริงจากหน้าแคตตาล็อกชี้ไป
+const CAT_START = "<!-- CAT-LINKS:START -->";
+const CAT_END   = "<!-- CAT-LINKS:END -->";
+const catLinksHtml = categories
+  .map(cat =>
+    `        <a class="cat-link-card" href="products/${catSlug(cat)}/">` +
+    `<span>${escHtml(thName(cat))}</span>` +
+    `<span class="cat-link-count">${countByCat[cat]}</span></a>`
+  )
+  .join("\n");
+
+const productsPath = path.join(ROOT, "products.html");
+const productsSrc  = fs.readFileSync(productsPath, "utf8");
+const catBlockRe   = new RegExp(`${CAT_START}[\\s\\S]*?${CAT_END}`);
+
+if (catBlockRe.test(productsSrc)) {
+  fs.writeFileSync(
+    productsPath,
+    productsSrc.replace(catBlockRe, `${CAT_START}\n${catLinksHtml}\n        ${CAT_END}`),
+    "utf8"
+  );
+  process.stdout.write(`\n  ✓ products.html — ฝังลิงก์หมวด ${categories.length} หมวด\n`);
+} else {
+  process.stdout.write(`\n  ⚠ ไม่พบ marker ${CAT_START} ใน products.html — ข้ามการฝังลิงก์\n`);
 }
 
 // ── sitemap.xml ───────────────────────────────────────────────────────────────
