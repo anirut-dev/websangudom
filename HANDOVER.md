@@ -26,13 +26,15 @@ websangudom/
 ├── products/
 │   └── <slug>/index.html      ← 24 หน้าหมวดหมู่ (สร้างโดย build script)
 ├── images/
-│   └── products/              ← รูปสินค้า (บางส่วนอยู่บน Cloudinary)
+│   └── products/              ← รูปสินค้า 810 ไฟล์ อยู่ในโปรเจคทั้งหมด (ไม่ได้ใช้บริการนอก)
 ├── scripts/
-│   ├── export-firestore.mjs   ← ดึงข้อมูลจาก Firestore (ใช้ครั้งแรกแล้ว)
+│   ├── export-firestore.mjs   ← ดึงข้อมูลจาก Firestore (ใช้ครั้งแรกแล้ว ไม่ได้ใช้อีก)
 │   └── build-pages.mjs        ← สร้างหน้าหมวด + sitemap.xml
 ├── js/
 │   ├── products.js            ← โหลด products.json, filter, search, pagination
 │   ├── data.js                ← CATEGORY_TREE constant
+│   ├── theme.js               ← ปุ่มสลับโหมดมืด/สว่าง (จำค่าใน localStorage)
+│   ├── animations.js          ← เอฟเฟกต์ตอนเลื่อนหน้าจอ
 │   └── line-float.js          ← floating LINE button
 ├── 404.html                   ← หน้าไม่พบ (GitHub Pages หยิบไปใช้เอง ไม่ต้องตั้งค่า)
 ├── sitemap.xml                ← สร้างโดย build script
@@ -68,7 +70,7 @@ websangudom/
   "category": "Gate Lamp โคมไฟหัวเสา",
   "price": 1500,
   "priceSale": null,
-  "image": "https://res.cloudinary.com/.../image.jpg"
+  "image": "images/products/exterior/garden-lamp/05-5584-BK-J22-2015z-z1314017200462.webp"
 }
 ```
 
@@ -79,7 +81,7 @@ websangudom/
 | `category` | หมวดหมู่ — ต้องตรงกับที่มีอยู่ใน `js/data.js` |
 | `price` | ราคาปกติ |
 | `priceSale` | ราคาลด (ถ้าไม่มีส่วนลด ใส่ `null`) |
-| `image` | URL รูปสินค้า (Cloudinary หรือ path local) |
+| `image` | ที่อยู่ไฟล์รูปในโปรเจค เช่น `images/products/exterior/garden-lamp/xxx.webp` (ไม่ใช่ URL ภายนอก) |
 
 ### 3.3 เพิ่มสินค้าใหม่
 
@@ -125,7 +127,9 @@ git push
 
 - **อัปเดตสินค้าต้องผ่าน GitHub** — ไม่มี admin panel (ดูวิธีที่หัวข้อ 3)
 - **ไม่มีระบบขอใบเสนอราคาในเว็บ** — ลูกค้าใช้ LINE / โทรแทน
-- **รูปใหม่** — ถ้าสินค้าใหม่มีรูป ต้อง upload ขึ้น Cloudinary เอง แล้วใส่ URL ใน JSON
+- **รูปใหม่** — ต้อง upload ไฟล์รูปเข้าโปรเจคเองในโฟลเดอร์ `images/products/<หมวด>/` แล้วใส่ path ใน JSON
+  (upload ผ่านเว็บ GitHub ได้: เข้าโฟลเดอร์ปลายทาง → ปุ่ม **Add file → Upload files**)
+  แนะนำให้แปลงเป็น `.webp` ก่อน ไฟล์จะเล็กลงมาก เว็บโหลดเร็วขึ้น
 - **ไม่มี server-side search** — ค้นหาทำงานฝั่ง browser จาก JSON (ดีพอสำหรับ 792 ชิ้น)
 
 ---
@@ -149,6 +153,7 @@ git push
 
 > **ห้ามแก้บน `main` ตรงๆ** — ทุกครั้งให้แตก branch ใหม่ แก้เสร็จเปิด PR แล้วค่อย merge
 > ตั้งชื่อ branch ตามประเภทงาน: `feat/` ฟีเจอร์ใหม่ · `fix/` แก้บั๊ก · `docs/` เอกสาร · `chore/` งานจิปาถะ
+> เปิด PR แล้วจะมีแบบฟอร์มขึ้นมาให้กรอกเอง (`.github/pull_request_template.md`) — กรอกให้ครบ คนรับงานต่อจะได้รู้ว่าแก้อะไรทำไม
 > ขั้นตอนเต็มดูใน [README.md](README.md) หัวข้อ Branches
 
 ---
