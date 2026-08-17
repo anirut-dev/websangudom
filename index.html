@@ -139,7 +139,14 @@
     /* hero อยู่บน overlay เข้ม → บังคับตัวหนังสือให้สว่าง */
     .hero-inner .hero-label { color:rgba(255,255,255,.82); }
     .hero-inner h1 { color:#ffffff; }
-    .hero-inner h1 span { color:#93b4ff; }
+    /* ขอบดำรอบตัวอักษร — ช่วยให้อ่านออกตอน slideshow เลื่อนไปรูปที่พื้นหลังสว่าง
+       paint-order:stroke fill = วาดขอบก่อนแล้วค่อยทับด้วยสีตัวอักษร → ขอบอยู่ "นอก" ตัวอักษร
+       ไม่กินเนื้อตัวอักษร สำคัญมากกับภาษาไทยที่มีสระ/วรรณยุกต์ซ้อนกัน */
+    .hero-inner h1 em, .hero-inner h1 span {
+      color:#93b4ff;
+      -webkit-text-stroke:4px #000;
+      paint-order:stroke fill;
+    }
     .hero-inner > p { color:rgba(255,255,255,.84); }
     .hero-inner .btn-primary { color:#ffffff; border-color:rgba(255,255,255,.5); }
     .hero-inner .btn-outline { color:#ffffff; border-color:rgba(255,255,255,.4); }
