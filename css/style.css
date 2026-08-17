@@ -116,16 +116,24 @@
 /* ===== ปุ่มสลับโหมดมืด/สว่าง ===== */
 .theme-toggle {
   margin-left: 14px;
-  width: 38px; height: 38px;
+  height: 38px; padding: 0 14px;
   display: inline-flex; align-items: center; justify-content: center;
-  background: none; border: 1px solid var(--border-2); border-radius: 50%;
+  background: none; border: 1px solid var(--border-2); border-radius: 19px;
   color: var(--gold); font-size: 1.05rem; line-height: 1;
   cursor: pointer; transition: background .2s, border-color .2s, color .2s;
 }
 .theme-toggle:hover { background: var(--dark-3); border-color: var(--gold); }
+.theme-toggle .icon-light,
+.theme-toggle .icon-dark { align-items: center; gap: 7px; }
+.theme-toggle .icon-light { display: inline-flex; }
 .theme-toggle .icon-dark  { display: none; }
 [data-theme="dark"] .theme-toggle .icon-light { display: none; }
-[data-theme="dark"] .theme-toggle .icon-dark  { display: block; }
+[data-theme="dark"] .theme-toggle .icon-dark  { display: inline-flex; }
+/* ตัวหนังสือข้างไอคอน — บอกให้ชัดว่าปุ่มนี้ทำอะไร คนที่ไม่รู้จักไอคอนจะได้เข้าใจ */
+.theme-toggle .theme-label {
+  font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+  white-space: nowrap; color: inherit;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1002,7 +1010,8 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 720px) {
   .nav-toggle { display: block; order: 3; margin-left: 10px; }
-  .theme-toggle { order: 2; margin-left: auto; }   /* auto = ดันปุ่มทั้งคู่ไปชิดขวา */
+  .theme-toggle { order: 2; margin-left: auto; padding: 0 11px; }   /* auto = ดันปุ่มทั้งคู่ไปชิดขวา */
+  .theme-toggle .theme-label { font-size: .74rem; }
   .main-nav {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
     background: var(--header-bg-nav); border-bottom: 1px solid var(--border);
