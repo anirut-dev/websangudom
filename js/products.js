@@ -423,7 +423,7 @@ function openModal(sku) {
         ${p.skuAuto ? "" : `<div class="product-sku-label">รหัสสินค้า: ${esc(p.sku)}</div>`}
         ${priceBlock}
         <a class="btn-line-inquiry" href="${LINE_URL}" target="_blank" rel="noopener noreferrer">
-          <span class="line-ico">💬</span> สอบถามราคาทาง LINE
+          <span class="line-ico">💬</span> สอบถามรายละเอียดทาง LINE
         </a>
       </div>
     </div>`;
