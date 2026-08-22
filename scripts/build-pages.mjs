@@ -228,7 +228,7 @@ ${otherCatLinks(cat)}
     <div class="cat-line-cta">
       <p>สนใจสินค้าหมวด "${escHtml(title)}"?<br />สอบถามราคา สั่งจอง หรือขอใบเสนอราคาได้เลย</p>
       <a class="cat-line-btn" href="${LINE_URL}" target="_blank" rel="noopener noreferrer">
-        💬 สอบถามราคาทาง LINE
+        💬 สอบถามรายละเอียดทาง LINE
       </a>
     </div>
   </div>
