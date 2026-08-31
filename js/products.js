@@ -3,6 +3,8 @@
 // Filter: ชื่อ, หมวดหมู่ (multi), ช่วงราคา, เรียงลำดับ
 
 const LINE_URL = "https://line.me/ti/p/~Sangudom-sale";
+const RECENT_KEY = "sangudom-recently-viewed";
+const RECENT_MAX = 12;
 
 // ── State ──
 let allProducts  = [];
@@ -85,6 +87,9 @@ function initProducts(list) {
   }
   buildCatList();
   applyFilters();
+
+  const skuFromUrl = new URLSearchParams(location.search).get("sku");
+  if (skuFromUrl) openModal(skuFromUrl);
 }
 
 // ── Category tree ────────────────────────────────────────────────────────────
@@ -347,6 +352,15 @@ function priceHtml(p) {
   </span>`;
 }
 
+// ── สินค้าที่ดูล่าสุด (สำหรับหน้าแรก) ─────────────────────────────────────────
+function trackRecentlyViewed(sku) {
+  try {
+    let list = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+    list = [sku, ...list.filter(s => s !== sku)].slice(0, RECENT_MAX);
+    localStorage.setItem(RECENT_KEY, JSON.stringify(list));
+  } catch (e) { /* โหมดส่วนตัว/บล็อก storage */ }
+}
+
 // ── Escape สำหรับใส่ใน attribute/HTML ─────────────────────────────────────────
 function esc(str) {
   return String(str ?? "")
@@ -389,6 +403,8 @@ function renderProducts(list) {
 function openModal(sku) {
   const p = allProducts.find(x => x.sku === sku);
   if (!p) return;
+
+  trackRecentlyViewed(sku);
 
   let overlay = document.getElementById("modalOverlay");
   if (!overlay) {
