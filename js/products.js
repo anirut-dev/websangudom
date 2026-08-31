@@ -5,6 +5,7 @@
 const LINE_URL = "https://line.me/ti/p/~Sangudom-sale";
 const RECENT_KEY = "sangudom-recently-viewed";
 const RECENT_MAX = 12;
+const WISH_KEY = "sangudom-wishlist";
 
 // ── State ──
 let allProducts  = [];
@@ -12,12 +13,14 @@ let filteredList = [];
 let currentPage  = 1;
 const PAGE_SIZE  = 20;
 let filters = {
-  search:     "",
-  categories: new Set(),
-  priceMin:   0,
-  priceMax:   100000,
-  sort:       "name-asc",
+  search:       "",
+  categories:   new Set(),
+  priceMin:     0,
+  priceMax:     100000,
+  sort:         "name-asc",
+  wishlistOnly: false,
 };
+let wishlist = loadWishlist();
 
 // ── Elements ──
 const grid            = document.getElementById("productGrid");
@@ -35,6 +38,8 @@ const resultCount     = document.getElementById("resultCount");
 const activeFiltersEl = document.getElementById("activeFilters");
 const resetBtn        = document.getElementById("resetBtn");
 const paginationEl    = document.getElementById("pagination");
+const wishlistFilterBtn = document.getElementById("wishlistFilterBtn");
+const wishlistCountEl   = document.getElementById("wishlistCount");
 
 // ── โหลดสินค้าจาก JSON ──────────────────────────────────────────────────────
 async function loadProducts() {
@@ -225,14 +230,46 @@ resetBtn.addEventListener("click", () => {
   filters.priceMin = 0;
   filters.priceMax = parseInt(rangeMaxEl.max);
   filters.sort = "name-asc";
+  filters.wishlistOnly = false;
   searchInput.value  = "";
   priceMinEl.value   = "";
   priceMaxEl.value   = "";
   rangeMinEl.value   = 0;
   rangeMaxEl.value   = rangeMaxEl.max;
   sortSelect.value   = "name-asc";
+  wishlistFilterBtn.classList.remove("active");
+  wishlistFilterBtn.setAttribute("aria-pressed", "false");
   syncRange();
   buildCatList();
+  applyFilters();
+});
+
+// ── Wishlist (บันทึกสินค้าไว้ดูทีหลัง) ────────────────────────────────────────
+function loadWishlist() {
+  try { return new Set(JSON.parse(localStorage.getItem(WISH_KEY) || "[]")); }
+  catch (e) { return new Set(); }
+}
+function saveWishlist() {
+  try { localStorage.setItem(WISH_KEY, JSON.stringify([...wishlist])); }
+  catch (e) { /* โหมดส่วนตัว/บล็อก storage */ }
+}
+function toggleWishlist(sku) {
+  if (wishlist.has(sku)) wishlist.delete(sku);
+  else wishlist.add(sku);
+  saveWishlist();
+  wishlistCountEl.textContent = wishlist.size;
+  if (filters.wishlistOnly) applyFilters();
+}
+function wishlistBtnHtml(sku) {
+  const active = wishlist.has(sku);
+  return `<button type="button" class="wishlist-btn${active ? " active" : ""}" data-sku="${esc(sku)}"
+    aria-label="${active ? "เอาออกจากรายการบันทึก" : "บันทึกสินค้านี้"}" aria-pressed="${active}">${active ? "♥" : "♡"}</button>`;
+}
+wishlistCountEl.textContent = wishlist.size;
+wishlistFilterBtn.addEventListener("click", () => {
+  filters.wishlistOnly = !filters.wishlistOnly;
+  wishlistFilterBtn.classList.toggle("active", filters.wishlistOnly);
+  wishlistFilterBtn.setAttribute("aria-pressed", String(filters.wishlistOnly));
   applyFilters();
 });
 
@@ -246,7 +283,8 @@ function applyFilters() {
       filters.categories.has(p.category);
     const price      = Number(p.price) || 0;
     const matchPrice = price >= filters.priceMin && price <= filters.priceMax;
-    return matchSearch && matchCat && matchPrice;
+    const matchWish  = !filters.wishlistOnly || wishlist.has(p.sku);
+    return matchSearch && matchCat && matchPrice && matchWish;
   });
 
   list = list.sort((a, b) => {
@@ -390,7 +428,7 @@ function renderProducts(list) {
     return `
     <article class="product-card" data-sku="${sku}" role="button" tabindex="0"
              aria-label="ดูรายละเอียด ${esc(p.name)}">
-      <div class="product-img${noImgCls}">${badgeHtml(p)}${imgTag}</div>
+      <div class="product-img${noImgCls}">${badgeHtml(p)}${wishlistBtnHtml(p.sku)}${imgTag}</div>
       <div class="product-body">
         <span class="product-cat">${esc(p.category)}</span>
         <h3 class="product-name">${esc(p.name)}</h3>
@@ -403,6 +441,16 @@ function renderProducts(list) {
     card.addEventListener("click", open);
     card.addEventListener("keydown", e => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+  });
+  grid.querySelectorAll(".wishlist-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      toggleWishlist(btn.dataset.sku);
+      const active = wishlist.has(btn.dataset.sku);
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", String(active));
+      btn.textContent = active ? "♥" : "♡";
     });
   });
 }
@@ -420,6 +468,9 @@ function openModal(sku) {
     overlay.id = "modalOverlay";
     overlay.className = "modal-overlay";
     document.body.appendChild(overlay);
+    // แนบครั้งเดียวตอนสร้าง overlay — ถ้าแนบทุกครั้งที่ openModal() ถูกเรียก (เช่น สลับสินค้าที่เกี่ยวข้อง/กดหัวใจใน modal)
+    // จะได้ listener ซ้อนเพิ่มขึ้นเรื่อยๆ เพราะ overlay ตัวนี้ถูกใช้ซ้ำตลอดหน้า ไม่เคยถูกสร้างใหม่
+    overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
   }
 
   const noImgCls = p.image ? "" : " no-img";
@@ -454,6 +505,9 @@ function openModal(sku) {
         <a class="btn-line-inquiry" href="${LINE_URL}" target="_blank" rel="noopener noreferrer">
           <span class="line-ico">💬</span> สอบถามรายละเอียดทาง LINE
         </a>
+        <button type="button" class="btn-wishlist${wishlist.has(p.sku) ? " active" : ""}" data-sku="${esc(p.sku)}">
+          ${wishlist.has(p.sku) ? "♥ บันทึกไว้แล้ว" : "♡ บันทึกไว้ดูทีหลัง"}
+        </button>
       </div>
       ${relatedHtml(related)}
     </div>`;
@@ -461,9 +515,12 @@ function openModal(sku) {
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
   overlay.querySelector(".modal-close").addEventListener("click", closeModal);
-  overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
   overlay.querySelectorAll(".modal-related-card").forEach(card => {
     card.addEventListener("click", () => openModal(card.dataset.sku));
+  });
+  overlay.querySelector(".btn-wishlist").addEventListener("click", () => {
+    toggleWishlist(p.sku);
+    openModal(p.sku);
   });
 }
 

@@ -437,6 +437,30 @@ img { display: block; max-width: 100%; }
 .product-badge.inline { position: static; display: inline-block; margin-bottom: 10px; }
 .product-img-wrap { position: relative; }
 
+/* ── ปุ่มบันทึกสินค้า (wishlist) — มุมขวาบนของรูป ── */
+.wishlist-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%; cursor: pointer;
+  background: rgba(0,0,0,.45); color: #fff;
+  font-size: 1.05rem; line-height: 1;
+  transition: background .2s, transform .2s;
+}
+.wishlist-btn:hover { transform: scale(1.1); }
+.wishlist-btn.active { background: rgba(255,255,255,.9); color: #dc2626; }
+
+/* ── ปุ่มบันทึกใน modal ── */
+.btn-wishlist {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 10px; padding: 12px;
+  background: none; border: 1px solid var(--border-2); border-radius: 4px;
+  color: var(--gray-light); font-family: inherit; font-size: .9rem; font-weight: 600;
+  cursor: pointer; transition: border-color .2s, color .2s;
+}
+.btn-wishlist:hover { border-color: var(--gold); color: var(--gold); }
+.btn-wishlist.active { border-color: #dc2626; color: #dc2626; }
+
 /* ===== Modal ===== */
 .modal-overlay {
   position: fixed; inset: 0;
