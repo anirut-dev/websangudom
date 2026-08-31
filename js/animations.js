@@ -163,7 +163,7 @@ initCursorTrail();
 initMagneticNav();
 initLogoShimmer();
 
-// Reveal ต้องรอการ์ดสินค้า (โหลดจาก Firebase) ใช้ MutationObserver
+// Reveal ต้องรอการ์ดสินค้า (โหลดจาก data/products.json แบบ async) ใช้ MutationObserver
 const productGrid = document.getElementById("productGrid");
 if (productGrid) {
   const mo = new MutationObserver(() => {
