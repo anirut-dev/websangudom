@@ -361,6 +361,14 @@ function trackRecentlyViewed(sku) {
   } catch (e) { /* โหมดส่วนตัว/บล็อก storage */ }
 }
 
+// ── Badge สินค้า (ขายดี/ใหม่/โปรโมชั่น) ────────────────────────────────────────
+// แก้ field "badge" ใน data/products.json ได้เลย ไม่มี admin panel
+function badgeHtml(p, extraCls = "") {
+  if (!p.badge) return "";
+  const cls = p.badge === "ใหม่" ? "badge-new" : p.badge === "โปรโมชั่น" ? "badge-sale" : "";
+  return `<span class="${["product-badge", cls, extraCls].filter(Boolean).join(" ")}">${esc(p.badge)}</span>`;
+}
+
 // ── Escape สำหรับใส่ใน attribute/HTML ─────────────────────────────────────────
 function esc(str) {
   return String(str ?? "")
@@ -382,7 +390,7 @@ function renderProducts(list) {
     return `
     <article class="product-card" data-sku="${sku}" role="button" tabindex="0"
              aria-label="ดูรายละเอียด ${esc(p.name)}">
-      <div class="product-img${noImgCls}">${imgTag}</div>
+      <div class="product-img${noImgCls}">${badgeHtml(p)}${imgTag}</div>
       <div class="product-body">
         <span class="product-cat">${esc(p.category)}</span>
         <h3 class="product-name">${esc(p.name)}</h3>
@@ -438,6 +446,7 @@ function openModal(sku) {
       <div class="modal-img${noImgCls}">${imgTag}</div>
       <div class="modal-info">
         <button class="modal-close" aria-label="ปิด">×</button>
+        ${badgeHtml(p, "inline")}
         <span class="product-cat">${esc(p.category)}</span>
         <h2>${esc(p.name)}</h2>
         ${p.skuAuto ? "" : `<div class="product-sku-label">รหัสสินค้า: ${esc(p.sku)}</div>`}
