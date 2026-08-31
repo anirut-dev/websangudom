@@ -25,7 +25,7 @@
           : "";
         return `
         <a class="product-card" href="products.html?sku=${encodeURIComponent(p.sku)}">
-          <div class="product-img${noImgCls}">${imgTag}</div>
+          <div class="product-img${noImgCls}">${badgeHtml(p)}${imgTag}</div>
           <div class="product-body">
             <span class="product-cat">${esc(p.category)}</span>
             <h3 class="product-name">${esc(p.name)}</h3>
@@ -46,6 +46,12 @@
       <span class="price-sale">${sale}</span>
       <span class="price-original">${regular}</span>
     </span>`;
+  }
+
+  function badgeHtml(p) {
+    if (!p.badge) return "";
+    const cls = p.badge === "ใหม่" ? "badge-new" : p.badge === "โปรโมชั่น" ? "badge-sale" : "";
+    return `<span class="product-badge ${cls}">${esc(p.badge)}</span>`;
   }
 
   function esc(str) {

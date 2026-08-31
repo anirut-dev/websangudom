@@ -424,6 +424,19 @@ img { display: block; max-width: 100%; }
 
 .empty-msg { text-align: center; color: var(--gray); padding: 60px 0 80px; }
 
+/* ── Badge สินค้า (ขายดี/ใหม่/โปรโมชั่น) ── */
+.product-badge {
+  position: absolute; top: 10px; left: 10px; z-index: 1;
+  padding: 4px 10px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .04em;
+  color: #fff; border-radius: 3px;
+  background: var(--gold);
+}
+.product-badge.badge-new  { background: #1e40af; }
+.product-badge.badge-sale { background: #dc2626; }
+.product-badge.inline { position: static; display: inline-block; margin-bottom: 10px; }
+.product-img-wrap { position: relative; }
+
 /* ===== Modal ===== */
 .modal-overlay {
   position: fixed; inset: 0;

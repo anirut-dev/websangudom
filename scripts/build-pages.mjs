@@ -54,11 +54,19 @@ function imgSrc(image) {
   return image.startsWith("http") ? image : `../../${image}`;
 }
 
+// ── Badge สินค้า (ขายดี/ใหม่/โปรโมชั่น) — แก้ field "badge" ใน data/products.json ─
+function badgeHtml(p) {
+  if (!p.badge) return "";
+  const cls = p.badge === "ใหม่" ? "badge-new" : p.badge === "โปรโมชั่น" ? "badge-sale" : "";
+  return `<span class="product-badge ${cls}">${escHtml(p.badge)}</span>`;
+}
+
 // ── card HTML (static, no JS interaction) ────────────────────────────────────
 function cardHtml(p) {
   const skuLine = p.skuAuto ? "" : `\n      <div class="product-sku-label">รหัสสินค้า: ${escHtml(p.sku)}</div>`;
   return `    <div class="product-card">
       <div class="product-img-wrap">
+        ${badgeHtml(p)}
         <img src="${escHtml(imgSrc(p.image))}" alt="${escHtml(p.name)}" loading="lazy" width="400" height="400" />
       </div>
       <div class="product-info">
