@@ -69,6 +69,20 @@
       background: var(--cream);
     }
 
+    /* Gallery filter tabs */
+    .gallery-filters {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 32px;
+    }
+    .gallery-filter-btn {
+      padding: 9px 20px;
+      background: none; border: 1px solid var(--border-2); border-radius: 30px;
+      color: var(--gray-light); font-family: inherit; font-size: .84rem; font-weight: 600;
+      cursor: pointer; transition: border-color .2s, color .2s, background .2s;
+    }
+    .gallery-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .gallery-filter-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+
     /* Masonry grid */
     .masonry-grid {
       columns: 3;
@@ -268,292 +282,298 @@
   <!-- ===== Gallery ===== -->
   <section class="gallery-section">
     <div class="container">
+      <div class="gallery-filters" id="galleryFilters" role="tablist" aria-label="กรองผลงานตามประเภท">
+        <button type="button" class="gallery-filter-btn active" data-cat="all">ทั้งหมด</button>
+        <button type="button" class="gallery-filter-btn" data-cat="temple">วัด</button>
+        <button type="button" class="gallery-filter-btn" data-cat="restaurant">ร้านอาหาร</button>
+        <button type="button" class="gallery-filter-btn" data-cat="general">ผลงานทั่วไป</button>
+      </div>
       <div class="masonry-grid" id="masonryGrid">
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank01-01z-z14948472180.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank02z-z1029466433064.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank03z-z1564040946520.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank04z-z350603225448.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank08-01z-z795400251125.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank09z-z1106886735354.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank10z-z451251295670.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank11z-z1273265812840.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank12z-z537330418691.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank13z-z1088380376567.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank14z-z1290555472889.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank15z-z749748919292.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ผลงานติดตั้งโคมไฟ" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/thank18z-z534818473615.webp" alt="ผลงานติดตั้งโคมไฟ" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
             <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว-07z-z564928620580.jpg" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว-138z-z572599119013.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว-69-863-01z-z1374347682158.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัดศรีมงคล" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิว-วัดศรีมงคลบ้านหินกลิ้งจz-z517516860543.webp" alt="ติดตั้งไฟวัดศรีมงคล" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัดศรีมงคล</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว1-01z-z1067948535814%20(1).webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว1-03z-z588888267232.jpg" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว2-01z-z807122535216.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว2z-z1100823965277.jpg" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว3-01z-z329742606449.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว4-01z-z1212165996101.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="รีวิวจากลูกค้า" data-label="Review">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิว6-01z-z1372080918492.webp" alt="รีวิวจากลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Review</div>
-            <div class="masonry-title">รีวิวจากลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัด" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิวติดตั้งไฟ-วัด-01z-z177046819066.webp" alt="ติดตั้งไฟวัด" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัด</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัด" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิวติดตั้งไฟ-วัด2-01z-z119958151760.webp" alt="ติดตั้งไฟวัด" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัด</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัดพุดซา" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิวติดตั้งไฟ-วัดพุดซา-01z-z902090227965.webp" alt="ติดตั้งไฟวัดพุดซา" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัดพุดซา</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟสถานที่" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิวติดตั้งไฟ7-01z-z139257557567.webp" alt="ติดตั้งไฟสถานที่" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
-            <div class="masonry-title">ติดตั้งไฟสถานที่</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟลูกค้า" data-label="Installation">
+        <div class="masonry-item" data-cat="general" data-title="ผลงานติดตั้งโคมไฟ" data-label="ผลงานทั่วไป">
           <img src="images/portfolio/รีวิวติดตั้งไฟลูกค้า-01z-z1644128968403.webp" alt="ติดตั้งไฟลูกค้า" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Installation</div>
-            <div class="masonry-title">ติดตั้งไฟลูกค้า</div>
+            <div class="masonry-cat">ผลงานทั่วไป</div>
+            <div class="masonry-title">ผลงานติดตั้งโคมไฟ</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัด" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิววัด3-01z-z15247283949.webp" alt="ติดตั้งไฟวัด" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัด</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟวัดตานีนรสโมสร" data-label="Temple">
+        <div class="masonry-item" data-cat="temple" data-title="ผลงานติดตั้งไฟวัด" data-label="วัด">
           <img src="images/portfolio/รีวิววัดตานีนรสโมสร-01z-z1307570036324.webp" alt="ติดตั้งไฟวัดตานีนรสโมสร" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Temple</div>
-            <div class="masonry-title">ติดตั้งไฟวัดตานีนรสโมสร</div>
+            <div class="masonry-cat">วัด</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟวัด</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
 
-        <div class="masonry-item" data-title="ติดตั้งไฟร้านข้าวนาคาเฟ่" data-label="Commercial">
+        <div class="masonry-item" data-cat="restaurant" data-title="ผลงานติดตั้งไฟร้านอาหาร" data-label="ร้านอาหาร">
           <img src="images/portfolio/รีวิวไฟร้านข้าวนาคาเฟ่z-z216658573000.webp" alt="ติดตั้งไฟร้านข้าวนาคาเฟ่" loading="lazy" width="1041" height="1041" />
           <div class="masonry-overlay">
-            <div class="masonry-cat">Commercial</div>
-            <div class="masonry-title">ติดตั้งไฟร้านข้าวนาคาเฟ่</div>
+            <div class="masonry-cat">ร้านอาหาร</div>
+            <div class="masonry-title">ผลงานติดตั้งไฟร้านอาหาร</div>
           </div>
           <div class="masonry-zoom">⊕</div>
         </div>
@@ -633,6 +653,19 @@
       navToggle.setAttribute("aria-expanded", String(open));
     });
 
+    // ===== Filter tabs =====
+    const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const cat = btn.dataset.cat;
+        document.querySelectorAll(".masonry-item").forEach(item => {
+          item.style.display = (cat === "all" || item.dataset.cat === cat) ? "" : "none";
+        });
+      });
+    });
+
     // ===== Scroll Reveal =====
     const items = document.querySelectorAll(".masonry-item");
     const observer = new IntersectionObserver((entries) => {
@@ -657,9 +690,10 @@
     let currentIndex = 0;
     let visibleItems = [];
 
-    function openLightbox(index) {
-      visibleItems = [...items];
-      currentIndex = index;
+    function openLightbox(item) {
+      // เอาเฉพาะรูปที่กำลังกรองอยู่ ไม่งั้น prev/next จะข้ามไปหมวดอื่นที่ถูกซ่อนไว้
+      visibleItems = [...items].filter(it => it.style.display !== "none");
+      currentIndex = visibleItems.indexOf(item);
       showImage(currentIndex);
       lb.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -682,8 +716,8 @@
       document.body.style.overflow = "";
     }
 
-    items.forEach((item, i) => {
-      item.addEventListener("click", () => openLightbox(i));
+    items.forEach(item => {
+      item.addEventListener("click", () => openLightbox(item));
     });
 
     document.getElementById("lbClose").addEventListener("click", closeLightbox);
