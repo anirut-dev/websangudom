@@ -413,6 +413,10 @@ function openModal(sku) {
     priceBlock = `<div class="modal-price">${"฿" + Number(p.price).toLocaleString("th-TH")}</div>`;
   }
 
+  const related = allProducts
+    .filter(x => x.category === p.category && x.sku !== p.sku)
+    .slice(0, 4);
+
   overlay.innerHTML = `
     <div class="modal">
       <div class="modal-img${noImgCls}">${imgTag}</div>
@@ -426,12 +430,38 @@ function openModal(sku) {
           <span class="line-ico">💬</span> สอบถามรายละเอียดทาง LINE
         </a>
       </div>
+      ${relatedHtml(related)}
     </div>`;
 
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
   overlay.querySelector(".modal-close").addEventListener("click", closeModal);
   overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
+  overlay.querySelectorAll(".modal-related-card").forEach(card => {
+    card.addEventListener("click", () => openModal(card.dataset.sku));
+  });
+}
+
+// ── สินค้าที่เกี่ยวข้อง (หมวดเดียวกัน) ────────────────────────────────────────
+function relatedHtml(related) {
+  if (related.length === 0) return "";
+  const cards = related.map(p => {
+    const noImgCls = p.image ? "" : " no-img";
+    const imgTag   = p.image
+      ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" width="200" height="200" />`
+      : "";
+    return `
+    <div class="modal-related-card" data-sku="${esc(p.sku)}">
+      <div class="modal-related-img${noImgCls}">${imgTag}</div>
+      <div class="modal-related-name">${esc(p.name)}</div>
+      ${priceHtml(p)}
+    </div>`;
+  }).join("");
+  return `
+    <div class="modal-related">
+      <h3 class="modal-related-title">สินค้าหมวดเดียวกัน</h3>
+      <div class="modal-related-grid">${cards}</div>
+    </div>`;
 }
 
 function closeModal() {
