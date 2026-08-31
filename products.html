@@ -247,6 +247,16 @@
     .result-count { font-size: .84rem; color: var(--gray); }
     .result-count strong { color: var(--gold); }
 
+    .wishlist-filter-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 14px;
+      background: none; border: 1px solid var(--border-2); border-radius: 4px;
+      color: var(--gray-light); font-family: inherit; font-size: .82rem;
+      cursor: pointer; transition: border-color .2s, color .2s;
+    }
+    .wishlist-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .wishlist-filter-btn.active { border-color: #dc2626; color: #dc2626; background: rgba(220,38,38,.08); }
+
     /* Active filter chips */
     .active-filters {
       display: flex;
@@ -490,6 +500,9 @@
           <!-- Result bar -->
           <div class="result-bar">
             <span class="result-count" id="resultCount"></span>
+            <button type="button" class="wishlist-filter-btn" id="wishlistFilterBtn" aria-pressed="false">
+              🤍 รายการที่บันทึกไว้ (<span id="wishlistCount">0</span>)
+            </button>
           </div>
 
           <div class="product-grid" id="productGrid"></div>
