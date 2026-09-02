@@ -11,15 +11,21 @@ const SHEET_NAME = "StockCheck";
 const HEADER = ["SKU", "ชื่อสินค้า", "หมวด", "ติ๊กแล้ว", "เวลาล่าสุด"];
 
 function getSheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    let sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
+    }
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(HEADER);
+    }
+    return sheet;
+  } finally {
+    lock.releaseLock();
   }
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADER);
-  }
-  return sheet;
 }
 
 function jsonResponse_(obj) {
@@ -35,10 +41,11 @@ function doGet(e) {
   const result = {};
   for (let i = 1; i < rows.length; i++) {
     const [sku, name, category, checked, time] = rows[i];
-    if (!sku) continue;
+    if (!sku || sku === HEADER[0]) continue;
+    const parsedTime = time instanceof Date ? time : new Date(time);
     result[sku] = {
       checked: checked === true || checked === "TRUE",
-      time: time ? new Date(time).toISOString() : "",
+      time: time && !isNaN(parsedTime) ? parsedTime.toISOString() : "",
     };
   }
   return jsonResponse_({ ok: true, data: result });
@@ -51,7 +58,8 @@ function doPost(e) {
   if (!sku) return jsonResponse_({ ok: false, error: "missing sku" });
 
   const sheet = getSheet_();
-  const skuCol = sheet.getRange(2, 1, Math.max(sheet.getLastRow() - 1, 0), 1).getValues();
+  const dataRowCount = sheet.getLastRow() - 1;
+  const skuCol = dataRowCount > 0 ? sheet.getRange(2, 1, dataRowCount, 1).getValues() : [];
   let rowIndex = -1;
   for (let i = 0; i < skuCol.length; i++) {
     if (skuCol[i][0] === sku) {
