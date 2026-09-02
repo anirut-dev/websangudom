@@ -17,6 +17,11 @@ header h1 {
   margin: 0 0 8px;
   font-size: 1.1rem;
 }
+.instructions {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: #d7dcea;
+}
 .controls {
   display: flex;
   flex-wrap: wrap;
