@@ -32,20 +32,27 @@
     }
   }
 
+  // คืนค่า true ถ้าข้อมูลเปลี่ยนจริง (ให้ผู้เรียกตัดสินใจว่าต้อง render() ใหม่ไหม
+  // กันจอกระตุก/กันติ๊กพลาดตอน auto-refresh ทำงานพอดีจังหวะที่มีคนกำลังแตะ checkbox อยู่)
   async function loadStatus() {
-    if (!WEB_APP_URL) return;
+    if (!WEB_APP_URL) return false;
     setSyncStatus("กำลังโหลดสถานะล่าสุด...");
     try {
       const res = await fetch(WEB_APP_URL, { method: "GET" });
       const json = await res.json();
       if (json.ok) {
-        statusMap = json.data || {};
+        const newData = json.data || {};
+        const changed = JSON.stringify(newData) !== JSON.stringify(statusMap);
+        statusMap = newData;
         setSyncStatus("อัปเดตล่าสุด: " + new Date().toLocaleTimeString("th-TH"));
+        return changed;
       } else {
         setSyncStatus("โหลดสถานะไม่สำเร็จ", true);
+        return false;
       }
     } catch (err) {
       setSyncStatus("เชื่อมต่อ Google Sheet ไม่ได้ (เช็คอินเทอร์เน็ต)", true);
+      return false;
     }
   }
 
@@ -186,6 +193,12 @@
     await loadProducts();
     await loadStatus();
     render();
+
+    // auto-refresh: เช็คสถานะใหม่ทุก 20 วิ แต่ render() ใหม่เฉพาะตอนข้อมูลเปลี่ยนจริง
+    setInterval(async () => {
+      const changed = await loadStatus();
+      if (changed) render();
+    }, 20000);
   }
 
   init();
