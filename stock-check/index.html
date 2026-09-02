@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>เช็คสต๊อกสินค้า (ชั่วคราว) — Sangudom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📋 เช็คสต๊อกสินค้าจริง (ใช้ชั่วคราว)</h1>
+    <div class="controls">
+      <input id="personInput" type="text" placeholder="ชื่อคุณ (เช่น อาร์ม)" />
+      <select id="categorySelect">
+        <option value="">ทุกหมวด</option>
+      </select>
+      <input id="searchInput" type="text" placeholder="ค้นหาชื่อ/รหัสสินค้า" />
+      <label class="toggle">
+        <input id="hideCheckedToggle" type="checkbox" />
+        ซ่อนที่ติ๊กแล้ว
+      </label>
+      <button id="refreshBtn" type="button">🔄 รีเฟรช</button>
+      <button id="exportBtn" type="button">⬇️ ดาวน์โหลด CSV</button>
+    </div>
+  </header>
+
+  <p id="warning" class="warning" hidden>
+    ⚠️ ยังไม่ได้ตั้งค่า Google Sheet เชื่อมข้อมูล (WEB_APP_URL ว่างอยู่ใน config.js)
+    — ตอนนี้ติ๊กแล้วจะไม่ถูกบันทึก/แชร์กับคนอื่น ดูวิธีตั้งค่าใน README.md
+  </p>
+
+  <div class="progress-bar">
+    <span id="progress">กำลังโหลด...</span>
+    <span id="syncStatus" class="sync-status"></span>
+  </div>
+
+  <main id="list"></main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
