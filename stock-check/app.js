@@ -50,10 +50,10 @@
   }
 
   async function sendTick(product, checked) {
-    if (!WEB_APP_URL) return;
+    if (!WEB_APP_URL) return true;
     setSyncStatus("กำลังบันทึก...");
     try {
-      await fetch(WEB_APP_URL, {
+      const res = await fetch(WEB_APP_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
@@ -63,9 +63,15 @@
           checked,
         }),
       });
+      const json = await res.json().catch(() => null);
+      if (!res.ok || !json || !json.ok) {
+        throw new Error((json && json.error) || `HTTP ${res.status}`);
+      }
       setSyncStatus("บันทึกแล้ว " + new Date().toLocaleTimeString("th-TH"));
+      return true;
     } catch (err) {
       setSyncStatus("บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง", true);
+      return false;
     }
   }
 
@@ -116,14 +122,23 @@
       checkbox.type = "checkbox";
       checkbox.checked = checked;
       checkbox.addEventListener("change", async () => {
-        statusMap[p.sku] = {
-          checked: checkbox.checked,
-          time: new Date().toISOString(),
-        };
-        card.classList.toggle("checked", checkbox.checked);
-        meta.textContent = checkbox.checked ? "✔ เจอของจริง" : "";
+        const newChecked = checkbox.checked;
+        const prevStatus = statusMap[p.sku];
+
+        statusMap[p.sku] = { checked: newChecked, time: new Date().toISOString() };
+        card.classList.toggle("checked", newChecked);
+        meta.textContent = newChecked ? "✔ เจอของจริง" : "";
         updateProgress();
-        await sendTick(p, checkbox.checked);
+
+        const saved = await sendTick(p, newChecked);
+        if (!saved) {
+          // บันทึกไม่สำเร็จ - ย้อนสถานะกลับเพื่อไม่ให้รายงานเพี้ยน
+          statusMap[p.sku] = prevStatus;
+          checkbox.checked = !!(prevStatus && prevStatus.checked);
+          card.classList.toggle("checked", checkbox.checked);
+          meta.textContent = checkbox.checked ? "✔ เจอของจริง" : "";
+          updateProgress();
+        }
       });
 
       card.append(checkbox, img, info);

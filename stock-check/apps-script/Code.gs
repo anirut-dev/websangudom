@@ -58,23 +58,32 @@ function doPost(e) {
   if (!sku) return jsonResponse_({ ok: false, error: "missing sku" });
 
   const sheet = getSheet_();
-  const dataRowCount = sheet.getLastRow() - 1;
-  const skuCol = dataRowCount > 0 ? sheet.getRange(2, 1, dataRowCount, 1).getValues() : [];
-  let rowIndex = -1;
-  for (let i = 0; i < skuCol.length; i++) {
-    if (skuCol[i][0] === sku) {
-      rowIndex = i + 2; // +2: offset header + 1-index
-      break;
-    }
-  }
 
-  const now = new Date();
-  if (rowIndex === -1) {
-    sheet.appendRow([sku, name || "", category || "", !!checked, now]);
-  } else {
-    sheet.getRange(rowIndex, 4, 1, 2).setValues([[!!checked, now]]);
-    // อัปเดตชื่อ/หมวดด้วยเผื่อข้อมูลสินค้าเปลี่ยน
-    sheet.getRange(rowIndex, 2, 1, 2).setValues([[name || "", category || ""]]);
+  // ล็อกครอบทั้งขั้นตอน หา-แถวเดิม -> ตัดสินใจ -> เขียน กันสองคนติ๊ก SKU
+  // ใหม่คนละตัวพร้อมกันแล้ว appendRow ชนกัน (แถวถูกเขียนทับ)
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const dataRowCount = sheet.getLastRow() - 1;
+    const skuCol = dataRowCount > 0 ? sheet.getRange(2, 1, dataRowCount, 1).getValues() : [];
+    let rowIndex = -1;
+    for (let i = 0; i < skuCol.length; i++) {
+      if (skuCol[i][0] === sku) {
+        rowIndex = i + 2; // +2: offset header + 1-index
+        break;
+      }
+    }
+
+    const now = new Date();
+    if (rowIndex === -1) {
+      sheet.appendRow([sku, name || "", category || "", !!checked, now]);
+    } else {
+      sheet.getRange(rowIndex, 4, 1, 2).setValues([[!!checked, now]]);
+      // อัปเดตชื่อ/หมวดด้วยเผื่อข้อมูลสินค้าเปลี่ยน
+      sheet.getRange(rowIndex, 2, 1, 2).setValues([[name || "", category || ""]]);
+    }
+  } finally {
+    lock.releaseLock();
   }
 
   return jsonResponse_({ ok: true });
