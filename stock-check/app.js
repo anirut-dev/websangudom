@@ -3,7 +3,6 @@
 
   const els = {
     warning: document.getElementById("warning"),
-    personInput: document.getElementById("personInput"),
     categorySelect: document.getElementById("categorySelect"),
     searchInput: document.getElementById("searchInput"),
     hideCheckedToggle: document.getElementById("hideCheckedToggle"),
@@ -14,11 +13,7 @@
   };
 
   let products = [];
-  let statusMap = {}; // sku -> { checked, person, time }
-
-  function personName() {
-    return (els.personInput.value || "").trim() || "ไม่ระบุชื่อ";
-  }
+  let statusMap = {}; // sku -> { checked, time }
 
   function setSyncStatus(text, isError) {
     els.syncStatus.textContent = text;
@@ -66,7 +61,6 @@
           name: product.name,
           category: product.category,
           checked,
-          person: personName(),
         }),
       });
       setSyncStatus("บันทึกแล้ว " + new Date().toLocaleTimeString("th-TH"));
@@ -115,7 +109,7 @@
       name.textContent = p.name;
       const meta = document.createElement("div");
       meta.className = "meta";
-      meta.textContent = st && st.checked ? `✔ ${st.person || ""}` : "";
+      meta.textContent = st && st.checked ? "✔ เจอของจริง" : "";
       info.append(sku, name, meta);
 
       const checkbox = document.createElement("input");
@@ -124,11 +118,10 @@
       checkbox.addEventListener("change", async () => {
         statusMap[p.sku] = {
           checked: checkbox.checked,
-          person: personName(),
           time: new Date().toISOString(),
         };
         card.classList.toggle("checked", checkbox.checked);
-        meta.textContent = checkbox.checked ? `✔ ${personName()}` : "";
+        meta.textContent = checkbox.checked ? "✔ เจอของจริง" : "";
         updateProgress();
         await sendTick(p, checkbox.checked);
       });
@@ -145,10 +138,10 @@
   }
 
   function exportCsv() {
-    const rows = [["SKU", "ชื่อสินค้า", "หมวด", "ติ๊กแล้ว", "ผู้เช็ค"]];
+    const rows = [["SKU", "ชื่อสินค้า", "หมวด", "ติ๊กแล้ว"]];
     for (const p of products) {
       const st = statusMap[p.sku];
-      rows.push([p.sku, p.name, p.category, st && st.checked ? "TRUE" : "FALSE", (st && st.person) || ""]);
+      rows.push([p.sku, p.name, p.category, st && st.checked ? "TRUE" : "FALSE"]);
     }
     const csv = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
     const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8;" });
@@ -166,10 +159,6 @@
     if (!WEB_APP_URL) {
       els.warning.hidden = false;
     }
-    els.personInput.value = localStorage.getItem("stockCheckPerson") || "";
-    els.personInput.addEventListener("input", () => {
-      localStorage.setItem("stockCheckPerson", els.personInput.value);
-    });
     els.categorySelect.addEventListener("change", render);
     els.searchInput.addEventListener("input", render);
     els.hideCheckedToggle.addEventListener("change", render);
