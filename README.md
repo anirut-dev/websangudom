@@ -5,6 +5,7 @@
 
 **GitHub:** https://github.com/anirut-dev/websangudom
 **Live:** https://anirut-dev.github.io/websangudom (หลัง merge เข้า main)
+**เช็คสต๊อกสินค้า (เครื่องมือชั่วคราว):** https://anirut-dev.github.io/websangudom/stock-check/ — ดูรายละเอียดใน [stock-check/README.md](stock-check/README.md)
 
 ---
 
