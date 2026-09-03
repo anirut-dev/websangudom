@@ -9,7 +9,10 @@
 </head>
 <body>
   <header>
-    <h1>📋 เช็คลิสรายการสินค้า ของเว็บไซต์แสงอุดม</h1>
+    <div class="title-row">
+      <h1>📋 เช็คลิสรายการสินค้า ของเว็บไซต์แสงอุดม</h1>
+      <span id="progress" class="progress-badge">กำลังโหลด...</span>
+    </div>
     <p class="instructions">
       ✅ <strong>ติ๊กถูก</strong> = ยังมีสินค้า&nbsp;&nbsp;|&nbsp;&nbsp;
       ⬜ <strong>ไม่ติ๊ก</strong> = ไม่มีสินค้าแล้ว
@@ -34,7 +37,6 @@
   </p>
 
   <div class="progress-bar">
-    <span id="progress">กำลังโหลด...</span>
     <span id="syncStatus" class="sync-status"></span>
   </div>
 
