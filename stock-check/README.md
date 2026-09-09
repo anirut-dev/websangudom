@@ -34,6 +34,8 @@
 2. ใส่ URL ที่ copy มาใน `WEB_APP_URL: "https://script.google.com/macros/s/xxxxxxxxx/exec"`
 3. บันทึกไฟล์ แล้ว commit + push เข้า main (ให้ Claude ช่วย หรือทำตามขั้นตอน git ปกติ)
 
+⚠️ **ค่า `TOKEN` ใน `config.js` ต้องตรงกับ `TOKEN` ใน `apps-script/Code.gs` เป๊ะๆ** (มีมาให้แล้วทั้งคู่) — ใช้กันไม่ให้คนสุ่มเจอ URL ของ Apps Script แล้วยิงเขียนข้อมูลปลอมลง Sheet ตรงๆ โดยไม่ผ่านหน้าเว็บ ถ้าจะเปลี่ยน TOKEN ใหม่ ต้องแก้ทั้ง 2 ไฟล์ให้ตรงกัน แล้ว deploy Apps Script ใหม่ (New deployment) อีกรอบ
+
 ---
 
 ## วิธีใช้งานตอนเดินเช็คสต๊อก
