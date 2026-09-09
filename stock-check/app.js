@@ -1,5 +1,6 @@
 (function () {
   const WEB_APP_URL = (window.STOCK_CHECK_CONFIG && window.STOCK_CHECK_CONFIG.WEB_APP_URL) || "";
+  const TOKEN = (window.STOCK_CHECK_CONFIG && window.STOCK_CHECK_CONFIG.TOKEN) || "";
 
   const els = {
     warning: document.getElementById("warning"),
@@ -14,6 +15,7 @@
 
   let products = [];
   let statusMap = {}; // sku -> { checked, time }
+  const pendingSkus = new Set(); // sku ที่ยังรอ sendTick() ตอบกลับ - กันไม่ให้ auto-refresh ทับข้อมูลที่ยังส่งไม่เสร็จ
 
   function setSyncStatus(text, isError) {
     els.syncStatus.textContent = text;
@@ -42,6 +44,12 @@
       const json = await res.json();
       if (json.ok) {
         const newData = json.data || {};
+        // sku ที่กำลังรอ sendTick() ตอบกลับ ให้คงค่า local ไว้ก่อน ไม่เอาค่าเก่าจาก
+        // server (ที่ยังไม่เห็นการเขียนล่าสุด) มาทับจนดูเหมือนติ๊กหาย
+        for (const sku of pendingSkus) {
+          if (statusMap[sku]) newData[sku] = statusMap[sku];
+          else delete newData[sku];
+        }
         const changed = JSON.stringify(newData) !== JSON.stringify(statusMap);
         statusMap = newData;
         setSyncStatus("อัปเดตล่าสุด: " + new Date().toLocaleTimeString("th-TH"));
@@ -68,6 +76,7 @@
           name: product.name,
           category: product.category,
           checked,
+          token: TOKEN,
         }),
       });
       const json = await res.json().catch(() => null);
@@ -137,7 +146,9 @@
         meta.textContent = newChecked ? "✔ เจอของจริง" : "";
         updateProgress();
 
+        pendingSkus.add(p.sku);
         const saved = await sendTick(p, newChecked);
+        pendingSkus.delete(p.sku);
         if (!saved) {
           // บันทึกไม่สำเร็จ - ย้อนสถานะกลับเพื่อไม่ให้รายงานเพี้ยน
           statusMap[p.sku] = prevStatus;

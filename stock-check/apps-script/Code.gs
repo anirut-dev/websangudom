@@ -10,6 +10,9 @@
 const SHEET_NAME = "StockCheck";
 const HEADER = ["SKU", "ชื่อสินค้า", "หมวด", "ติ๊กแล้ว", "เวลาล่าสุด"];
 
+// ต้องตรงกับ TOKEN ใน stock-check/config.js เป๊ะๆ — กันคนสุ่มเจอ URL แล้วยิงเขียนข้อมูลตรงๆ
+const TOKEN = "UzXpVLxFz36dMfWLUW0tiuk33H5qm-K5";
+
 function getSheet_() {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -54,7 +57,8 @@ function doGet(e) {
 // POST: อัปเดตสถานะติ๊กของ 1 SKU (สร้างแถวใหม่ถ้ายังไม่เคยมี)
 function doPost(e) {
   const body = JSON.parse(e.postData.contents);
-  const { sku, name, category, checked } = body;
+  const { sku, name, category, checked, token } = body;
+  if (token !== TOKEN) return jsonResponse_({ ok: false, error: "invalid token" });
   if (!sku) return jsonResponse_({ ok: false, error: "missing sku" });
 
   const sheet = getSheet_();
