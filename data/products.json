@@ -18,24 +18,6 @@
     "image": "images/products/exterior/garden-lamp/05-992-BK-H100z-z1318412537640.webp"
   },
   {
-    "name": "26-6304-DIA110X320MM-WD",
-    "sku": "26-6304-dia110x320mm-wd",
-    "skuAuto": true,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6304-DIA110X320MM-WDz-z90402906015.webp"
-  },
-  {
-    "name": "36-5180S2-BG",
-    "sku": "36-5180S2-BG",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 510,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/36-5180S2-BG.webp"
-  },
-  {
     "name": "41-305-E-MR16-BK",
     "sku": "41-305-e-mr16-bk",
     "skuAuto": true,
@@ -70,24 +52,6 @@
     "price": 990,
     "priceSale": null,
     "image": "images/products/interior/t-bar-fluorescent/04-C02AL-136-WH-100CMz-z1538984326765.webp"
-  },
-  {
-    "name": "โคมตัวยู #04-C02AL-236WH",
-    "sku": "04-C02AL-236WH",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 935,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/04-C02AL-236WHz-z145880563598.webp"
-  },
-  {
-    "name": "โคมตัวยู #04-C02AL-236-WH แป๊บยาว 100CM",
-    "sku": "04-C02AL-236-WH แป๊บยาว 100CM",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/04-C02AL-236-WH-100CMz-z1243872769039.webp"
   },
   {
     "name": "โคมตัวยู #04-U56-1X20W-BK",
@@ -133,15 +97,6 @@
     "price": 275,
     "priceSale": null,
     "image": "images/products/interior/t-bar-fluorescent/44-CFG-LED-T8-1X18Wz-z588548083827.webp"
-  },
-  {
-    "name": "โคมติดลอยหน้าตะแกรง 2x18W #44-CFG-LED-T8-2X18W",
-    "sku": "44-CFG-LED-T8-2X18W",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 295,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/sangudom1z-z119921940445.webp"
   },
   {
     "name": "โคมติดลอยหน้าตะแกรง 2X9W #44-CFG-LED-T8-2X9W",
@@ -207,24 +162,6 @@
     "image": "images/products/led/ceiling-lamp/180046-12W-WHz-z763224701738.webp"
   },
   {
-    "name": "โคมติดลอย #LED PANEL-180047-12W-WH แสงวอมไวท์",
-    "sku": "LED PANEL-180047-12W-WH แสงวอมไวท์",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/180046-12W-WHz-z594744450717.webp"
-  },
-  {
-    "name": "โคมติดลอย #LED PANEL 180048-12W-BK แสงขาว",
-    "sku": "LED PANEL 180048-12W-BK แสงขาว",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/180048-12W-BKz-z1271150674109.webp"
-  },
-  {
     "name": "โคมติดลอย #LED PANEL-180050-12W-WH แสงขาว",
     "sku": "LED PANEL-180050-12W-WH แสงขาว",
     "skuAuto": false,
@@ -241,33 +178,6 @@
     "price": 119,
     "priceSale": null,
     "image": "images/products/led/ceiling-lamp/180050-12W-WHz-z1489912941207.webp"
-  },
-  {
-    "name": "โคมติดลอย #LED PANEL-180052-12W-BK แสงขาว",
-    "sku": "LED PANEL-180052-12W-BK แสงขาว",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/180052-12W-BKz-z605363210163.webp"
-  },
-  {
-    "name": "โคมติดลอย #LED PANEL-180053-12W-BK แสงวอมไวท์",
-    "sku": "LED PANEL-180053-12W-BK แสงวอมไวท์",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/180052-12W-BKz-z581775146664.webp"
-  },
-  {
-    "name": "โคมติดลอย #LED PANEL 180060-12W-BK แสงวอมไวท์",
-    "sku": "LED PANEL 180060-12W-BK แสงวอมไวท์",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/180048-12W-BKz-z1210800124145.webp"
   },
   {
     "name": "โคมติดลอย T8 #04-2212-T8-LED1X18W-BK",
@@ -324,15 +234,6 @@
     "image": "images/products/interior/t-bar-fluorescent/04-2212-T8-LED2X9W-BKz-z1292829611029.webp"
   },
   {
-    "name": "โคมถนน # 110001-GRAY",
-    "sku": "110001-GRAY",
-    "skuAuto": false,
-    "category": "Street Light โคมไฟถนน",
-    "price": 360,
-    "priceSale": null,
-    "image": "images/products/exterior/street-light/sangudom1z-z223674555746.webp"
-  },
-  {
     "name": "โคมถนน 1x20 W (ครบชุด) รุ่น VILUX",
     "sku": "โคมถนน-1x20-w-ครบชุด-รุ่น-vilux",
     "skuAuto": true,
@@ -349,33 +250,6 @@
     "price": 950,
     "priceSale": null,
     "image": "images/products/exterior/street-light/sangudom1z-z1599721769374.webp"
-  },
-  {
-    "name": "โคมถนน LED #MLS-MR10N13-50W-4000K",
-    "sku": "MLS-MR10N13-50W-4000K",
-    "skuAuto": false,
-    "category": "Street Garden Light โคมไฟถนน และไฟสวน",
-    "price": 890,
-    "priceSale": null,
-    "image": "images/products/led/street-garden-light/sangudom1891558335260z-z893264073262.webp"
-  },
-  {
-    "name": "โคมถนน LED #MLS-MR11N13-80W (แสงขาว)",
-    "sku": "MLS-MR11N13-80W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Street Garden Light โคมไฟถนน และไฟสวน",
-    "price": 1790,
-    "priceSale": null,
-    "image": "images/products/led/street-garden-light/sangudom1891558335260z-z1042624159111.webp"
-  },
-  {
-    "name": "โคมถนน LED #MLS-MR12N13-80W-4000K",
-    "sku": "MLS-MR12N13-80W-4000K",
-    "skuAuto": false,
-    "category": "Street Garden Light โคมไฟถนน และไฟสวน",
-    "price": 1790,
-    "priceSale": null,
-    "image": "images/products/led/street-garden-light/sangudom1891558335260z-z175962147555.webp"
   },
   {
     "name": "โคมถนน LED #MLS-MR5N13-20W-4000K",
@@ -423,15 +297,6 @@
     "image": "images/products/led/spotlight-floodlight/03-890080-15W-BKz-z492022739620.webp"
   },
   {
-    "name": "โคมแทร็คไลท์ LED #03-890080-15W-BK (แสงวอมไวท์)",
-    "sku": "03-890080-15W-BK (แสงวอมไวท์)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 185,
-    "priceSale": null,
-    "image": "images/products/led/spotlight-floodlight/03-890080-15W-BKz-z27501354548.webp"
-  },
-  {
     "name": "โคมแทร็คไลท์ LED #03-890081-24W-BK (แสงขาว)",
     "sku": "03-890081-24W-BK (แสงขาว)",
     "skuAuto": false,
@@ -475,15 +340,6 @@
     "price": 185,
     "priceSale": 159,
     "image": "images/products/led/spotlight-floodlight/890080-15W-WHz-z1186262359337.webp"
-  },
-  {
-    "name": "โคมแทร็คไลท์ LED #890080-15W-WH (แสงวอม์ไวท์)",
-    "sku": "890080-15W-WH (แสงวอม์ไวท์)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 185,
-    "priceSale": 159,
-    "image": "images/products/led/spotlight-floodlight/890080-15W-WHz-z1232104249425.webp"
   },
   {
     "name": "โคมแทร็คไลท์ LED #890081-24W-WH (แสงขาว)",
@@ -531,24 +387,6 @@
     "image": "images/products/interior/ceiling-lamp/04-107WH340-01-05z-z860257103123.webp"
   },
   {
-    "name": "โคมเพดาน #46-111-250-WH",
-    "sku": "46-111-250-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 150,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-111-250-WHz-z1323023877876.webp"
-  },
-  {
-    "name": "โคมเพดาน # 46-111-350-WH",
-    "sku": "46-111-350-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 250,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-111-350-WHz-z1589794455281.webp"
-  },
-  {
     "name": "โคมเพดาน #46-113-181-WH",
     "sku": "46-113-181-WH",
     "skuAuto": false,
@@ -567,15 +405,6 @@
     "image": "images/products/interior/ceiling-lamp/46-113-183-WHz-z663372680381.webp"
   },
   {
-    "name": "โคมเพดาน #46-114-A-350-CL",
-    "sku": "46-114-A-350-CL",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 470,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/sangudom1z-z411782957697.webp"
-  },
-  {
     "name": "โคมเพดาน #46-114-B-350-CL",
     "sku": "46-114-B-350-CL",
     "skuAuto": false,
@@ -583,15 +412,6 @@
     "price": 299,
     "priceSale": null,
     "image": "images/products/interior/ceiling-lamp/sangudom1z-z1024815535018.webp"
-  },
-  {
-    "name": "โคมเพดาน #46-114-C-350-WH",
-    "sku": "46-114-C-350-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 320,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/sangudom1z-z353249696109.webp"
   },
   {
     "name": "โคมเพดาน #46-114-D-350-CL",
@@ -621,42 +441,6 @@
     "image": "images/products/interior/ceiling-lamp/46-115-350-WHz-z1270775452103.webp"
   },
   {
-    "name": "โคมเพดานซาลาเปา LED #170124-9W (แสงขาว)",
-    "sku": "170124-9W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 119,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/170124-9Wz-z47796826293.webp"
-  },
-  {
-    "name": "โคมเพดานซาลาเปาLED #170213-24W-6500K-V2",
-    "sku": "170213-24W-6500K-V2",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 289,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/170213-24W-6500K-V2z-z1237337598783.webp"
-  },
-  {
-    "name": "โคมเพดานซาลาเปา SOLAR #35-XBK-XD36W",
-    "sku": "35-XBK-XD36W",
-    "skuAuto": false,
-    "category": "Solar cell",
-    "price": 1900,
-    "priceSale": 1800,
-    "image": "images/products/solar/35-XBK-XD36Wz-z595058377742.webp"
-  },
-  {
-    "name": "โคมเพดาน LED PANEL #66-60X60-36W-3000K (แสงวอมไวท์)",
-    "sku": "66-60X60-36W-3000K (แสงวอมไวท์)",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 900,
-    "priceSale": 800,
-    "image": "images/products/led/ceiling-lamp/66-60X60-36W-3000Kz-z1403260720509.webp"
-  },
-  {
     "name": "โคมฟลัดไลท์โซล่าร์ # 54-SFL-C02-100W-6500K/3000K",
     "sku": "54-SFL-C02-100W-6500K/3000K",
     "skuAuto": false,
@@ -684,15 +468,6 @@
     "image": "images/products/solar/LI0066z-z108279443147.webp"
   },
   {
-    "name": "โคมฟลัดไลท์โซล่าร์ # 54-SFL-C02-400W-6500K/3000K",
-    "sku": "54-SFL-C02-400W-6500K/3000K",
-    "skuAuto": false,
-    "category": "Solar cell",
-    "price": 2140,
-    "priceSale": 1650,
-    "image": "images/products/solar/LI0068z-z794908312847.webp"
-  },
-  {
     "name": "โคมฟลัดไลท์ LED #89-GR1047-100W (แสงขาว)",
     "sku": "89-GR1047-100W (แสงขาว)",
     "skuAuto": false,
@@ -700,24 +475,6 @@
     "price": 2100,
     "priceSale": 750,
     "image": "images/products/led/spotlight-floodlight/89-GR1047-100W-6500Kz-z383320108147.webp"
-  },
-  {
-    "name": "โคมฟลัดไลท์ LED #89-GR1047-100W (แสงวอมไวท์)",
-    "sku": "89-GR1047-100W (แสงวอมไวท์)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 2100,
-    "priceSale": 750,
-    "image": "images/products/led/spotlight-floodlight/89-GR1047-100W-3000Kz-z1062796110990.webp"
-  },
-  {
-    "name": "โคมฟลัดไลท์ LED #89-GR1047-200W (แสงขาว)",
-    "sku": "89-GR1047-200W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 3999,
-    "priceSale": 900,
-    "image": "images/products/led/spotlight-floodlight/89-GR1047-200W-6500Kz-z1471346193278.webp"
   },
   {
     "name": "โคมฟลัดไลท์ LED #89-GR1047-300W (แสงขาว)",
@@ -738,51 +495,6 @@
     "image": "images/products/led/spotlight-floodlight/89-GR1047-30W-6500Kz-z1001784611113.webp"
   },
   {
-    "name": "โคมฟลัดไลท์ LED #89-GR1047-30W (แสงวอมไวท์)",
-    "sku": "89-GR1047-30W (แสงวอมไวท์)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 890,
-    "priceSale": 280,
-    "image": "images/products/led/spotlight-floodlight/89-GR1047-30W-3000Kz-z12478229335.webp"
-  },
-  {
-    "name": "โคมฟลัดไลท์ LED #89-GR1047-50W (แสงขาว)",
-    "sku": "89-GR1047-50W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 1070,
-    "priceSale": 420,
-    "image": "images/products/led/spotlight-floodlight/89-GR1047-50W-6500Kz-z1372190245054.webp"
-  },
-  {
-    "name": "โคมฟลัดไลท์ LED #89-GR1047-50W (แสงวอมไวท์)",
-    "sku": "89-GR1047-50W (แสงวอมไวท์)",
-    "skuAuto": false,
-    "category": "Spotlight Floodlight โคมไฟสปอร์ตไลท์ และฟลัดไลท์",
-    "price": 1070,
-    "priceSale": 420,
-    "image": "images/products/led/spotlight-floodlight/89-GR1047-50W-3000Kz-z399980119957.webp"
-  },
-  {
-    "name": "โคมไฟกิ่ง # 02-2245/1-BK",
-    "sku": "02-2245/1-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 400,
-    "priceSale": null,
-    "image": "images/products/interior/wall-lamp/02-2245-1-BKz-z1040669210354.webp"
-  },
-  {
-    "name": "โคมไฟกิ่ง # 02-2249/1-BK",
-    "sku": "02-2249/1-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 500,
-    "priceSale": 290,
-    "image": "images/products/interior/wall-lamp/02-2249-1-BKz-z1216842151904.webp"
-  },
-  {
     "name": "โคมไฟกิ่ง # 02-2250/1-BK",
     "sku": "02-2250/1-BK",
     "skuAuto": false,
@@ -790,15 +502,6 @@
     "price": 400,
     "priceSale": 290,
     "image": "images/products/interior/wall-lamp/02-2250-1-BKz-z1465781130029.webp"
-  },
-  {
-    "name": "โคมไฟกิ่ง # 02-2282-BK+OR",
-    "sku": "02-2282-BK+OR",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1050,
-    "priceSale": null,
-    "image": "images/products/interior/wall-lamp/02-2282-BKORz-z856827598696.webp"
   },
   {
     "name": "โคมไฟกิ่ง # 2298-1-BK",
@@ -810,15 +513,6 @@
     "image": "images/products/interior/wall-lamp/2298-1-BKz-z750811594558.webp"
   },
   {
-    "name": "โคมไฟกิ่ง # 2299-1-B",
-    "sku": "2299-1-B",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/interior/wall-lamp/2299-1-Bz-z1252725144698.webp"
-  },
-  {
     "name": "โคมไฟช่อ # 17-1021 (50%)",
     "sku": "17-1021 (50%)",
     "skuAuto": false,
@@ -826,15 +520,6 @@
     "price": 3260,
     "priceSale": 1630,
     "image": "images/products/interior/pendant-lamp/17-1021z-z1347093865075.webp"
-  },
-  {
-    "name": "โคมไฟช่อ # 17-1068 (50%)",
-    "sku": "17-1068 (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 5750,
-    "priceSale": 2875,
-    "image": "images/products/interior/pendant-lamp/17-1068z-z714114053257.webp"
   },
   {
     "name": "โคมไฟช่อ # 49-3123-12-D85H67-BRZ",
@@ -853,15 +538,6 @@
     "price": 17930,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/49-3148-500-D50H38-SBKCLz-z1452961469237.webp"
-  },
-  {
-    "name": "โคมไฟตัวยูกันฝน #04-UCL-1X40W",
-    "sku": "04-UCL-1X40W",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 230,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/04-UCL-1X40Wz-z1531966572394.webp"
   },
   {
     "name": "โคมไฟผนัง LED # 26-8026-3-BK-18W-3000K",
@@ -909,33 +585,6 @@
     "image": "images/products/interior/wall-lamp/26-9011-3-WH-12W-3000Kz-z1188592897952.webp"
   },
   {
-    "name": "โคมไฟฝังพื้น # 40-119-BK",
-    "sku": "40-119-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-119-BKz-z1389573044181.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น # 40-201-BK",
-    "sku": "40-201-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 380,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-201-BKz-z892615564312.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น # 40-6018-BK",
-    "sku": "40-6018-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 440,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-6018-BKz-z852496549518.webp"
-  },
-  {
     "name": "โคมไฟฝังพื้น #40-6019-BK",
     "sku": "40-6019-BK",
     "skuAuto": false,
@@ -954,60 +603,6 @@
     "image": "images/products/interior/step-light/sangudom1z-z854035626074.webp"
   },
   {
-    "name": "โคมไฟฝังพื้น # 40-701-BK",
-    "sku": "40-701-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 280,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-701-BKz-z83412348337.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น #40-706-BK",
-    "sku": "40-706-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/sangudom1z-z774938669106.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น LED # 40-2401-ST-3W",
-    "sku": "40-2401-ST-3W",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 260,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-2401-ST-3Wz-z740998293796.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น LED # 40-2402-ST-3W",
-    "sku": "40-2402-ST-3W",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 260,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-2402-ST-3Wz-z96946961631.webp"
-  },
-  {
-    "name": "โคมไฟฝังพื้น LED # 40-2407-BK-3W",
-    "sku": "40-2407-BK-3W",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟฝังพื้น",
-    "price": 330,
-    "priceSale": null,
-    "image": "images/products/interior/step-light/40-2407-BK-3Wz-z562722363135.webp"
-  },
-  {
-    "name": "โคมไฟห้อย # 08-2249/1-BK",
-    "sku": "08-2249/1-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 290,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/08-2249-1-BKz-z895279310550.webp"
-  },
-  {
     "name": "โคมไฟห้อย # 08-2250/1-BK",
     "sku": "08-2250/1-BK",
     "skuAuto": false,
@@ -1024,33 +619,6 @@
     "price": 2100,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/08-2253-3-BK-20X20X20z-z1541361726141.webp"
-  },
-  {
-    "name": "โคมไฟห้อย # 17-005 สามารถเลือกสายไฟไฟตามชอบ",
-    "sku": "17-005 สามารถเลือกสายไฟไฟตามชอบ",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 999,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-005z-z1068660544414.webp"
-  },
-  {
-    "name": "โคมไฟห้อย # 17-1059",
-    "sku": "17-1059",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-1059z-z1578886726250.webp"
-  },
-  {
-    "name": "โคมไฟห้อย # 17-2166B-AB",
-    "sku": "17-2166B-AB",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 5580,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-2166B-ABz-z286582718697.webp"
   },
   {
     "name": "โคมไฟห้อย # 81-ZA506-2-BK+GD",
@@ -1125,42 +693,6 @@
     "image": "images/products/chandelier/pendant-crystal/II0180z-z1212824232437.webp"
   },
   {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-17111-6-D60X20-CH+C (70%)",
-    "sku": "49-17111-6-D60X20-CH+C (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 32160,
-    "priceSale": 9648,
-    "image": "images/products/chandelier/pendant-crystal/II0182z-z243224689862.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-17112-12-D80X35-CH+CL (70%)",
-    "sku": "49-17112-12-D80X35-CH+CL (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 38880,
-    "priceSale": 11664,
-    "image": "images/products/chandelier/pendant-crystal/II0184z-z75146509749.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-17112-14-D100X40-CH+CL (70%)",
-    "sku": "49-17112-14-D100X40-CH+CL (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 56880,
-    "priceSale": 17064,
-    "image": "images/products/chandelier/pendant-crystal/II0185z-z622345581328.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-17117-10-D100X40-CH+CL (70%)",
-    "sku": "49-17117-10-D100X40-CH+CL (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 120240,
-    "priceSale": 36072,
-    "image": "images/products/chandelier/pendant-crystal/II0193z-z1428794972326.webp"
-  },
-  {
     "name": "โคมระย้าแก้วเลดคริสตัล # 49-17117-6-D60X30-CH+CL (70%)",
     "sku": "49-17117-6-D60X30-CH+CL (70%)",
     "skuAuto": false,
@@ -1197,24 +729,6 @@
     "image": "images/products/chandelier/pendant-crystal/II0225z-z1318002353029.webp"
   },
   {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-7012-D60H195-GD (70%)",
-    "sku": "49-7012-D60H195-GD (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 140000,
-    "priceSale": 42000,
-    "image": "images/products/chandelier/pendant-crystal/II0643z-z750241392922.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-7053-D50H180-GD (60%)",
-    "sku": "49-7053-D50H180-GD (60%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 125000,
-    "priceSale": 50000,
-    "image": "images/products/chandelier/pendant-crystal/II0649z-z1650517360572.webp"
-  },
-  {
     "name": "โคมระย้าแก้วเลดคริสตัล # 49-7094-D50H180-GD",
     "sku": "49-7094-D50H180-GD",
     "skuAuto": false,
@@ -1224,15 +738,6 @@
     "image": "images/products/chandelier/pendant-crystal/II0628-1-z-z48882069554.webp"
   },
   {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-7114-D50H185-SGD (70%)",
-    "sku": "49-7114-D50H185-SGD (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 111000,
-    "priceSale": 33300,
-    "image": "images/products/chandelier/pendant-crystal/II0253z-z1409509120813.webp"
-  },
-  {
     "name": "โคมระย้าแก้วเลดคริสตัล # 49-7125/D60XH180-GD (70%)",
     "sku": "49-7125/D60XH180-GD (70%)",
     "skuAuto": false,
@@ -1240,24 +745,6 @@
     "price": 120000,
     "priceSale": 36000,
     "image": "images/products/chandelier/pendant-crystal/II0255-1-z-z1612470588982.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล # 49-7155-D60H185-GD (70%)",
-    "sku": "49-7155-D60H185-GD (70%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 120000,
-    "priceSale": 36000,
-    "image": "images/products/chandelier/pendant-crystal/II0270-1-z-z1162582931860.webp"
-  },
-  {
-    "name": "โคมระย้าแก้วเลดคริสตัล #แชนเดอเรีย 49-5914-D50XH180-GD",
-    "sku": "แชนเดอเรีย 49-5914-D50XH180-GD",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 55000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/II0701z-z1567865907968.webp"
   },
   {
     "name": "โคมระย้าคริสตัล #39-RG5191-36L-CH (70%)",
@@ -1285,15 +772,6 @@
     "price": 1100,
     "priceSale": null,
     "image": "images/products/interior/t-bar-fluorescent/08-2212-T8-LED2X18W-WHz-z1611622300239.webp"
-  },
-  {
-    "name": "โคมหลังเต่าDURALITE-SC532 E40 250-400W (ครบชุด)",
-    "sku": "โคมหลังเต่าduralite-sc532-e40-250-400w-ครบชุด",
-    "skuAuto": true,
-    "category": "Street Light โคมไฟถนน",
-    "price": 2400,
-    "priceSale": null,
-    "image": "images/products/exterior/street-light/sangudom1z-z1272125503120.webp"
   },
   {
     "name": "โคมห้อย T8 #08-2212-T8-LED1X18W-BK",
@@ -1332,15 +810,6 @@
     "image": "images/products/interior/t-bar-fluorescent/08-2212-T8-LED1X9W-WHz-z46535185856.webp"
   },
   {
-    "name": "โคมไฮเบย์ # 89-GR001-30W-6500K",
-    "sku": "89-GR001-30W-6500K",
-    "skuAuto": false,
-    "category": "High Bay โคมไฮเบย์",
-    "price": 790,
-    "priceSale": 400,
-    "image": "images/products/interior/high-bay/sangudom1z-z691556042223.webp"
-  },
-  {
     "name": "โคมไฮเบย์ # 89-GR002-30W-6500K",
     "sku": "89-GR002-30W-6500K",
     "skuAuto": false,
@@ -1348,24 +817,6 @@
     "price": 870,
     "priceSale": null,
     "image": "images/products/interior/high-bay/sangudom1z-z585012056127.webp"
-  },
-  {
-    "name": "โคมไฮเบย์ # 89-GR004-100W-6500K",
-    "sku": "89-GR004-100W-6500K",
-    "skuAuto": false,
-    "category": "High Bay โคมไฮเบย์",
-    "price": 1260,
-    "priceSale": null,
-    "image": "images/products/interior/high-bay/sangudom1z-z1585391441454.webp"
-  },
-  {
-    "name": "โคมไฮเบย์ # 89-GR005-180W-6500K",
-    "sku": "89-GR005-180W-6500K",
-    "skuAuto": false,
-    "category": "High Bay โคมไฮเบย์",
-    "price": 2150,
-    "priceSale": 1060,
-    "image": "images/products/interior/high-bay/sangudom1z-z529998132298.webp"
   },
   {
     "name": "ชุดราง LED T5 9W",
@@ -1449,15 +900,6 @@
     "image": "images/products/interior/downlight-tracklight/34-E5006-WH-5-z-z613665325315.webp"
   },
   {
-    "name": "บัลลาสต์ SBA 36/40W",
-    "sku": "บัลลาสต์-sba-36-40w",
-    "skuAuto": true,
-    "category": "Accessories อุปกรณ์เสริม",
-    "price": 75,
-    "priceSale": null,
-    "image": "images/products/accessories/accessories/sangudom1z-z545811193698.webp"
-  },
-  {
     "name": "ฝาพลาสติกกันน้ำ # WEG7902",
     "sku": "WEG7902",
     "skuAuto": false,
@@ -1474,33 +916,6 @@
     "price": 1320,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-881-BK.webp"
-  },
-  {
-    "name": "ไฟกิ่ง #49-202063/2W-WITH K-9 CRYSTAL(70%)",
-    "sku": "49-202063/2W-WITH K-9 CRYSTAL(70%)",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 3700,
-    "priceSale": 1110,
-    "image": "images/products/chandelier/wall-crystal/sangudom1z-z9185067437.webp"
-  },
-  {
-    "name": "ไฟกิ่ง #49-202068/1W-WITH K-9 CRYSTAL(50%)",
-    "sku": "49-202068/1W-WITH K-9 CRYSTAL(50%)",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 2400,
-    "priceSale": 1200,
-    "image": "images/products/chandelier/wall-crystal/sangudom1z-z83737600395.webp"
-  },
-  {
-    "name": "ไฟกิ่ง #49-3026-D20H40-GD(70%)",
-    "sku": "49-3026-D20H40-GD(70%)",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 12100,
-    "priceSale": 3630,
-    "image": "images/products/chandelier/wall-crystal/49-3026-D20H40-GDz-z309600689255.webp"
   },
   {
     "name": "ไฟกิ่ง #49-5017-D25H25-GD(50%)",
@@ -1521,24 +936,6 @@
     "image": "images/products/chandelier/wall-crystal/49-5017-D25H45-GDz-z1036948660018.webp"
   },
   {
-    "name": "ไฟกิ่ง #49-904-D25x15H45-GD(70%)",
-    "sku": "49-904-D25x15H45-GD(70%)",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 12900,
-    "priceSale": 3870,
-    "image": "images/products/chandelier/wall-crystal/49-904-D25x15H45-GDz-z481567060329.webp"
-  },
-  {
-    "name": "ไฟกิ่ง 49-CHAT-9 LAYERS/F-GD W/O(60%)",
-    "sku": "ไฟกิ่ง-49-chat-9-layers-f-gd-w-o-60",
-    "skuAuto": true,
-    "category": "Chat Crystal Lamp โคมไฟฉัตร",
-    "price": 53900,
-    "priceSale": 21560,
-    "image": "images/products/chandelier/chat-crystal/49-CHAT-9LAYERSz-z454672257029.webp"
-  },
-  {
     "name": "ไฟกิ่ง #63-12116/1W-CH+CL",
     "sku": "63-12116/1W-CH+CL",
     "skuAuto": false,
@@ -1546,24 +943,6 @@
     "price": 8900,
     "priceSale": 1500,
     "image": "images/products/chandelier/wall-crystal/63-12116-1W-CHCLz-z1627845610284.webp"
-  },
-  {
-    "name": "ไฟกิ่ง #63-12118/1W-GD+CL(70%)",
-    "sku": "63-12118/1W-GD+CL(70%)",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 9200,
-    "priceSale": 2760,
-    "image": "images/products/chandelier/wall-crystal/63-12118-1W-GDCLz-z714266503178.webp"
-  },
-  {
-    "name": "ไฟกิ่ง #63-12118/2W-CH+CL(70%",
-    "sku": "63-12118/2W-CH+CL(70%",
-    "skuAuto": false,
-    "category": "Wall Crystal Lamp โคมไฟกิ่ง",
-    "price": 15200,
-    "priceSale": 4560,
-    "image": "images/products/chandelier/wall-crystal/63-12118-2W-CHCLz-z273631647151.webp"
   },
   {
     "name": "ไฟช่อ # 08-22-D-7268/6 (50%)",
@@ -1575,33 +954,6 @@
     "image": "images/products/interior/pendant-lamp/08-22-D-7268-6319x425z-z1135611237651.webp"
   },
   {
-    "name": "ไฟช่อ # 08-91-67801-3P-BK (50%)",
-    "sku": "08-91-67801-3P-BK (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 4900,
-    "priceSale": 2450,
-    "image": "images/products/interior/pendant-lamp/08-91-67801-3P-BK319x425z-z519000204863.webp"
-  },
-  {
-    "name": "ไฟช่อ # 08-91-68200-3P-BK (50%)",
-    "sku": "08-91-68200-3P-BK (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 4900,
-    "priceSale": 2450,
-    "image": "images/products/interior/pendant-lamp/08-91-68200-3P-BKz-z921912355874.webp"
-  },
-  {
-    "name": "ไฟช่อ # 08-91-68271-3P-BK",
-    "sku": "08-91-68271-3P-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 8900,
-    "priceSale": 4450,
-    "image": "images/products/interior/pendant-lamp/08-91-68271-3P-BKz-z1097110568638.webp"
-  },
-  {
     "name": "ไฟช่อ # 24-S-3888/3-CHROME",
     "sku": "24-S-3888/3-CHROME",
     "skuAuto": false,
@@ -1611,15 +963,6 @@
     "image": "images/products/interior/pendant-lamp/24-S-3888-3-CHROMEz-z1134456081190.webp"
   },
   {
-    "name": "ไฟช่อ # 33-1030-5-SAND GOLD",
-    "sku": "33-1030-5-SAND GOLD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7070,
-    "priceSale": 1700,
-    "image": "images/products/interior/pendant-lamp/33-1030-5-SANDGOLDz-z211241300824.webp"
-  },
-  {
     "name": "ไฟช่อ #39-6683-300-CH+CL (70%)",
     "sku": "39-6683-300-CH+CL (70%)",
     "skuAuto": false,
@@ -1627,15 +970,6 @@
     "price": 11100,
     "priceSale": 3330,
     "image": "images/products/chandelier/pendant-crystal/sangudom1z-z787371313729.webp"
-  },
-  {
-    "name": "ไฟช่อ # 49-3025-8-D72H55-SBK",
-    "sku": "49-3025-8-D72H55-SBK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7620,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/49-3025-8-D72H55-SBKz-z985798336265.webp"
   },
   {
     "name": "ไฟช่อ # 49-3055-3-D88H46-SBK+WH",
@@ -1656,60 +990,6 @@
     "image": "images/products/chandelier/pendant-crystal/HI0565z-z814491953412.webp"
   },
   {
-    "name": "ไฟช่อ # 69-2370-600-CH+CL (50%)",
-    "sku": "69-2370-600-CH+CL (50%)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 11500,
-    "priceSale": 5750,
-    "image": "images/products/chandelier/pendant-crystal/69-2370-600-CHCLz-z472209971079.webp"
-  },
-  {
-    "name": "ไฟช่อ #69-803-600-CH+CL (3 Step)",
-    "sku": "69-803-600-CH+CL (3 Step)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-803-600-CHCLz-z170207048793.webp"
-  },
-  {
-    "name": "ไฟช่อ #69-806-600-CH+CL",
-    "sku": "69-806-600-CH+CL",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-806-600-CHCLz-z1295118661735.webp"
-  },
-  {
-    "name": "ไฟช่อ #69-810-600x600-CH+CL (3 Step)",
-    "sku": "69-810-600x600-CH+CL (3 Step)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-810-600x600-CHCLz-z645190338171.webp"
-  },
-  {
-    "name": "ไฟช่อ # 69-813-600-CH+CL",
-    "sku": "69-813-600-CH+CL",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-813-600-CHCLz-z656363457051.webp"
-  },
-  {
-    "name": "ไฟช่อ # 69-865-600x600-CH+CL",
-    "sku": "69-865-600x600-CH+CL",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-865-600x600-CHCLz-z1520963733335.webp"
-  },
-  {
     "name": "ไฟช่อ # 82-8912P CHROME",
     "sku": "82-8912P CHROME",
     "skuAuto": false,
@@ -1728,15 +1008,6 @@
     "image": "images/products/chandelier/pendant-crystal/ZX-707-84P-CH-K9z-z1577369802275.webp"
   },
   {
-    "name": "ไฟช่อทงอเหลือง # 30-M87051-05",
-    "sku": "30-M87051-05",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7880,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/30-M87051-05z-z490693202049.webp"
-  },
-  {
     "name": "ไฟช่อทองเหลือง # 30-M88051-07",
     "sku": "30-M88051-07",
     "skuAuto": false,
@@ -1744,24 +1015,6 @@
     "price": 7530,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/30-M88051-07z-z435040487471.webp"
-  },
-  {
-    "name": "ไฟช่อทองเหลือง # 30-M89076-07",
-    "sku": "30-M89076-07",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 10470,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/30-M89076-07z-z1161066824893.webp"
-  },
-  {
-    "name": "ไฟช่อทองเหลือง # 30-M89080-06",
-    "sku": "30-M89080-06",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 10370,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/30-M89080-06z-z161152852837.webp"
   },
   {
     "name": "ไฟช่อทองเหลือง # 30-M89505-06",
@@ -1782,15 +1035,6 @@
     "image": "images/products/interior/pendant-lamp/58-K903006-BB6z-z840160937893.webp"
   },
   {
-    "name": "ไฟช่อพัดลม # 58-K904106/BB6",
-    "sku": "58-K904106/BB6",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 12900,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-K904106-BB6z-z841204715081.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 08-2208-BK",
     "sku": "08-2208-BK",
     "skuAuto": false,
@@ -1798,42 +1042,6 @@
     "price": 2500,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/08-2208-BKz-z497543297940.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 17-170S-9-GD",
-    "sku": "17-170S-9-GD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 17630,
-    "priceSale": 8815,
-    "image": "images/products/interior/pendant-lamp/17-170S-9-GDz-z1290955590821.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 17-170S-9-SG",
-    "sku": "17-170S-9-SG",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 17630,
-    "priceSale": 8815,
-    "image": "images/products/interior/pendant-lamp/17-170S-9-SGz-z573553175535.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 17-353S-16-BK+GD",
-    "sku": "17-353S-16-BK+GD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 15220,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-353S-16-BKGDz-z5688521910.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 17-353S-8-BK+GD",
-    "sku": "17-353S-8-BK+GD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7800,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-353S-8-BKGDz-z1584399078998.webp"
   },
   {
     "name": "ไฟช่อเพดาน # 17-9087-700 (50%)",
@@ -1890,15 +1098,6 @@
     "image": "images/products/interior/pendant-lamp/22-9775-31-BKz-z1467432011405.webp"
   },
   {
-    "name": "ไฟช่อเพดาน # 22-D8280-5A-BK+YE-CL",
-    "sku": "22-D8280-5A-BK+YE-CL",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7030,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-D8280-5A-BKYE-CL319x425z-z312555175254.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 24-S-3888/4-CHROME",
     "sku": "24-S-3888/4-CHROME",
     "skuAuto": false,
@@ -1917,33 +1116,6 @@
     "image": "images/products/interior/pendant-lamp/31-6677-5LCz-z553647831464.webp"
   },
   {
-    "name": "ไฟช่อเพดาน # 33-1001-3PA-MATT BLACK (50%)",
-    "sku": "33-1001-3PA-MATT BLACK (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 6350,
-    "priceSale": 3175,
-    "image": "images/products/interior/pendant-lamp/33-1001-3PA-MATTBLACKz-z483190436160.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 33-1004-5+3-MATT BLACK",
-    "sku": "33-1004-5+3-MATT BLACK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 9580,
-    "priceSale": 1800,
-    "image": "images/products/interior/pendant-lamp/33-1004-53-MATTBLACKz-z487787247881.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน# 33-1004-8+4-MATT BLACK",
-    "sku": "33-1004-8+4-MATT BLACK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 14220,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/33-1004-84-MATT319x425z-z1654373951890.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 33-1021-5-SN (50%)",
     "sku": "33-1021-5-SN (50%)",
     "skuAuto": false,
@@ -1953,24 +1125,6 @@
     "image": "images/products/interior/pendant-lamp/33-1021-5-SNz-z503976843365.webp"
   },
   {
-    "name": "ไฟช่อเพดาน # 33-1029-5-BK",
-    "sku": "33-1029-5-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7420,
-    "priceSale": 3710,
-    "image": "images/products/interior/pendant-lamp/33-1029-5-BKz-z73107730171.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน# 33-1033-8-SAND GOLD+WHITE (50%)",
-    "sku": "33-1033-8-SAND GOLD+WHITE (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 13040,
-    "priceSale": 6520,
-    "image": "images/products/interior/pendant-lamp/33-1033-8-SANDGOLDWHITEz-z1427611813975.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 33-1120-5-SN",
     "sku": "33-1120-5-SN",
     "skuAuto": false,
@@ -1978,15 +1132,6 @@
     "price": 8750,
     "priceSale": 4375,
     "image": "images/products/interior/pendant-lamp/33-1120-5-SNz-z196382250303.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 33-1949/8CH (8192-8P-CH",
-    "sku": "33-1949/8CH (8192-8P-CH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 4900,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/33-1949-8CHz-z1246957439613.webp"
   },
   {
     "name": "ไฟช่อเพดาน # 48-2274/7+409-1-CH",
@@ -2016,15 +1161,6 @@
     "image": "images/products/interior/pendant-lamp/49-22001-5P-GDz-z1020496962940.webp"
   },
   {
-    "name": "ไฟช่อเพดาน # 58-60340/3AP",
-    "sku": "58-60340/3AP",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 9460,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-60340-3APz-z356818574919.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 58-80001-5P",
     "sku": "58-80001-5P",
     "skuAuto": false,
@@ -2032,24 +1168,6 @@
     "price": 7750,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/58-80001-5Pz-z46988663962.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 58-80005-8P",
-    "sku": "58-80005-8P",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 11330,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-80005-8319x425z-z1231425566079.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 58-80009-5P",
-    "sku": "58-80009-5P",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 7950,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-80009-5Pz-z1028921529560.webp"
   },
   {
     "name": "ไฟช่อเพดาน # 58-80021-4LP",
@@ -2061,51 +1179,6 @@
     "image": "images/products/interior/pendant-lamp/58-80021-4LPz-z138157511292.webp"
   },
   {
-    "name": "ไฟช่อเพดาน # 58-80022-6+2P",
-    "sku": "58-80022-6+2P",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 11330,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-80022-62Pz-z1291499763.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 58-80022-6+3P",
-    "sku": "58-80022-6+3P",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 12120,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/58-80022-63Pz-z1289596984703.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 70-8165-8+4+3-AB+WH (50%)",
-    "sku": "70-8165-8+4+3-AB+WH (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 16740,
-    "priceSale": 8370,
-    "image": "images/products/interior/pendant-lamp/70-8165-843-ABWHz-z1452026230297.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 70-8566-8+4-BK+G",
-    "sku": "70-8566-8+4-BK+G",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 5900,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/70-8566-84-BKGRz-z1231254364709.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # 77-8063-5-SSV+WH",
-    "sku": "77-8063-5-SSV+WH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1900,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/77-8063-5-SSVWHz-z1242245594100.webp"
-  },
-  {
     "name": "ไฟช่อเพดาน # 88-1010-6P-CH",
     "sku": "88-1010-6P-CH",
     "skuAuto": false,
@@ -2113,24 +1186,6 @@
     "price": 6060,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/88-1010-6P-CHz-z1129232802253.webp"
-  },
-  {
-    "name": "ไฟช่อเพดาน # C10290/4 ST (50%)",
-    "sku": "C10290/4 ST (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 4630,
-    "priceSale": 2315,
-    "image": "images/products/interior/pendant-lamp/C10290-4STz-z1000742347171.webp"
-  },
-  {
-    "name": "ไฟช่อแพดาน # 08-91-H1P-A01-8-BK*",
-    "sku": "08-91-H1P-A01-8-BK*",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 4700,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/08-91-H1P-A01-8-BK319x425z-z777145446495.webp"
   },
   {
     "name": "ไฟช่อเม็ดคริสตัล #ZX-707-12+8+4P-CH-K9 (50%)",
@@ -2214,78 +1269,6 @@
     "image": "images/products/interior/table-floor-lamp/sangudom1z-z317182238923.webp"
   },
   {
-    "name": "ไฟตั้งโต๊ะ #17-009",
-    "sku": "17-009",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 2130,
-    "priceSale": 990,
-    "image": "images/products/interior/table-floor-lamp/17-009z-z716414991500.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-101D-BK",
-    "sku": "92-101D-BK",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 540,
-    "priceSale": 250,
-    "image": "images/products/interior/table-floor-lamp/sangudom1z-z848176688133.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-101D-WH",
-    "sku": "92-101D-WH",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 540,
-    "priceSale": 250,
-    "image": "images/products/interior/table-floor-lamp/92-101D-WHz-z231412662588.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-8822-AB+WH",
-    "sku": "92-8822-AB+WH",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 1120,
-    "priceSale": null,
-    "image": "images/products/interior/table-floor-lamp/92-8822-ABWHz-z386073988841.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-8822-GD+GR",
-    "sku": "92-8822-GD+GR",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 1120,
-    "priceSale": null,
-    "image": "images/products/interior/table-floor-lamp/sangudom1z-z183713432946.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-920D-BL",
-    "sku": "92-920D-BL",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 220,
-    "priceSale": 100,
-    "image": "images/products/interior/table-floor-lamp/sangudom1z-z930217394460.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-920D-GR",
-    "sku": "92-920D-GR",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 220,
-    "priceSale": 100,
-    "image": "images/products/interior/table-floor-lamp/92-920D-GRz-z1500111956984.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะ #92-920D-PK",
-    "sku": "92-920D-PK",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 220,
-    "priceSale": 100,
-    "image": "images/products/interior/table-floor-lamp/92-920D-PKz-z845188299858.webp"
-  },
-  {
     "name": "ไฟตั้งโต๊ะแก้วเลดคริสตัล # 49-202037-6T-D300H600-GD(50%)",
     "sku": "49-202037-6T-D300H600-GD(50%)",
     "skuAuto": false,
@@ -2293,15 +1276,6 @@
     "price": 25000,
     "priceSale": 12500,
     "image": "images/products/chandelier/chat-crystal/sangudom1z-z1122094112592.webp"
-  },
-  {
-    "name": "ไฟตั้งโต๊ะแบบหนีบ #92-012-BK",
-    "sku": "92-012-BK",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 350,
-    "priceSale": null,
-    "image": "images/products/interior/table-floor-lamp/92-012-BKz-z1498825720186.webp"
   },
   {
     "name": "ไฟตั้งโต๊ะแบบหนีบ #92-012-WH",
@@ -2331,24 +1305,6 @@
     "image": "images/products/interior/table-floor-lamp/92-018-WHz-z437587187180.webp"
   },
   {
-    "name": "ไฟตั้งพิ้น #92-KF5001XL-SN",
-    "sku": "92-KF5001XL-SN",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 3620,
-    "priceSale": null,
-    "image": "images/products/interior/table-floor-lamp/92-KF5001XL-SNz-z112518200920.webp"
-  },
-  {
-    "name": "ไฟตั้งพิ้น #CPS-F-3031/1-BK",
-    "sku": "CPS-F-3031/1-BK",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 21210,
-    "priceSale": 4242,
-    "image": "images/products/interior/table-floor-lamp/CPS-F-3031-1-BKz-z1400033107177.webp"
-  },
-  {
     "name": "ไฟตั้งพื้น #09-2205-BK-2-E27",
     "sku": "09-2205-BK-2-E27",
     "skuAuto": false,
@@ -2356,15 +1312,6 @@
     "price": 3000,
     "priceSale": null,
     "image": "images/products/interior/table-floor-lamp/09-2205-BK-2-E27z-z1278889628737.webp"
-  },
-  {
-    "name": "ไฟตั้งพื้น #23-MJ1288-1BL-SHINNY BLACK",
-    "sku": "23-MJ1288-1BL-SHINNY BLACK",
-    "skuAuto": false,
-    "category": "Table Floor Lamp โคมไฟตั้งโต๊ะ และตั้งพื้น",
-    "price": 1400,
-    "priceSale": null,
-    "image": "images/products/interior/table-floor-lamp/23-MJ1288-1BL-SHINNYBLACKz-z136247072664.webp"
   },
   {
     "name": "ไฟตั้งพื้น #30-L89528-01",
@@ -2383,24 +1330,6 @@
     "price": 7380,
     "priceSale": null,
     "image": "images/products/interior/table-floor-lamp/30-L89588-01z-z742604301379.webp"
-  },
-  {
-    "name": "ไฟตั้งพื้นแก้วเลดคริสตัล # 49-202037-9F-D350H1700-GD(50%)",
-    "sku": "49-202037-9F-D350H1700-GD(50%)",
-    "skuAuto": false,
-    "category": "Chat Crystal Lamp โคมไฟฉัตร",
-    "price": 53000,
-    "priceSale": 26500,
-    "image": "images/products/chandelier/chat-crystal/sangudom1z-z784143042023.webp"
-  },
-  {
-    "name": "ไฟตัวยู # 04-UK56-1X20W",
-    "sku": "04-UK56-1X20W",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 250,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/04-U56-1X20W-WHz-z1320489948552.webp"
   },
   {
     "name": "ไฟตัวยูสีนม # 04-U56-1X20W@ ตัวสั้น",
@@ -2483,15 +1412,6 @@
     "image": "images/products/exterior/accent-light/40-A1015-BKz-z376664479931.webp"
   },
   {
-    "name": "ไฟปักดิน #40-A1019-BK",
-    "sku": "40-A1019-BK",
-    "skuAuto": false,
-    "category": "Accent Light โคมไฟปักดิน",
-    "price": 290,
-    "priceSale": null,
-    "image": "images/products/exterior/accent-light/40-A1019-BKz-z149157525273.webp"
-  },
-  {
     "name": "ไฟปักดิน #40-A1065-BK",
     "sku": "40-A1065-BK",
     "skuAuto": false,
@@ -2546,69 +1466,6 @@
     "image": "images/products/exterior/wall-lamp/06-202-BK-GR-D19103817750318z-z1170267260951.webp"
   },
   {
-    "name": "ไฟผนัง #06-207-BK-A",
-    "sku": "06-207-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 670,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-207-BK-Az-z120372736118.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-208-BK-A",
-    "sku": "06-208-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 650,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-208-BK-Az-z613228209429.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-210-BK-A",
-    "sku": "06-210-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1040,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-210-BK-Az-z412858780694.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-541-ฺBK-A (ตัวใหญ่)",
-    "sku": "06-541-ฺBK-A (ตัวใหญ่)",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 830,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-541-BK-A-z-z1398316952453.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-541-BK-A (ตัวเล็ก)",
-    "sku": "06-541-BK-A (ตัวเล็ก)",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-541-BK-Az-z541358065883.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-595-2-BK-ลายเมฆ",
-    "sku": "06-595-2-BK-ลายเมฆ",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 700,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-595-2-BK-z-z142200430042.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-595-BK-ลายเมฆ",
-    "sku": "06-595-BK-ลายเมฆ",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 380,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-595-BKz-z467609209152.webp"
-  },
-  {
     "name": "ไฟผนัง #06-598-BK-ลายเมฆ",
     "sku": "06-598-BK-ลายเมฆ",
     "skuAuto": false,
@@ -2616,78 +1473,6 @@
     "price": 380,
     "priceSale": null,
     "image": "images/products/exterior/wall-lamp/06-612-BK-A-D31X41H40-E27-1-252013967073-01-01z-z1586607230826.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-654-BK-A",
-    "sku": "06-654-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-654-BK-Az-z878274519067.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-657-BK-A",
-    "sku": "06-657-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-657-BK-Az-z1159327356972.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-657-BK-C",
-    "sku": "06-657-BK-C",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-657-BK-Cz-z409100391400.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-676-BK-B",
-    "sku": "06-676-BK-B",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 760,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-676-BK-Az-z746417643786.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-676-BK-C",
-    "sku": "06-676-BK-C",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 760,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-676-BK-Cz-z423945877949.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-731-BK-A",
-    "sku": "06-731-BK-A",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 800,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-731-BK-Az-z1022267889029.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-752-BK",
-    "sku": "06-752-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 740,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-752-BKz-z313153542262.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-766-BK-20FC",
-    "sku": "06-766-BK-20FC",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 970,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06766-BK-20FCz-z1574767236936.webp"
   },
   {
     "name": "ไฟผนัง #06-788-BK-W",
@@ -2708,15 +1493,6 @@
     "image": "images/products/exterior/wall-lamp/06-811-BK-FC-z-z343786481939.webp"
   },
   {
-    "name": "ไฟผนัง #06-844-BK-CC",
-    "sku": "06-844-BK-CC",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1590,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-844-BK-CCz-z963467500828.webp"
-  },
-  {
     "name": "ไฟผนัง #06-844-BK-FC",
     "sku": "06-844-BK-FC",
     "skuAuto": false,
@@ -2733,24 +1509,6 @@
     "price": 630,
     "priceSale": null,
     "image": "images/products/exterior/wall-lamp/06-891-BK-Az-z81652390180.webp"
-  },
-  {
-    "name": "ไฟผนัง #06-891-BK-C",
-    "sku": "06-891-BK-C",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/06-891-BK-Cz-z1348510523787.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-1001C(M)-BK",
-    "sku": "26-1001C(M)-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 620,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z1134357888671.webp"
   },
   {
     "name": "ไฟผนัง #26-11201-BK",
@@ -2771,60 +1529,6 @@
     "image": "images/products/exterior/wall-lamp/26-1280-BK-D11X25-H10-E27-1-z-z1328415388822.webp"
   },
   {
-    "name": "ไฟผนัง #26-2368-BK",
-    "sku": "26-2368-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1000,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-2368-BKz-z1470668557981.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-3003W-BK",
-    "sku": "26-3003W-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 360,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-3003W-BKz-z645628068262.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-3106A-BK",
-    "sku": "26-3106A-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 990,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-3106A-BKz-z810514123307.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-311-DIA108X280MM-WD",
-    "sku": "26-311-DIA108X280MM-WD",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 660,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-311-DIA108X280MM-WDz-z869266405400.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-3209-BK",
-    "sku": "26-3209-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 230,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-3209-BKz-z809195679626.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-410W-GD",
-    "sku": "26-410W-GD",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 730,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-410W-GDz-z2232059546.webp"
-  },
-  {
     "name": "ไฟผนัง #26-4504-BK",
     "sku": "26-4504-BK-B",
     "skuAuto": false,
@@ -2834,249 +1538,6 @@
     "image": "images/products/exterior/wall-lamp/26-4504-BKz-z455966996433.webp"
   },
   {
-    "name": "ไฟผนัง #26-6303-DIA110X200MM-BK",
-    "sku": "26-6303-DIA110X200MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1140,
-    "priceSale": 570,
-    "image": "images/products/exterior/wall-lamp/26-6303-DIA110X200MM-BKz-z1109045372290.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6303-DIA110X200MM-WD",
-    "sku": "26-6303-DIA110X200MM-WD",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 570,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6303-DIA110X200MM-WDz-z1417685489159.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6304-DIA110X320MM-BK",
-    "sku": "26-6304-DIA110X320MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6304-DIA110X320MM-BK26-6304-DIA110X320MM-BK-z-z1626195508425.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6307-DIA110X200MM-BK",
-    "sku": "26-6307-DIA110X200MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1280,
-    "priceSale": 640,
-    "image": "images/products/exterior/wall-lamp/26-6307-DIA110X200MM-BKz-z1140365546584.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6311-DIA90X260MM-BK",
-    "sku": "26-6311-DIA90X260MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6311-DIA90X260MM-BKz-z979761791665.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6316/2-DIA108X340MM-WD",
-    "sku": "26-6316/2-DIA108X340MM-WD",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 850,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6316-2-DIA108X340MM-WDz-z970667972237.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6316-DIA108X220MM-BK",
-    "sku": "26-6316-DIA108X220MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 640,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6316-DIA108X220MM-BKz-z400356767173.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6317-DIA110X210MM-BK",
-    "sku": "26-6317-DIA110X210MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 590,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6317-DIA110X210MM-BKz-z576501958084.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6317-DIA65X210MM-BK",
-    "sku": "26-6317-DIA65X210MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 390,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6317-DIA65X210MM-BKz-z632164295455.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6317-DIA90X320MM-BK",
-    "sku": "26-6317-DIA90X320MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 640,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6317-DIA90X320MM-BKz-z1254602605681.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6318-DIA145X450MM-BK",
-    "sku": "26-6318-DIA145X450MM-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 2800,
-    "priceSale": 1400,
-    "image": "images/products/exterior/wall-lamp/26-6318-DIA145X450MM-BKz-z450659931267.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6405-L-BK",
-    "sku": "26-6405-L-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 250,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6405-L-BKz-z503873471415.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6405-S-BK",
-    "sku": "26-6405-S-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 230,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6405-S-BKz-z1263514351588.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6407-BK",
-    "sku": "26-6407-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 350,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6407-BKz-z462759860986.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6608L-WH",
-    "sku": "26-6608L-WH",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 380,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6608-L-BKz-z1366206872979.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6608S-BK",
-    "sku": "26-6608S-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 250,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6608-S-BKz-z924785204167.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6608S-WH",
-    "sku": "26-6608S-WH",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 230,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6608-S-WHz-z582952662542.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-6611S-BK",
-    "sku": "26-6611S-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 230,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-6611-S-BKz-z1351925302547.webp"
-  },
-  {
-    "name": "ไฟผนัง #26-8108W-GD",
-    "sku": "26-8108W-GD",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 860,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/26-8108W-GDz-z88141255916.webp"
-  },
-  {
-    "name": "ไฟผนัง #30-B88004-02-W265XH520-BRASS",
-    "sku": "30-B88004-02-W265XH520-BRASS",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 4700,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/30-B88004-02-W265XH520-BRASSz-z1043417817871.webp"
-  },
-  {
-    "name": "ไฟผนัง # 30-B88005-01-W180XH335-BRASS",
-    "sku": "30-B88005-01-W180XH335-BRASS",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 2980,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z94557661192.webp"
-  },
-  {
-    "name": "ไฟผนัง #36-06-007 BK",
-    "sku": "36-06-007 BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 229,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z679868804689.webp"
-  },
-  {
-    "name": "ไฟผนัง #36-06-009-BK",
-    "sku": "36-06-009-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 350,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z644301416989.webp"
-  },
-  {
-    "name": "ไฟผนัง #36-06-018-BK",
-    "sku": "36-06-018-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 229,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z1076815320133.webp"
-  },
-  {
-    "name": "ไฟผนัง #36-06-019-BK",
-    "sku": "36-06-019-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 249,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/sangudom1z-z1530992335432.webp"
-  },
-  {
-    "name": "ไฟผนัง #36-5102A-2-BK",
-    "sku": "36-5102A-2-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/36-5102A-2-BKz-z404320467200.webp"
-  },
-  {
-    "name": "ไฟผนัง #40-C3001-BK",
-    "sku": "40-C3001-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1090,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/40-C3001-BKz-z842646059547.webp"
-  },
-  {
     "name": "ไฟผนัง #40-C3002-BK",
     "sku": "40-C3002-BK",
     "skuAuto": false,
@@ -3084,15 +1545,6 @@
     "price": 1480,
     "priceSale": null,
     "image": "images/products/exterior/wall-lamp/40-C3002-BKz-z1140867067079.webp"
-  },
-  {
-    "name": "ไฟผนัง #40-C3003-BK",
-    "sku": "40-C3003-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1090,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/40-C3003-BKz-z1388057444917.webp"
   },
   {
     "name": "ไฟผนัง #40-C3006-BK",
@@ -3131,24 +1583,6 @@
     "image": "images/products/exterior/wall-lamp/40-C3023-S-BKz-z1495617242723.webp"
   },
   {
-    "name": "ไฟผนัง#40-C3024S-BK",
-    "sku": "40-C3024S-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 579,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/40-C3024-S-BKz-z954598347106.webp"
-  },
-  {
-    "name": "ไฟผนัง #40-E5002-BK",
-    "sku": "40-E5002-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 1300,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/40-E5002-BKz-z424986200111.webp"
-  },
-  {
     "name": "ไฟผนัง #45-4053-BK",
     "sku": "45-4053-BK",
     "skuAuto": false,
@@ -3185,15 +1619,6 @@
     "image": "images/products/exterior/wall-lamp/561-BK-B-z-z92675930907.webp"
   },
   {
-    "name": "ไฟผนัง #725-BK-W1@",
-    "sku": "725-BK-W1@",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 650,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/725-BK-W1-z-z663458949110.webp"
-  },
-  {
     "name": "ไฟผนัง #78-4601-GREY",
     "sku": "78-4601-GREY",
     "skuAuto": false,
@@ -3201,15 +1626,6 @@
     "price": 3630,
     "priceSale": null,
     "image": "images/products/exterior/wall-lamp/78-4601-GREYz-z1424796937394.webp"
-  },
-  {
-    "name": "ไฟผนัง #8A-YD-4074L WH",
-    "sku": "8A-YD-4074L WH",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 200,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/8A-YD-4074L-WHz-z1320164452792.webp"
   },
   {
     "name": "ไฟผนัง #8A-YD-4074S WH",
@@ -3221,15 +1637,6 @@
     "image": "images/products/exterior/wall-lamp/8A-YD-4074-S-WHz-z1402768604064.webp"
   },
   {
-    "name": "ไฟผนัง SOLAR # 35-T1611-2W-WH",
-    "sku": "35-T1611-2W-WH",
-    "skuAuto": false,
-    "category": "Solar cell",
-    "price": 140,
-    "priceSale": 109,
-    "image": "images/products/solar/GI0452z-z1451596538971.webp"
-  },
-  {
     "name": "ไฟผนัง #YD4111L-SL",
     "sku": "YD4111L-SL",
     "skuAuto": false,
@@ -3237,15 +1644,6 @@
     "price": 1100,
     "priceSale": null,
     "image": "images/products/exterior/wall-lamp/YD-4111-L-SLz-z859675127466.webp"
-  },
-  {
-    "name": "ไฟผนัง #YD4111S-SL",
-    "sku": "YD4111S-SL",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 650,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/YD-4111-S-SLz-z1194592818161.webp"
   },
   {
     "name": "ไฟฝัง # 100003-1XE27-WD",
@@ -3273,15 +1671,6 @@
     "price": 500,
     "priceSale": null,
     "image": "images/products/interior/downlight-tracklight/34-FR20-1-WHz-z368533967614.webp"
-  },
-  {
-    "name": "ไฟฝัง # 34-FR20-2-WH (ทรงสี่เหลี่ยมคู่)",
-    "sku": "34-FR20-2-WH (ทรงสี่เหลี่ยมคู่)",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 850,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/34-FR30-2-WHz-z370263123131.webp"
   },
   {
     "name": "ไฟฝัง # 34-FR20-3-WH (ทรงสี่เหลี่ยมคู่ 3 ดวง)",
@@ -3320,15 +1709,6 @@
     "image": "images/products/interior/downlight-tracklight/34-FR30-3-WHz-z1410640172743.webp"
   },
   {
-    "name": "ไฟฝัง # 34-T015-B-WH",
-    "sku": "34-T015-B-WH",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 70,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/34-T015-B-WHz-z1445128470080.webp"
-  },
-  {
     "name": "ไฟฝัง # 34-T028-B-WH",
     "sku": "34-T028-B-WH",
     "skuAuto": false,
@@ -3336,15 +1716,6 @@
     "price": 70,
     "priceSale": null,
     "image": "images/products/interior/downlight-tracklight/34-T028-B-WHz-z1584459406352.webp"
-  },
-  {
-    "name": "ไฟฝัง # 41-029-1XMR16-SSV (ทรงสีเหลี่ยม)",
-    "sku": "41-029-1XMR16-SSV (ทรงสีเหลี่ยม)",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 200,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/41-029-1XMR16-SSVz-z1132346895993.webp"
   },
   {
     "name": "ไฟฝัง # 41-029-1XMR16-WH (ทรงสีเหลี่ยม)",
@@ -3381,33 +1752,6 @@
     "price": 300,
     "priceSale": null,
     "image": "images/products/interior/downlight-tracklight/41-029-3XMR16-WHz-z762637253851.webp"
-  },
-  {
-    "name": "ไฟฝัง # 41-403F-E27-WH",
-    "sku": "41-403F-E27-WH",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 85,
-    "priceSale": 55,
-    "image": "images/products/interior/downlight-tracklight/sangudom1z-z1617448715625.webp"
-  },
-  {
-    "name": "ไฟฝัง # 41-914F-2L-MR16-BK (หน้ากลมคู่)",
-    "sku": "41-914F-2L-MR16-BK (หน้ากลมคู่)",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 270,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/41-914F-2L-MR16-BKz-z537313816735.webp"
-  },
-  {
-    "name": "ไฟฝัง # 41-914F-2L-MR16-WH-LSL (หน้าเหลี่ยมคู่)",
-    "sku": "41-914F-2L-MR16-WH-LSL (หน้าเหลี่ยมคู่)",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 205,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/41-914F-2L-MR16-WH-LSL-z-z212500724138.webp"
   },
   {
     "name": "ไฟฝัง # 41-914F-MR16-BK (หน้าเหลี่ยม)",
@@ -3500,15 +1844,6 @@
     "image": "images/products/interior/downlight-tracklight/41-T05-MR16-WHz-z516567841521.webp"
   },
   {
-    "name": "ไฟฝังพื้น LED # 40-1008-5W-ST-3000K",
-    "sku": "40-1008-5W-ST-3000K",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 790,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/sangudom11132008105416-1-z-z371140163384.webp"
-  },
-  {
     "name": "ไฟฝังพื้น LED # 40-1008-5W-ST-6500K",
     "sku": "40-1008-5W-ST-6500K",
     "skuAuto": false,
@@ -3518,15 +1853,6 @@
     "image": "images/products/exterior/step-light/sangudom1z-z1132008105416.webp"
   },
   {
-    "name": "ไฟฝังพื้น LED # 40-1012-12W-ST",
-    "sku": "40-1012-12W-ST",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 1110,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/sangudom1z-z1333727908230.webp"
-  },
-  {
     "name": "ไฟฝังพื้น LED # 40-1014-15W-ST",
     "sku": "40-1014-15W-ST",
     "skuAuto": false,
@@ -3534,33 +1860,6 @@
     "price": 1410,
     "priceSale": null,
     "image": "images/products/exterior/step-light/40-1014-15W-STz-z1302677551235.webp"
-  },
-  {
-    "name": "ไฟฝังพื้น LED # 40-6001-ST-6500K (แสงขาว)",
-    "sku": "40-6001-ST-6500K (แสงขาว)",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 190,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/40-6001-ST-6500K-z-z242265845697.webp"
-  },
-  {
-    "name": "ไฟฝังพื้น LED # 40-6005-3W-ST",
-    "sku": "40-6005-3W-ST",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 180,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/40-6005-3W-STz-z806353211663.webp"
-  },
-  {
-    "name": "ไฟฝังพื้น LED # 40-6008-3W-ST",
-    "sku": "40-6008-3W-ST",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 185,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/40-6008-3W-STz-z19582698546.webp"
   },
   {
     "name": "ไฟฝังพื้น LED # 40-8004-3W BK",
@@ -3581,60 +1880,6 @@
     "image": "images/products/exterior/wall-lamp/26-6316-DIA108X220MM-WDz-z1621139516931.webp"
   },
   {
-    "name": "ไฟพนัง #45-4831-BK",
-    "sku": "45-4831-BK",
-    "skuAuto": false,
-    "category": "Wall Lamp โคมไฟผนัง",
-    "price": 790,
-    "priceSale": null,
-    "image": "images/products/exterior/wall-lamp/45-4831-BKz-z1574760601486.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 42-0093-480-KAB",
-    "sku": "42-0093-480-KAB",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 630,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/42-0093-480-KABz-z250126832234.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 42-0095-380-KAB",
-    "sku": "42-0095-380-KAB",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 480,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/42-0095-380-KABz-z742011296768.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 42-0097-380-WH-GD",
-    "sku": "42-0097-380-WH-GD",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 480,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/42-0097-380-WH-GDz-z1202408944959.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 42-0098-380-WH-GD",
-    "sku": "42-0098-380-WH-GD",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 480,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/42-0098-380-WH-GDz-z1266477612991.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-113-03-WH",
-    "sku": "46-113-03-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 115,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-113-03-WHz-z441094923169.webp"
-  },
-  {
     "name": "ไฟเพดาน # 46-113-61-WH",
     "sku": "46-113-61-WH",
     "skuAuto": false,
@@ -3651,69 +1896,6 @@
     "price": 115,
     "priceSale": null,
     "image": "images/products/interior/ceiling-lamp/46-113-92-WHz-z1459839195694.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-6315-470-WH",
-    "sku": "46-6315-470-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 490,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-6315-470-WHz-z622390692266.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8038-B",
-    "sku": "46-8038-B",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8038-Bz-z1259797535751.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8038-D",
-    "sku": "46-8038-D",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8038-Dz-z941198982478.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8046-A",
-    "sku": "46-8046-A",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 300,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8046-Az-z168156916665.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8046-C",
-    "sku": "46-8046-C",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 300,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8046-Cz-z456960360867.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8046-D",
-    "sku": "46-8046-D",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 450,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8046-Dz-z1481727136600.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 46-8206-400-WH",
-    "sku": "46-8206-400-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 490,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8206-400-WHz-z618398048817.webp"
   },
   {
     "name": "ไฟเพดาน # 46-8281A-450-WH",
@@ -3734,15 +1916,6 @@
     "image": "images/products/interior/ceiling-lamp/46-8281B-450-WHz-z1492591364799.webp"
   },
   {
-    "name": "ไฟเพดาน # 46-8301-400-WH",
-    "sku": "46-8301-400-WH",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 420,
-    "priceSale": null,
-    "image": "images/products/interior/ceiling-lamp/46-8301-400-WHz-z1372064323230.webp"
-  },
-  {
     "name": "ไฟเพดาน # 46-8317-400-WH",
     "sku": "46-8317-400-WH",
     "skuAuto": false,
@@ -3750,24 +1923,6 @@
     "price": 420,
     "priceSale": null,
     "image": "images/products/interior/ceiling-lamp/46-8317-400-WHz-z876889952962.webp"
-  },
-  {
-    "name": "ไฟเพดาน # 69-805-600-CH+CL",
-    "sku": "69-805-600-CH+CL",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-805-600-CHCLz-z767203247305.webp"
-  },
-  {
-    "name": "ไฟเพดานคริสตัล #69-853-600-CH+CL (3 Step)",
-    "sku": "69-853-600-CH+CL (3 Step)",
-    "skuAuto": false,
-    "category": "Pendant Crystal Lamp โคมไฟช่อ และไฟเพดาน",
-    "price": 5000,
-    "priceSale": null,
-    "image": "images/products/chandelier/pendant-crystal/69-853-600-CHCL-3Step-z-z789593585577.webp"
   },
   {
     "name": "ไฟเพดาน A239-500D-3CCT-K9",
@@ -3824,15 +1979,6 @@
     "image": "images/products/led/ceiling-lamp/890055-12Wz-z178654222613.webp"
   },
   {
-    "name": "ไฟเพดาน LED #890056-12W (แสงขาว)",
-    "sku": "890056-12W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 305,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/890055-12Wz-z453064482857.webp"
-  },
-  {
     "name": "ไฟเพดาน LED #890057-6W (แสงวอมไวท์)",
     "sku": "890057-6W (แสงวอมไวท์)",
     "skuAuto": false,
@@ -3858,15 +2004,6 @@
     "price": 310,
     "priceSale": null,
     "image": "images/products/led/ceiling-lamp/890060-12Wz-z240785944116.webp"
-  },
-  {
-    "name": "ไฟเพดาน LED# 890060-12W (แสงขาว)",
-    "sku": "890060-12W (แสงขาว)",
-    "skuAuto": false,
-    "category": "Ceiling Lamp โคมไฟเพดาน",
-    "price": 310,
-    "priceSale": null,
-    "image": "images/products/led/ceiling-lamp/890060-12Wz-z1225399730043.webp"
   },
   {
     "name": "ไฟสนาม #05-007-2+เสาY-POLE-BK",
@@ -3968,60 +2105,6 @@
     "image": "images/products/exterior/garden-lamp/05-5272-BK-J22-2015z-z687563987369.webp"
   },
   {
-    "name": "ไฟสนาม #05-527/4-BK + เสาลพบุรี 2 M-BK",
-    "sku": "05-527/4-BK + เสาลพบุรี 2 M-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 7610,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-527-4-BK-2M-BKz-z333146221655.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-528-BK-A+เสาA012-40CM",
-    "sku": "05-528-BK-A+เสาA012-40CM",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 660,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-528-BK-A-A012-40CMz-z1248949152912.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-528-BK-C+เสาA012-40CM",
-    "sku": "05-528-BK-C+เสาA012-40CM",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 660,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-528-BK-Cz-z181669439615.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-528-BK-C+เสา M-40CM",
-    "sku": "05-528-BK-C+เสา M-40CM",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 660,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-528-BK-C-M60CM738113358415z-z525478021382.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-547/3-BK + เสาอยุธยา 2 M-BK+ท่อนสวม",
-    "sku": "05-547/3-BK + เสาอยุธยา 2 M-BK+ท่อนสวม",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 7910,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-547-3-BK-2M-BK-z-z235902667372.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-552/2-A + เสาอยุธยา 2 M-BK+ท่อนสวม",
-    "sku": "05-552/2-A + เสาอยุธยา 2 M-BK+ท่อนสวม",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 9250,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-552-2-A-2M-BK-z-z1061894840366.webp"
-  },
-  {
     "name": "ไฟสนาม #05-5581-BK-J22-เสา 2015",
     "sku": "05-5581-BK-J22-เสา 2015",
     "skuAuto": false,
@@ -4031,15 +2114,6 @@
     "image": "images/products/exterior/garden-lamp/05-5581-BK-J22-2015z-z725018021104.webp"
   },
   {
-    "name": "ไฟสนาม #05-561/4-BK-B + เสาลพบุรี 2.00 เมตร-BK",
-    "sku": "05-561/4-BK-B + เสาลพบุรี 2.00 เมตร-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 5920,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-561-4-BK-B-2z-z1443468936223.webp"
-  },
-  {
     "name": "ไฟสนาม #05-584-2-BK-W + เสา #A05-BK",
     "sku": "05-584-2-BK-W + เสา #A05-BK",
     "skuAuto": false,
@@ -4047,123 +2121,6 @@
     "price": 4470,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/05-584-2-BK-W-_sharp_A05-BKz-z1046879522878.webp"
-  },
-  {
-    "name": "ไฟสนาม #05- 595/3-B-เฆม-J21 + เสา #A05-BK",
-    "sku": "05- 595/3-B-เฆม-J21 + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 7510,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-595-3-B-J21-_sharp_A05-BKz-z1611659777526.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-602/3-BK-A + เสาสนาม 2015-BK",
-    "sku": "05-602/3-BK-A + เสาสนาม 2015-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 5080,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-602-3-BK-A-2015-BKz-z1341602783033.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-603-2-BK-A + เสา #A05-BK",
-    "sku": "05-603-2-BK-A + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 4190,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-603-2-BK-A-_sharp_A05-BKz-z1012365086552.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-608-2-BK-A-J22-เสา 2015",
-    "sku": "05-608-2-BK-A-J22-เสา 2015",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 3500,
-    "priceSale": 2500,
-    "image": "images/products/exterior/garden-lamp/05-608-2-BK-A-J22-2015z-z1393548355151.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-608-2-BK-C-J22-เสา 2015",
-    "sku": "05-608-2-BK-C-J22-เสา 2015",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 3500,
-    "priceSale": 2500,
-    "image": "images/products/exterior/garden-lamp/05-608-2-BK-C-J22-2015z-z103000149122.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-654/3C-J21 + เสา #A05-BK",
-    "sku": "05-654/3C-J21 + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 4960,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-654-3C-J21-_sharp_A05-BKz-z257269273698.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-654/4-BK + เสาลพบุรี 2 M-BK",
-    "sku": "05-654/4-BK + เสาลพบุรี 2 M-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 6885,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-654-4-BK-2M-BK-2z-z1532440836492.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-657/4-BK-A + เสาสนาม #A05-BK",
-    "sku": "05-657/4-BK-A + เสาสนาม #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 5575,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-657-4-BK-A-_sharp_A05-BKz-z745956360914.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-680/2-BK + เสา #A05-BK",
-    "sku": "05-680/2-BK + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 4190,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-680-2-BK-_sharp_A05-BKz-z517778631442.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-721/2-LM002 + เสา #A05-BK",
-    "sku": "05-721/2-LM002 + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 3595,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-721-3-LM002-_sharp_A05-BKz-z140830288816.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-731/3-BK-A (A05)@ แก้ว 608 + เสา #A05-BK",
-    "sku": "05-731/3-BK-A (A05)@ แก้ว 608 + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 5480,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-731-3-BK-A-A05-608-_sharp_A05-BKz-z908544376132.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-741/4+1 BK-A + เสาอยุธยา 2M-BK+ท่อนสวม",
-    "sku": "05-741/4+1 BK-A + เสาอยุธยา 2M-BK+ท่อนสวม",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 9055,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-741-41BK-A-2M-BK-z-z1240891801048.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-766/2-BK-30CC + เสาลพบุรี 2M-BK",
-    "sku": "05-766/2-BK-30CC + เสาลพบุรี 2M-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 6440,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-766-2-BK-30CC-2M-BKz-z117399382030.webp"
   },
   {
     "name": "ไฟสนาม #05-811/3-BK-FC + เสาลพบุรี 2 M-BK",
@@ -4229,33 +2186,6 @@
     "image": "images/products/exterior/garden-lamp/05-889-2-UP-BK-POLE-DIA100X100X2MMXH2M-BK-IM-z-z495356620832.webp"
   },
   {
-    "name": "ไฟสนาม #05-909/1 BK",
-    "sku": "05-909/1 BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1800,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-909-1BKz-z305438605166.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-909/2 BK",
-    "sku": "05-909/2 BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 2300,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-909-2BKz-z176508501319.webp"
-  },
-  {
-    "name": "ไฟสนาม #05-946S-2-BK + เสา #A05-BK",
-    "sku": "05-946S-2-BK + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 4880,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-946S-2-BK-_sharp_A05-BKz-z662832151922.webp"
-  },
-  {
     "name": "ไฟสนาม # 05-971-H60-BK",
     "sku": "05-971-H60-BK",
     "skuAuto": false,
@@ -4292,15 +2222,6 @@
     "image": "images/products/exterior/garden-lamp/05-974-BKz-z326593249821.webp"
   },
   {
-    "name": "ไฟสนาม #05-975-BK",
-    "sku": "05-975-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1600,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-975-BKz-z437479287778.webp"
-  },
-  {
     "name": "ไฟสนาม #05-976-BK",
     "sku": "05-976-BK",
     "skuAuto": false,
@@ -4319,15 +2240,6 @@
     "image": "images/products/exterior/garden-lamp/05-982-BKz-z1585654016304.webp"
   },
   {
-    "name": "ไฟสนาม #05-983-BK",
-    "sku": "05-983-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 2400,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-983-BKz-z667443568282.webp"
-  },
-  {
     "name": "ไฟสนาม #05-992-BK-H200 (สูง 2 เมตร)",
     "sku": "05-992-BK-H200 (สูง 2 เมตร)",
     "skuAuto": false,
@@ -4335,24 +2247,6 @@
     "price": 5500,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/05-992-BK-H200-2-z-z878521516713.webp"
-  },
-  {
-    "name": "ไฟสนาม # 210/3-BK-A+ เสาสนามลพบุรี 2 เมตร-BK",
-    "sku": "210/3-BK-A+ เสาสนามลพบุรี 2 เมตร-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 7410,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-210-2-BK-A-2015-2015-BKz-z1226053572216.webp"
-  },
-  {
-    "name": "ไฟสนาม #25-3108-H800-BK",
-    "sku": "25-3108-H800-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1930,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/25-3108-H800-BKz-z735668529390.webp"
   },
   {
     "name": "ไฟสนาม #25-310-DIA108XH800MM-WD",
@@ -4364,33 +2258,6 @@
     "image": "images/products/exterior/garden-lamp/25-310-DIA108XH800MM-WDz-z1206761908192.webp"
   },
   {
-    "name": "ไฟสนาม #25-5008-H80CM-BK",
-    "sku": "25-5008-H80CM-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1000,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/25-5008-H80CM-BKz-z1572150964635.webp"
-  },
-  {
-    "name": "ไฟสนาม #25-5101-H80CM-BK",
-    "sku": "25-5101-H80CM-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 560,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/25-5101-H80CM-BKz-z1549140806788.webp"
-  },
-  {
-    "name": "ไฟสนาม # 25-5301-80CM-BK",
-    "sku": "25-5301-80CM-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/sangudom1z-z149164750934.webp"
-  },
-  {
     "name": "ไฟสนาม #25-6315-DIA90X1000MM-BK",
     "sku": "25-6315-DIA90X1000MM-BK",
     "skuAuto": false,
@@ -4398,33 +2265,6 @@
     "price": 770,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/25-6315-DIA90X1000MM-BKz-z918966791288.webp"
-  },
-  {
-    "name": "ไฟสนาม #25-6315-DIA90X1000MM-WD",
-    "sku": "25-6315-DIA90X1000MM-WD",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 770,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/25-6315-DIA90X1000MM-WDz-z923597577764.webp"
-  },
-  {
-    "name": "ไฟสนาม # 25-79000-H800-SQ-BK",
-    "sku": "25-79000-H800-SQ-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 3160,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/sangudom1z-z1010396627482.webp"
-  },
-  {
-    "name": "ไฟสนาม #25-79001-H800-RD-BK",
-    "sku": "25-79001-H800-RD-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1700,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/25-79001-H800-RD-BKz-z1028386011785.webp"
   },
   {
     "name": "ไฟสนาม #25-89001-H4M-RD-B (สูง 4 เมตร)",
@@ -4479,15 +2319,6 @@
     "price": 900,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/36-05-019-BK-600Az-z1613637602360.webp"
-  },
-  {
-    "name": "ไฟสนาม #37-6013-2-HBK แก้ว 610/A",
-    "sku": "37-6013-2-HBK แก้ว 610/A",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 5250,
-    "priceSale": 2625,
-    "image": "images/products/exterior/garden-lamp/37-6013-2-HBK-610-Az-z873393121177.webp"
   },
   {
     "name": "ไฟสนาม #45-017193D-SB",
@@ -4553,24 +2384,6 @@
     "image": "images/products/exterior/garden-lamp/45-6128-H30CM-SBz-z1355610626037.webp"
   },
   {
-    "name": "ไฟสนาม #45-6128-H80CM-SB",
-    "sku": "45-6128-H80CM-SB",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1560,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/45-6128-H80CM-SBz-z73602478402.webp"
-  },
-  {
-    "name": "ไฟสนาม #45-7194D-H80CM-SB",
-    "sku": "45-7194D-H80CM-SB",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1500,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/45-7194-D-H80CM-SBz-z721751619788.webp"
-  },
-  {
     "name": "ไฟสนาม #45-7194-H80CM-SB",
     "sku": "45-7194-H80CM-SB",
     "skuAuto": false,
@@ -4578,33 +2391,6 @@
     "price": 1950,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/45-7194-H80CM-SBz-z897880583628.webp"
-  },
-  {
-    "name": "ไฟสนาม #45-7194RD-H80CM-SB",
-    "sku": "45-7194RD-H80CM-SB",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1500,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/45-7194-RD-H80CM-SBz-z1206042669773.webp"
-  },
-  {
-    "name": "ไฟสนาม # 45-7196D H80CM-SB",
-    "sku": "45-7196D H80CM-SB",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1500,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/sangudom1z-z523310016172.webp"
-  },
-  {
-    "name": "ไฟสนาม #45-7196RD-H80CM-SB",
-    "sku": "45-7196RD-H80CM-SB",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 1500,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/45-7196-RD-H80CM-SBz-z887891008006.webp"
   },
   {
     "name": "ไฟสนาม #54-1020-800-SGR*",
@@ -4625,15 +2411,6 @@
     "image": "images/products/exterior/garden-lamp/54-1074-600-SGRz-z31897037515.webp"
   },
   {
-    "name": "ไฟสนาม #541/4-BK + เสาอิตาลี (ใหม่) 2 M-BK",
-    "sku": "541/4-BK + เสาอิตาลี (ใหม่) 2 M-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 6585,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/541-4-BK-2M-BKz-z1437915695315.webp"
-  },
-  {
     "name": "ไฟสนาม #54-F011M-BK",
     "sku": "54-F011M-BK",
     "skuAuto": false,
@@ -4641,24 +2418,6 @@
     "price": 2000,
     "priceSale": null,
     "image": "images/products/exterior/garden-lamp/54-F011M-BKz-z1198766585025.webp"
-  },
-  {
-    "name": "ไฟสนาม #602/3A-BK + เสาอิตาลี (ใหม่) 2 M-BK",
-    "sku": "602/3A-BK + เสาอิตาลี (ใหม่) 2 M-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 6090,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/05-602-3-BK-A-2015-D67-H193-E27-3-z-z1091534633903.webp"
-  },
-  {
-    "name": "ไฟสนาม #654/2A-BK-J21 + เสา #A05-BK",
-    "sku": "654/2A-BK-J21 + เสา #A05-BK",
-    "skuAuto": false,
-    "category": "Garden Lamp โคมไฟสนาม",
-    "price": 4170,
-    "priceSale": null,
-    "image": "images/products/exterior/garden-lamp/654-2A-BK-J21-_sharp_A05-BKz-z930209711759.webp"
   },
   {
     "name": "ไฟสปอร์ตไลท์ #89-0704-1x10W (แสงขาว)",
@@ -4688,15 +2447,6 @@
     "image": "images/products/interior/downlight-tracklight/34-S1631B-J-BKz-z496885237573.webp"
   },
   {
-    "name": "ไฟสปอร์ตไลท์ติดราง # 34-T003W-BK",
-    "sku": "34-T003W-BK",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 250,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/sangudom1z-z908744332879.webp"
-  },
-  {
     "name": "ไฟสปอร์ตไลท์ติดราง # 41-T003W-BK",
     "sku": "41-T003W-BK",
     "skuAuto": false,
@@ -4704,15 +2454,6 @@
     "price": 155,
     "priceSale": null,
     "image": "images/products/interior/downlight-tracklight/41-T003W-BKz-z107240940275.webp"
-  },
-  {
-    "name": "ไฟสปอร์ตไลท์ติดลอย # 34-013-WH",
-    "sku": "34-013-WH",
-    "skuAuto": false,
-    "category": "Downlight Tracklight ดาวน์ไลท์ และแทรคไลท์",
-    "price": 100,
-    "priceSale": null,
-    "image": "images/products/interior/downlight-tracklight/sangudom1z-z39810792337.webp"
   },
   {
     "name": "ไฟสปอร์ตไลท์ติดลอย # 34-S1611A-J-WH",
@@ -4805,15 +2546,6 @@
     "image": "images/products/exterior/accent-light/sangudom1z-z1522882704432.webp"
   },
   {
-    "name": "ไฟสวน # 40-D4003-ST-BK",
-    "sku": "40-D4003-ST-BK",
-    "skuAuto": false,
-    "category": "Step Light โคมไฟทางเดิน",
-    "price": 530,
-    "priceSale": null,
-    "image": "images/products/exterior/step-light/sangudom1z-z1226925160263.webp"
-  },
-  {
     "name": "ไฟห้อย # 08-2207-BK-BL",
     "sku": "08-2207-BK-BL",
     "skuAuto": false,
@@ -4841,15 +2573,6 @@
     "image": "images/products/interior/pendant-lamp/08-2254-BKz-z208383430752.webp"
   },
   {
-    "name": "ไฟห้อย # 08-2274/3-BK",
-    "sku": "08-2274/3-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/08-2274-3-BKz-z147583686150.webp"
-  },
-  {
     "name": "ไฟห้อย# 08-2292-BK",
     "sku": "08-2292-BK",
     "skuAuto": false,
@@ -4857,42 +2580,6 @@
     "price": 800,
     "priceSale": 700,
     "image": "images/products/interior/pendant-lamp/sangudom1z-z1605084054555.webp"
-  },
-  {
-    "name": "ไฟห้อย # 08-2364-2-WGD",
-    "sku": "08-2364-2-WGD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 990,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/08-2364-2-WGDz-z809263729865.webp"
-  },
-  {
-    "name": "ไฟห้อย # 08-2365-1-WGD",
-    "sku": "08-2365-1-WGD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 790,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/08-2365-1-WGD319x425z-z1396159923811.webp"
-  },
-  {
-    "name": "ไฟห้อย #17-007",
-    "sku": "17-007",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 2100,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/17-007z-z1393191764955.webp"
-  },
-  {
-    "name": "ไฟห้อย # 17-2036-26-BK (50%)",
-    "sku": "17-2036-26-BK (50%)",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1580,
-    "priceSale": 790,
-    "image": "images/products/interior/pendant-lamp/17-2036-26-BKz-z803921839427.webp"
   },
   {
     "name": "ไฟห้อย # 17-243S-BK",
@@ -4920,60 +2607,6 @@
     "price": 4000,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/17-6260-400-GDz-z725212941662.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-20201/350-RG+WH",
-    "sku": "22-20201/350-RG+WH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 2540,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-20201-350-RGWHz-z1248398506164.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-20204/330-RG+WH",
-    "sku": "22-20204/330-RG+WH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 2960,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-20204-330-RGWHz-z1478628935649.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-7061S BK+WH",
-    "sku": "22-7061S BK+WH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 980,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-7061BKWHz-z1378043505209.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-7064-BK+GD",
-    "sku": "22-7064-BK+GD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1350,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-7064-BKGDz-z361358805937.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-7196-BK+GD",
-    "sku": "22-7196-BK+GD",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1120,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-7196-BKGDz-z146720666728.webp"
-  },
-  {
-    "name": "ไฟห้อย # 22-7556-BK+WH",
-    "sku": "22-7556-BK+WH",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1050,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/22-7556-BKWHz-z929787782042.webp"
   },
   {
     "name": "ไฟห้อย # 22-9710-1 BK",
@@ -5057,15 +2690,6 @@
     "image": "images/products/interior/pendant-lamp/37-004-REDz-z991482768606.webp"
   },
   {
-    "name": "ไฟห้อย # 48-2245/1+358-2-BK+SN",
-    "sku": "48-2245/1+358-2-BK+SN",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/48-2245-1358-2-BKSNz-z690702703013.webp"
-  },
-  {
     "name": "ไฟห้อย # 48-2245/1+358-2-WH+SN",
     "sku": "48-2245/1+358-2-WH+SN",
     "skuAuto": false,
@@ -5093,15 +2717,6 @@
     "image": "images/products/interior/pendant-lamp/81-ZA506-1-BKGDz-z1075716321527.webp"
   },
   {
-    "name": "ไฟห้อย # 91-67361-4-BK",
-    "sku": "91-67361-4-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 2100,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/91-67361-4-BKz-z1248356379750.webp"
-  },
-  {
     "name": "ไฟห้อย # 91-67601-1P-BK",
     "sku": "91-67601-1P-BK",
     "skuAuto": false,
@@ -5109,24 +2724,6 @@
     "price": 1090,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/91-67601-1P-BKz-z259655839782.webp"
-  },
-  {
-    "name": "ไฟห้อย # 91-67801-1P-BK",
-    "sku": "91-67801-1P-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 590,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/91-67801-1P-BKz-z1618324304233.webp"
-  },
-  {
-    "name": "ไฟห้อย# 91-67840-1P-BK@",
-    "sku": "91-67840-1P-BK@",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 650,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/sangudom1z-z258309906952.webp"
   },
   {
     "name": "ไฟห้อย# 91-67860-1P-BK",
@@ -5147,15 +2744,6 @@
     "image": "images/products/interior/pendant-lamp/91-67871-1P-BKz-z1425058400007.webp"
   },
   {
-    "name": "ไฟห้อย # 91-68200-1P-BK",
-    "sku": "91-68200-1P-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 530,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/91-68200-1P-BKz-z1582689559895.webp"
-  },
-  {
     "name": "ไฟห้อย # 91-68230-1P-BK",
     "sku": "91-68230-1P-BK",
     "skuAuto": false,
@@ -5163,24 +2751,6 @@
     "price": 650,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/91-68230-1P-BKz-z1118208494597.webp"
-  },
-  {
-    "name": "ไฟห้อย # 91-68271-1P-BK",
-    "sku": "91-68271-1P-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 1200,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/91-68271-1P-BKz-z843807236278.webp"
-  },
-  {
-    "name": "ไฟห้อย # 91-68271A-4P-BK",
-    "sku": "91-68271A-4P-BK",
-    "skuAuto": false,
-    "category": "Pendant Lamp โคมไฟช่อ โคมไฟห้อย",
-    "price": 2450,
-    "priceSale": null,
-    "image": "images/products/interior/pendant-lamp/91-68271A-4P-BKz-z1070724422877.webp"
   },
   {
     "name": "ไฟห้อยโซล่าร์ # I08-125MM-BL-9000-10000K",
@@ -5217,42 +2787,6 @@
     "price": 5170,
     "priceSale": null,
     "image": "images/products/interior/pendant-lamp/58-80021-1LPz-z1246752884787.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-207-BK-A",
-    "sku": "05-207-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-207-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-207-BK-C",
-    "sku": "05-207-BK-C",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-207-BK-C.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-208-BK-A",
-    "sku": "05-208-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 600,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-208-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-210-BK-A (10นิ้ว)",
-    "sku": "05-210-BK-A (10นิ้ว)",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 830,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-210-BK-A.webp"
   },
   {
     "name": "ไฟหัวเสา #05-213-BK",
@@ -5336,42 +2870,6 @@
     "image": "images/products/exterior/gate-lamp/05-528-BK-C.webp"
   },
   {
-    "name": "ไฟหัวเสา #05-532-BK-A",
-    "sku": "05-532-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 560,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-532-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-533-BK-A",
-    "sku": "05-533-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 950,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-533-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-541-BK-A (ตัวเล็ก)",
-    "sku": "05-541-BK-A (ตัวเล็ก)",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 560,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-541-BK-A--E0-B8-95-E0-B8-B1-E0-B8-A7-E0-B9-80-E0-B8-A5-E0-B9-87-E0-B8-81-.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-541-BK-A (ตัวใหญ่)",
-    "sku": "05-541-BK-A (ตัวใหญ่)",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 830,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-541-BK-A--E0-B8-95-E0-B8-B1-E0-B8-A7-E0-B9-83-E0-B8-AB-E0-B8-8D-E0-B9-88-.webp"
-  },
-  {
     "name": "ไฟหัวเสา #05-581-BK-W",
     "sku": "05-581-BK-W",
     "skuAuto": false,
@@ -5388,24 +2886,6 @@
     "price": 460,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-585-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B9-80-E0-B8-A1-E0-B8-86.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-603-BK-A",
-    "sku": "05-603-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 510,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-603-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-603-BK-C",
-    "sku": "05-603-BK-C",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 510,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-603-BK-C.webp"
   },
   {
     "name": "ไฟหัวเสา #05-608-BK-A",
@@ -5426,15 +2906,6 @@
     "image": "images/products/exterior/gate-lamp/05-608-BK-C.webp"
   },
   {
-    "name": "ไฟหัวเสา #05-612-BK-A (12นิ้ว)",
-    "sku": "05-612-BK-A (12นิ้ว)",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 810,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-612-BK-A-12-E0-B8-99-E0-B8-B4-E0-B9-89-E0-B8-A7-.webp"
-  },
-  {
     "name": "ไฟหัวเสา #05-645-BK-ลายเมฆ",
     "sku": "05-645-BK-ลายเมฆ",
     "skuAuto": false,
@@ -5442,51 +2913,6 @@
     "price": 420,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-645-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B9-80-E0-B8-A1-E0-B8-86.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-657-BK-A",
-    "sku": "05-657-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 510,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-657-BK-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-657-BK-C",
-    "sku": "05-657-BK-C",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 510,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-657-BK-C.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-676-BK-B",
-    "sku": "05-676-BK-B",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 740,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-676-BK-B.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-676-BK-C",
-    "sku": "05-676-BK-C",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 740,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-676-BK-C.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-720-BK-A",
-    "sku": "05-720-BK-A",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 710,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-720-BK-A.webp"
   },
   {
     "name": "ไฟหัวเสา #05-735-BK-CC",
@@ -5523,15 +2949,6 @@
     "price": 4000,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-757-BK--E0-B8-A5-E0-B8-B2-E0-B8-A2-E0-B8-9C-E0-B9-89-E0-B8-B2.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-766-BK-30FC",
-    "sku": "05-766-BK-30FC",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 980,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-766-BK-30FC.webp"
   },
   {
     "name": "ไฟหัวเสา #05-791-BK-CC",
@@ -5631,15 +3048,6 @@
     "price": 1160,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-843-BK-FC.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-844-BK-CC",
-    "sku": "05-844-BK-CC",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 1220,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-844-BK-CC.webp"
   },
   {
     "name": "ไฟหัวเสา #05-844-BK-FC",
@@ -5795,15 +3203,6 @@
     "image": "images/products/exterior/gate-lamp/05-952-M-WH.webp"
   },
   {
-    "name": "ไฟหัวเสา # 05-954-BK",
-    "sku": "05-954-BK",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 2500,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-954-BK.webp"
-  },
-  {
     "name": "ไฟหัวเสา # 05-955-BK",
     "sku": "05-955-BK",
     "skuAuto": false,
@@ -5820,15 +3219,6 @@
     "price": 720,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/05-957-BK.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #05-958-BK",
-    "sku": "05-958-BK",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 960,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/05-958-BK.webp"
   },
   {
     "name": "ไฟหัวเสา #05-959-BK",
@@ -5966,15 +3356,6 @@
     "image": "images/products/exterior/gate-lamp/230-S-BK.webp"
   },
   {
-    "name": "ไฟหัวเสา #25-070-M-Y-BK",
-    "sku": "25-070-M-Y-BK",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 670,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/25-070-M-Y-BK.webp"
-  },
-  {
     "name": "ไฟหัวเสา #25-1009/S5-BK",
     "sku": "25-1009/S5-BK",
     "skuAuto": false,
@@ -5984,15 +3365,6 @@
     "image": "images/products/exterior/gate-lamp/25-1009-S5-BK.webp"
   },
   {
-    "name": "ไฟหัวเสา #25-118B-M-Y1-BK",
-    "sku": "25-118B-M-Y1-BK",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 690,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/25-118B-M-Y1-BK.webp"
-  },
-  {
     "name": "ไฟหัวเสา # 25-1602-S1-BK",
     "sku": "25-1602-S1-BK",
     "skuAuto": false,
@@ -6000,15 +3372,6 @@
     "price": 1140,
     "priceSale": 570,
     "image": "images/products/exterior/gate-lamp/25-1602-S1-BK.webp"
-  },
-  {
-    "name": "ไฟหัวเสา # 25-1706S1-BK",
-    "sku": "25-1706S1-BK",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 1110,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/25-1706S1-BK.webp"
   },
   {
     "name": "ไฟหัวเสา # 25-2021FS-BK(XNG)",
@@ -6110,15 +3473,6 @@
     "image": "images/products/exterior/gate-lamp/25-8121-250-ST.webp"
   },
   {
-    "name": "ไฟหัวเสา #25-8123-250-ST+AL",
-    "sku": "25-8123-250-ST+AL",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 1800,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/25-8123-250-STAL.webp"
-  },
-  {
     "name": "ไฟหัวเสา #25-8125-400-AL",
     "sku": "25-8125-400-AL",
     "skuAuto": false,
@@ -6126,15 +3480,6 @@
     "price": 750,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/25-8125-400-A.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #25-8127-250-ST+AL",
-    "sku": "25-8127-250-ST+AL",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 500,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/25-8127-250-STAL.webp"
   },
   {
     "name": "ไฟหัวเสา #26-11202-BK",
@@ -6198,15 +3543,6 @@
     "price": 530,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/36-5192S2-N-BG.webp"
-  },
-  {
-    "name": "ไฟหัวเสา #8A-P100MAX-1",
-    "sku": "8A-P100MAX-1",
-    "skuAuto": false,
-    "category": "Gate Lamp โคมไฟหัวเสา",
-    "price": 6630,
-    "priceSale": null,
-    "image": "images/products/exterior/gate-lamp/8A-P100MAX-1.webp"
   },
   {
     "name": "ไฟหัวเสา #8A-XNG-3208F-G-S-SBK",
@@ -6299,15 +3635,6 @@
     "image": "images/products/solar/FI0281z-z1562609399922.webp"
   },
   {
-    "name": "ไฟหัวเสา Solacell #LED Solacell-2W-E27",
-    "sku": "LED Solacell-2W-E27",
-    "skuAuto": false,
-    "category": "Solar cell",
-    "price": 1050,
-    "priceSale": null,
-    "image": "images/products/solar/LEDSolacell-2W-E27z-z1456126808860.webp"
-  },
-  {
     "name": "ไฟหัวเสา #XNG-2018-7\"-F",
     "sku": "XNG-2018-7\"-F",
     "skuAuto": false,
@@ -6315,105 +3642,6 @@
     "price": 1120,
     "priceSale": null,
     "image": "images/products/exterior/gate-lamp/XNG-2018-7-F.webp"
-  },
-  {
-    "name": "รางLED T8 #LED-T8-120CM",
-    "sku": "LED-T8-120CM",
-    "skuAuto": false,
-    "category": "T-Bar Fluorescent ไฟทีบาร์ และฟลูออเรสเซนต์",
-    "price": 60,
-    "priceSale": null,
-    "image": "images/products/interior/t-bar-fluorescent/LED-T8-120CMz-z514049602568.webp"
-  },
-  {
-    "name": "สตาร์ทเตอร์ S10",
-    "sku": "สตาร์ทเตอร์-s10",
-    "skuAuto": true,
-    "category": "Accessories อุปกรณ์เสริม",
-    "price": 10,
-    "priceSale": null,
-    "image": "images/products/accessories/accessories/sangudom1z-z584685744153.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-5W-1M (สีขาว)",
-    "sku": "62-5050-60P-5W-1M (สีขาว)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z125346996715.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-5W-1M (สีเขียว)",
-    "sku": "62-5050-60P-5W-1M (สีเขียว)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z1025917693178.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-5W-1M (สีแดง)",
-    "sku": "62-5050-60P-5W-1M (สีแดง)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z1149552064678.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-5W-1M (สีน้ำเงิน)",
-    "sku": "62-5050-60P-5W-1M (สีน้ำเงิน)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z787313314541.webp"
-  },
-  {
-    "name": "สาย LED 62-5050-60P-5W-1M (สีวอมไวท์)",
-    "sku": "สาย-led-62-5050-60p-5w-1m-สีวอมไวท์",
-    "skuAuto": true,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z158954444683.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-5W-1M (สีเหลือง)",
-    "sku": "62-5050-60P-5W-1M (สีเหลือง)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 90,
-    "priceSale": 35,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z1381010775619.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-9W-1M (สีขาว)",
-    "sku": "62-5050-60P-9W-1M (สีขาว)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 160,
-    "priceSale": 65,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z784260652760.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-9W-1M (สีวอมไวท์)",
-    "sku": "62-5050-60P-9W-1M (สีวอมไวท์)",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 160,
-    "priceSale": 65,
-    "image": "images/products/led/step-light-line/62-5050-60P-5W-1M-z-z129375245165.webp"
-  },
-  {
-    "name": "สาย LED #62-5050-60P-9W-1M-RGB",
-    "sku": "62-5050-60P-9W-1M-RGB",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 200,
-    "priceSale": 80,
-    "image": "images/products/led/step-light-line/62-5050-60P-9W-1M-RGBz-z738193668741.webp"
   },
   {
     "name": "หลอดจำปา LED 4W",
@@ -6486,24 +3714,6 @@
     "price": 350,
     "priceSale": 149,
     "image": "images/products/led/led-bulb-downlight/AWSmartLED-2z-z1104709727094.webp"
-  },
-  {
-    "name": "หลอด LED เอดิสัน # 170103-A19-220V-6W-2700K",
-    "sku": "170103-A19-220V-6W-2700K",
-    "skuAuto": false,
-    "category": "Bulb หลอดไฟ",
-    "price": 99,
-    "priceSale": null,
-    "image": "images/products/accessories/bulb/170103-A19-220V-6W-2700Kz-z1165955835037.webp"
-  },
-  {
-    "name": "หลอด LED เอดิสัน # 170105-G95-35MM-220V-4W-2700K",
-    "sku": "170105-G95-35MM-220V-4W-2700K",
-    "skuAuto": false,
-    "category": "Bulb หลอดไฟ",
-    "price": 79,
-    "priceSale": null,
-    "image": "images/products/accessories/bulb/170105-G95-35MM-220V-4W-2700Kz-z822181566764.webp"
   },
   {
     "name": "หลอด LED เอดิสัน # 170107-ST64-47L-220V-2W-2400K",
@@ -6639,24 +3849,6 @@
     "price": 239,
     "priceSale": 199,
     "image": "images/products/accessories/bulb/LEDT-BULB50Wz-z1197279874407.webp"
-  },
-  {
-    "name": "อุปกรณ์ต่อสาย LED #62-5050-9W-POWER LINE",
-    "sku": "62-5050-9W-POWER LINE",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 55,
-    "priceSale": 30,
-    "image": "images/products/led/step-light-line/62-5050-9W-POWERLINEz-z854170371623.webp"
-  },
-  {
-    "name": "อุปกรณ์ต่อสาย LED #62-5050-9W-RGB-POWER LINE",
-    "sku": "62-5050-9W-RGB-POWER LINE",
-    "skuAuto": false,
-    "category": "Step Light Line ไฟเส้น LED",
-    "price": 370,
-    "priceSale": 120,
-    "image": "images/products/led/step-light-line/62-5050-9W-RGB-POWERLINEz-z113285394366.webp"
   },
   {
     "name": "โึมห้อย T8 #08-2212-T8-LED2X9W-BK",
@@ -6970,15 +4162,6 @@
     "price": 159,
     "priceSale": 129,
     "image": "images/products/led/led-bulb-downlight/AI0584z-z425206201096.webp"
-  },
-  {
-    "name": "EI0694 ไฟเพดาน # 46-114F-350-SJS",
-    "sku": "46-114F-350-SJS",
-    "skuAuto": false,
-    "category": "Other Products",
-    "price": 479,
-    "priceSale": null,
-    "image": "images/products/other/EI0694z-z460711638159.webp"
   },
   {
     "name": "EI0699 ไฟเพดาน # 46-116JY-350-GR",
