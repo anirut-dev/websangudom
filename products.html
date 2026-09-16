@@ -401,6 +401,14 @@
     }
     .cat-link-card:hover .cat-link-count { color: var(--gold); border-color: var(--border-2); }
 
+    /* หน้านี้มี filter sidebar (260px) กินพื้นที่ไป — ลด min-width การ์ดจาก .product-grid ปกติ (240px)
+       ให้เหลือพื้นที่พอเรียง 4 คอลัมน์แทน 3 (คำนวณจาก container 1200px - sidebar 260px - gap 32px)
+       จำกัดเฉพาะจอกว้าง >900px (จุดเดียวกับ .catalog-layout ด้านล่างที่ sidebar ยังอยู่ข้างๆ จริง)
+       เพราะ #productGrid มี specificity สูงกว่า .product-grid เฉยๆ จะไปทับกฎ mobile (160px) ที่ css/style.css ไม่ได้ */
+    @media (min-width: 901px) {
+      #productGrid { grid-template-columns: repeat(auto-fill, minmax(205px, 1fr)); }
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .catalog-layout { grid-template-columns: 1fr; }
