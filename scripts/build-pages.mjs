@@ -17,6 +17,11 @@ const SITE_URL = "https://www.sangudom.com";
 // ── โหลดข้อมูลสินค้า ──────────────────────────────────────────────────────────
 const products = JSON.parse(fs.readFileSync(path.join(ROOT, "data/products.json"), "utf8"));
 
+if (products.length === 0) {
+  console.error("❌ data/products.json ไม่มีสินค้าเลย — หยุด build (กันลบหน้าหมวดทั้งเว็บ)");
+  process.exit(1);
+}
+
 // ── slug ──────────────────────────────────────────────────────────────────────
 const SLUG_OVERRIDES = {
   "LED Bulb /Downlight LED หลอดไฟ และดาวน์ไลท์ LED": "led-bulb-downlight",
