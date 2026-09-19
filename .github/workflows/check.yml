@@ -1,11 +1,10 @@
 name: Check site
 
-# รันทุกครั้งที่เปิด/อัปเดต PR และเมื่อ push เข้า main
+# รันทุกครั้งที่เปิด/อัปเดต PR (ให้เห็นผลก่อน merge)
+# บน main ไม่ต้องรันซ้ำ — deploy-pages.yml รันตัวเช็คเดียวกันก่อน deploy อยู่แล้ว
 # build หน้าหมวดใหม่ก่อน (เหมือนตอน deploy) แล้วค่อยเช็คข้อมูล/รูป/ลิงก์
 on:
   pull_request:
-  push:
-    branches: [main]
 
 permissions:
   contents: read
