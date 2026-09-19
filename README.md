@@ -37,7 +37,7 @@ websangudom/
 │   └── <slug>/index.html
 ├── 404.html                # หน้าไม่พบ (GitHub Pages ใช้อัตโนมัติ)
 ├── data/
-│   └── products.json       # ข้อมูลสินค้า 792 ชิ้น ← แก้ที่นี่
+│   └── products.json       # ข้อมูลสินค้า 479 ชิ้น ← แก้ที่นี่
 ├── css/style.css           # สไตล์ร่วมของทุกหน้า (โทนขาว-น้ำเงิน-แดง + โหมดมืด)
 ├── js/
 │   ├── products.js         # โหลด JSON, filter, search, pagination
