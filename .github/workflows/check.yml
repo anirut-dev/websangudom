@@ -1,0 +1,29 @@
+name: Check site
+
+# รันทุกครั้งที่เปิด/อัปเดต PR และเมื่อ push เข้า main
+# build หน้าหมวดใหม่ก่อน (เหมือนตอน deploy) แล้วค่อยเช็คข้อมูล/รูป/ลิงก์
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build category pages + sitemap
+        run: node scripts/build-pages.mjs
+
+      - name: Check data, images and links
+        run: node scripts/check-site.mjs
