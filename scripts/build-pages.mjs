@@ -306,6 +306,15 @@ for (const cat of categories) {
   process.stdout.write(`  [${String(built).padStart(2)}] ${slug.padEnd(30)} ${items.length} รายการ\n`);
 }
 
+// ── ลบหน้าหมวดที่ไม่มีสินค้าแล้ว (กันหน้าเก่าค้างขึ้นเว็บ) ──────────────────────
+const liveSlugs = new Set(categories.map(catSlug));
+const productsDir = path.join(ROOT, "products");
+for (const entry of fs.readdirSync(productsDir, { withFileTypes: true })) {
+  if (!entry.isDirectory() || liveSlugs.has(entry.name)) continue;
+  fs.rmSync(path.join(productsDir, entry.name), { recursive: true });
+  process.stdout.write(`  🗑  ลบหน้าหมวดที่ไม่มีสินค้าแล้ว: ${entry.name}\n`);
+}
+
 // ── ฝังลิงก์หมวดลง products.html (ระหว่าง marker CAT-LINKS) ───────────────────
 // ทำให้หน้าหมวด 24 หน้าไม่เป็น orphan page — มีลิงก์จริงจากหน้าแคตตาล็อกชี้ไป
 const CAT_START = "<!-- CAT-LINKS:START -->";
