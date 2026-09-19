@@ -3,7 +3,7 @@
 //   - app shell (html/css/js/icons หลัก) → cache-first เร็ว
 //   - data/products.json → network-first กันราคาสินค้าเก่าค้าง แต่ยังเปิดได้ตอนออฟไลน์
 //   - อย่างอื่น (รูปสินค้า ฯลฯ) → cache-first แบบ opportunistic (เจอครั้งแรกค่อยแคช)
-const CACHE_NAME = "sangudom-v2";
+const CACHE_NAME = "sangudom-v3";
 // path relative กับตำแหน่งของ sw.js เอง (self.registration.scope) — ห้าม hardcode "/"
 // เพราะเว็บนี้ยัง deploy อยู่ที่ subpath (github.io/websangudom/) รอซื้อโดเมนถึงจะย้ายไป root
 const APP_SHELL = [
