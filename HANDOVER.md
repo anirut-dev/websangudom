@@ -10,7 +10,7 @@
 | รายการ | รายละเอียด |
 |--------|-----------|
 | **ประเภท** | Static HTML/CSS/JS — ไม่มี backend, ไม่มีฐานข้อมูล |
-| **ข้อมูลสินค้า** | `data/products.json` (792 ชิ้น, 24 หมวด) |
+| **ข้อมูลสินค้า** | `data/products.json` (479 ชิ้น, 23 หมวดที่มีสินค้า) |
 | **Hosting** | GitHub Pages (ฟรี, ใช้เชิงพาณิชย์ได้, ไม่ต้องบัตรเครดิต) |
 | **Deploy** | push เข้า `main` → GitHub Actions build และ deploy อัตโนมัติ |
 | **ติดต่อลูกค้า** | LINE OA: `https://line.me/ti/p/~Sangudom-sale` |
@@ -130,7 +130,7 @@ git push
 - **รูปใหม่** — ต้อง upload ไฟล์รูปเข้าโปรเจคเองในโฟลเดอร์ `images/products/<หมวด>/` แล้วใส่ path ใน JSON
   (upload ผ่านเว็บ GitHub ได้: เข้าโฟลเดอร์ปลายทาง → ปุ่ม **Add file → Upload files**)
   แนะนำให้แปลงเป็น `.webp` ก่อน ไฟล์จะเล็กลงมาก เว็บโหลดเร็วขึ้น
-- **ไม่มี server-side search** — ค้นหาทำงานฝั่ง browser จาก JSON (ดีพอสำหรับ 792 ชิ้น)
+- **ไม่มี server-side search** — ค้นหาทำงานฝั่ง browser จาก JSON (ดีพอสำหรับ 479 ชิ้น)
 
 ---
 
