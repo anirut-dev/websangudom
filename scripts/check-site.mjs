@@ -20,6 +20,13 @@ const fail = msg => errors.push(msg);
 const products = JSON.parse(fs.readFileSync(path.join(ROOT, "data/products.json"), "utf8"));
 const seenSku = new Map();
 
+// กัน export/แก้ไฟล์พลาดจนสินค้าเหลือน้อยผิดปกติ (build จะลบหน้าหมวดที่ไม่มีสินค้า → เว็บโล่ง)
+// ถ้าตั้งใจลดแคตตาล็อกให้น้อยกว่านี้จริง ให้ปรับค่านี้
+const MIN_PRODUCTS = 50;
+if (products.length < MIN_PRODUCTS) {
+  fail(`products.json มีแค่ ${products.length} ชิ้น (ต่ำกว่าขั้นต่ำ ${MIN_PRODUCTS}) — ข้อมูลอาจว่าง/ถูกตัด ไม่ควร deploy`);
+}
+
 products.forEach((p, i) => {
   const label = `products.json[${i}] ${p.sku || p.name || "?"}`;
   for (const f of ["name", "sku", "category", "image"]) {
