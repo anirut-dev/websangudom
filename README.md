@@ -44,8 +44,12 @@ websangudom/
 │   ├── data.js             # CATEGORY_TREE constant
 │   ├── theme.js            # ปุ่มสลับโหมดมืด/สว่าง (จำค่าใน localStorage)
 │   ├── line-float.js       # floating LINE button
-│   └── animations.js       # scroll reveal animations
-├── images/                 # รูปสินค้า 810 ไฟล์ + banner + portfolio (อยู่ในโปรเจคทั้งหมด)
+│   ├── animations.js       # scroll reveal animations
+│   ├── pwa.js              # ลงทะเบียน service worker (ติดตั้งเว็บเป็นแอพได้)
+│   └── recently-viewed.js  # จำสินค้าที่เพิ่งดู (เก็บใน localStorage)
+├── manifest.json           # ข้อมูล PWA (ชื่อ, ไอคอน, สี)
+├── sw.js                   # service worker แคชไฟล์เว็บ ⚠️ แก้ไฟล์หลักต้องเปลี่ยน CACHE_NAME ทุกครั้ง
+├── images/                 # รูปสินค้า + banner + portfolio (อยู่ในโปรเจคทั้งหมด)
 ├── scripts/
 │   ├── export-firestore.mjs  # ดึงข้อมูลจาก Firestore (ใช้ครั้งเดียวตอน migrate)
 │   └── build-pages.mjs       # สร้างหน้าหมวด + sitemap
@@ -57,7 +61,9 @@ websangudom/
 │   └── QA-REPORT-*.md      # ผลตรวจ QA + สิ่งที่แก้ไปแล้ว
 └── .github/
     ├── pull_request_template.md   # แบบฟอร์มที่ขึ้นมาเองตอนเปิด PR
-    └── workflows/deploy-pages.yml # build → deploy เมื่อ push เข้า main
+    └── workflows/
+        ├── deploy-pages.yml       # build → deploy เมื่อ push เข้า main
+        └── check.yml              # เช็คข้อมูล/รูป/ลิงก์ทุกครั้งที่เปิด/อัปเดต PR (ก่อน merge)
 ```
 
 > ⚠️ **`css/style.css` ไม่ได้คุมทุกอย่าง** — แต่ละหน้ามี `<style>` ของตัวเองใน `<head>` ที่เขียนทับ style.css ได้

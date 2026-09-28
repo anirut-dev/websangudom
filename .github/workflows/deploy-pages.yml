@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir _site
           tar --exclude=./_site --exclude=./.git --exclude=./.github \
-              --exclude=./.claude --exclude=./.gitignore \
+              --exclude=./.gitignore \
               --exclude=./docs --exclude=./scripts \
               --exclude=./stock-check/apps-script --exclude='*.md' \
               -cf - . | tar -xf - -C _site
