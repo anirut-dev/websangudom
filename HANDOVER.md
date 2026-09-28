@@ -35,7 +35,11 @@ websangudom/
 │   ├── data.js                ← CATEGORY_TREE constant
 │   ├── theme.js               ← ปุ่มสลับโหมดมืด/สว่าง (จำค่าใน localStorage)
 │   ├── animations.js          ← เอฟเฟกต์ตอนเลื่อนหน้าจอ
-│   └── line-float.js          ← floating LINE button
+│   ├── line-float.js          ← floating LINE button
+│   ├── pwa.js                 ← ลงทะเบียน service worker (ติดตั้งเว็บเป็นแอพได้)
+│   └── recently-viewed.js     ← จำสินค้าที่เพิ่งดู (เก็บใน localStorage)
+├── manifest.json              ← ข้อมูล PWA (ชื่อ, ไอคอน, สี) ให้ติดตั้งเว็บเป็นแอพ
+├── sw.js                      ← service worker แคชไฟล์เว็บ ⚠️ แก้ไฟล์หลักต้องเปลี่ยน CACHE_NAME ทุกครั้ง
 ├── 404.html                   ← หน้าไม่พบ (GitHub Pages หยิบไปใช้เอง ไม่ต้องตั้งค่า)
 ├── sitemap.xml                ← สร้างโดย build script
 ├── robots.txt
@@ -43,7 +47,8 @@ websangudom/
 │   ├── V2-PLAN.md             ← spec ของ v2 + เหตุผลเบื้องหลังการตัดสินใจ
 │   └── QA-REPORT-*.md         ← ผลตรวจ QA และสิ่งที่แก้ไปแล้ว
 └── .github/workflows/
-    └── deploy-pages.yml       ← GitHub Actions: node build → deploy
+    ├── deploy-pages.yml       ← GitHub Actions: node build → deploy (เมื่อ push เข้า main)
+    └── check.yml              ← เช็คข้อมูล/รูป/ลิงก์ทุกครั้งที่เปิด/อัปเดต PR (ก่อน merge)
 ```
 
 ---
@@ -112,7 +117,7 @@ git push
 
 ---
 
-## 5. สิ่งที่เจ้าของต้องทำเอง (Claude ทำแทนไม่ได้)
+## 5. สิ่งที่เจ้าของต้องทำเอง (ทำแทนไม่ได้)
 
 | # | งาน | ทำที่ไหน | เหตุผล |
 |---|-----|---------|--------|
